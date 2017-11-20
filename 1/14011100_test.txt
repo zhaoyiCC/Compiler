@@ -44,7 +44,7 @@ char work(int n, int m){
     }
     return ('*');
 }
-int main() {
+void main() {
     x = mymax(1, 2);
     x = mymax(x+8, 9); //x=10
     y = 4;
