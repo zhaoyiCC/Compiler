@@ -109,7 +109,7 @@ int lexicalAnalysis(string& str){ //词法分析
 int main() {
     freopen("out.txt","w",stdout);
     
-    std::ifstream t("15061186_test.txt");
+    std::ifstream t("14011100_test.txt");
     std::string str((std::istreambuf_iterator<char>(t)),
                     std::istreambuf_iterator<char>());
     //cout << str << endl;
