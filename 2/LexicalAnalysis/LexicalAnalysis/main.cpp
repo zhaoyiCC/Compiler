@@ -17,7 +17,7 @@
 #include <algorithm>
 #include <queue>
 #include <fstream>
-#include <streambuf>  
+#include <streambuf>
 #include <ctype.h>
 
 #define rep(i,a,b) for (int i = (a); i <= (b); ++i)
@@ -32,25 +32,25 @@ vector<char> oper_bra = {'(', ')', '[', ']', '{', '}'};
 vector<char> oper_punc = {';', ',', ':'};
 map<string,int> mp = {
     {"<", 1},{"<=", 2},{">", 3},{">=", 4},{"!=", 5},{"==", 6},
-    
+
     {"+", 7},{"-", 8},{"*", 9},{"/", 10},
-    
+
     {"'", 11},{"\"", 12},{"(", 13},{")", 14},{"[", 15},{"]", 16},{"{", 17},{"}", 18},{";", 19},{",", 20},{":", 21},
-    
+
     {"=", 22},
-    
+
     {"int", 100},{"char", 101},{"const", 102},{"if", 103},{"else", 104},{"for", 105},{"switch", 106},{"case", 107},{"void", 108},{"return", 109},{"main", 110},
-    
+
 };
 map<string,string> mp_out = {
     {"<", "blt"},{"<=", "blt"},{">", "bgt"},{">=", "bge"},{"!=", "bne"},{"==", "beq"},
-    
+
     {"+", "add"},{"-", "sub"},{"*", "mul"},{"/", "div"},
-    
+
     {"(", "LeftParentheis"},{")", "RightParenthesis"},{"[", "LeftBracket"},{"]","RightBracket"},{"{", "LeftBrace"},{"}", "RightBrace"},
-    
+
     {";", "Semicolon"},{",", "Comma"},{":", "colon"},
-    
+
     {"=", "assign"}
 };
 
@@ -74,13 +74,13 @@ int lexicalAnalysis(string& str){ //词法分析
             return cnt;
         }
     }
-    if (isdigit(str[now-1])){
+    if (isdigit(str[now-1])){ //如果是数字，就一直判断直至不是数字
         while (isdigit(str[now])){
             s += str[now++];
         }
         return 99;
     }
-    if (str[now-1]=='<' || str[now-1]=='>' || str[now-1] == '=' || str[now-1]=='!'){
+    if (str[now-1]=='<' || str[now-1]=='>' || str[now-1] == '=' || str[now-1]=='!'){//遇到<,>,=,!，则判断其后面那个符号是不是等于号
         if (str[now] == '='){
             s += str[now++]; //<= >=
         }
@@ -94,21 +94,21 @@ int lexicalAnalysis(string& str){ //词法分析
         s += str[now++]; //这个把后面那个单引号加进去
         return 98;//代表是字符常量
     }
-    if (str[now-1] == '"'){ //处理双引号
+    if (str[now-1] == '"'){ //处理双引号，一直读到后面一个双引号，认定这一部分是字符串。
         while (str[now] != '"'){
             s += str[now++];
         }
         s += str[now++];
         return 97;//代表是字符串
     }
-    if (find(oper_bra.begin(), oper_bra.end(), str[now-1]) != oper_bra.end() || find(oper_punc.begin(), oper_punc.end(), str[now-1]) != oper_punc.end()){ //代表是括号或者分号或者逗号
+    if (find(oper_bra.begin(), oper_bra.end(), str[now-1]) != oper_bra.end() || find(oper_punc.begin(), oper_punc.end(), str[now-1]) != oper_punc.end()){ //代表是括号或者分号或者逗号，然后这个是单个处理的，即左括号输出一次，右括号输出一次
         return mp[s];
     }
     return -1;
 }
 int main() {
-    freopen("out.txt","w",stdout);
-    
+    //freopen("out.txt","w",stdout);
+
     std::ifstream t("14011100_test.txt");
     std::string str((std::istreambuf_iterator<char>(t)),
                     std::istreambuf_iterator<char>());
