@@ -1,0 +1,29 @@
+const int hhh = 1, iii = 22, jjj = 333;
+int i, j;
+char cc;
+int work(int x){
+	int yyy;
+	yyy = 1*2/3;
+	x = (x*2)+1;
+	yyy = x-1+2;
+	return(yyy);
+}
+int mymax(int x, int y){
+	const int hh = 1;
+int i, j;
+i = 1+2+work(9999999);
+return(hh);
+}
+void shit(){
+int j;
+}
+void main(){
+	int p,q;
+	
+	if (p>=1){
+		work(2222);
+	}else{
+		p = p+hhh;
+	}
+	q = q*q;
+}
