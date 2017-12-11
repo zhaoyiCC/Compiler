@@ -13,71 +13,13 @@ int mymax(int x, int y){
     ;
     return (ans);
 }
-int factorial(int n){ 
-    int res;
-    printf("n=", n);
-    if (n < 0)
-        return (-1);
-    switch (n){
-        case 0: res = 1; 
-        case 1: res = 1; 
-        default:  res = (n*factorial(n-1));
-    }
-    printf("res=", res);
-    return (res);
-}
-int C(int m, int n){ 
-    int x, y, z;
-    printf("m=", m);
-    printf("n=", n);
-    printf("\n");
-    if (m <= n) ;
-    
-    if (m > n)
-        return (-1);
-    x = factorial(n);
-    printf("x=", x);
-    y = factorial(m);
-    printf("y=", y);
-    z = factorial(n-m);
-    printf("z=", z);
-    return (factorial(n)/factorial(m)/factorial(n-m));
-}
+
 void init(){
     m = 5;
     scanf(n,m,k, ch);
     return ;
 }
-char work(int m, int n){
-    int ans;
-    printf("work!!!");
-    ans = C(m,n);
-    switch (ans - 2*(ans / 2)){ 
-        case 1: return ('O'); 
-        default: return ('E'); 
-    }
-    return ('*');
-}
 
-void test_switch(){
-    int Int, a[1000];
-    a[2] = -1;
-    a[1] = -2;
-    Int = a[a[2+a[2*5/4]]];
-    switch (Int){
-        case -1: printf("666666");
-        case -2: {printf("HHHHH"); }
-        default: ;
-    }
-
-    switch (Int+'b'){
-        case 1: Int = Int+1;
-        case 'a': {printf("23333");  }
-        case -123: {printf("*****",Int);  printf(Int); }
-        default: {scanf(Int,Int,Int);}
-    }
-    Int = a[a[1-a[1]]];
-}
 
 void test_for(int Int){
     Int = 0+-2;
@@ -105,13 +47,10 @@ void main() {
     for (i = 0;  i <= m; i = i +1) { 
         j = m - i;
         if (i == 0){
-            printf(work(j,n));
+            printf(j);
         }
-       printf("N    ",n);
-       printf("M    ",j);
-       printf("C    ",C(j, n)); 
-       printf("");
     }
+
     x = mymax(1, --2);
     x = mymax(x++8, 9); 
     y = 4;
@@ -140,7 +79,6 @@ void main() {
     printf("k = ", k);
     printf("ch = ",s[k]); 
     
-    test_switch();
     test_for(1);
     test_call();
 

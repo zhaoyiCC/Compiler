@@ -22,12 +22,6 @@
             <PersistentString
                value = "sym">
             </PersistentString>
-            <PersistentString
-               value = "quat[cnt_quat]">
-            </PersistentString>
-            <PersistentString
-               value = "cnt_quat">
-            </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
@@ -52,9 +46,6 @@
             <PersistentString
                value = "mp_tmp">
             </PersistentString>
-            <PersistentString
-               value = "quat[57]">
-            </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
@@ -69,28 +60,13 @@
          contextName = "locateVariable(std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;, int, int&amp;):main.cpp">
          <PersistentStrings>
             <PersistentString
-               value = "tab[16]">
-            </PersistentString>
-            <PersistentString
-               value = "tab[7]">
-            </PersistentString>
-            <PersistentString
                value = "mp_tmp[&quot;#1&quot;]">
-            </PersistentString>
-            <PersistentString
-               value = "index_proc">
-            </PersistentString>
-            <PersistentString
-               value = "tab[i].name">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "calcTmp():main.cpp">
          <PersistentStrings>
-            <PersistentString
-               value = "quat[i]">
-            </PersistentString>
             <PersistentString
                value = "j">
             </PersistentString>
@@ -108,42 +84,16 @@
             <PersistentString
                value = "name">
             </PersistentString>
-            <PersistentString
-               value = "tab[pos]">
-            </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "loopStatement(std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;&amp;):main.cpp">
          <PersistentStrings>
             <PersistentString
-               value = "quat[57]">
-            </PersistentString>
-            <PersistentString
-               value = "quat[64]">
-            </PersistentString>
-            <PersistentString
-               value = "quat[63]">
-            </PersistentString>
-            <PersistentString
                value = "sym">
             </PersistentString>
             <PersistentString
-               value = "cnt_proc">
-            </PersistentString>
-            <PersistentString
-               value = "cnt_quat">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "addQuat(std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;, std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;, std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;, std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;):main.cpp">
-         <PersistentStrings>
-            <PersistentString
-               value = "quat[57]">
-            </PersistentString>
-            <PersistentString
-               value = "cnt_quat">
+               value = "">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -159,27 +109,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "statement(std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;&amp;):main.cpp">
-         <PersistentStrings>
-            <PersistentString
-               value = "quat[57]">
-            </PersistentString>
-            <PersistentString
-               value = "cnt_quat">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "factor(std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;&amp;, std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;&amp;):main.cpp">
          <PersistentStrings>
             <PersistentString
                value = "sym">
-            </PersistentString>
-            <PersistentString
-               value = "mp_func">
-            </PersistentString>
-            <PersistentString
-               value = "cnt_quat">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -191,30 +124,6 @@
             </PersistentString>
             <PersistentString
                value = "addr">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "step(std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;&amp;, std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;&amp;):main.cpp">
-         <PersistentStrings>
-            <PersistentString
-               value = "cnt_quat">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "prinStatement(std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;&amp;):main.cpp">
-         <PersistentStrings>
-            <PersistentString
-               value = "cnt_quat">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "expression(std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;&amp;, std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;&amp;):main.cpp">
-         <PersistentStrings>
-            <PersistentString
-               value = "sym">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -233,25 +142,13 @@
          contextName = "voidDeclartion(std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;&amp;, std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;, std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;):main.cpp">
          <PersistentStrings>
             <PersistentString
-               value = "sym">
-            </PersistentString>
-            <PersistentString
                value = "addr">
-            </PersistentString>
-            <PersistentString
-               value = "tab[void_pos]">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "getVariableMips(int, std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;, int, bool):main.cpp">
          <PersistentStrings>
-            <PersistentString
-               value = "program_id">
-            </PersistentString>
-            <PersistentString
-               value = "quat[57]">
-            </PersistentString>
             <PersistentString
                value = "tab[9]">
             </PersistentString>
@@ -275,22 +172,7 @@
          contextName = "quatMips():main.cpp">
          <PersistentStrings>
             <PersistentString
-               value = "quat[i+2]">
-            </PersistentString>
-            <PersistentString
                value = "quat[i]">
-            </PersistentString>
-            <PersistentString
-               value = "i">
-            </PersistentString>
-            <PersistentString
-               value = "quat[i+1]">
-            </PersistentString>
-            <PersistentString
-               value = "quat[i-3]">
-            </PersistentString>
-            <PersistentString
-               value = "quat[i-1]">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -300,50 +182,19 @@
             <PersistentString
                value = "sym">
             </PersistentString>
-            <PersistentString
-               value = "quat[5]">
-            </PersistentString>
-            <PersistentString
-               value = "cnt_quat">
-            </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "ifelStatement(std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;&amp;):main.cpp">
          <PersistentStrings>
             <PersistentString
-               value = "quat[40]">
-            </PersistentString>
-            <PersistentString
                value = "ifel_pos">
             </PersistentString>
             <PersistentString
-               value = "quat[63]">
+               value = "quat[40]">
             </PersistentString>
             <PersistentString
                value = "cnt_quat">
-            </PersistentString>
-            <PersistentString
-               value = "quat[62]">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "consDeclarion(std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;&amp;):main.cpp">
-         <PersistentStrings>
-            <PersistentString
-               value = "sym">
-            </PersistentString>
-            <PersistentString
-               value = "sym[1]">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "allocateFunction(Quat const&amp;):main.cpp">
-         <PersistentStrings>
-            <PersistentString
-               value = "mp_quat_cnt_temp[1]">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

@@ -1144,9 +1144,8 @@ void getVariableMips(int reg_t, string name, int program_id, bool is_load){ //is
         return ;
     }
     if (name == "RET_int" || name == "RET_char"){
-        if (is_load){
+        if (is_load)
             cout << "move\t$t" << reg_t << ",$v1" << endl;
-        }
         //cout << "sw\t$v1,0($t1)" << endl; //把v1的值加载到t1所在的位置
         return ;
     }

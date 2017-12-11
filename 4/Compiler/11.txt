@@ -41,7 +41,7 @@ int C(int m, int n){
     printf("y=", y);
     z = factorial(n-m);
     printf("z=", z);
-    return (factorial(n)/factorial(m)/factorial(n-m));
+    return (x/y/z);
 }
 void init(){
     m = 5;
@@ -52,6 +52,7 @@ char work(int m, int n){
     int ans;
     printf("work!!!");
     ans = C(m,n);
+    printf("ans=", ans);
     switch (ans - 2*(ans / 2)){ 
         case 1: return ('O'); 
         default: return ('E'); 

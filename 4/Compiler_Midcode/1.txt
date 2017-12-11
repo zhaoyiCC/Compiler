@@ -1,10 +1,10 @@
 const int hhh = 1, iii = 22, jjj = 333;
 int i, j, a[101];
 char cc;
-int work(int x,int y){
+int work(int x){
 		int yyy;
-yyy=2+4;
-a[yyy] = a[j];	;
+	a[i] = yyy;
+	;
 	;
 	;
 	;
@@ -36,7 +36,7 @@ for (i = 100; a[i]+a[100-j] >= 1*2-(3/4)+5; i = i-1){
 int mymax(int x, int y){
 	const int hh = 1;
 int i, j;
-i = 1+2+work(9999999,77777+i);
+i = 1+2+work(9999999);
 return(hh);
 }
 void shit(){
@@ -46,7 +46,7 @@ void main(){
 	int p,q;
 	
 	if (p>=1){
-		work(2222, p+q/2);
+		work(2222);
 	}
 	q = q*q;
 }

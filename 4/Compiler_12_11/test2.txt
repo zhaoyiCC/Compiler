@@ -15,7 +15,6 @@ int mymax(int x, int y){
 }
 int factorial(int n){ 
     int res;
-    printf("n=", n);
     if (n < 0)
         return (-1);
     switch (n){
@@ -23,24 +22,13 @@ int factorial(int n){
         case 1: res = 1; 
         default:  res = (n*factorial(n-1));
     }
-    printf("res=", res);
     return (res);
 }
 int C(int m, int n){ 
-    int x, y, z;
-    printf("m=", m);
-    printf("n=", n);
-    printf("\n");
     if (m <= n) ;
     
     if (m > n)
         return (-1);
-    x = factorial(n);
-    printf("x=", x);
-    y = factorial(m);
-    printf("y=", y);
-    z = factorial(n-m);
-    printf("z=", z);
     return (factorial(n)/factorial(m)/factorial(n-m));
 }
 void init(){
@@ -50,7 +38,6 @@ void init(){
 }
 char work(int m, int n){
     int ans;
-    printf("work!!!");
     ans = C(m,n);
     switch (ans - 2*(ans / 2)){ 
         case 1: return ('O'); 

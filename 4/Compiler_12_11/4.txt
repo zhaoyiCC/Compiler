@@ -1,0 +1,21 @@
+const int hhh = 1, iii = 22, jjj = 333;
+int i, j, a[101];
+char cc;
+int work(int x,int y){
+	int yyy;
+	yyy=2+4;
+	a[yyy] = x+y;
+	a[j] = a[yyy] + 2;
+	return (a[j]);
+}
+void shit(){
+int j;
+}
+void main(){
+	int p,q;
+	scanf(p);
+	if (p>=1){
+		q = work(4,5);
+	}
+	printf("q=", q);
+}

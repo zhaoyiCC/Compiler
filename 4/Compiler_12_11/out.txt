@@ -122,7 +122,7 @@ This is a expression statemnt::: ans
 This is a return statement::: return (ans)
 
 QUAT!!! ret ans   ::: 1
-siz = 2786 now = 346
+siz = 2796 now = 346
 
 cnt_tab 29 ::: factorial function int 0 0 0 &&& 2
 QUAT!!! function_int factorial   ::: 2
@@ -273,7 +273,7 @@ This is a expression statemnt::: res
 This is a return statement::: return (res)
 
 QUAT!!! ret res   ::: 2
-siz = 2786 now = 602
+siz = 2796 now = 602
 
 cnt_tab 32 ::: C function int 0 0 0 &&& 3
 QUAT!!! function_int C   ::: 3
@@ -462,22 +462,63 @@ This is a expression statemnt::: z
 QUAT!!! PRINT z   ::: 3
 This is a printf statement::: printf("z=", z)
 
-This is a factor statemnt::: x
+This is a factor statemnt::: n
 
-This is a factor statemnt::: y
+This is a term statemnt::: n
 
-QUAT!!! / #4 x y ::: 3
-This is a factor statemnt::: z
+This is a expression statemnt::: n
 
-QUAT!!! / #5 #4 z ::: 3
-This is a term statemnt::: x/y/z
+QUAT!!! PUSH n 1  ::: 3
+This is a parameter with ::: 1 parameters::: n
 
-This is a expression statemnt::: x/y/z
+This is function_call statement::: factorial(n)
 
-This is a return statement::: return (x/y/z)
+QUAT!!! call factorial   ::: 3
+This is a factor statemnt::: factorial(n)
 
-QUAT!!! ret #5   ::: 3
-siz = 2786 now = 914
+This is a factor statemnt::: m
+
+This is a term statemnt::: m
+
+This is a expression statemnt::: m
+
+QUAT!!! PUSH m 1  ::: 3
+This is a parameter with ::: 1 parameters::: m
+
+This is function_call statement::: factorial(m)
+
+QUAT!!! call factorial   ::: 3
+This is a factor statemnt::: factorial(m)
+
+QUAT!!! / #4 RET_int RET_int ::: 3
+This is a factor statemnt::: n
+
+This is a term statemnt::: n
+
+This is a factor statemnt::: m
+
+This is a term statemnt::: m
+
+QUAT!!! - #5 n m ::: 3
+This is a expression statemnt::: n-m
+
+QUAT!!! PUSH #5 1  ::: 3
+This is a parameter with ::: 1 parameters::: n-m
+
+This is function_call statement::: factorial(n-m)
+
+QUAT!!! call factorial   ::: 3
+This is a factor statemnt::: factorial(n-m)
+
+QUAT!!! / #6 #4 RET_int ::: 3
+This is a term statemnt::: factorial(n)/factorial(m)/factorial(n-m)
+
+This is a expression statemnt::: factorial(n)/factorial(m)/factorial(n-m)
+
+This is a return statement::: return (factorial(n)/factorial(m)/factorial(n-m))
+
+QUAT!!! ret #6   ::: 3
+siz = 2796 now = 949
 
 cnt_tab 38 ::: init void  0 0 0 &&& 4
 QUAT!!! void_ init   ::: 4
@@ -502,7 +543,7 @@ This is a scanf statement::: 4 variables::: scanf(n,m,k, ch)
 QUAT!!! ret    ::: 4
 This is a return statement::: return 
 
-siz = 2786 now = 975
+siz = 2796 now = 1010
 
 cnt_tab 39 ::: work function char 0 0 0 &&& 5
 QUAT!!! function_char work   ::: 5
@@ -548,16 +589,6 @@ This is a expression statemnt::: C(m,n)
 QUAT!!! = ans RET_int  ::: 5
 This is an assign statement::: ans = C(m,n)
 
-QUAT!!! PRINT "ans="   ::: 5
-This is a factor statemnt::: ans
-
-This is a term statemnt::: ans
-
-This is a expression statemnt::: ans
-
-QUAT!!! PRINT ans   ::: 5
-This is a printf statement::: printf("ans=", ans)
-
 This is a factor statemnt::: ans 
 
 This is a term statemnt::: ans 
@@ -568,21 +599,21 @@ This is a factor statemnt::: ans
 
 This is a factor statemnt::: 2
 
-QUAT!!! / #6 ans 2 ::: 5
+QUAT!!! / #7 ans 2 ::: 5
 This is a term statemnt::: ans / 2
 
 This is a expression statemnt::: ans / 2
 
 This is a factor statemnt::: (ans / 2)
 
-QUAT!!! * #7 2 #6 ::: 5
+QUAT!!! * #8 2 #7 ::: 5
 This is a term statemnt::: 2*(ans / 2)
 
-QUAT!!! - #8 ans #7 ::: 5
+QUAT!!! - #9 ans #8 ::: 5
 This is a expression statemnt::: ans - 2*(ans / 2)
 
-QUAT!!! SWITCH #8   ::: 5
-QUAT!!! == #8 1  ::: 5
+QUAT!!! SWITCH #9   ::: 5
+QUAT!!! == #9 1  ::: 5
 QUAT!!! BZ LABEL_14   ::: 5
 This is a factor statemnt::: 'O'
 
@@ -624,7 +655,7 @@ This is a expression statemnt::: '*'
 This is a return statement::: return ('*')
 
 QUAT!!! ret '*'   ::: 5
-siz = 2786 now = 1202
+siz = 2796 now = 1212
 
 cnt_tab 43 ::: test_switch void  0 0 0 &&& 6
 QUAT!!! void_ test_switch   ::: 6
@@ -675,37 +706,37 @@ This is a factor statemnt::: 2
 
 This is a factor statemnt::: 5
 
-QUAT!!! * #9 2 5 ::: 6
+QUAT!!! * #10 2 5 ::: 6
 This is a factor statemnt::: 4
 
-QUAT!!! / #10 #9 4 ::: 6
+QUAT!!! / #11 #10 4 ::: 6
 This is a term statemnt::: 2*5/4
 
 This is a expression statemnt::: 2*5/4
 
-QUAT!!! = #11 a[#10]  ::: 6
+QUAT!!! = #12 a[#11]  ::: 6
 This is a factor statemnt::: a[2*5/4]
 
 This is a term statemnt::: a[2*5/4]
 
-QUAT!!! + #12 2 #11 ::: 6
+QUAT!!! + #13 2 #12 ::: 6
 This is a expression statemnt::: 2+a[2*5/4]
 
-QUAT!!! = #13 a[#12]  ::: 6
+QUAT!!! = #14 a[#13]  ::: 6
 This is a factor statemnt::: a[2+a[2*5/4]]
 
 This is a term statemnt::: a[2+a[2*5/4]]
 
 This is a expression statemnt::: a[2+a[2*5/4]]
 
-QUAT!!! = #14 a[#13]  ::: 6
+QUAT!!! = #15 a[#14]  ::: 6
 This is a factor statemnt::: a[a[2+a[2*5/4]]]
 
 This is a term statemnt::: a[a[2+a[2*5/4]]]
 
 This is a expression statemnt::: a[a[2+a[2*5/4]]]
 
-QUAT!!! = Int #14  ::: 6
+QUAT!!! = Int #15  ::: 6
 This is an assign statement::: Int = a[a[2+a[2*5/4]]]
 
 This is a factor statemnt::: Int
@@ -750,11 +781,11 @@ This is a factor statemnt::: 'b'
 
 This is a term statemnt::: 'b'
 
-QUAT!!! + #15 Int 'b' ::: 6
+QUAT!!! + #16 Int 'b' ::: 6
 This is a expression statemnt::: Int+'b'
 
-QUAT!!! SWITCH #15   ::: 6
-QUAT!!! == #15 1  ::: 6
+QUAT!!! SWITCH #16   ::: 6
+QUAT!!! == #16 1  ::: 6
 QUAT!!! BZ LABEL_21   ::: 6
 This is a factor statemnt::: Int
 
@@ -764,20 +795,20 @@ This is a factor statemnt::: 1
 
 This is a term statemnt::: 1
 
-QUAT!!! + #16 Int 1 ::: 6
+QUAT!!! + #17 Int 1 ::: 6
 This is a expression statemnt::: Int+1
 
-QUAT!!! = Int #16  ::: 6
+QUAT!!! = Int #17  ::: 6
 This is an assign statement::: Int = Int+1
 
 QUAT!!! GOTO    ::: 6
-QUAT!!! == #15 'a'  ::: 6
+QUAT!!! == #16 'a'  ::: 6
 QUAT!!! BZ LABEL_22   ::: 6
 QUAT!!! PRINT "23333"   ::: 6
 This is a printf statement::: printf("23333")
 
 QUAT!!! GOTO    ::: 6
-QUAT!!! == #15 -123  ::: 6
+QUAT!!! == #16 -123  ::: 6
 QUAT!!! BZ LABEL_23   ::: 6
 QUAT!!! PRINT "*****"   ::: 6
 This is a factor statemnt::: Int
@@ -830,32 +861,32 @@ This is a term statemnt::: 1
 
 This is a expression statemnt::: 1
 
-QUAT!!! = #17 a[1]  ::: 6
+QUAT!!! = #18 a[1]  ::: 6
 This is a factor statemnt::: a[1]
 
 This is a term statemnt::: a[1]
 
-QUAT!!! - #18 1 #17 ::: 6
+QUAT!!! - #19 1 #18 ::: 6
 This is a expression statemnt::: 1-a[1]
 
-QUAT!!! = #19 a[#18]  ::: 6
+QUAT!!! = #20 a[#19]  ::: 6
 This is a factor statemnt::: a[1-a[1]]
 
 This is a term statemnt::: a[1-a[1]]
 
 This is a expression statemnt::: a[1-a[1]]
 
-QUAT!!! = #20 a[#19]  ::: 6
+QUAT!!! = #21 a[#20]  ::: 6
 This is a factor statemnt::: a[a[1-a[1]]]
 
 This is a term statemnt::: a[a[1-a[1]]]
 
 This is a expression statemnt::: a[a[1-a[1]]]
 
-QUAT!!! = Int #20  ::: 6
+QUAT!!! = Int #21  ::: 6
 This is an assign statement::: Int = a[a[1-a[1]]]
 
-siz = 2786 now = 1637
+siz = 2796 now = 1647
 
 QUAT!!! ret    ::: 6
 cnt_tab 46 ::: test_for void  0 0 0 &&& 7
@@ -873,25 +904,11 @@ This is a factor statemnt::: -2
 
 This is a term statemnt::: -2
 
-QUAT!!! + #21 0 -2 ::: 7
+QUAT!!! + #22 0 -2 ::: 7
 This is a expression statemnt::: 0+-2
 
-QUAT!!! = Int #21  ::: 7
-This is an assign statement::: Int = 0+-2
-
-This is a factor statemnt::: Int 
-
-This is a term statemnt::: Int 
-
-This is a factor statemnt::: 1
-
-This is a term statemnt::: 1
-
-QUAT!!! + #22 Int 1 ::: 7
-This is a expression statemnt::: Int +1
-
 QUAT!!! = Int #22  ::: 7
-This is an assign statement::: Int = Int +1
+This is an assign statement::: Int = 0+-2
 
 This is a factor statemnt::: Int 
 
@@ -905,6 +922,20 @@ QUAT!!! + #23 Int 1 ::: 7
 This is a expression statemnt::: Int +1
 
 QUAT!!! = Int #23  ::: 7
+This is an assign statement::: Int = Int +1
+
+This is a factor statemnt::: Int 
+
+This is a term statemnt::: Int 
+
+This is a factor statemnt::: 1
+
+This is a term statemnt::: 1
+
+QUAT!!! + #24 Int 1 ::: 7
+This is a expression statemnt::: Int +1
+
+QUAT!!! = Int #24  ::: 7
 This is an assign statement::: Int = Int +1
 
 This is a factor statemnt::: Int
@@ -928,7 +959,7 @@ This is a factor statemnt::: Int
 
 This is a term statemnt::: Int
 
-QUAT!!! - #24 1000 Int ::: 7
+QUAT!!! - #25 1000 Int ::: 7
 This is a expression statemnt::: 1000-Int
 
 This is a condition ::: i <= 1000-Int
@@ -970,7 +1001,7 @@ This is a loop statement::: for (i = Int; i <= 1000-Int; i = i+1){
     }
 
 
-siz = 2786 now = 1908
+siz = 2796 now = 1918
 
 QUAT!!! ret    ::: 7
 cnt_tab 48 ::: test_call void  0 0 0 &&& 8
@@ -996,12 +1027,12 @@ This is a factor statemnt::: 3
 
 This is a factor statemnt::: 5
 
-QUAT!!! * #25 3 5 ::: 8
+QUAT!!! * #26 3 5 ::: 8
 This is a term statemnt::: 3*5
 
 This is a expression statemnt::: 3*5
 
-QUAT!!! PUSH #25 2  ::: 8
+QUAT!!! PUSH #26 2  ::: 8
 This is a parameter with ::: 2 parameters::: 2,3*5
 
 This is function_call statement::: mymax(2,3*5)
@@ -1030,7 +1061,7 @@ This is function_call statement::: mymax(2, 4)
 QUAT!!! call mymax   ::: 8
 This is a factor statemnt::: mymax(2, 4)
 
-QUAT!!! / #26 RET_int RET_int ::: 8
+QUAT!!! / #27 RET_int RET_int ::: 8
 This is a factor statemnt::: 100
 
 This is a term statemnt::: 100
@@ -1039,23 +1070,23 @@ This is a factor statemnt::: 1
 
 This is a term statemnt::: 1
 
-QUAT!!! - #27 100 1 ::: 8
+QUAT!!! - #28 100 1 ::: 8
 This is a expression statemnt::: 100-1
 
 This is a factor statemnt::: (100-1)
 
-QUAT!!! * #28 #26 #27 ::: 8
+QUAT!!! * #29 #27 #28 ::: 8
 This is a term statemnt::: mymax(2,3*5)/mymax(2, 4)*(100-1)
 
 This is a expression statemnt::: mymax(2,3*5)/mymax(2, 4)*(100-1)
 
-QUAT!!! PUSH #28 2  ::: 8
+QUAT!!! PUSH #29 2  ::: 8
 This is a parameter with ::: 2 parameters::: 2, mymax(2,3*5)/mymax(2, 4)*(100-1)
 
 This is function_call statement::: mymax(2, mymax(2,3*5)/mymax(2, 4)*(100-1))
 
 QUAT!!! call mymax   ::: 8
-siz = 2786 now = 1976
+siz = 2796 now = 1986
 
 QUAT!!! ret    ::: 8
 cnt_tab 49 ::: main void  0 0 0 &&& 9
@@ -1100,10 +1131,10 @@ This is a factor statemnt::: i
 
 This is a term statemnt::: i
 
-QUAT!!! - #29 m i ::: 9
+QUAT!!! - #30 m i ::: 9
 This is a expression statemnt::: m - i
 
-QUAT!!! = j #29  ::: 9
+QUAT!!! = j #30  ::: 9
 This is an assign statement::: j = m - i
 
 This is a factor statemnt::: i 
@@ -1232,10 +1263,10 @@ This is a factor statemnt::: -2
 
 This is a term statemnt::: -2
 
-QUAT!!! * #30 -1 -2 ::: 9
+QUAT!!! * #31 -1 -2 ::: 9
 This is a expression statemnt::: --2
 
-QUAT!!! PUSH #30 2  ::: 9
+QUAT!!! PUSH #31 2  ::: 9
 This is a parameter with ::: 2 parameters::: 1, --2
 
 This is function_call statement::: mymax(1, --2)
@@ -1258,10 +1289,10 @@ This is a factor statemnt::: +8
 
 This is a term statemnt::: +8
 
-QUAT!!! + #31 x +8 ::: 9
+QUAT!!! + #32 x +8 ::: 9
 This is a expression statemnt::: x++8
 
-QUAT!!! PUSH #31 1  ::: 9
+QUAT!!! PUSH #32 1  ::: 9
 This is a factor statemnt::: 9
 
 This is a term statemnt::: 9
@@ -1433,10 +1464,10 @@ This is a factor statemnt::: 1
 
 This is a term statemnt::: 1
 
-QUAT!!! + #32 k 1 ::: 9
+QUAT!!! + #33 k 1 ::: 9
 This is a expression statemnt::: k+1
 
-QUAT!!! = i #32  ::: 9
+QUAT!!! = i #33  ::: 9
 This is a factor statemnt::: i 
 
 This is a term statemnt::: i 
@@ -1465,10 +1496,10 @@ This is a factor statemnt::: i
 
 This is a term statemnt::: i
 
-QUAT!!! + #33 k i ::: 9
+QUAT!!! + #34 k i ::: 9
 This is a expression statemnt::: k+i
 
-QUAT!!! = a[i] #33  ::: 9
+QUAT!!! = a[i] #34  ::: 9
 This is an assign statement::: a[i] = k+i
 
 This is a factor statemnt::: i
@@ -1485,10 +1516,10 @@ This is a factor statemnt::: i
 
 This is a term statemnt::: i
 
-QUAT!!! + #34 ch i ::: 9
+QUAT!!! + #35 ch i ::: 9
 This is a expression statemnt::: ch + i
 
-QUAT!!! = s[i] #34  ::: 9
+QUAT!!! = s[i] #35  ::: 9
 This is an assign statement::: s[i] = ch + i
 
 QUAT!!! BZ LABEL_40   ::: 9
@@ -1528,10 +1559,10 @@ This is a factor statemnt::: 1
 
 This is a term statemnt::: 1
 
-QUAT!!! + #35 k 1 ::: 9
+QUAT!!! + #36 k 1 ::: 9
 This is a expression statemnt::: k + 1
 
-QUAT!!! = k #35  ::: 9
+QUAT!!! = k #36  ::: 9
 This is an assign statement::: k = k + 1
 
 QUAT!!! BZ LABEL_42   ::: 9
@@ -1558,14 +1589,14 @@ This is a term statemnt::: k
 
 This is a expression statemnt::: k
 
-QUAT!!! = #36 s[k]  ::: 9
+QUAT!!! = #37 s[k]  ::: 9
 This is a factor statemnt::: s[k]
 
 This is a term statemnt::: s[k]
 
 This is a expression statemnt::: s[k]
 
-QUAT!!! PRINT #36   ::: 9
+QUAT!!! PRINT #37   ::: 9
 This is a printf statement::: printf("ch = ",s[k])
 
 This is function_call statement::: test_switch()
@@ -1595,7 +1626,7 @@ This is a expression statemnt::: 0
 This is a return statement::: return (0)
 
 QUAT!!! ret 0   ::: 9
-siz = 2786 now = 2786
+siz = 2796 now = 2796
 
 ------------------------------
 ------------------------------
@@ -1694,9 +1725,16 @@ call factorial
 z = RET_int
 PRINT "z="
 PRINT z
-#4 = x / y
-#5 = #4 / z
-ret #5
+PUSH n
+call factorial
+PUSH m
+call factorial
+#4 = RET_int / RET_int
+#5 = n - m
+PUSH #5
+call factorial
+#6 = #4 / RET_int
+ret #6
 void init
 BEGIN
 m = 5
@@ -1715,13 +1753,11 @@ PUSH m
 PUSH n
 call C
 ans = RET_int
-PRINT "ans="
-PRINT ans
-#6 = ans / 2
-#7 = 2 * #6
-#8 = ans - #7
-SWITCH #8
-#8 == 1
+#7 = ans / 2
+#8 = 2 * #7
+#9 = ans - #8
+SWITCH #9
+#9 == 1
 BZ LABEL_14
 ret 'O'
 GOTO LABEL_15
@@ -1733,13 +1769,13 @@ var int a[1000]
 BEGIN
 a[2] = 1
 a[1] = 2
-#9 = 2 * 5
-#10 = #9 / 4
-#11 = a[#10]
-#12 = 2 + #11
-#13 = a[#12]
+#10 = 2 * 5
+#11 = #10 / 4
+#12 = a[#11]
+#13 = 2 + #12
 #14 = a[#13]
-Int = #14
+#15 = a[#14]
+Int = #15
 SWITCH Int
 Int == -1
 BZ LABEL_17
@@ -1749,18 +1785,18 @@ LABEL_17 Int == -2
 BZ LABEL_18
 PRINT "HHHHH"
 GOTO LABEL_19
-LABEL_18 LABEL_19 #15 = Int + 'b'
-SWITCH #15
-#15 == 1
+LABEL_18 LABEL_19 #16 = Int + 'b'
+SWITCH #16
+#16 == 1
 BZ LABEL_21
-#16 = Int + 1
-Int = #16
+#17 = Int + 1
+Int = #17
 GOTO LABEL_24
-LABEL_21 #15 == 'a'
+LABEL_21 #16 == 'a'
 BZ LABEL_22
 PRINT "23333"
 GOTO LABEL_24
-LABEL_22 #15 == -123
+LABEL_22 #16 == -123
 BZ LABEL_23
 PRINT "*****"
 PRINT Int
@@ -1769,30 +1805,30 @@ GOTO LABEL_24
 LABEL_23 READ Int
 READ Int
 READ Int
-LABEL_24 #17 = a[1]
-#18 = 1 - #17
-#19 = a[#18]
+LABEL_24 #18 = a[1]
+#19 = 1 - #18
 #20 = a[#19]
-Int = #20
+#21 = a[#20]
+Int = #21
 ret 
 void test_for
 para int Int
 BEGIN
-#21 = 0 + -2
-Int = #21
-#22 = Int + 1
+#22 = 0 + -2
 Int = #22
 #23 = Int + 1
 Int = #23
+#24 = Int + 1
+Int = #24
 i = Int
-LABEL_25 #24 = 1000 - Int
+LABEL_25 #25 = 1000 - Int
 i = Int
 LABEL_26 i = i + 1
 i <= i
 BZ LABEL_27
 GOTO LABEL_26
 LABEL_27 i = i + 1
-i <= #24
+i <= #25
 BZ LABEL_28
 GOTO LABEL_25
 LABEL_28 ret 
@@ -1800,16 +1836,16 @@ void test_call
 BEGIN
 PUSH 2
 PUSH 2
-#25 = 3 * 5
-PUSH #25
+#26 = 3 * 5
+PUSH #26
 call mymax
 PUSH 2
 PUSH 4
 call mymax
-#26 = RET_int / RET_int
-#27 = 100 - 1
-#28 = #26 * #27
-PUSH #28
+#27 = RET_int / RET_int
+#28 = 100 - 1
+#29 = #27 * #28
+PUSH #29
 call mymax
 ret 
 void main
@@ -1817,8 +1853,8 @@ BEGIN
 PRINT "mx = "
 PRINT mx
 i = 0
-LABEL_29 #29 = m - i
-j = #29
+LABEL_29 #30 = m - i
+j = #30
 i == 0
 BZ LABEL_30
 PUSH j
@@ -1840,12 +1876,12 @@ i <= m
 BZ LABEL_32
 GOTO LABEL_29
 LABEL_32 PUSH 1
-#30 = -1 * -2
-PUSH #30
+#31 = -1 * -2
+PUSH #31
 call mymax
 x = RET_int
-#31 = x + +8
-PUSH #31
+#32 = x + +8
+PUSH #32
 PUSH 9
 call mymax
 x = RET_int
@@ -1867,19 +1903,19 @@ LABEL_37 mx = z
 LABEL_38 LABEL_34 PRINT "mx = "
 PRINT mx
 call init
-#32 = k + 1
-i = #32
-LABEL_39 #33 = k + i
-a[i] = #33
-#34 = ch + i
-s[i] = #34
+#33 = k + 1
+i = #33
+LABEL_39 #34 = k + i
+a[i] = #34
+#35 = ch + i
+s[i] = #35
 i = i - 1
 i >= 0
 BZ LABEL_40
 GOTO LABEL_39
 LABEL_40 i = 0
-LABEL_41 #35 = k + 1
-k = #35
+LABEL_41 #36 = k + 1
+k = #36
 i = i - 1
 i > k
 BZ LABEL_42
@@ -1887,8 +1923,8 @@ GOTO LABEL_41
 LABEL_42 PRINT "k = "
 PRINT k
 PRINT "ch = "
-#36 = s[k]
-PRINT #36
+#37 = s[k]
+PRINT #37
 call test_switch
 PUSH 1
 call test_for
@@ -1970,47 +2006,49 @@ SAME!!!
 #4 ::: 3 10
 #5 ::: 3 11
 SAME!!!
-#6 ::: 5 7
-#7 ::: 5 8
-#8 ::: 5 9
+#6 ::: 3 12
+SAME!!!
+#7 ::: 5 7
+#8 ::: 5 8
+#9 ::: 5 9
 SAME!!!
 SAME!!!
-#9 ::: 6 6
-#10 ::: 6 7
-#11 ::: 6 8
-#12 ::: 6 9
-#13 ::: 6 10
-#14 ::: 6 11
-#15 ::: 6 12
+#10 ::: 6 6
+#11 ::: 6 7
+#12 ::: 6 8
+#13 ::: 6 9
+#14 ::: 6 10
+#15 ::: 6 11
+#16 ::: 6 12
 SAME!!!
 SAME!!!
-#16 ::: 6 13
+#17 ::: 6 13
 SAME!!!
 SAME!!!
-#17 ::: 6 14
-#18 ::: 6 15
-#19 ::: 6 16
-#20 ::: 6 17
-#21 ::: 7 5
-#22 ::: 7 6
-#23 ::: 7 7
-#24 ::: 7 8
-#25 ::: 8 4
+#18 ::: 6 14
+#19 ::: 6 15
+#20 ::: 6 16
+#21 ::: 6 17
+#22 ::: 7 5
+#23 ::: 7 6
+#24 ::: 7 7
+#25 ::: 7 8
+#26 ::: 8 4
 SAME!!!
-#26 ::: 8 5
-#27 ::: 8 6
-#28 ::: 8 7
+#27 ::: 8 5
+#28 ::: 8 6
+#29 ::: 8 7
 SAME!!!
-#29 ::: 9 4
-#30 ::: 9 5
+#30 ::: 9 4
+#31 ::: 9 5
 SAME!!!
-#31 ::: 9 6
+#32 ::: 9 6
 SAME!!!
-#32 ::: 9 7
-#33 ::: 9 8
-#34 ::: 9 9
-#35 ::: 9 10
-#36 ::: 9 11
+#33 ::: 9 7
+#34 ::: 9 8
+#35 ::: 9 9
+#36 ::: 9 10
+#37 ::: 9 11
 SAME!!!
 6
 ------------------------------
@@ -2018,33 +2056,31 @@ SAME!!!
 ------------------------------
 .data
 
-str18:	.asciiz ""
+str17:	.asciiz ""
 
-str13:	.asciiz "*****"
+str12:	.asciiz "*****"
 
-str12:	.asciiz "23333"
+str11:	.asciiz "23333"
 
-str10:	.asciiz "666666"
+str9:	.asciiz "666666"
 
-str17:	.asciiz "C    "
+str16:	.asciiz "C    "
 
-str11:	.asciiz "HHHHH"
+str10:	.asciiz "HHHHH"
 
-str16:	.asciiz "M    "
+str15:	.asciiz "M    "
 
-str15:	.asciiz "N    "
+str14:	.asciiz "N    "
 
 str4:	.asciiz "\n"
 
-str9:	.asciiz "ans="
+str19:	.asciiz "ch = "
 
-str20:	.asciiz "ch = "
-
-str19:	.asciiz "k = "
+str18:	.asciiz "k = "
 
 str3:	.asciiz "m="
 
-str14:	.asciiz "mx = "
+str13:	.asciiz "mx = "
 
 str1:	.asciiz "n="
 
@@ -2532,7 +2568,7 @@ addi	$sp,$sp,-4
 sw	$s0,0($sp)
 addi	$sp,$sp,-4
 
-addi	$sp,$sp,-12
+addi	$sp,$sp,-16
 #	PRINT "m="
 la	$a0,str3
 li	$v0,4
@@ -2712,40 +2748,79 @@ move	$a0,$t1
 li	$v0,1
 syscall
 
-##4 = x / y
-#~~~y
-move	$t2,$fp
-subi	$t2,$t2,12
-lw	$t2,0($t2)
-#~~~x
+#	PUSH n
+#~~~n
 move	$t1,$fp
-subi	$t1,$t1,8
+subi	$t1,$t1,4
 lw	$t1,0($t1)
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	call factorial
+jal	factorial
+#	PUSH m
+#~~~m
+move	$t1,$fp
+subi	$t1,$t1,0
+lw	$t1,0($t1)
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	call factorial
+jal	factorial
+##4 = RET_int / RET_int
+#~~~RET_int
+move	$t2,$v1
+#~~~RET_int
+move	$t1,$v1
 div	$t1,$t1,$t2
 #~~~#4
 move	$t3,$fp
 subi	$t3,$t3,36
 
 sw	$t1,0($t3)
-##5 = #4 / z
-#~~~z
+##5 = n - m
+#~~~m
 move	$t2,$fp
-subi	$t2,$t2,16
+subi	$t2,$t2,0
 lw	$t2,0($t2)
-#~~~#4
+#~~~n
 move	$t1,$fp
-subi	$t1,$t1,36
+subi	$t1,$t1,4
 lw	$t1,0($t1)
-div	$t1,$t1,$t2
+sub	$t1,$t1,$t2
 #~~~#5
 move	$t3,$fp
 subi	$t3,$t3,40
 
 sw	$t1,0($t3)
-#	#5 ret 
+#	PUSH #5
 #~~~#5
 move	$t1,$fp
 subi	$t1,$t1,40
+lw	$t1,0($t1)
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	call factorial
+jal	factorial
+##6 = #4 / RET_int
+#~~~RET_int
+move	$t2,$v1
+#~~~#4
+move	$t1,$fp
+subi	$t1,$t1,36
+lw	$t1,0($t1)
+div	$t1,$t1,$t2
+#~~~#6
+move	$t3,$fp
+subi	$t3,$t3,44
+
+sw	$t1,0($t3)
+#	#6 ret 
+#~~~#6
+move	$t1,$fp
+subi	$t1,$t1,44
 lw	$v1,0($t1)
 lw	$sp,-20($fp)
 addi	$sp,$sp,0
@@ -2866,21 +2941,7 @@ move	$t1,$fp
 subi	$t1,$t1,8
 
 sw	$t2,0($t1)
-#	PRINT "ans="
-la	$a0,str9
-li	$v0,4
-syscall
-
-#	PRINT ans
-#~~~ans
-move	$t1,$fp
-subi	$t1,$t1,8
-lw	$t1,0($t1)
-move	$a0,$t1
-li	$v0,1
-syscall
-
-##6 = ans / 2
+##7 = ans / 2
 #~~~2
 li	$t2,2
 #~~~ans
@@ -2888,26 +2949,26 @@ move	$t1,$fp
 subi	$t1,$t1,8
 lw	$t1,0($t1)
 div	$t1,$t1,$t2
-#~~~#6
+#~~~#7
 move	$t3,$fp
 subi	$t3,$t3,24
 
 sw	$t1,0($t3)
-##7 = 2 * #6
-#~~~#6
+##8 = 2 * #7
+#~~~#7
 move	$t2,$fp
 subi	$t2,$t2,24
 lw	$t2,0($t2)
 #~~~2
 li	$t1,2
 mul	$t1,$t1,$t2
-#~~~#7
+#~~~#8
 move	$t3,$fp
 subi	$t3,$t3,28
 
 sw	$t1,0($t3)
-##8 = ans - #7
-#~~~#7
+##9 = ans - #8
+#~~~#8
 move	$t2,$fp
 subi	$t2,$t2,28
 lw	$t2,0($t2)
@@ -2916,14 +2977,14 @@ move	$t1,$fp
 subi	$t1,$t1,8
 lw	$t1,0($t1)
 sub	$t1,$t1,$t2
-#~~~#8
+#~~~#9
 move	$t3,$fp
 subi	$t3,$t3,32
 
 sw	$t1,0($t3)
-#	SWITCH #8
-#	#8 == 1
-#~~~#8
+#	SWITCH #9
+#	#9 == 1
+#~~~#9
 move	$t1,$fp
 subi	$t1,$t1,32
 lw	$t1,0($t1)
@@ -3016,77 +3077,60 @@ sub	$t1,$t1,$t2
 li	$t2,2
 
 sw	$t2,0($t1)
-##9 = 2 * 5
+##10 = 2 * 5
 #~~~5
 li	$t2,5
 #~~~2
 li	$t1,2
 mul	$t1,$t1,$t2
-#~~~#9
+#~~~#10
 move	$t3,$fp
 subi	$t3,$t3,20
 
 sw	$t1,0($t3)
-##10 = #9 / 4
+##11 = #10 / 4
 #~~~4
 li	$t2,4
-#~~~#9
+#~~~#10
 move	$t1,$fp
 subi	$t1,$t1,20
 lw	$t1,0($t1)
 div	$t1,$t1,$t2
-#~~~#10
+#~~~#11
 move	$t3,$fp
 subi	$t3,$t3,24
 
 sw	$t1,0($t3)
-##11 = a[#10]
-#~~~a[#10]
+##12 = a[#11]
+#~~~a[#11]
 #~~~a
 move	$t1,$fp
 subi	$t1,$t1,4
-#~~~#10
+#~~~#11
 move	$t2,$fp
 subi	$t2,$t2,24
 lw	$t2,0($t2)
 sll	$t2,$t2,2
 sub	$t1,$t1,$t2
 lw	$t2,0($t1)
-#~~~#11
+#~~~#12
 move	$t1,$fp
 subi	$t1,$t1,28
 
 sw	$t2,0($t1)
-##12 = 2 + #11
-#~~~#11
+##13 = 2 + #12
+#~~~#12
 move	$t2,$fp
 subi	$t2,$t2,28
 lw	$t2,0($t2)
 #~~~2
 li	$t1,2
 add	$t1,$t1,$t2
-#~~~#12
+#~~~#13
 move	$t3,$fp
 subi	$t3,$t3,32
 
 sw	$t1,0($t3)
-##13 = a[#12]
-#~~~a[#12]
-#~~~a
-move	$t1,$fp
-subi	$t1,$t1,4
-#~~~#12
-move	$t2,$fp
-subi	$t2,$t2,32
-lw	$t2,0($t2)
-sll	$t2,$t2,2
-sub	$t1,$t1,$t2
-lw	$t2,0($t1)
-#~~~#13
-move	$t1,$fp
-subi	$t1,$t1,36
-
-sw	$t2,0($t1)
 ##14 = a[#13]
 #~~~a[#13]
 #~~~a
@@ -3094,18 +3138,35 @@ move	$t1,$fp
 subi	$t1,$t1,4
 #~~~#13
 move	$t2,$fp
-subi	$t2,$t2,36
+subi	$t2,$t2,32
 lw	$t2,0($t2)
 sll	$t2,$t2,2
 sub	$t1,$t1,$t2
 lw	$t2,0($t1)
 #~~~#14
 move	$t1,$fp
+subi	$t1,$t1,36
+
+sw	$t2,0($t1)
+##15 = a[#14]
+#~~~a[#14]
+#~~~a
+move	$t1,$fp
+subi	$t1,$t1,4
+#~~~#14
+move	$t2,$fp
+subi	$t2,$t2,36
+lw	$t2,0($t2)
+sll	$t2,$t2,2
+sub	$t1,$t1,$t2
+lw	$t2,0($t1)
+#~~~#15
+move	$t1,$fp
 subi	$t1,$t1,40
 
 sw	$t2,0($t1)
-#Int = #14
-#~~~#14
+#Int = #15
+#~~~#15
 move	$t2,$fp
 subi	$t2,$t2,40
 lw	$t2,0($t2)
@@ -3126,7 +3187,7 @@ seq	$t0,$t1,$t2
 #	BZ LABEL_17
 bne	$t0,1,LABEL_17
 #	PRINT "666666"
-la	$a0,str10
+la	$a0,str9
 li	$v0,4
 syscall
 
@@ -3144,7 +3205,7 @@ seq	$t0,$t1,$t2
 #	BZ LABEL_18
 bne	$t0,1,LABEL_18
 #	PRINT "HHHHH"
-la	$a0,str11
+la	$a0,str10
 li	$v0,4
 syscall
 
@@ -3152,7 +3213,7 @@ syscall
 jal	LABEL_19
 LABEL_18:
 LABEL_19:
-##15 = Int + 'b'
+##16 = Int + 'b'
 #~~~'b'
 li	$t2,98
 #~~~Int
@@ -3160,14 +3221,14 @@ move	$t1,$fp
 subi	$t1,$t1,0
 lw	$t1,0($t1)
 add	$t1,$t1,$t2
-#~~~#15
+#~~~#16
 move	$t3,$fp
 subi	$t3,$t3,44
 
 sw	$t1,0($t3)
-#	SWITCH #15
-#	#15 == 1
-#~~~#15
+#	SWITCH #16
+#	#16 == 1
+#~~~#16
 move	$t1,$fp
 subi	$t1,$t1,44
 lw	$t1,0($t1)
@@ -3176,7 +3237,7 @@ li	$t2,1
 seq	$t0,$t1,$t2
 #	BZ LABEL_21
 bne	$t0,1,LABEL_21
-##16 = Int + 1
+##17 = Int + 1
 #~~~1
 li	$t2,1
 #~~~Int
@@ -3184,13 +3245,13 @@ move	$t1,$fp
 subi	$t1,$t1,0
 lw	$t1,0($t1)
 add	$t1,$t1,$t2
-#~~~#16
+#~~~#17
 move	$t3,$fp
 subi	$t3,$t3,48
 
 sw	$t1,0($t3)
-#Int = #16
-#~~~#16
+#Int = #17
+#~~~#17
 move	$t2,$fp
 subi	$t2,$t2,48
 lw	$t2,0($t2)
@@ -3202,8 +3263,8 @@ sw	$t2,0($t1)
 #	GOTO LABEL_24
 jal	LABEL_24
 LABEL_21:
-#	#15 == 'a'
-#~~~#15
+#	#16 == 'a'
+#~~~#16
 move	$t1,$fp
 subi	$t1,$t1,44
 lw	$t1,0($t1)
@@ -3213,15 +3274,15 @@ seq	$t0,$t1,$t2
 #	BZ LABEL_22
 bne	$t0,1,LABEL_22
 #	PRINT "23333"
-la	$a0,str12
+la	$a0,str11
 li	$v0,4
 syscall
 
 #	GOTO LABEL_24
 jal	LABEL_24
 LABEL_22:
-#	#15 == -123
-#~~~#15
+#	#16 == -123
+#~~~#16
 move	$t1,$fp
 subi	$t1,$t1,44
 lw	$t1,0($t1)
@@ -3231,7 +3292,7 @@ seq	$t0,$t1,$t2
 #	BZ LABEL_23
 bne	$t0,1,LABEL_23
 #	PRINT "*****"
-la	$a0,str13
+la	$a0,str12
 li	$v0,4
 syscall
 
@@ -3284,7 +3345,7 @@ syscall
 sw	$v0,0($t1)
 
 LABEL_24:
-##17 = a[1]
+##18 = a[1]
 #~~~a[1]
 #~~~a
 move	$t1,$fp
@@ -3294,41 +3355,24 @@ li	$t2,1
 sll	$t2,$t2,2
 sub	$t1,$t1,$t2
 lw	$t2,0($t1)
-#~~~#17
+#~~~#18
 move	$t1,$fp
 subi	$t1,$t1,52
 
 sw	$t2,0($t1)
-##18 = 1 - #17
-#~~~#17
+##19 = 1 - #18
+#~~~#18
 move	$t2,$fp
 subi	$t2,$t2,52
 lw	$t2,0($t2)
 #~~~1
 li	$t1,1
 sub	$t1,$t1,$t2
-#~~~#18
+#~~~#19
 move	$t3,$fp
 subi	$t3,$t3,56
 
 sw	$t1,0($t3)
-##19 = a[#18]
-#~~~a[#18]
-#~~~a
-move	$t1,$fp
-subi	$t1,$t1,4
-#~~~#18
-move	$t2,$fp
-subi	$t2,$t2,56
-lw	$t2,0($t2)
-sll	$t2,$t2,2
-sub	$t1,$t1,$t2
-lw	$t2,0($t1)
-#~~~#19
-move	$t1,$fp
-subi	$t1,$t1,60
-
-sw	$t2,0($t1)
 ##20 = a[#19]
 #~~~a[#19]
 #~~~a
@@ -3336,18 +3380,35 @@ move	$t1,$fp
 subi	$t1,$t1,4
 #~~~#19
 move	$t2,$fp
-subi	$t2,$t2,60
+subi	$t2,$t2,56
 lw	$t2,0($t2)
 sll	$t2,$t2,2
 sub	$t1,$t1,$t2
 lw	$t2,0($t1)
 #~~~#20
 move	$t1,$fp
+subi	$t1,$t1,60
+
+sw	$t2,0($t1)
+##21 = a[#20]
+#~~~a[#20]
+#~~~a
+move	$t1,$fp
+subi	$t1,$t1,4
+#~~~#20
+move	$t2,$fp
+subi	$t2,$t2,60
+lw	$t2,0($t2)
+sll	$t2,$t2,2
+sub	$t1,$t1,$t2
+lw	$t2,0($t1)
+#~~~#21
+move	$t1,$fp
 subi	$t1,$t1,64
 
 sw	$t2,0($t1)
-#Int = #20
-#~~~#20
+#Int = #21
+#~~~#21
 move	$t2,$fp
 subi	$t2,$t2,64
 lw	$t2,0($t2)
@@ -3377,44 +3438,21 @@ sw	$s0,0($sp)
 addi	$sp,$sp,-4
 
 addi	$sp,$sp,-16
-##21 = 0 + -2
+##22 = 0 + -2
 #~~~-2
 li	$t2,-2
 #~~~0
 li	$t1,0
 add	$t1,$t1,$t2
-#~~~#21
-move	$t3,$fp
-subi	$t3,$t3,16
-
-sw	$t1,0($t3)
-#Int = #21
-#~~~#21
-move	$t2,$fp
-subi	$t2,$t2,16
-lw	$t2,0($t2)
-#~~~Int
-move	$t1,$fp
-subi	$t1,$t1,0
-
-sw	$t2,0($t1)
-##22 = Int + 1
-#~~~1
-li	$t2,1
-#~~~Int
-move	$t1,$fp
-subi	$t1,$t1,0
-lw	$t1,0($t1)
-add	$t1,$t1,$t2
 #~~~#22
 move	$t3,$fp
-subi	$t3,$t3,20
+subi	$t3,$t3,16
 
 sw	$t1,0($t3)
 #Int = #22
 #~~~#22
 move	$t2,$fp
-subi	$t2,$t2,20
+subi	$t2,$t2,16
 lw	$t2,0($t2)
 #~~~Int
 move	$t1,$fp
@@ -3431,11 +3469,34 @@ lw	$t1,0($t1)
 add	$t1,$t1,$t2
 #~~~#23
 move	$t3,$fp
-subi	$t3,$t3,24
+subi	$t3,$t3,20
 
 sw	$t1,0($t3)
 #Int = #23
 #~~~#23
+move	$t2,$fp
+subi	$t2,$t2,20
+lw	$t2,0($t2)
+#~~~Int
+move	$t1,$fp
+subi	$t1,$t1,0
+
+sw	$t2,0($t1)
+##24 = Int + 1
+#~~~1
+li	$t2,1
+#~~~Int
+move	$t1,$fp
+subi	$t1,$t1,0
+lw	$t1,0($t1)
+add	$t1,$t1,$t2
+#~~~#24
+move	$t3,$fp
+subi	$t3,$t3,24
+
+sw	$t1,0($t3)
+#Int = #24
+#~~~#24
 move	$t2,$fp
 subi	$t2,$t2,24
 lw	$t2,0($t2)
@@ -3455,7 +3516,7 @@ subi	$t1,$t1,452
 
 sw	$t2,0($t1)
 LABEL_25:
-##24 = 1000 - Int
+##25 = 1000 - Int
 #~~~Int
 move	$t2,$fp
 subi	$t2,$t2,0
@@ -3463,7 +3524,7 @@ lw	$t2,0($t2)
 #~~~1000
 li	$t1,1000
 sub	$t1,$t1,$t2
-#~~~#24
+#~~~#25
 move	$t3,$fp
 subi	$t3,$t3,28
 
@@ -3520,12 +3581,12 @@ move	$t3,$gp
 subi	$t3,$t3,452
 
 sw	$t1,0($t3)
-#	i <= #24
+#	i <= #25
 #~~~i
 move	$t1,$gp
 subi	$t1,$t1,452
 lw	$t1,0($t1)
-#~~~#24
+#~~~#25
 move	$t2,$fp
 subi	$t2,$t2,28
 lw	$t2,0($t2)
@@ -3568,19 +3629,19 @@ li	$t1,2
 sw	$t1,0($sp)
 addi	$sp,$sp,-4
 
-##25 = 3 * 5
+##26 = 3 * 5
 #~~~5
 li	$t2,5
 #~~~3
 li	$t1,3
 mul	$t1,$t1,$t2
-#~~~#25
+#~~~#26
 move	$t3,$fp
 subi	$t3,$t3,12
 
 sw	$t1,0($t3)
-#	PUSH #25
-#~~~#25
+#	PUSH #26
+#~~~#26
 move	$t1,$fp
 subi	$t1,$t1,12
 lw	$t1,0($t1)
@@ -3603,45 +3664,45 @@ addi	$sp,$sp,-4
 
 #	call mymax
 jal	mymax
-##26 = RET_int / RET_int
+##27 = RET_int / RET_int
 #~~~RET_int
 move	$t2,$v1
 #~~~RET_int
 move	$t1,$v1
 div	$t1,$t1,$t2
-#~~~#26
+#~~~#27
 move	$t3,$fp
 subi	$t3,$t3,16
 
 sw	$t1,0($t3)
-##27 = 100 - 1
+##28 = 100 - 1
 #~~~1
 li	$t2,1
 #~~~100
 li	$t1,100
 sub	$t1,$t1,$t2
-#~~~#27
+#~~~#28
 move	$t3,$fp
 subi	$t3,$t3,20
 
 sw	$t1,0($t3)
-##28 = #26 * #27
-#~~~#27
+##29 = #27 * #28
+#~~~#28
 move	$t2,$fp
 subi	$t2,$t2,20
 lw	$t2,0($t2)
-#~~~#26
+#~~~#27
 move	$t1,$fp
 subi	$t1,$t1,16
 lw	$t1,0($t1)
 mul	$t1,$t1,$t2
-#~~~#28
+#~~~#29
 move	$t3,$fp
 subi	$t3,$t3,24
 
 sw	$t1,0($t3)
-#	PUSH #28
-#~~~#28
+#	PUSH #29
+#~~~#29
 move	$t1,$fp
 subi	$t1,$t1,24
 lw	$t1,0($t1)
@@ -3672,7 +3733,7 @@ addi	$sp,$sp,-4
 
 addi	$sp,$sp,-32
 #	PRINT "mx = "
-la	$a0,str14
+la	$a0,str13
 li	$v0,4
 syscall
 
@@ -3694,7 +3755,7 @@ subi	$t1,$t1,452
 
 sw	$t2,0($t1)
 LABEL_29:
-##29 = m - i
+##30 = m - i
 #~~~i
 move	$t2,$gp
 subi	$t2,$t2,452
@@ -3704,13 +3765,13 @@ move	$t1,$gp
 subi	$t1,$t1,464
 lw	$t1,0($t1)
 sub	$t1,$t1,$t2
-#~~~#29
+#~~~#30
 move	$t3,$fp
 subi	$t3,$t3,12
 
 sw	$t1,0($t3)
-#j = #29
-#~~~#29
+#j = #30
+#~~~#30
 move	$t2,$fp
 subi	$t2,$t2,12
 lw	$t2,0($t2)
@@ -3756,7 +3817,7 @@ syscall
 
 LABEL_30:
 #	PRINT "N    "
-la	$a0,str15
+la	$a0,str14
 li	$v0,4
 syscall
 
@@ -3770,7 +3831,7 @@ li	$v0,1
 syscall
 
 #	PRINT "M    "
-la	$a0,str16
+la	$a0,str15
 li	$v0,4
 syscall
 
@@ -3784,7 +3845,7 @@ li	$v0,1
 syscall
 
 #	PRINT "C    "
-la	$a0,str17
+la	$a0,str16
 li	$v0,4
 syscall
 
@@ -3814,7 +3875,7 @@ li	$v0,1
 syscall
 
 #	PRINT ""
-la	$a0,str18
+la	$a0,str17
 li	$v0,4
 syscall
 
@@ -3852,19 +3913,19 @@ li	$t1,1
 sw	$t1,0($sp)
 addi	$sp,$sp,-4
 
-##30 = -1 * -2
+##31 = -1 * -2
 #~~~-2
 li	$t2,-2
 #~~~-1
 li	$t1,-1
 mul	$t1,$t1,$t2
-#~~~#30
+#~~~#31
 move	$t3,$fp
 subi	$t3,$t3,16
 
 sw	$t1,0($t3)
-#	PUSH #30
-#~~~#30
+#	PUSH #31
+#~~~#31
 move	$t1,$fp
 subi	$t1,$t1,16
 lw	$t1,0($t1)
@@ -3881,7 +3942,7 @@ move	$t1,$gp
 subi	$t1,$t1,472
 
 sw	$t2,0($t1)
-##31 = x + +8
+##32 = x + +8
 #~~~+8
 li	$t2,8
 #~~~x
@@ -3889,13 +3950,13 @@ move	$t1,$gp
 subi	$t1,$t1,472
 lw	$t1,0($t1)
 add	$t1,$t1,$t2
-#~~~#31
+#~~~#32
 move	$t3,$fp
 subi	$t3,$t3,20
 
 sw	$t1,0($t3)
-#	PUSH #31
-#~~~#31
+#	PUSH #32
+#~~~#32
 move	$t1,$fp
 subi	$t1,$t1,20
 lw	$t1,0($t1)
@@ -4023,7 +4084,7 @@ sw	$t2,0($t1)
 LABEL_38:
 LABEL_34:
 #	PRINT "mx = "
-la	$a0,str14
+la	$a0,str13
 li	$v0,4
 syscall
 
@@ -4038,7 +4099,7 @@ syscall
 
 #	call init
 jal	init
-##32 = k + 1
+##33 = k + 1
 #~~~1
 li	$t2,1
 #~~~k
@@ -4046,13 +4107,13 @@ move	$t1,$gp
 subi	$t1,$t1,468
 lw	$t1,0($t1)
 add	$t1,$t1,$t2
-#~~~#32
+#~~~#33
 move	$t3,$fp
 subi	$t3,$t3,24
 
 sw	$t1,0($t3)
-#i = #32
-#~~~#32
+#i = #33
+#~~~#33
 move	$t2,$fp
 subi	$t2,$t2,24
 lw	$t2,0($t2)
@@ -4062,7 +4123,7 @@ subi	$t1,$t1,452
 
 sw	$t2,0($t1)
 LABEL_39:
-##33 = k + i
+##34 = k + i
 #~~~i
 move	$t2,$gp
 subi	$t2,$t2,452
@@ -4072,12 +4133,12 @@ move	$t1,$gp
 subi	$t1,$t1,468
 lw	$t1,0($t1)
 add	$t1,$t1,$t2
-#~~~#33
+#~~~#34
 move	$t3,$fp
 subi	$t3,$t3,28
 
 sw	$t1,0($t3)
-#a[i] = #33
+#a[i] = #34
 #~~~a[i]
 #~~~a
 move	$t1,$gp
@@ -4088,13 +4149,13 @@ subi	$t2,$t2,452
 lw	$t2,0($t2)
 sll	$t2,$t2,2
 sub	$t1,$t1,$t2
-#~~~#33
+#~~~#34
 move	$t2,$fp
 subi	$t2,$t2,28
 lw	$t2,0($t2)
 
 sw	$t2,0($t1)
-##34 = ch + i
+##35 = ch + i
 #~~~i
 move	$t2,$gp
 subi	$t2,$t2,452
@@ -4104,12 +4165,12 @@ move	$t1,$gp
 subi	$t1,$t1,488
 lw	$t1,0($t1)
 add	$t1,$t1,$t2
-#~~~#34
+#~~~#35
 move	$t3,$fp
 subi	$t3,$t3,32
 
 sw	$t1,0($t3)
-#s[i] = #34
+#s[i] = #35
 #~~~s[i]
 #~~~s
 move	$t1,$gp
@@ -4120,7 +4181,7 @@ subi	$t2,$t2,452
 lw	$t2,0($t2)
 sll	$t2,$t2,2
 sub	$t1,$t1,$t2
-#~~~#34
+#~~~#35
 move	$t2,$fp
 subi	$t2,$t2,32
 lw	$t2,0($t2)
@@ -4161,7 +4222,7 @@ subi	$t1,$t1,452
 
 sw	$t2,0($t1)
 LABEL_41:
-##35 = k + 1
+##36 = k + 1
 #~~~1
 li	$t2,1
 #~~~k
@@ -4169,13 +4230,13 @@ move	$t1,$gp
 subi	$t1,$t1,468
 lw	$t1,0($t1)
 add	$t1,$t1,$t2
-#~~~#35
+#~~~#36
 move	$t3,$fp
 subi	$t3,$t3,36
 
 sw	$t1,0($t3)
-#k = #35
-#~~~#35
+#k = #36
+#~~~#36
 move	$t2,$fp
 subi	$t2,$t2,36
 lw	$t2,0($t2)
@@ -4213,7 +4274,7 @@ bne	$t0,1,LABEL_42
 jal	LABEL_41
 LABEL_42:
 #	PRINT "k = "
-la	$a0,str19
+la	$a0,str18
 li	$v0,4
 syscall
 
@@ -4227,11 +4288,11 @@ li	$v0,1
 syscall
 
 #	PRINT "ch = "
-la	$a0,str20
+la	$a0,str19
 li	$v0,4
 syscall
 
-##36 = s[k]
+##37 = s[k]
 #~~~s[k]
 #~~~s
 move	$t1,$gp
@@ -4243,13 +4304,13 @@ lw	$t2,0($t2)
 sll	$t2,$t2,2
 sub	$t1,$t1,$t2
 lw	$t2,0($t1)
-#~~~#36
+#~~~#37
 move	$t1,$fp
 subi	$t1,$t1,40
 
 sw	$t2,0($t1)
-#	PRINT #36
-#~~~#36
+#	PRINT #37
+#~~~#37
 move	$t1,$fp
 subi	$t1,$t1,40
 lw	$t1,0($t1)
