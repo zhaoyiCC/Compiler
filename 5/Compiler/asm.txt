@@ -1,0 +1,2544 @@
+.data
+
+str19:	.asciiz ""
+
+str14:	.asciiz "*****"
+
+str13:	.asciiz "23333"
+
+str11:	.asciiz "666666"
+
+str18:	.asciiz "C    "
+
+str12:	.asciiz "HHHHH"
+
+str10:	.asciiz "Int="
+
+str17:	.asciiz "M    "
+
+str16:	.asciiz "N    "
+
+str4:	.asciiz "\n"
+
+str21:	.asciiz "ch = "
+
+str20:	.asciiz "k = "
+
+str3:	.asciiz "m="
+
+str15:	.asciiz "mx = "
+
+str1:	.asciiz "n="
+
+str2:	.asciiz "res="
+
+str9:	.asciiz "test_switch"
+
+str8:	.asciiz "work!!!"
+
+str5:	.asciiz "x="
+
+str6:	.asciiz "y="
+
+str7:	.asciiz "z="
+
+#	const int N = 100
+li	$t1,100
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	const int M = 10000
+li	$t1,10000
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	const int K = 0
+li	$t1,0
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	const char ch1 = 43
+li	$t1,43
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	const char ch2 = 45
+li	$t1,45
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	const char ch3 = 42
+li	$t1,42
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	const char ch4 = 47
+li	$t1,47
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	const char ch5 = 95
+li	$t1,95
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	const char ch6 = 97
+li	$t1,97
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	const char ch7 = 48
+li	$t1,48
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	const char ch8 = 34
+li	$t1,34
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	const char ch9 = 57
+li	$t1,57
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+li	$t0,0
+li	$t1,100
+LABEL_43:
+sw	$0,0($sp)
+addi	$sp,$sp,-4
+
+addi	$t0,$t0,1
+bne	$t0,$t1,LABEL_43
+
+sw	$0,0($sp)
+addi	$sp,$sp,-4
+
+sw	$0,0($sp)
+addi	$sp,$sp,-4
+
+sw	$0,0($sp)
+addi	$sp,$sp,-4
+
+sw	$0,0($sp)
+addi	$sp,$sp,-4
+
+sw	$0,0($sp)
+addi	$sp,$sp,-4
+
+sw	$0,0($sp)
+addi	$sp,$sp,-4
+
+sw	$0,0($sp)
+addi	$sp,$sp,-4
+
+sw	$0,0($sp)
+addi	$sp,$sp,-4
+
+sw	$0,0($sp)
+addi	$sp,$sp,-4
+
+sw	$0,0($sp)
+addi	$sp,$sp,-4
+
+li	$t0,0
+li	$t1,10000
+LABEL_44:
+sw	$0,0($sp)
+addi	$sp,$sp,-4
+
+addi	$t0,$t0,1
+bne	$t0,$t1,LABEL_44
+
+.text
+
+move	$gp, $sp
+#	const int N = 100
+li	$t1,100
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	const int M = 10000
+li	$t1,10000
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	const int K = 0
+li	$t1,0
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	const char ch1 = 43
+li	$t1,43
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	const char ch2 = 45
+li	$t1,45
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	const char ch3 = 42
+li	$t1,42
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	const char ch4 = 47
+li	$t1,47
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	const char ch5 = 95
+li	$t1,95
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	const char ch6 = 97
+li	$t1,97
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	const char ch7 = 48
+li	$t1,48
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	const char ch8 = 34
+li	$t1,34
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	const char ch9 = 57
+li	$t1,57
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+li	$t0,0
+li	$t1,100
+LABEL_45:
+sw	$0,0($sp)
+addi	$sp,$sp,-4
+
+addi	$t0,$t0,1
+bne	$t0,$t1,LABEL_45
+
+sw	$0,0($sp)
+addi	$sp,$sp,-4
+
+sw	$0,0($sp)
+addi	$sp,$sp,-4
+
+sw	$0,0($sp)
+addi	$sp,$sp,-4
+
+sw	$0,0($sp)
+addi	$sp,$sp,-4
+
+sw	$0,0($sp)
+addi	$sp,$sp,-4
+
+sw	$0,0($sp)
+addi	$sp,$sp,-4
+
+sw	$0,0($sp)
+addi	$sp,$sp,-4
+
+sw	$0,0($sp)
+addi	$sp,$sp,-4
+
+sw	$0,0($sp)
+addi	$sp,$sp,-4
+
+sw	$0,0($sp)
+addi	$sp,$sp,-4
+
+li	$t0,0
+li	$t1,10000
+LABEL_46:
+sw	$0,0($sp)
+addi	$sp,$sp,-4
+
+addi	$t0,$t0,1
+bne	$t0,$t1,LABEL_46
+
+j	main
+
+mymax:
+move	$s1,$sp
+move	$s0,$fp
+addi	$fp,$sp,8
+sw	$0,0($sp)
+addi	$sp,$sp,-4
+
+#END Const&Variable define
+sw	$s1,0($sp)
+addi	$sp,$sp,-4
+
+sw	$ra,0($sp)
+addi	$sp,$sp,-4
+
+sw	$s0,0($sp)
+addi	$sp,$sp,-4
+
+addi	$sp,$sp,-0
+#ans = x
+#~~~x
+move	$t2,$fp
+subi	$t2,$t2,0
+lw	$t2,0($t2)
+#~~~ans
+move	$t1,$fp
+subi	$t1,$t1,8
+
+sw	$t2,0($t1)
+#	y > x
+#~~~y
+move	$t1,$fp
+subi	$t1,$t1,4
+lw	$t1,0($t1)
+#~~~x
+move	$t2,$fp
+subi	$t2,$t2,0
+lw	$t2,0($t2)
+sgt	$t0,$t1,$t2
+#	BZ LABEL_1
+bne	$t0,1,LABEL_1
+#ans = y
+#~~~y
+move	$t2,$fp
+subi	$t2,$t2,4
+lw	$t2,0($t2)
+#~~~ans
+move	$t1,$fp
+subi	$t1,$t1,8
+
+sw	$t2,0($t1)
+#	GOTO LABEL_2
+jal	LABEL_2
+LABEL_1:
+LABEL_2:
+#	ans ret 
+#~~~ans
+move	$t1,$fp
+subi	$t1,$t1,8
+lw	$t1,0($t1)
+move	$v1,$t1
+lw	$sp,-12($fp)
+addi	$sp,$sp,0
+lw	$ra,-16($fp)
+lw	$fp,-20($fp)
+jr	$ra
+factorial:
+move	$s1,$sp
+move	$s0,$fp
+addi	$fp,$sp,4
+sw	$0,0($sp)
+addi	$sp,$sp,-4
+
+#END Const&Variable define
+sw	$s1,0($sp)
+addi	$sp,$sp,-4
+
+sw	$ra,0($sp)
+addi	$sp,$sp,-4
+
+sw	$s0,0($sp)
+addi	$sp,$sp,-4
+
+addi	$sp,$sp,-12
+#	PRINT "n="
+la	$a0,str1
+li	$v0,4
+syscall
+
+#	PRINT n
+#~~~n
+move	$t1,$fp
+subi	$t1,$t1,0
+lw	$t1,0($t1)
+move	$a0,$t1
+li	$v0,1
+syscall
+
+#	n < 0
+#~~~n
+move	$t1,$fp
+subi	$t1,$t1,0
+lw	$t1,0($t1)
+#~~~0
+li	$t2,0
+slt	$t0,$t1,$t2
+#	BZ LABEL_3
+bne	$t0,1,LABEL_3
+##1 = -1 * 1
+#~~~1
+li	$t2,1
+#~~~-1
+li	$t1,-1
+mul	$t1,$t1,$t2
+#~~~#1
+move	$t3,$fp
+subi	$t3,$t3,20
+
+sw	$t1,0($t3)
+#	#1 ret 
+#~~~#1
+move	$t1,$fp
+subi	$t1,$t1,20
+lw	$t1,0($t1)
+move	$v1,$t1
+lw	$sp,-8($fp)
+addi	$sp,$sp,0
+lw	$ra,-12($fp)
+lw	$fp,-16($fp)
+jr	$ra
+LABEL_3:
+#	SWITCH n
+#	n == 0
+#~~~n
+move	$t1,$fp
+subi	$t1,$t1,0
+lw	$t1,0($t1)
+#~~~0
+li	$t2,0
+seq	$t0,$t1,$t2
+#	BZ LABEL_6
+bne	$t0,1,LABEL_6
+#res = 1
+#~~~1
+li	$t2,1
+#~~~res
+move	$t1,$fp
+subi	$t1,$t1,4
+
+sw	$t2,0($t1)
+#	GOTO LABEL_8
+jal	LABEL_8
+LABEL_6:
+#	n == 1
+#~~~n
+move	$t1,$fp
+subi	$t1,$t1,0
+lw	$t1,0($t1)
+#~~~1
+li	$t2,1
+seq	$t0,$t1,$t2
+#	BZ LABEL_7
+bne	$t0,1,LABEL_7
+#res = 1
+#~~~1
+li	$t2,1
+#~~~res
+move	$t1,$fp
+subi	$t1,$t1,4
+
+sw	$t2,0($t1)
+#	GOTO LABEL_8
+jal	LABEL_8
+LABEL_7:
+##2 = n - 1
+#~~~1
+li	$t2,1
+#~~~n
+move	$t1,$fp
+subi	$t1,$t1,0
+lw	$t1,0($t1)
+sub	$t1,$t1,$t2
+#~~~#2
+move	$t3,$fp
+subi	$t3,$t3,24
+
+sw	$t1,0($t3)
+#	PUSH #2
+#~~~#2
+move	$t1,$fp
+subi	$t1,$t1,24
+lw	$t1,0($t1)
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	call factorial
+jal	factorial
+##3 = n * RET_int
+#~~~RET_int
+move	$t2,$v1
+#~~~n
+move	$t1,$fp
+subi	$t1,$t1,0
+lw	$t1,0($t1)
+mul	$t1,$t1,$t2
+#~~~#3
+move	$t3,$fp
+subi	$t3,$t3,28
+
+sw	$t1,0($t3)
+#res = #3
+#~~~#3
+move	$t2,$fp
+subi	$t2,$t2,28
+lw	$t2,0($t2)
+#~~~res
+move	$t1,$fp
+subi	$t1,$t1,4
+
+sw	$t2,0($t1)
+LABEL_8:
+#	PRINT "res="
+la	$a0,str2
+li	$v0,4
+syscall
+
+#	PRINT res
+#~~~res
+move	$t1,$fp
+subi	$t1,$t1,4
+lw	$t1,0($t1)
+move	$a0,$t1
+li	$v0,1
+syscall
+
+#	res ret 
+#~~~res
+move	$t1,$fp
+subi	$t1,$t1,4
+lw	$t1,0($t1)
+move	$v1,$t1
+lw	$sp,-8($fp)
+addi	$sp,$sp,0
+lw	$ra,-12($fp)
+lw	$fp,-16($fp)
+jr	$ra
+C:
+move	$s1,$sp
+move	$s0,$fp
+addi	$fp,$sp,8
+sw	$0,0($sp)
+addi	$sp,$sp,-4
+
+sw	$0,0($sp)
+addi	$sp,$sp,-4
+
+sw	$0,0($sp)
+addi	$sp,$sp,-4
+
+#END Const&Variable define
+sw	$s1,0($sp)
+addi	$sp,$sp,-4
+
+sw	$ra,0($sp)
+addi	$sp,$sp,-4
+
+sw	$s0,0($sp)
+addi	$sp,$sp,-4
+
+addi	$sp,$sp,-16
+#	PRINT "m="
+la	$a0,str3
+li	$v0,4
+syscall
+
+#	PRINT m
+#~~~m
+move	$t1,$fp
+subi	$t1,$t1,0
+lw	$t1,0($t1)
+move	$a0,$t1
+li	$v0,1
+syscall
+
+#	PRINT "n="
+la	$a0,str1
+li	$v0,4
+syscall
+
+#	PRINT n
+#~~~n
+move	$t1,$fp
+subi	$t1,$t1,4
+lw	$t1,0($t1)
+move	$a0,$t1
+li	$v0,1
+syscall
+
+#	PRINT "\n"
+la	$a0,str4
+li	$v0,4
+syscall
+
+#	m <= n
+#~~~m
+move	$t1,$fp
+subi	$t1,$t1,0
+lw	$t1,0($t1)
+#~~~n
+move	$t2,$fp
+subi	$t2,$t2,4
+lw	$t2,0($t2)
+sle	$t0,$t1,$t2
+#	BZ LABEL_9
+bne	$t0,1,LABEL_9
+LABEL_9:
+#	m > n
+#~~~m
+move	$t1,$fp
+subi	$t1,$t1,0
+lw	$t1,0($t1)
+#~~~n
+move	$t2,$fp
+subi	$t2,$t2,4
+lw	$t2,0($t2)
+sgt	$t0,$t1,$t2
+#	BZ LABEL_11
+bne	$t0,1,LABEL_11
+##4 = -1 * 1
+#~~~1
+li	$t2,1
+#~~~-1
+li	$t1,-1
+mul	$t1,$t1,$t2
+#~~~#4
+move	$t3,$fp
+subi	$t3,$t3,32
+
+sw	$t1,0($t3)
+#	#4 ret 
+#~~~#4
+move	$t1,$fp
+subi	$t1,$t1,32
+lw	$t1,0($t1)
+move	$v1,$t1
+lw	$sp,-20($fp)
+addi	$sp,$sp,0
+lw	$ra,-24($fp)
+lw	$fp,-28($fp)
+jr	$ra
+LABEL_11:
+#	PUSH n
+#~~~n
+move	$t1,$fp
+subi	$t1,$t1,4
+lw	$t1,0($t1)
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	call factorial
+jal	factorial
+#x = RET_int
+#~~~RET_int
+move	$t2,$v1
+#~~~x
+move	$t1,$fp
+subi	$t1,$t1,8
+
+sw	$t2,0($t1)
+#	PRINT "x="
+la	$a0,str5
+li	$v0,4
+syscall
+
+#	PRINT x
+#~~~x
+move	$t1,$fp
+subi	$t1,$t1,8
+lw	$t1,0($t1)
+move	$a0,$t1
+li	$v0,1
+syscall
+
+#	PUSH m
+#~~~m
+move	$t1,$fp
+subi	$t1,$t1,0
+lw	$t1,0($t1)
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	call factorial
+jal	factorial
+#y = RET_int
+#~~~RET_int
+move	$t2,$v1
+#~~~y
+move	$t1,$fp
+subi	$t1,$t1,12
+
+sw	$t2,0($t1)
+#	PRINT "y="
+la	$a0,str6
+li	$v0,4
+syscall
+
+#	PRINT y
+#~~~y
+move	$t1,$fp
+subi	$t1,$t1,12
+lw	$t1,0($t1)
+move	$a0,$t1
+li	$v0,1
+syscall
+
+##5 = n - m
+#~~~m
+move	$t2,$fp
+subi	$t2,$t2,0
+lw	$t2,0($t2)
+#~~~n
+move	$t1,$fp
+subi	$t1,$t1,4
+lw	$t1,0($t1)
+sub	$t1,$t1,$t2
+#~~~#5
+move	$t3,$fp
+subi	$t3,$t3,36
+
+sw	$t1,0($t3)
+#	PUSH #5
+#~~~#5
+move	$t1,$fp
+subi	$t1,$t1,36
+lw	$t1,0($t1)
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	call factorial
+jal	factorial
+#z = RET_int
+#~~~RET_int
+move	$t2,$v1
+#~~~z
+move	$t1,$fp
+subi	$t1,$t1,16
+
+sw	$t2,0($t1)
+#	PRINT "z="
+la	$a0,str7
+li	$v0,4
+syscall
+
+#	PRINT z
+#~~~z
+move	$t1,$fp
+subi	$t1,$t1,16
+lw	$t1,0($t1)
+move	$a0,$t1
+li	$v0,1
+syscall
+
+##6 = x + y
+#~~~y
+move	$t2,$fp
+subi	$t2,$t2,12
+lw	$t2,0($t2)
+#~~~x
+move	$t1,$fp
+subi	$t1,$t1,8
+lw	$t1,0($t1)
+add	$t1,$t1,$t2
+#~~~#6
+move	$t3,$fp
+subi	$t3,$t3,40
+
+sw	$t1,0($t3)
+##7 = #6 + z
+#~~~z
+move	$t2,$fp
+subi	$t2,$t2,16
+lw	$t2,0($t2)
+#~~~#6
+move	$t1,$fp
+subi	$t1,$t1,40
+lw	$t1,0($t1)
+add	$t1,$t1,$t2
+#~~~#7
+move	$t3,$fp
+subi	$t3,$t3,44
+
+sw	$t1,0($t3)
+#	#7 ret 
+#~~~#7
+move	$t1,$fp
+subi	$t1,$t1,44
+lw	$t1,0($t1)
+move	$v1,$t1
+lw	$sp,-20($fp)
+addi	$sp,$sp,0
+lw	$ra,-24($fp)
+lw	$fp,-28($fp)
+jr	$ra
+init:
+move	$s1,$sp
+move	$s0,$fp
+addi	$fp,$sp,0
+#END Const&Variable define
+sw	$s1,0($sp)
+addi	$sp,$sp,-4
+
+sw	$ra,0($sp)
+addi	$sp,$sp,-4
+
+sw	$s0,0($sp)
+addi	$sp,$sp,-4
+
+addi	$sp,$sp,-0
+#m = 5
+#~~~5
+li	$t2,5
+#~~~m
+move	$t1,$gp
+subi	$t1,$t1,464
+
+sw	$t2,0($t1)
+#	READ n
+#~~~n
+move	$t1,$gp
+subi	$t1,$t1,460
+li	$v0,5
+syscall
+
+sw	$v0,0($t1)
+
+#	READ m
+#~~~m
+move	$t1,$gp
+subi	$t1,$t1,464
+li	$v0,5
+syscall
+
+sw	$v0,0($t1)
+
+#	READ k
+#~~~k
+move	$t1,$gp
+subi	$t1,$t1,468
+li	$v0,5
+syscall
+
+sw	$v0,0($t1)
+
+#	READ ch
+#~~~ch
+move	$t1,$gp
+subi	$t1,$t1,488
+li	$v0,12
+syscall
+
+sw	$v0,0($t1)
+
+#	 ret 
+lw	$sp,-0($fp)
+addi	$sp,$sp,0
+lw	$ra,-4($fp)
+lw	$fp,-8($fp)
+jr	$ra
+work:
+move	$s1,$sp
+move	$s0,$fp
+addi	$fp,$sp,8
+sw	$0,0($sp)
+addi	$sp,$sp,-4
+
+#END Const&Variable define
+sw	$s1,0($sp)
+addi	$sp,$sp,-4
+
+sw	$ra,0($sp)
+addi	$sp,$sp,-4
+
+sw	$s0,0($sp)
+addi	$sp,$sp,-4
+
+addi	$sp,$sp,-12
+#	PRINT "work!!!"
+la	$a0,str8
+li	$v0,4
+syscall
+
+#	PUSH m
+#~~~m
+move	$t1,$fp
+subi	$t1,$t1,0
+lw	$t1,0($t1)
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	PUSH n
+#~~~n
+move	$t1,$fp
+subi	$t1,$t1,4
+lw	$t1,0($t1)
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	call C
+jal	C
+#ans = RET_int
+#~~~RET_int
+move	$t2,$v1
+#~~~ans
+move	$t1,$fp
+subi	$t1,$t1,8
+
+sw	$t2,0($t1)
+##8 = ans / 2
+#~~~2
+li	$t2,2
+#~~~ans
+move	$t1,$fp
+subi	$t1,$t1,8
+lw	$t1,0($t1)
+div	$t1,$t1,$t2
+#~~~#8
+move	$t3,$fp
+subi	$t3,$t3,24
+
+sw	$t1,0($t3)
+##9 = 2 * #8
+#~~~#8
+move	$t2,$fp
+subi	$t2,$t2,24
+lw	$t2,0($t2)
+#~~~2
+li	$t1,2
+mul	$t1,$t1,$t2
+#~~~#9
+move	$t3,$fp
+subi	$t3,$t3,28
+
+sw	$t1,0($t3)
+##10 = ans - #9
+#~~~#9
+move	$t2,$fp
+subi	$t2,$t2,28
+lw	$t2,0($t2)
+#~~~ans
+move	$t1,$fp
+subi	$t1,$t1,8
+lw	$t1,0($t1)
+sub	$t1,$t1,$t2
+#~~~#10
+move	$t3,$fp
+subi	$t3,$t3,32
+
+sw	$t1,0($t3)
+#	SWITCH #10
+#	#10 == 1
+#~~~#10
+move	$t1,$fp
+subi	$t1,$t1,32
+lw	$t1,0($t1)
+#~~~1
+li	$t2,1
+seq	$t0,$t1,$t2
+#	BZ LABEL_14
+bne	$t0,1,LABEL_14
+#	'O' ret 
+#~~~'O'
+li	$t1,79
+move	$v1,$t1
+lw	$sp,-12($fp)
+addi	$sp,$sp,0
+lw	$ra,-16($fp)
+lw	$fp,-20($fp)
+jr	$ra
+#	GOTO LABEL_15
+jal	LABEL_15
+LABEL_14:
+#	'E' ret 
+#~~~'E'
+li	$t1,69
+move	$v1,$t1
+lw	$sp,-12($fp)
+addi	$sp,$sp,0
+lw	$ra,-16($fp)
+lw	$fp,-20($fp)
+jr	$ra
+LABEL_15:
+#	'*' ret 
+#~~~'*'
+li	$t1,42
+move	$v1,$t1
+lw	$sp,-12($fp)
+addi	$sp,$sp,0
+lw	$ra,-16($fp)
+lw	$fp,-20($fp)
+jr	$ra
+test_switch:
+move	$s1,$sp
+move	$s0,$fp
+addi	$fp,$sp,0
+sw	$0,0($sp)
+addi	$sp,$sp,-4
+
+li	$t0,0
+li	$t1,1000
+LABEL_47:
+sw	$0,0($sp)
+addi	$sp,$sp,-4
+
+addi	$t0,$t0,1
+bne	$t0,$t1,LABEL_47
+
+#END Const&Variable define
+sw	$s1,0($sp)
+addi	$sp,$sp,-4
+
+sw	$ra,0($sp)
+addi	$sp,$sp,-4
+
+sw	$s0,0($sp)
+addi	$sp,$sp,-4
+
+addi	$sp,$sp,-100
+#	PRINT "test_switch"
+la	$a0,str9
+li	$v0,4
+syscall
+
+#	PRINT "\n"
+la	$a0,str4
+li	$v0,4
+syscall
+
+##11 = -1 * 1
+#~~~1
+li	$t2,1
+#~~~-1
+li	$t1,-1
+mul	$t1,$t1,$t2
+#~~~#11
+move	$t3,$fp
+subi	$t3,$t3,20
+
+sw	$t1,0($t3)
+#a[2] = #11
+#~~~a[2]
+#~~~a
+move	$t1,$fp
+subi	$t1,$t1,4
+#~~~2
+li	$t2,2
+sll	$t2,$t2,2
+sub	$t1,$t1,$t2
+#~~~#11
+move	$t2,$fp
+subi	$t2,$t2,20
+lw	$t2,0($t2)
+
+sw	$t2,0($t1)
+##12 = -1 * 2
+#~~~2
+li	$t2,2
+#~~~-1
+li	$t1,-1
+mul	$t1,$t1,$t2
+#~~~#12
+move	$t3,$fp
+subi	$t3,$t3,24
+
+sw	$t1,0($t3)
+#a[1] = #12
+#~~~a[1]
+#~~~a
+move	$t1,$fp
+subi	$t1,$t1,4
+#~~~1
+li	$t2,1
+sll	$t2,$t2,2
+sub	$t1,$t1,$t2
+#~~~#12
+move	$t2,$fp
+subi	$t2,$t2,24
+lw	$t2,0($t2)
+
+sw	$t2,0($t1)
+##13 = 2 * 5
+#~~~5
+li	$t2,5
+#~~~2
+li	$t1,2
+mul	$t1,$t1,$t2
+#~~~#13
+move	$t3,$fp
+subi	$t3,$t3,28
+
+sw	$t1,0($t3)
+##14 = #13 / 4
+#~~~4
+li	$t2,4
+#~~~#13
+move	$t1,$fp
+subi	$t1,$t1,28
+lw	$t1,0($t1)
+div	$t1,$t1,$t2
+#~~~#14
+move	$t3,$fp
+subi	$t3,$t3,32
+
+sw	$t1,0($t3)
+#Int = #14
+#~~~#14
+move	$t2,$fp
+subi	$t2,$t2,32
+lw	$t2,0($t2)
+#~~~Int
+move	$t1,$fp
+subi	$t1,$t1,0
+
+sw	$t2,0($t1)
+#	PRINT "Int="
+la	$a0,str10
+li	$v0,4
+syscall
+
+#	PRINT Int
+#~~~Int
+move	$t1,$fp
+subi	$t1,$t1,0
+lw	$t1,0($t1)
+move	$a0,$t1
+li	$v0,1
+syscall
+
+##15 = 2 * 5
+#~~~5
+li	$t2,5
+#~~~2
+li	$t1,2
+mul	$t1,$t1,$t2
+#~~~#15
+move	$t3,$fp
+subi	$t3,$t3,36
+
+sw	$t1,0($t3)
+##16 = #15 / 4
+#~~~4
+li	$t2,4
+#~~~#15
+move	$t1,$fp
+subi	$t1,$t1,36
+lw	$t1,0($t1)
+div	$t1,$t1,$t2
+#~~~#16
+move	$t3,$fp
+subi	$t3,$t3,40
+
+sw	$t1,0($t3)
+##17 = a[#16]
+#~~~a[#16]
+#~~~a
+move	$t1,$fp
+subi	$t1,$t1,4
+#~~~#16
+move	$t2,$fp
+subi	$t2,$t2,40
+lw	$t2,0($t2)
+sll	$t2,$t2,2
+sub	$t1,$t1,$t2
+lw	$t2,0($t1)
+#~~~#17
+move	$t1,$fp
+subi	$t1,$t1,44
+
+sw	$t2,0($t1)
+#Int = #17
+#~~~#17
+move	$t2,$fp
+subi	$t2,$t2,44
+lw	$t2,0($t2)
+#~~~Int
+move	$t1,$fp
+subi	$t1,$t1,0
+
+sw	$t2,0($t1)
+#	PRINT "Int="
+la	$a0,str10
+li	$v0,4
+syscall
+
+#	PRINT Int
+#~~~Int
+move	$t1,$fp
+subi	$t1,$t1,0
+lw	$t1,0($t1)
+move	$a0,$t1
+li	$v0,1
+syscall
+
+##18 = 2 * 5
+#~~~5
+li	$t2,5
+#~~~2
+li	$t1,2
+mul	$t1,$t1,$t2
+#~~~#18
+move	$t3,$fp
+subi	$t3,$t3,48
+
+sw	$t1,0($t3)
+##19 = #18 / 4
+#~~~4
+li	$t2,4
+#~~~#18
+move	$t1,$fp
+subi	$t1,$t1,48
+lw	$t1,0($t1)
+div	$t1,$t1,$t2
+#~~~#19
+move	$t3,$fp
+subi	$t3,$t3,52
+
+sw	$t1,0($t3)
+##20 = a[#19]
+#~~~a[#19]
+#~~~a
+move	$t1,$fp
+subi	$t1,$t1,4
+#~~~#19
+move	$t2,$fp
+subi	$t2,$t2,52
+lw	$t2,0($t2)
+sll	$t2,$t2,2
+sub	$t1,$t1,$t2
+lw	$t2,0($t1)
+#~~~#20
+move	$t1,$fp
+subi	$t1,$t1,56
+
+sw	$t2,0($t1)
+##21 = 2 + #20
+#~~~#20
+move	$t2,$fp
+subi	$t2,$t2,56
+lw	$t2,0($t2)
+#~~~2
+li	$t1,2
+add	$t1,$t1,$t2
+#~~~#21
+move	$t3,$fp
+subi	$t3,$t3,60
+
+sw	$t1,0($t3)
+##22 = a[#21]
+#~~~a[#21]
+#~~~a
+move	$t1,$fp
+subi	$t1,$t1,4
+#~~~#21
+move	$t2,$fp
+subi	$t2,$t2,60
+lw	$t2,0($t2)
+sll	$t2,$t2,2
+sub	$t1,$t1,$t2
+lw	$t2,0($t1)
+#~~~#22
+move	$t1,$fp
+subi	$t1,$t1,64
+
+sw	$t2,0($t1)
+#Int = #22
+#~~~#22
+move	$t2,$fp
+subi	$t2,$t2,64
+lw	$t2,0($t2)
+#~~~Int
+move	$t1,$fp
+subi	$t1,$t1,0
+
+sw	$t2,0($t1)
+#	PRINT "Int="
+la	$a0,str10
+li	$v0,4
+syscall
+
+#	PRINT Int
+#~~~Int
+move	$t1,$fp
+subi	$t1,$t1,0
+lw	$t1,0($t1)
+move	$a0,$t1
+li	$v0,1
+syscall
+
+##23 = 2 * 5
+#~~~5
+li	$t2,5
+#~~~2
+li	$t1,2
+mul	$t1,$t1,$t2
+#~~~#23
+move	$t3,$fp
+subi	$t3,$t3,68
+
+sw	$t1,0($t3)
+##24 = #23 / 4
+#~~~4
+li	$t2,4
+#~~~#23
+move	$t1,$fp
+subi	$t1,$t1,68
+lw	$t1,0($t1)
+div	$t1,$t1,$t2
+#~~~#24
+move	$t3,$fp
+subi	$t3,$t3,72
+
+sw	$t1,0($t3)
+##25 = a[#24]
+#~~~a[#24]
+#~~~a
+move	$t1,$fp
+subi	$t1,$t1,4
+#~~~#24
+move	$t2,$fp
+subi	$t2,$t2,72
+lw	$t2,0($t2)
+sll	$t2,$t2,2
+sub	$t1,$t1,$t2
+lw	$t2,0($t1)
+#~~~#25
+move	$t1,$fp
+subi	$t1,$t1,76
+
+sw	$t2,0($t1)
+##26 = 2 + #25
+#~~~#25
+move	$t2,$fp
+subi	$t2,$t2,76
+lw	$t2,0($t2)
+#~~~2
+li	$t1,2
+add	$t1,$t1,$t2
+#~~~#26
+move	$t3,$fp
+subi	$t3,$t3,80
+
+sw	$t1,0($t3)
+##27 = a[#26]
+#~~~a[#26]
+#~~~a
+move	$t1,$fp
+subi	$t1,$t1,4
+#~~~#26
+move	$t2,$fp
+subi	$t2,$t2,80
+lw	$t2,0($t2)
+sll	$t2,$t2,2
+sub	$t1,$t1,$t2
+lw	$t2,0($t1)
+#~~~#27
+move	$t1,$fp
+subi	$t1,$t1,84
+
+sw	$t2,0($t1)
+##28 = #27 + 3
+#~~~3
+li	$t2,3
+#~~~#27
+move	$t1,$fp
+subi	$t1,$t1,84
+lw	$t1,0($t1)
+add	$t1,$t1,$t2
+#~~~#28
+move	$t3,$fp
+subi	$t3,$t3,88
+
+sw	$t1,0($t3)
+##29 = a[#28]
+#~~~a[#28]
+#~~~a
+move	$t1,$fp
+subi	$t1,$t1,4
+#~~~#28
+move	$t2,$fp
+subi	$t2,$t2,88
+lw	$t2,0($t2)
+sll	$t2,$t2,2
+sub	$t1,$t1,$t2
+lw	$t2,0($t1)
+#~~~#29
+move	$t1,$fp
+subi	$t1,$t1,92
+
+sw	$t2,0($t1)
+#Int = #29
+#~~~#29
+move	$t2,$fp
+subi	$t2,$t2,92
+lw	$t2,0($t2)
+#~~~Int
+move	$t1,$fp
+subi	$t1,$t1,0
+
+sw	$t2,0($t1)
+#	PRINT "Int="
+la	$a0,str10
+li	$v0,4
+syscall
+
+#	PRINT Int
+#~~~Int
+move	$t1,$fp
+subi	$t1,$t1,0
+lw	$t1,0($t1)
+move	$a0,$t1
+li	$v0,1
+syscall
+
+#	SWITCH Int
+#	Int == -1
+#~~~Int
+move	$t1,$fp
+subi	$t1,$t1,0
+lw	$t1,0($t1)
+#~~~-1
+li	$t2,-1
+seq	$t0,$t1,$t2
+#	BZ LABEL_17
+bne	$t0,1,LABEL_17
+#	PRINT "666666"
+la	$a0,str11
+li	$v0,4
+syscall
+
+#	GOTO LABEL_19
+jal	LABEL_19
+LABEL_17:
+#	Int == -2
+#~~~Int
+move	$t1,$fp
+subi	$t1,$t1,0
+lw	$t1,0($t1)
+#~~~-2
+li	$t2,-2
+seq	$t0,$t1,$t2
+#	BZ LABEL_18
+bne	$t0,1,LABEL_18
+#	PRINT "HHHHH"
+la	$a0,str12
+li	$v0,4
+syscall
+
+#	GOTO LABEL_19
+jal	LABEL_19
+LABEL_18:
+LABEL_19:
+##30 = Int + 'b'
+#~~~'b'
+li	$t2,98
+#~~~Int
+move	$t1,$fp
+subi	$t1,$t1,0
+lw	$t1,0($t1)
+add	$t1,$t1,$t2
+#~~~#30
+move	$t3,$fp
+subi	$t3,$t3,96
+
+sw	$t1,0($t3)
+#	SWITCH #30
+#	#30 == 1
+#~~~#30
+move	$t1,$fp
+subi	$t1,$t1,96
+lw	$t1,0($t1)
+#~~~1
+li	$t2,1
+seq	$t0,$t1,$t2
+#	BZ LABEL_21
+bne	$t0,1,LABEL_21
+##31 = Int + 1
+#~~~1
+li	$t2,1
+#~~~Int
+move	$t1,$fp
+subi	$t1,$t1,0
+lw	$t1,0($t1)
+add	$t1,$t1,$t2
+#~~~#31
+move	$t3,$fp
+subi	$t3,$t3,100
+
+sw	$t1,0($t3)
+#Int = #31
+#~~~#31
+move	$t2,$fp
+subi	$t2,$t2,100
+lw	$t2,0($t2)
+#~~~Int
+move	$t1,$fp
+subi	$t1,$t1,0
+
+sw	$t2,0($t1)
+#	GOTO LABEL_24
+jal	LABEL_24
+LABEL_21:
+#	#30 == 'a'
+#~~~#30
+move	$t1,$fp
+subi	$t1,$t1,96
+lw	$t1,0($t1)
+#~~~'a'
+li	$t2,97
+seq	$t0,$t1,$t2
+#	BZ LABEL_22
+bne	$t0,1,LABEL_22
+#	PRINT "23333"
+la	$a0,str13
+li	$v0,4
+syscall
+
+#	GOTO LABEL_24
+jal	LABEL_24
+LABEL_22:
+#	#30 == -123
+#~~~#30
+move	$t1,$fp
+subi	$t1,$t1,96
+lw	$t1,0($t1)
+#~~~-123
+li	$t2,-123
+seq	$t0,$t1,$t2
+#	BZ LABEL_23
+bne	$t0,1,LABEL_23
+#	PRINT "*****"
+la	$a0,str14
+li	$v0,4
+syscall
+
+#	PRINT Int
+#~~~Int
+move	$t1,$fp
+subi	$t1,$t1,0
+lw	$t1,0($t1)
+move	$a0,$t1
+li	$v0,1
+syscall
+
+#	PRINT Int
+#~~~Int
+move	$t1,$fp
+subi	$t1,$t1,0
+lw	$t1,0($t1)
+move	$a0,$t1
+li	$v0,1
+syscall
+
+#	GOTO LABEL_24
+jal	LABEL_24
+LABEL_23:
+#	READ Int
+#~~~Int
+move	$t1,$fp
+subi	$t1,$t1,0
+li	$v0,5
+syscall
+
+sw	$v0,0($t1)
+
+#	READ Int
+#~~~Int
+move	$t1,$fp
+subi	$t1,$t1,0
+li	$v0,5
+syscall
+
+sw	$v0,0($t1)
+
+#	READ Int
+#~~~Int
+move	$t1,$fp
+subi	$t1,$t1,0
+li	$v0,5
+syscall
+
+sw	$v0,0($t1)
+
+LABEL_24:
+##32 = a[1]
+#~~~a[1]
+#~~~a
+move	$t1,$fp
+subi	$t1,$t1,4
+#~~~1
+li	$t2,1
+sll	$t2,$t2,2
+sub	$t1,$t1,$t2
+lw	$t2,0($t1)
+#~~~#32
+move	$t1,$fp
+subi	$t1,$t1,104
+
+sw	$t2,0($t1)
+##33 = 1 - #32
+#~~~#32
+move	$t2,$fp
+subi	$t2,$t2,104
+lw	$t2,0($t2)
+#~~~1
+li	$t1,1
+sub	$t1,$t1,$t2
+#~~~#33
+move	$t3,$fp
+subi	$t3,$t3,108
+
+sw	$t1,0($t3)
+##34 = a[#33]
+#~~~a[#33]
+#~~~a
+move	$t1,$fp
+subi	$t1,$t1,4
+#~~~#33
+move	$t2,$fp
+subi	$t2,$t2,108
+lw	$t2,0($t2)
+sll	$t2,$t2,2
+sub	$t1,$t1,$t2
+lw	$t2,0($t1)
+#~~~#34
+move	$t1,$fp
+subi	$t1,$t1,112
+
+sw	$t2,0($t1)
+##35 = a[#34]
+#~~~a[#34]
+#~~~a
+move	$t1,$fp
+subi	$t1,$t1,4
+#~~~#34
+move	$t2,$fp
+subi	$t2,$t2,112
+lw	$t2,0($t2)
+sll	$t2,$t2,2
+sub	$t1,$t1,$t2
+lw	$t2,0($t1)
+#~~~#35
+move	$t1,$fp
+subi	$t1,$t1,116
+
+sw	$t2,0($t1)
+#Int = #35
+#~~~#35
+move	$t2,$fp
+subi	$t2,$t2,116
+lw	$t2,0($t2)
+#~~~Int
+move	$t1,$fp
+subi	$t1,$t1,0
+
+sw	$t2,0($t1)
+#	 ret 
+lw	$sp,-8($fp)
+addi	$sp,$sp,0
+lw	$ra,-12($fp)
+lw	$fp,-16($fp)
+jr	$ra
+test_for:
+move	$s1,$sp
+move	$s0,$fp
+addi	$fp,$sp,4
+#END Const&Variable define
+sw	$s1,0($sp)
+addi	$sp,$sp,-4
+
+sw	$ra,0($sp)
+addi	$sp,$sp,-4
+
+sw	$s0,0($sp)
+addi	$sp,$sp,-4
+
+addi	$sp,$sp,-16
+##36 = 0 + -2
+#~~~-2
+li	$t2,-2
+#~~~0
+li	$t1,0
+add	$t1,$t1,$t2
+#~~~#36
+move	$t3,$fp
+subi	$t3,$t3,16
+
+sw	$t1,0($t3)
+#Int = #36
+#~~~#36
+move	$t2,$fp
+subi	$t2,$t2,16
+lw	$t2,0($t2)
+#~~~Int
+move	$t1,$fp
+subi	$t1,$t1,0
+
+sw	$t2,0($t1)
+##37 = Int + 1
+#~~~1
+li	$t2,1
+#~~~Int
+move	$t1,$fp
+subi	$t1,$t1,0
+lw	$t1,0($t1)
+add	$t1,$t1,$t2
+#~~~#37
+move	$t3,$fp
+subi	$t3,$t3,20
+
+sw	$t1,0($t3)
+#Int = #37
+#~~~#37
+move	$t2,$fp
+subi	$t2,$t2,20
+lw	$t2,0($t2)
+#~~~Int
+move	$t1,$fp
+subi	$t1,$t1,0
+
+sw	$t2,0($t1)
+##38 = Int + 1
+#~~~1
+li	$t2,1
+#~~~Int
+move	$t1,$fp
+subi	$t1,$t1,0
+lw	$t1,0($t1)
+add	$t1,$t1,$t2
+#~~~#38
+move	$t3,$fp
+subi	$t3,$t3,24
+
+sw	$t1,0($t3)
+#Int = #38
+#~~~#38
+move	$t2,$fp
+subi	$t2,$t2,24
+lw	$t2,0($t2)
+#~~~Int
+move	$t1,$fp
+subi	$t1,$t1,0
+
+sw	$t2,0($t1)
+#i = Int
+#~~~Int
+move	$t2,$fp
+subi	$t2,$t2,0
+lw	$t2,0($t2)
+#~~~i
+move	$t1,$gp
+subi	$t1,$t1,452
+
+sw	$t2,0($t1)
+LABEL_25:
+##39 = 1000 - Int
+#~~~Int
+move	$t2,$fp
+subi	$t2,$t2,0
+lw	$t2,0($t2)
+#~~~1000
+li	$t1,1000
+sub	$t1,$t1,$t2
+#~~~#39
+move	$t3,$fp
+subi	$t3,$t3,28
+
+sw	$t1,0($t3)
+#i = Int
+#~~~Int
+move	$t2,$fp
+subi	$t2,$t2,0
+lw	$t2,0($t2)
+#~~~i
+move	$t1,$gp
+subi	$t1,$t1,452
+
+sw	$t2,0($t1)
+LABEL_26:
+#i = i + 1
+#~~~1
+li	$t2,1
+#~~~i
+move	$t1,$gp
+subi	$t1,$t1,452
+lw	$t1,0($t1)
+add	$t1,$t1,$t2
+#~~~i
+move	$t3,$gp
+subi	$t3,$t3,452
+
+sw	$t1,0($t3)
+#	i <= i
+#~~~i
+move	$t1,$gp
+subi	$t1,$t1,452
+lw	$t1,0($t1)
+#~~~i
+move	$t2,$gp
+subi	$t2,$t2,452
+lw	$t2,0($t2)
+sle	$t0,$t1,$t2
+#	BZ LABEL_27
+bne	$t0,1,LABEL_27
+#	GOTO LABEL_26
+jal	LABEL_26
+LABEL_27:
+#i = i + 1
+#~~~1
+li	$t2,1
+#~~~i
+move	$t1,$gp
+subi	$t1,$t1,452
+lw	$t1,0($t1)
+add	$t1,$t1,$t2
+#~~~i
+move	$t3,$gp
+subi	$t3,$t3,452
+
+sw	$t1,0($t3)
+#	i <= #39
+#~~~i
+move	$t1,$gp
+subi	$t1,$t1,452
+lw	$t1,0($t1)
+#~~~#39
+move	$t2,$fp
+subi	$t2,$t2,28
+lw	$t2,0($t2)
+sle	$t0,$t1,$t2
+#	BZ LABEL_28
+bne	$t0,1,LABEL_28
+#	GOTO LABEL_25
+jal	LABEL_25
+LABEL_28:
+#	 ret 
+lw	$sp,-4($fp)
+addi	$sp,$sp,0
+lw	$ra,-8($fp)
+lw	$fp,-12($fp)
+jr	$ra
+test_call:
+move	$s1,$sp
+move	$s0,$fp
+addi	$fp,$sp,0
+#END Const&Variable define
+sw	$s1,0($sp)
+addi	$sp,$sp,-4
+
+sw	$ra,0($sp)
+addi	$sp,$sp,-4
+
+sw	$s0,0($sp)
+addi	$sp,$sp,-4
+
+addi	$sp,$sp,-16
+#	PUSH 2
+#~~~2
+li	$t1,2
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	PUSH 2
+#~~~2
+li	$t1,2
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+##40 = 3 * 5
+#~~~5
+li	$t2,5
+#~~~3
+li	$t1,3
+mul	$t1,$t1,$t2
+#~~~#40
+move	$t3,$fp
+subi	$t3,$t3,12
+
+sw	$t1,0($t3)
+#	PUSH #40
+#~~~#40
+move	$t1,$fp
+subi	$t1,$t1,12
+lw	$t1,0($t1)
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	call mymax
+jal	mymax
+#	PUSH 2
+#~~~2
+li	$t1,2
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	PUSH 4
+#~~~4
+li	$t1,4
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	call mymax
+jal	mymax
+##41 = RET_int / RET_int
+#~~~RET_int
+move	$t2,$v1
+#~~~RET_int
+move	$t1,$v1
+div	$t1,$t1,$t2
+#~~~#41
+move	$t3,$fp
+subi	$t3,$t3,16
+
+sw	$t1,0($t3)
+##42 = 100 - 1
+#~~~1
+li	$t2,1
+#~~~100
+li	$t1,100
+sub	$t1,$t1,$t2
+#~~~#42
+move	$t3,$fp
+subi	$t3,$t3,20
+
+sw	$t1,0($t3)
+##43 = #41 * #42
+#~~~#42
+move	$t2,$fp
+subi	$t2,$t2,20
+lw	$t2,0($t2)
+#~~~#41
+move	$t1,$fp
+subi	$t1,$t1,16
+lw	$t1,0($t1)
+mul	$t1,$t1,$t2
+#~~~#43
+move	$t3,$fp
+subi	$t3,$t3,24
+
+sw	$t1,0($t3)
+#	PUSH #43
+#~~~#43
+move	$t1,$fp
+subi	$t1,$t1,24
+lw	$t1,0($t1)
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	call mymax
+jal	mymax
+#	 ret 
+lw	$sp,-0($fp)
+addi	$sp,$sp,0
+lw	$ra,-4($fp)
+lw	$fp,-8($fp)
+jr	$ra
+main:
+move	$s1,$sp
+move	$s0,$fp
+addi	$fp,$sp,0
+#END Const&Variable define
+sw	$s1,0($sp)
+addi	$sp,$sp,-4
+
+sw	$ra,0($sp)
+addi	$sp,$sp,-4
+
+sw	$s0,0($sp)
+addi	$sp,$sp,-4
+
+addi	$sp,$sp,-32
+#	PRINT "mx = "
+la	$a0,str15
+li	$v0,4
+syscall
+
+#	PRINT mx
+#~~~mx
+move	$t1,$gp
+subi	$t1,$t1,484
+lw	$t1,0($t1)
+move	$a0,$t1
+li	$v0,1
+syscall
+
+#i = 0
+#~~~0
+li	$t2,0
+#~~~i
+move	$t1,$gp
+subi	$t1,$t1,452
+
+sw	$t2,0($t1)
+LABEL_29:
+##44 = m - i
+#~~~i
+move	$t2,$gp
+subi	$t2,$t2,452
+lw	$t2,0($t2)
+#~~~m
+move	$t1,$gp
+subi	$t1,$t1,464
+lw	$t1,0($t1)
+sub	$t1,$t1,$t2
+#~~~#44
+move	$t3,$fp
+subi	$t3,$t3,12
+
+sw	$t1,0($t3)
+#j = #44
+#~~~#44
+move	$t2,$fp
+subi	$t2,$t2,12
+lw	$t2,0($t2)
+#~~~j
+move	$t1,$gp
+subi	$t1,$t1,456
+
+sw	$t2,0($t1)
+#	i == 0
+#~~~i
+move	$t1,$gp
+subi	$t1,$t1,452
+lw	$t1,0($t1)
+#~~~0
+li	$t2,0
+seq	$t0,$t1,$t2
+#	BZ LABEL_30
+bne	$t0,1,LABEL_30
+#	PUSH j
+#~~~j
+move	$t1,$gp
+subi	$t1,$t1,456
+lw	$t1,0($t1)
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	PUSH n
+#~~~n
+move	$t1,$gp
+subi	$t1,$t1,460
+lw	$t1,0($t1)
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	call work
+jal	work
+#	PRINT RET_char
+#~~~RET_char
+move	$t1,$v1
+move	$a0,$t1
+li	$v0,11
+syscall
+
+LABEL_30:
+#	PRINT "N    "
+la	$a0,str16
+li	$v0,4
+syscall
+
+#	PRINT n
+#~~~n
+move	$t1,$gp
+subi	$t1,$t1,460
+lw	$t1,0($t1)
+move	$a0,$t1
+li	$v0,1
+syscall
+
+#	PRINT "M    "
+la	$a0,str17
+li	$v0,4
+syscall
+
+#	PRINT j
+#~~~j
+move	$t1,$gp
+subi	$t1,$t1,456
+lw	$t1,0($t1)
+move	$a0,$t1
+li	$v0,1
+syscall
+
+#	PRINT "C    "
+la	$a0,str18
+li	$v0,4
+syscall
+
+#	PUSH j
+#~~~j
+move	$t1,$gp
+subi	$t1,$t1,456
+lw	$t1,0($t1)
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	PUSH n
+#~~~n
+move	$t1,$gp
+subi	$t1,$t1,460
+lw	$t1,0($t1)
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	call C
+jal	C
+#	PRINT RET_int
+#~~~RET_int
+move	$t1,$v1
+move	$a0,$t1
+li	$v0,1
+syscall
+
+#	PRINT ""
+la	$a0,str19
+li	$v0,4
+syscall
+
+#i = i + 1
+#~~~1
+li	$t2,1
+#~~~i
+move	$t1,$gp
+subi	$t1,$t1,452
+lw	$t1,0($t1)
+add	$t1,$t1,$t2
+#~~~i
+move	$t3,$gp
+subi	$t3,$t3,452
+
+sw	$t1,0($t3)
+#	i <= m
+#~~~i
+move	$t1,$gp
+subi	$t1,$t1,452
+lw	$t1,0($t1)
+#~~~m
+move	$t2,$gp
+subi	$t2,$t2,464
+lw	$t2,0($t2)
+sle	$t0,$t1,$t2
+#	BZ LABEL_32
+bne	$t0,1,LABEL_32
+#	GOTO LABEL_29
+jal	LABEL_29
+LABEL_32:
+#	PUSH 1
+#~~~1
+li	$t1,1
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+##45 = -1 * -2
+#~~~-2
+li	$t2,-2
+#~~~-1
+li	$t1,-1
+mul	$t1,$t1,$t2
+#~~~#45
+move	$t3,$fp
+subi	$t3,$t3,16
+
+sw	$t1,0($t3)
+#	PUSH #45
+#~~~#45
+move	$t1,$fp
+subi	$t1,$t1,16
+lw	$t1,0($t1)
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	call mymax
+jal	mymax
+#x = RET_int
+#~~~RET_int
+move	$t2,$v1
+#~~~x
+move	$t1,$gp
+subi	$t1,$t1,472
+
+sw	$t2,0($t1)
+##46 = x + +8
+#~~~+8
+li	$t2,8
+#~~~x
+move	$t1,$gp
+subi	$t1,$t1,472
+lw	$t1,0($t1)
+add	$t1,$t1,$t2
+#~~~#46
+move	$t3,$fp
+subi	$t3,$t3,20
+
+sw	$t1,0($t3)
+#	PUSH #46
+#~~~#46
+move	$t1,$fp
+subi	$t1,$t1,20
+lw	$t1,0($t1)
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	PUSH 9
+#~~~9
+li	$t1,9
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	call mymax
+jal	mymax
+#x = RET_int
+#~~~RET_int
+move	$t2,$v1
+#~~~x
+move	$t1,$gp
+subi	$t1,$t1,472
+
+sw	$t2,0($t1)
+#y = 4
+#~~~4
+li	$t2,4
+#~~~y
+move	$t1,$gp
+subi	$t1,$t1,476
+
+sw	$t2,0($t1)
+#z = 7
+#~~~7
+li	$t2,7
+#~~~z
+move	$t1,$gp
+subi	$t1,$t1,480
+
+sw	$t2,0($t1)
+#	x > y
+#~~~x
+move	$t1,$gp
+subi	$t1,$t1,472
+lw	$t1,0($t1)
+#~~~y
+move	$t2,$gp
+subi	$t2,$t2,476
+lw	$t2,0($t2)
+sgt	$t0,$t1,$t2
+#	BZ LABEL_33
+bne	$t0,1,LABEL_33
+#	x > z
+#~~~x
+move	$t1,$gp
+subi	$t1,$t1,472
+lw	$t1,0($t1)
+#~~~z
+move	$t2,$gp
+subi	$t2,$t2,480
+lw	$t2,0($t2)
+sgt	$t0,$t1,$t2
+#	BZ LABEL_35
+bne	$t0,1,LABEL_35
+#mx = x
+#~~~x
+move	$t2,$gp
+subi	$t2,$t2,472
+lw	$t2,0($t2)
+#~~~mx
+move	$t1,$gp
+subi	$t1,$t1,484
+
+sw	$t2,0($t1)
+#	GOTO LABEL_36
+jal	LABEL_36
+LABEL_35:
+#mx = z
+#~~~z
+move	$t2,$gp
+subi	$t2,$t2,480
+lw	$t2,0($t2)
+#~~~mx
+move	$t1,$gp
+subi	$t1,$t1,484
+
+sw	$t2,0($t1)
+LABEL_36:
+#	GOTO LABEL_34
+jal	LABEL_34
+LABEL_33:
+#	y > z
+#~~~y
+move	$t1,$gp
+subi	$t1,$t1,476
+lw	$t1,0($t1)
+#~~~z
+move	$t2,$gp
+subi	$t2,$t2,480
+lw	$t2,0($t2)
+sgt	$t0,$t1,$t2
+#	BZ LABEL_37
+bne	$t0,1,LABEL_37
+#mx = y
+#~~~y
+move	$t2,$gp
+subi	$t2,$t2,476
+lw	$t2,0($t2)
+#~~~mx
+move	$t1,$gp
+subi	$t1,$t1,484
+
+sw	$t2,0($t1)
+#	GOTO LABEL_38
+jal	LABEL_38
+LABEL_37:
+#mx = z
+#~~~z
+move	$t2,$gp
+subi	$t2,$t2,480
+lw	$t2,0($t2)
+#~~~mx
+move	$t1,$gp
+subi	$t1,$t1,484
+
+sw	$t2,0($t1)
+LABEL_38:
+LABEL_34:
+#	PRINT "mx = "
+la	$a0,str15
+li	$v0,4
+syscall
+
+#	PRINT mx
+#~~~mx
+move	$t1,$gp
+subi	$t1,$t1,484
+lw	$t1,0($t1)
+move	$a0,$t1
+li	$v0,1
+syscall
+
+#	call init
+jal	init
+##47 = k + 1
+#~~~1
+li	$t2,1
+#~~~k
+move	$t1,$gp
+subi	$t1,$t1,468
+lw	$t1,0($t1)
+add	$t1,$t1,$t2
+#~~~#47
+move	$t3,$fp
+subi	$t3,$t3,24
+
+sw	$t1,0($t3)
+#i = #47
+#~~~#47
+move	$t2,$fp
+subi	$t2,$t2,24
+lw	$t2,0($t2)
+#~~~i
+move	$t1,$gp
+subi	$t1,$t1,452
+
+sw	$t2,0($t1)
+LABEL_39:
+##48 = k + i
+#~~~i
+move	$t2,$gp
+subi	$t2,$t2,452
+lw	$t2,0($t2)
+#~~~k
+move	$t1,$gp
+subi	$t1,$t1,468
+lw	$t1,0($t1)
+add	$t1,$t1,$t2
+#~~~#48
+move	$t3,$fp
+subi	$t3,$t3,28
+
+sw	$t1,0($t3)
+#a[i] = #48
+#~~~a[i]
+#~~~a
+move	$t1,$gp
+subi	$t1,$t1,48
+#~~~i
+move	$t2,$gp
+subi	$t2,$t2,452
+lw	$t2,0($t2)
+sll	$t2,$t2,2
+sub	$t1,$t1,$t2
+#~~~#48
+move	$t2,$fp
+subi	$t2,$t2,28
+lw	$t2,0($t2)
+
+sw	$t2,0($t1)
+##49 = ch + i
+#~~~i
+move	$t2,$gp
+subi	$t2,$t2,452
+lw	$t2,0($t2)
+#~~~ch
+move	$t1,$gp
+subi	$t1,$t1,488
+lw	$t1,0($t1)
+add	$t1,$t1,$t2
+#~~~#49
+move	$t3,$fp
+subi	$t3,$t3,32
+
+sw	$t1,0($t3)
+#s[i] = #49
+#~~~s[i]
+#~~~s
+move	$t1,$gp
+subi	$t1,$t1,492
+#~~~i
+move	$t2,$gp
+subi	$t2,$t2,452
+lw	$t2,0($t2)
+sll	$t2,$t2,2
+sub	$t1,$t1,$t2
+#~~~#49
+move	$t2,$fp
+subi	$t2,$t2,32
+lw	$t2,0($t2)
+
+sw	$t2,0($t1)
+#i = i - 1
+#~~~1
+li	$t2,1
+#~~~i
+move	$t1,$gp
+subi	$t1,$t1,452
+lw	$t1,0($t1)
+sub	$t1,$t1,$t2
+#~~~i
+move	$t3,$gp
+subi	$t3,$t3,452
+
+sw	$t1,0($t3)
+#	i >= 0
+#~~~i
+move	$t1,$gp
+subi	$t1,$t1,452
+lw	$t1,0($t1)
+#~~~0
+li	$t2,0
+sge	$t0,$t1,$t2
+#	BZ LABEL_40
+bne	$t0,1,LABEL_40
+#	GOTO LABEL_39
+jal	LABEL_39
+LABEL_40:
+#i = 0
+#~~~0
+li	$t2,0
+#~~~i
+move	$t1,$gp
+subi	$t1,$t1,452
+
+sw	$t2,0($t1)
+LABEL_41:
+##50 = k + 1
+#~~~1
+li	$t2,1
+#~~~k
+move	$t1,$gp
+subi	$t1,$t1,468
+lw	$t1,0($t1)
+add	$t1,$t1,$t2
+#~~~#50
+move	$t3,$fp
+subi	$t3,$t3,36
+
+sw	$t1,0($t3)
+#k = #50
+#~~~#50
+move	$t2,$fp
+subi	$t2,$t2,36
+lw	$t2,0($t2)
+#~~~k
+move	$t1,$gp
+subi	$t1,$t1,468
+
+sw	$t2,0($t1)
+#i = i - 1
+#~~~1
+li	$t2,1
+#~~~i
+move	$t1,$gp
+subi	$t1,$t1,452
+lw	$t1,0($t1)
+sub	$t1,$t1,$t2
+#~~~i
+move	$t3,$gp
+subi	$t3,$t3,452
+
+sw	$t1,0($t3)
+#	i > k
+#~~~i
+move	$t1,$gp
+subi	$t1,$t1,452
+lw	$t1,0($t1)
+#~~~k
+move	$t2,$gp
+subi	$t2,$t2,468
+lw	$t2,0($t2)
+sgt	$t0,$t1,$t2
+#	BZ LABEL_42
+bne	$t0,1,LABEL_42
+#	GOTO LABEL_41
+jal	LABEL_41
+LABEL_42:
+#	PRINT "k = "
+la	$a0,str20
+li	$v0,4
+syscall
+
+#	PRINT k
+#~~~k
+move	$t1,$gp
+subi	$t1,$t1,468
+lw	$t1,0($t1)
+move	$a0,$t1
+li	$v0,1
+syscall
+
+#	PRINT "ch = "
+la	$a0,str21
+li	$v0,4
+syscall
+
+##51 = s[k]
+#~~~s[k]
+#~~~s
+move	$t1,$gp
+subi	$t1,$t1,492
+#~~~k
+move	$t2,$gp
+subi	$t2,$t2,468
+lw	$t2,0($t2)
+sll	$t2,$t2,2
+sub	$t1,$t1,$t2
+lw	$t2,0($t1)
+#~~~#51
+move	$t1,$fp
+subi	$t1,$t1,40
+
+sw	$t2,0($t1)
+#	PRINT #51
+#~~~#51
+move	$t1,$fp
+subi	$t1,$t1,40
+lw	$t1,0($t1)
+move	$a0,$t1
+li	$v0,1
+syscall
+
+#	call test_switch
+jal	test_switch
+#	PUSH 1
+#~~~1
+li	$t1,1
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	call test_for
+jal	test_for
+#	call test_call
+jal	test_call
+#	0 ret 
+li	$v0,10
+syscall
