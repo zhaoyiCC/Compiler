@@ -100,6 +100,7 @@ void printQuat(){
             for (auto j: quat[i].label)//cout << "LABEL_" << quat[i].label << " ";
                 cout << "LABEL_" << j << " ";
         switch (mp_quat[quat[i].type]){
+            case 1000: cout << quat[i].type << endl; break;
             case 100: cout << quat[i].type << " " << quat[i].op1 << endl; break;
             case 1: cout << "const " << quat[i].type.substr(6, quat[i].type.size()-6) << " " << quat[i].op1 << " = " << quat[i].op2 << endl; break;
             case 3: cout << "var " << quat[i].type.substr(9, quat[i].type.size()-9) << " " << quat[i].op1 << endl; break;
@@ -151,13 +152,14 @@ void calcTmp(){
         if (quat[i].type == "function_int" || quat[i].type == "function_char" || quat[i].type == "void_"){
             rep (j,1,cnt_proc){
                 if (tab[index_proc[j]].name == quat[i].op1){
-                    mp_quat_para_num_with_local[i] = index_proc[j+1] - index_proc[j]-1;
+                    mp_quat_para_num_with_local[quat[i].program_id] = index_proc[j+1] - index_proc[j]-1;
                     rep (k,index_proc[j]+1,index_proc[j+1]-1){
                         if (tab[k].type == "int[]" || tab[k].type=="char[]"){
-                            mp_quat_para_num_with_local[i] += tab[k].para_num-1; //****少算了这么多的单位 之前只把数组算了1因此ra的绝对地址就算消了
+                            mp_quat_para_num_with_local[quat[i].program_id] += tab[k].para_num-1; //****少算了这么多的单位 之前只把数组算了1因此ra的绝对地址就算消了
                         }
                     }
-                    mp_quat_para_num[i] = tab[index_proc[j]].para_num;
+                    mp_quat_para_num[quat[i].program_id] = tab[index_proc[j]].para_num; //^^^mp_quat_para_num[i] = tab[index_proc[j]].para_num;
+                    cout << i << " " << tab[index_proc[j]].para_num << " " <<  quat[i].program_id << endl;
                     break;
                 }
             }

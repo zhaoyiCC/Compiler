@@ -219,6 +219,12 @@ void gotoMips(const Quat& q){ //BZ LABEL_2 //READ x
 }
 void reprMips(const Quat& q, bool is_read){ //BZ LABEL_2 //READ x
     asm_out << "#\t" << q.type << " " << q.op1 << endl;
+    if (q.type == "PRINTLN"){ //li $a0, '\n' //li $v0, 11 //syscall
+        asm_out << "li\t$a0,'\\n'" << endl;
+        asm_out << "li\t$v0,11" << endl;
+        asm_out << "syscall" << endl;
+        return ;
+    }
     if (q.op1.size() == 0)
         return ;
     if (!is_read && q.op1[0] == '"'){ //q.op2 == "string" 也可以 //输出的内容是字符串，找到对应的是几号str，这个在之前的.data段定义过了
@@ -263,7 +269,7 @@ void retuMips(const Quat& q){ //add sub //#12 = x + 1
     }
     
     asm_out << "lw\t$sp,-" << int2string(4*(para_now_cnt)) << "($fp)" << endl; //****
-    asm_out << "addi\t$sp,$sp," << 4*(mp_quat_para_num[q.program_id]) << endl;
+    asm_out << "addi\t$sp,$sp," << 4*(mp_quat_para_num[q.program_id]) << endl; //加上$fp参数的个数
     
     asm_out << "lw\t$ra,-" << int2string(4*(para_now_cnt+1)) << "($fp)" << endl; //这两个顺序不能反，因为取ra要用到目前的fp，因此不能先恢复fp现场
     
@@ -313,7 +319,7 @@ void quatMips(){
             case 100: break;
             case 1: allocateConst(quat[i]); break;
             case 3:  break; //allocateVariable(quat[i]);
-            case 5: para_i = 0; asm_out << quat[i].op1 << ":" << endl; asm_out << "move\t$s1,$sp" << endl; asm_out << "move\t$s0,$fp" << endl; asm_out << "addi\t$fp,$sp," << 4*(mp_quat_para_num[i]) << endl; para_now_cnt = mp_quat_para_num_with_local[i]; break;
+            case 5: para_i = 0; asm_out << quat[i].op1 << ":" << endl; asm_out << "move\t$s1,$sp" << endl; asm_out << "move\t$s0,$fp" << endl; asm_out << "addi\t$fp,$sp," << 4*(mp_quat_para_num[quat[i].program_id]) << endl; para_now_cnt = mp_quat_para_num_with_local[quat[i].program_id]; break; //asm_out << "addi\t$fp,$sp," << 4*(mp_quat_para_num[i]) << endl;
             case 7: break; //参数，直接无视，因为在PUSH里干了
             case 9: asm_out << quat[i].op1 << ":" << endl; break;
             case 10: addMips(quat[i], "add"); break; //处理加号
@@ -328,6 +334,7 @@ void quatMips(){
             case 102: jumpMips(quat[i]); break;
             case 103: reprMips(quat[i], false); break;
             case 104: reprMips(quat[i], true); break;
+            case 1000: reprMips(quat[i], true); break;
             case 105: gotoMips(quat[i]); break;
             case 106: retuMips(quat[i]); break;
             case 107: asm_out << "#\t" << quat[i].type << " " << quat[i].op1 << endl; break;

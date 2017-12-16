@@ -60,14 +60,17 @@ int cnt_mp_s = 0, sp = 0, main_pos;
 bool is_global = true; //是否是全局变量，在全局变量定义完之后置为false
 bool reg[41]; //寄存器使用状态，true代表正在被使用
 map<string, pair<int,int>> mp_tmp; //存放四元式产生的临时变量对应的在第几个程序块和在程序块的addr
-map<int, int> mp_quat_para_num, mp_quat_para_num_with_local, mp_quat_cnt_temp, mp_proc_variable;
+map<int, int> mp_quat_para_num, mp_quat_para_num_with_local, mp_quat_cnt_temp, mp_proc_variable; //这几个map的键都对应的是第几个程序块
+//mp_proc_variable存储的是第key号程序块的局部变量共占多少个单位，其中一般的变量算一个，数组算n个
+//mp_quat_cnt_temp存储的是第key号程序块的四元式产生了多少中间变量
+//mp_quat_para_num_with_local存储的是第key号程序块的四元式的变量个数(包括参数，局部常变量，其中数组算n个，不包括中间变量)
+//mp_quat_para_num存储的是第key号程序块的参数的个数，这个就对应的是符号表里函数过程的para_num
 struct Func{ //存放函数的结构体，其中type有三种类型，int, char, "" 其中第三个代表是过程
     int tab_id; //在符号表的登录位置
     string type;
     int para_num;
 };
 map<string, Func> mp_func; //函数名为键，值为对应的函数/过程信息
-
 
 map<string,int> mp = {
     {"<", 1},{"<=", 2},{">", 3},{">=", 4},{"!=", 5},{"==", 6},
@@ -172,7 +175,7 @@ map<string,int> mp_quat = {
     {"variable_int[]", 40}, {"variable_char[]", 40},
     {"BEGIN", 50}, //这个是我人为加上的一个标记，代表的是函数中变量定义结束的位置，在这个时候我进行了ra和sp压到运行栈的步骤
     {"GOTO", 100}, {"BZ", 100}, {"PRINT", 100}, {"READ", 100}, {"PUSH", 100}, {"ret", 100}, {"call", 100}, {"SWITCH", 100}, {"nop", 100},
-    
+    {"PRINTLN", 1000},
 };
 
 map<string,int> mp_mips = {
@@ -187,6 +190,7 @@ map<string,int> mp_mips = {
     {"variable_int[]", 40}, {"variable_char[]", 40},
     {"BEGIN", 50},
     {"PUSH", 101}, {"BZ", 102}, {"PRINT", 103}, {"READ", 104}, {"GOTO", 105}, {"ret", 106}, {"call", 105}, {"SWITCH", 107}, {"nop", 108},
+    {"PRINTLN", 1000},
 };
 #endif /* headers_h */
 

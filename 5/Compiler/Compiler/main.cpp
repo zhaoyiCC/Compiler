@@ -32,13 +32,13 @@ int main() {
 //    asm_out << "123" << endl;
     
     cout << "Please input a file:" << endl;
-    cin >> route;
-    ifstream r_t(route);
-    if (!r_t){
-        cout << "File Not exist" << endl;
-        return 0;
-    }
-//    route = "wcy.txt";//"15.txt";
+//    cin >> route;
+//    ifstream r_t(route);
+//    if (!r_t){
+//        cout << "File Not exist" << endl;
+//        return 0;
+//    }
+    route = "14011100_test.txt";//"15.txt";
     std::ifstream t(route);//"");
     std::string s((std::istreambuf_iterator<char>(t)),
                   std::istreambuf_iterator<char>());

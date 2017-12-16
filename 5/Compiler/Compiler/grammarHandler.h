@@ -506,6 +506,7 @@ void prinStatement(string& str){ //＜写语句＞    ::= printf ‘(’ ＜字�
             prin_type = "char";
         addQuat("PRINT", res, prin_type, "");
     }
+//    addQuat("PRINTLN", "", "", ""); //代表是输出一个空行
     test({")"}, 30);
     id = lexicalAnalysis(str, sym);
     cout << "This is a printf statement::: " << str.substr(pos_line_header, last-pos_line_header) << endl << endl;
