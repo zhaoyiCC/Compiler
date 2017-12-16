@@ -1,0 +1,64 @@
+.data
+
+.text
+
+move	$gp, $sp
+j	main
+
+work:
+move	$s1,$sp
+move	$s0,$fp
+addi	$fp,$sp,0
+#END Const&Variable define
+sw	$s1,0($sp)
+addi	$sp,$sp,-4
+
+sw	$ra,0($sp)
+addi	$sp,$sp,-4
+
+sw	$s0,0($sp)
+addi	$sp,$sp,-4
+
+addi	$sp,$sp,-0
+#	1 == 0
+#~~~1
+li	$t1,1
+#~~~0
+li	$t2,0
+seq	$t0,$t1,$t2
+#	BZ LABEL_1
+bne	$t0,1,LABEL_1
+LABEL_1:
+#	 ret 
+lw	$sp,-0($fp)
+addi	$sp,$sp,0
+lw	$ra,-4($fp)
+lw	$fp,-8($fp)
+jr	$ra
+main:
+move	$s1,$sp
+move	$s0,$fp
+addi	$fp,$sp,0
+#END Const&Variable define
+sw	$s1,0($sp)
+addi	$sp,$sp,-4
+
+sw	$ra,0($sp)
+addi	$sp,$sp,-4
+
+sw	$s0,0($sp)
+addi	$sp,$sp,-4
+
+addi	$sp,$sp,-0
+#	call work
+jal	work
+#	1 == 1
+#~~~1
+li	$t1,1
+#~~~1
+li	$t2,1
+seq	$t0,$t1,$t2
+#	BZ LABEL_3
+bne	$t0,1,LABEL_3
+LABEL_3:
+nop

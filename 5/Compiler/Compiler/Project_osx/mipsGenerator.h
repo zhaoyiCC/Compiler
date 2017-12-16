@@ -249,9 +249,9 @@ void reprMips(const Quat& q, bool is_read){ //BZ LABEL_2 //READ x
     getVariableMips(t_reg_1, q.op1, q.program_id, !is_read);
     int offset, print_type=0;
     int pos = locateVariable(q.op1, q.program_id, offset);
-    if ((pos == -1 && q.op1 == "RET_int") || (pos == 0 || tab[pos].type == "int")){ //pos==0代表是四元式产生的局部变量
+    if ((pos == -1 && q.op1 == "RET_int") || pos == 0 || (pos>0&&tab[pos].type == "int")){ //pos==0代表是四元式产生的局部变量
         print_type = is_read ? 5 : 1;
-    }else if ((pos == -1 && q.op1 == "RET_char") || (tab[pos].type == "char")){
+    }else if ((pos == -1 && q.op1 == "RET_char") || (pos>0&&tab[pos].type == "char")){
         print_type = is_read ? 12 : 11;
     }else{
         if (pos>=0)

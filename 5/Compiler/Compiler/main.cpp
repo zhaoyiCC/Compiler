@@ -17,6 +17,16 @@
 #include "grammarHandler.h"
 #include "mipsGenerator.h"
 int main() {
+    int i, Int = 0;
+    printf("Int=%d\n",Int);
+    for (i = Int; i <= 1000-Int; i = i+1){
+//        for (i = Int; i <= i-1; i = i+1){
+//            Int = Int+1;
+//        }
+        Int = Int+1;
+    }
+    printf("Int=%d\n",Int);
+    
 //    freopen("out.txt","w",stdout);
 //    ofstream asm_out("asm.txt");
 //    asm_out << "123" << endl;
@@ -28,8 +38,8 @@ int main() {
         cout << "File Not exist" << endl;
         return 0;
     }
-    
-    std::ifstream t(route);//"14011100_test.txt");
+//    route = "wcy.txt";//"15.txt";
+    std::ifstream t(route);//"");
     std::string s((std::istreambuf_iterator<char>(t)),
                   std::istreambuf_iterator<char>());
     

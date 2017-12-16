@@ -20,7 +20,7 @@
 #define MAX_QUAT 10000
 #define MAX_TAB 10000
 using namespace std;
-
+bool is_char = false; //全局变量判断当前处理完的表达式是什么类型
 /********************错误处理*********************/
 void error(int errorId);
 /********************语义分析处理*******************/
@@ -60,7 +60,7 @@ int cnt_mp_s = 0, sp = 0, main_pos;
 bool is_global = true; //是否是全局变量，在全局变量定义完之后置为false
 bool reg[41]; //寄存器使用状态，true代表正在被使用
 map<string, pair<int,int>> mp_tmp; //存放四元式产生的临时变量对应的在第几个程序块和在程序块的addr
-map<int, int> mp_quat_para_num, mp_quat_para_num_with_local, mp_quat_cnt_temp;
+map<int, int> mp_quat_para_num, mp_quat_para_num_with_local, mp_quat_cnt_temp, mp_proc_variable;
 struct Func{ //存放函数的结构体，其中type有三种类型，int, char, "" 其中第三个代表是过程
     int tab_id; //在符号表的登录位置
     string type;
@@ -168,10 +168,10 @@ map<string,int> mp_quat = {
     {"parameter_int", 7}, {"parameter_char", 7},
     {"void_", 9},
     {"+", 10}, {"-", 10}, {"*", 10}, {"/", 10},
-    {"=",20}, {">=", 20}, {"==", 20}, {"<=", 20}, {">", 20}, {"<", 20},
+    {"=",20}, {">=", 20}, {"==", 20}, {"!=", 20}, {"<=", 20}, {">", 20}, {"<", 20},
     {"variable_int[]", 40}, {"variable_char[]", 40},
     {"BEGIN", 50}, //这个是我人为加上的一个标记，代表的是函数中变量定义结束的位置，在这个时候我进行了ra和sp压到运行栈的步骤
-    {"GOTO", 100}, {"BZ", 100}, {"PRINT", 100}, {"READ", 100}, {"PUSH", 100}, {"ret", 100}, {"call", 100}, {"SWITCH", 100},
+    {"GOTO", 100}, {"BZ", 100}, {"PRINT", 100}, {"READ", 100}, {"PUSH", 100}, {"ret", 100}, {"call", 100}, {"SWITCH", 100}, {"nop", 100},
     
 };
 
@@ -182,11 +182,11 @@ map<string,int> mp_mips = {
     {"parameter_int", 7}, {"parameter_char", 7},
     {"void_", 5},
     {"+", 10}, {"-", 11}, {"*", 12}, {"/", 13},
-    {"=",20}, {">=", 21}, {"==", 21}, {"<=", 21}, {">", 21}, {"<", 21},
+    {"=",20}, {">=", 21}, {"==", 21}, {"!=", 21}, {"<=", 21}, {">", 21}, {"<", 21},
     
     {"variable_int[]", 40}, {"variable_char[]", 40},
     {"BEGIN", 50},
-    {"PUSH", 101}, {"BZ", 102}, {"PRINT", 103}, {"READ", 104}, {"GOTO", 105}, {"ret", 106}, {"call", 105}, {"SWITCH", 107},
+    {"PUSH", 101}, {"BZ", 102}, {"PRINT", 103}, {"READ", 104}, {"GOTO", 105}, {"ret", 106}, {"call", 105}, {"SWITCH", 107}, {"nop", 108},
 };
 #endif /* headers_h */
 
