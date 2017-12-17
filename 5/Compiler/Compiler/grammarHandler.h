@@ -385,7 +385,6 @@ int step(string& str, string& num){//＜步长＞    ::=  ＜非零数字＞｛�
 //}
 
 void loopStatement(string &str){ //＜循环语句＞::=for‘(’＜标识符＞＝＜表达式＞;＜条件＞;＜标识符＞＝＜标识符＞(+|-)＜步长＞‘)’＜语句＞
-    cout << mp["x"] << "~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
     string op1, op2, op3, res, loop_variment, step_num, sym_end_loop;
     Quat loop_cond_quat, loop_step;
     int pos_line_header = last, loop_pos, loop_pos_program,label_first, label_second, pos_end_loop, pos_before_step, last_end_loop, id_end_loop;
@@ -465,7 +464,6 @@ void loopStatement(string &str){ //＜循环语句＞::=for‘(’＜标识符�
     addQuat("GOTO", "LABEL_"+int2string(label_first),"","");
     quat[cnt_quat+1].label.push_back(label_second);//= label_second;
     cout << "This is a loop statement::: " << str.substr(pos_line_header, last-pos_line_header) << endl << endl;
-    cout << mp["x"] << "~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
 }
 void scanStatement(string& str){ //＜读语句＞    ::=  scanf ‘(’＜标识符＞{,＜标识符＞}‘)’
     int pos_line_header = last;
@@ -506,7 +504,7 @@ void prinStatement(string& str){ //＜写语句＞    ::= printf ‘(’ ＜字�
             prin_type = "char";
         addQuat("PRINT", res, prin_type, "");
     }
-//    addQuat("PRINTLN", "", "", ""); //代表是输出一个空行
+    addQuat("PRINTLN", "", "", ""); //代表是输出一个空行
     test({")"}, 30);
     id = lexicalAnalysis(str, sym);
     cout << "This is a printf statement::: " << str.substr(pos_line_header, last-pos_line_header) << endl << endl;
@@ -528,7 +526,7 @@ void retuStatement(string& str){ //＜返回语句＞   ::=  return[‘(’＜�
     cout << "This is a return statement::: " << str.substr(pos_line_header, last-pos_line_header) << endl << endl;
     addQuat("ret", res, "", "");
 }
-void caseStatement(string& str, string swit_variment){ //＜情况表＞   ::=  ＜情况子语句＞{＜情况子语句＞}
+void caseStatement(string& str, string swit_variment, vector<int>& case_v){ //＜情况表＞   ::=  ＜情况子语句＞{＜情况子语句＞}
     //＜情况子语句＞  ::=  case＜常量＞：＜语句＞
     case_v.clear();
     string op1, op2, op3, res, case_constant;
@@ -584,6 +582,7 @@ void defuStatement(string& str){ //＜缺省＞   ::=  default : ＜语句＞
     cout << "This is a default statement::: " << str.substr(pos_line_header, last-pos_line_header) << endl << endl;
 }
 void switStatement(string& str){ //＜情况语句＞  ::=  switch ‘(’＜表达式＞‘)’ ‘{’＜情况表＞＜缺省＞‘}’
+    vector<int> case_v;
     string op1, op2, op3, res, swit_variment;
     int pos_line_header = last, label_after_default;
     id = lexicalAnalysis(str, sym);
@@ -596,7 +595,7 @@ void switStatement(string& str){ //＜情况语句＞  ::=  switch ‘(’＜表
     id = lexicalAnalysis(str, sym);
     test({"{"}, 35);
     id = lexicalAnalysis(str, sym);
-    caseStatement(str, swit_variment);
+    caseStatement(str, swit_variment, case_v);
     defuStatement(str);
     
     newLabel(label_after_default);
@@ -696,6 +695,10 @@ void voidDeclartion(string& str, string kind, string type){ //有返回值函数
     
     void_pos = cnt_tab;
     addQuat(kind+"_"+type, void_name, "", ""); //"void_", "function_int" "function_char"
+    if (void_name=="switchcodintionans"){
+        int gg;
+        gg = 1;
+    }
     int variable_tot = procMainExec(str);
     
     cout << "This is a " + kind + type + " statement " << void_name << " ::: " << variable_tot << " parameters::: " << str.substr(pos_line_header, last-pos_line_header) << endl << endl;

@@ -18,6 +18,7 @@ int lexicalAnalysis(string& str, string& s){ //词法分析
         if (mp.count(s) > 0){ //已经在表中
             return mp[s];
         }else{ //需要新增加的标识符
+//            cout << "mp[" << s << "] : " << cnt+1 << endl;
             mp[s] = ++cnt;
             return cnt;
         }

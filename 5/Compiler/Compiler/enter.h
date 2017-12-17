@@ -56,13 +56,19 @@ int locateVariable(string name, int program_id, int& offset,bool is_mips=true){ 
     if (is_mips && name.size() > 3 && name.substr(0,4) == "RET_"){ // "RET_int" or "RET_char"
         return -1;
     }
+    if (isChar(name)){ //如果是一个字符
+        return -4;
+    }
+    if (isNumber(name)){ //如果是一个整数
+        return -3;
+    }
     if (is_mips && name.size()>1 && name[0] == '#'){
         offset = mp_tmp[name].second - 1; //-1的目的是因为我们的栈顶指向的是函数存放的第一个参数，而由于之前存放在符号表的第一个是函数名，因此addr相当于多了一个，以此同理
         return 0;
     }
     rep (i, index_proc[program_id]+1, program_end){ //因为第一个是函数的名字，防止出现局部变量名和函数名同名的情况
         if (tab[i].name == name){
-            offset = tab[i].addr - 1;
+            offset = tab[i].addr - 1; //第0号是函数名，实际情况是第一个变量的偏移量是0 因此要减一
             return i;
         }
     }
@@ -138,16 +144,16 @@ void calcTmp(){
     cout << "------------------------------" << endl;
     cout << "------------------------------" << endl;
     cout << "------------------------------" << endl;
-    map<int, int> mp_proc_num, mp_proc_cnt, mp_proc_variable_t;
+    map<int, int> mp_proc_cnt;
     rep (i,1,cnt_proc){
         mp_proc_cnt[i] = index_proc[i+1] - index_proc[i]-1; //这个过程块所有的参数局部变量。空出每段的第一个符号即函数自己
     }
     rep (i,1,cnt_quat){
         if (quat[i].type == "variable_int" || quat[i].type == "variable_char")
-            mp_proc_variable_t[quat[i].program_id]++;
+            mp_proc_variable[quat[i].program_id]++;
         
         if (quat[i].type == "variable_int[]" || quat[i].type == "variable_char[]")
-            mp_proc_variable_t[quat[i].program_id]+=mystoi(quat[i].op2);
+            mp_proc_variable[quat[i].program_id]+=mystoi(quat[i].op2);
         
         if (quat[i].type == "function_int" || quat[i].type == "function_char" || quat[i].type == "void_"){
             rep (j,1,cnt_proc){
@@ -169,16 +175,12 @@ void calcTmp(){
 //                cout << "SAME!!!" << endl;
                 continue;
             }
-            mp_proc_num[quat[i].program_id] ++; //代表是这个过程块的四元式产生的第几个变量
-            mp_tmp[quat[i].op1] = make_pair(quat[i].program_id, 3+mp_proc_cnt[quat[i].program_id]+mp_proc_num[quat[i].program_id]);
+            mp_quat_cnt_temp[quat[i].program_id] ++; //代表是这个过程块的四元式产生的第几个变量
+            mp_tmp[quat[i].op1] = make_pair(quat[i].program_id, 3+mp_quat_para_num_with_local[quat[i].program_id]+mp_quat_cnt_temp[quat[i].program_id]); //3+mp_proc_cnt[quat[i].program_id]+mp_quat_cnt_temp[quat[i].program_id]
             cout << quat[i].op1 << " ::: " << mp_tmp[quat[i].op1].first << " " << mp_tmp[quat[i].op1].second << endl;
         }
     }
-    mp_quat_cnt_temp = mp_proc_num;
-    mp_proc_variable = mp_proc_variable_t;
-    for (auto it: mp_proc_variable){
-        cout << it.first << " $$$ " << it.second << endl;
-    }
+    
     cout << "------------------------------" << endl;
     cout << "------------------------------" << endl;
     cout << "------------------------------" << endl;

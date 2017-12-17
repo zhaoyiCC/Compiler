@@ -54,7 +54,7 @@ struct Quat{ //四元式
 //struct Temp{
 //    int addr, program_id;
 //};
-vector<int> case_v;
+//vector<int> case_v;
 map<string, int> mp_s;
 int cnt_mp_s = 0, sp = 0, main_pos;
 bool is_global = true; //是否是全局变量，在全局变量定义完之后置为false

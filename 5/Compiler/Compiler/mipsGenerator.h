@@ -12,7 +12,6 @@
 ofstream asm_out("asm.txt");
 //#define asm_out asm_out
 
-
 int getT(){
     //    rep (i,8,15){
     //        if (!reg[i]){
@@ -71,6 +70,11 @@ void allocateFunction(const Quat& q){ //函数/过程的分配，主要是要保
 }
 //sw	$t0,0($t1)
 void getVariableMips(int reg_t, string name, int program_id, bool is_load){ //is_load:是否要取出值
+    if (name=="#1"){
+        int klll;
+        int jj;
+        jj=1;
+    }
     string name_array, name_offset, start_pos = "fp";
     asm_out << "#~~~" << name << endl; //~~~a[yyy]
     if (name == "i"){
@@ -131,7 +135,7 @@ void getVariableMips(int reg_t, string name, int program_id, bool is_load){ //is
         start = 1;
     rep (i,start,pos-1){
         if (tab[i].type == "int[]" || tab[i].type == "char[]"){
-            offset += tab[i].para_num;
+            offset += tab[i].para_num-1;
         }
     }
     offset*=4;
@@ -143,6 +147,10 @@ void getVariableMips(int reg_t, string name, int program_id, bool is_load){ //is
 
 }
 void allocateParameter(const Quat& q, int para_i){ //参数的分配，标准的分配方法是：前4个压到a0-a3，后面的压到栈上
+    if (q.op1=="8"){
+        int pp;
+        pp=1;
+    }
     asm_out << "#\t" << q.type << " " << q.op1 << endl;
     int t_reg_1 = 1, t_reg_2 = 2;;
     //!!!
@@ -238,9 +246,9 @@ void reprMips(const Quat& q, bool is_read){ //BZ LABEL_2 //READ x
     getVariableMips(t_reg_1, q.op1, q.program_id, !is_read);
     int offset, print_type=0;
     int pos = locateVariable(q.op1, q.program_id, offset);
-    if ((pos == -1 && q.op1 == "RET_int") || (pos == 0&&q.op2=="int") || (pos>0&&tab[pos].type == "int")){ //pos==0代表是四元式产生的局部变量
+    if (pos == -3 || (pos == -1 && q.op1 == "RET_int") || (pos == 0&&q.op2=="int") || (pos>0&&tab[pos].type == "int")){ //pos==0代表是四元式产生的局部变量
         print_type = is_read ? 5 : 1; //mips输出整数
-    }else if ((pos == -1 && q.op1 == "RET_char") || (pos == 0&&q.op2=="char") || (pos>0&&tab[pos].type == "char")){
+    }else if (pos == -4 || (pos == -1 && q.op1 == "RET_char") || (pos == 0&&q.op2=="char") || (pos>0&&tab[pos].type == "char")){
         print_type = is_read ? 12 : 11;
     }else{
         if (pos>=0)
