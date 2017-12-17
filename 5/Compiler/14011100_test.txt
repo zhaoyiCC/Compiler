@@ -37,15 +37,15 @@ void init(){
     printf("Please enter n,m,k,ch:");
     m = 5;
     scanf(n,m,k, ch);
-    printf("\n");
+    printf("");
     return ;
 }
 char work(int m, int n){
     int ans;
-    printf("work!!!");
     ans = C(m,n);
     switch (ans - 2*(ans / 2)){ 
         case 1: return ('O'); 
+        case -1: return ('O');
         default: return ('E'); 
     }
     return ('*');
@@ -53,7 +53,8 @@ char work(int m, int n){
 
 void test_switch(){
     int Int, a[1000];
-    printf("\ntest_switch\n");
+    printf("************************");
+    printf("START test_switch");
     a[2] = -1;
     a[1] = -2;
     Int = 2*5/4;
@@ -65,20 +66,65 @@ void test_switch(){
     Int = a[a[2+a[2*5/4]]+3];
     printf("Int=", Int);
     switch (Int){
-        case -1: printf("666666\n");
-        case -2: {printf("HHHHH\n"); }
+        case -1: printf("fail_switch1");
+        case -2: {printf("success_switch1"); }
         default: ;
     }
 
     switch (Int+1+'b'){
         case 1: Int = Int+1;
-        case 97: {printf("     23333");  }
-        case -123: {printf("        *****",Int);  printf(Int); }
-        default: {printf("     None");}
+        case 97: {printf("success_switch2");  }
+        case -123: {printf("fail_switch1",Int);  printf(Int); }
+        default: {printf("FAIL_switch1");}
     }
+    printf("END test_switch");
+    printf("************************");
 }
-
-void test_for(int Int){
+void test_max(){
+    printf("************************");
+    x = mymax(1, --2);
+    x = mymax(x++8, 9); 
+    y = 4;
+    z = 7;
+    if (x > y){
+        if (x > z)
+            mx = x;
+        else
+            mx = z;
+    }
+    else if (y > z)
+    mx = y;
+    else mx = z;
+    
+    printf("mx = ", mx);
+    if (mx == 10)
+        printf("test_max success!");
+    else
+        printf("test_max fail!");
+    printf("************************");
+}
+void test_for_1_loop(){
+    printf("************************");
+    printf("START test_for_1_loop");
+    for (i = k+1; i >= 0; i = i - 1){
+        a[i] = k+i;
+        s[i] = ch;
+    }
+    for (i = 0;  i > k; i = i-1) { 
+        k = k + 1;
+    }
+    printf("k = ", k);
+    printf("ch = ",s[k]);
+    if (s[k]==ch)
+        printf("test_for_1_loop success!");
+    else
+        printf("test_for_1_loop fail!");
+    printf("END test_for_1_loop");
+    printf("************************");
+}
+void test_for_2_loop(int Int){
+    printf("************************");
+    printf("START test_for_2_loop");
     Int = 0+-2;
     printf("Int=",Int);
     {
@@ -96,6 +142,12 @@ void test_for(int Int){
         }
     }
     printf("Int=",Int);
+    if (Int==500)
+        printf("test_for_2_loop success!");
+    else
+        printf("test_for_2_loop fail!");
+    printf("END test_for_2_loop");
+    printf("************************");
 }
 int test_call(){
     return (mymax(2, mymax(2,3*5)/mymax(2, 4)*(100-1)));
@@ -107,47 +159,27 @@ void main() {
     for (i = 0;  i <= m; i = i +1) { 
         j = m - i;
         if (i == 0){
-            printf(work(j,n));
-            printf("\n");
-            printf("\n");
+            printf("************************");
+            printf("START work");
+            printf("C(n,m) is Odd or Even:",work(j,n));
+            printf("END WORK");
+            printf("************************");
         }
        printf("N:",n);
-       printf("     M:",j);
-       printf("     C:",C(j, n)); 
-       printf("\n");
+       printf("M:",j);
+       printf("C:",C(j, n)); 
+       printf("************************");
     }
-    x = mymax(1, --2);
-    x = mymax(x++8, 9); 
-    y = 4;
-    z = 7;
-    if (x > y){
-        if (x > z)
-            mx = x;
-        else
-            mx = z;
-    }
-    else if (y > z)
-    mx = y;
-    else mx = z;
     
-    printf("mx = ", mx);
-    
-    
-    
-    for (i = k+1; i >= 0; i = i - 1){
-        a[i] = k+i;
-        s[i] = ch;
-    }
-    for (i = 0;  i > k; i = i-1) { 
-        k = k + 1;
-    }
-    printf("k = ", k);
-    printf("ch = ",s[k]); 
-    
+    test_max();
+    test_for_1_loop();
     test_switch();
-    printf("\nEND test_switch\n");
-    test_for(1);
-    printf("\ntest_call=",test_call());
+    test_for_2_loop(1);
 
+    if (test_call()==297)
+        printf("Success test_call=",test_call());
+    else
+        printf("Fail test_call");
+    printf("************************");
     return ;
 }

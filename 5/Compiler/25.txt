@@ -4,4 +4,5 @@ void main(){
     a = 'a'+1;
     printf(a);
     printf('b'+1);
+	printf("\a\b\n");
 }

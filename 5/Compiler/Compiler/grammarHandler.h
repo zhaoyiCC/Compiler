@@ -226,6 +226,7 @@ void expression(string& str, string& res){ //＜表达式＞    ::= ［＋｜－
         is_char = false; //有正号负号就一定不会是char类型的了
     }
     term(str, res);
+    
     op1 = res;
     if (expression_sign == "-"){
         newTmp(op1);
@@ -241,7 +242,9 @@ void expression(string& str, string& res){ //＜表达式＞    ::= ［＋｜－
         op3 = res;
         newTmp(op1);
         addQuat(expression_sign, op1, op2, op3);
+        is_char = false;
     }
+
     cout << "This is a expression statemnt::: " << str.substr(pos_line_header, last-pos_line_header) << endl << endl;
     res = op1;
 }

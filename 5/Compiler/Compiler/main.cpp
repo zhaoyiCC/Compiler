@@ -17,23 +17,20 @@
 #include "grammarHandler.h"
 #include "mipsGenerator.h"
 int main() {
-    freopen("out.txt","w",stdout);
-//    ofstream asm_out("asm.txt");
-//    asm_out << "123" << endl;
-
+//    freopen("out.txt","w",stdout);
+    
     cout << "Please input a file:" << endl;
-    freopen("out.txt","w",stdout);
     cin >> route;
     ifstream r_t(route);
     if (!r_t){
         cout << "File Not exist" << endl;
         return 0;
     }
-    //route = "24.txt";//"15.txt";
+    //route = "14011100_test.txt";
     std::ifstream t(route);//"");
     std::string s((std::istreambuf_iterator<char>(t)),
                   std::istreambuf_iterator<char>());
-
+//    transform(s.begin(), s.end(), s.begin(), ::tolower); //全部转成小写，应付while文法的！
     str = s;
     siz = str.size();   //cout << str << endl << endl;
     //lexical(str); //语义分析
