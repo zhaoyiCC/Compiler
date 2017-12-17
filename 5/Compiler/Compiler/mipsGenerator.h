@@ -70,17 +70,8 @@ void allocateFunction(const Quat& q){ //函数/过程的分配，主要是要保
 }
 //sw	$t0,0($t1)
 void getVariableMips(int reg_t, string name, int program_id, bool is_load){ //is_load:是否要取出值
-    if (name=="#1"){
-        int klll;
-        int jj;
-        jj=1;
-    }
     string name_array, name_offset, start_pos = "fp";
     asm_out << "#~~~" << name << endl; //~~~a[yyy]
-    if (name == "i"){
-        int kk;
-        kk = 1;
-    }
     int offset, start; //offset = tab[pos].addr
     if (isChar(name)){
         asm_out << "li\t$t" << reg_t << "," << int(name[1]) << endl; //输出字符串的值
