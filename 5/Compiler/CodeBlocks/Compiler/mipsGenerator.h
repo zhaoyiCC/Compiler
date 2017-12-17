@@ -296,7 +296,9 @@ void quatMips(){
             }
         }
     }
+    string str_out_trans;
     for (auto i: mp_s){
+//        str_out_trans = 
         asm_out << "str" << i.second << ":\t.asciiz" << " " << i.first << endl <<endl;
     }
     

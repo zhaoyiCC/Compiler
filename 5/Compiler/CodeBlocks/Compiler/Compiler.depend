@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1513510914 source:e:\github\compiler\5\compiler\codeblocks\compiler\main.cpp
+1513521596 source:e:\github\compiler\5\compiler\codeblocks\compiler\main.cpp
 	"enter.h"
 	"lexicalHandler.h"
 	"grammarHandler.h"
@@ -28,18 +28,18 @@
 	<ostream>
 	<sstream>
 
-1512992821 e:\github\compiler\5\compiler\codeblocks\compiler\mystd.h
+1513521429 e:\github\compiler\5\compiler\codeblocks\compiler\mystd.h
 
 1512992821 e:\github\compiler\5\compiler\codeblocks\compiler\error.h
 
-1513506483 e:\github\compiler\5\compiler\codeblocks\compiler\lexicalhandler.h
+1513521429 e:\github\compiler\5\compiler\codeblocks\compiler\lexicalhandler.h
 	"headers.h"
 
-1513506483 e:\github\compiler\5\compiler\codeblocks\compiler\grammarhandler.h
+1513521429 e:\github\compiler\5\compiler\codeblocks\compiler\grammarhandler.h
 	"headers.h"
 	"error.h"
 	"myStd.h"
 
-1513506483 e:\github\compiler\5\compiler\codeblocks\compiler\mipsgenerator.h
+1513521429 e:\github\compiler\5\compiler\codeblocks\compiler\mipsgenerator.h
 	"headers.h"
 

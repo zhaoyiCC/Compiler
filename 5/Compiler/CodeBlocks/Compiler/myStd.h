@@ -24,12 +24,21 @@ bool isChar(const std::string& s){
         return false;
     return true;//检测合法!!!
 }
-bool isNumber(const std::string& s)
-{
+bool isNumber(const std::string& s){
     if (s=="-" || s=="+") return false;
     std::string::const_iterator it = s.begin();
     if (*it=='-'||*it=='+') it++;
     while (it != s.end() && std::isdigit(*it)) ++it;
     return !s.empty() && it == s.end();
+}
+int str_replace(string &str, const string &src, const string &dest){ //把字符串中的src转换成dest，返回转换的个数
+    int counter = 0;
+    string::size_type pos = 0;
+    while ((pos = str.find(src, pos)) != string::npos) {
+        str.replace(pos, src.size(), dest);
+        ++counter;
+        pos += dest.size();
+    }
+    return counter;
 }
 #endif /* myStd_h */

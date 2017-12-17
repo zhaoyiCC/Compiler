@@ -3,7 +3,6 @@ int lexicalAnalysis(string& str, string& s){ //词法分析
     if (now>=siz) //{ printQuat(); exit(0); }//代表已经处理完成了
         return 0;
     s = "";
-    
     while (isspace(str[now]))
         now++;
     last = now; //在之前的while语句后面是为了避免语法分析输出This is a ...的时候前面有很多多余的回车或空格
