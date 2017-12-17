@@ -126,9 +126,10 @@ void funcCall(string& str){ //函数调用 //＜有（无）返回值函数调�
 }
 void factor(string& str, string& res){ //＜因子＞    ::= ＜标识符＞｜＜标识符＞‘[’＜表达式＞‘]’｜＜整数＞|＜字符＞｜＜有返回值函数调用语句＞|‘(’＜表达式＞‘)’
     string op1, op2, op3, factor_name, factor_sign;
-    int pos_line_header = last;
+    int pos_line_header = last, offset, pos;
     //string res = sym;
     if (id == 98 || id == 99){ //代表是字符或者(无符号)整数
+        is_char = (id == 98); //如果是字符就是char
         res = sym;
         id = lexicalAnalysis(str, sym);
     }
@@ -147,7 +148,7 @@ void factor(string& str, string& res){ //＜因子＞    ::= ＜标识符＞｜�
         }else{
             cout << "!!!FactorErr!!!" << endl;
         }
-        
+        is_char = false;
     }else if (id < 1000){ //代表不是标识符或者函数名
         error(14);
         id = lexicalAnalysis(str, sym);
@@ -157,6 +158,8 @@ void factor(string& str, string& res){ //＜因子＞    ::= ＜标识符＞｜�
         id = lexicalAnalysis(str, sym);
         
         if (sym == "["){
+            pos = locateVariable(factor_name, cnt_proc, offset, false);
+            
             id = lexicalAnalysis(str, sym);
             expression(str, op3);
             test({"]"},15);
@@ -165,6 +168,7 @@ void factor(string& str, string& res){ //＜因子＞    ::= ＜标识符＞｜�
             //cout << "@@@@@@@" << endl;
             addQuat("=", op1, op2+"["+op3+"]", "");//!!!addQuat("load", op1, op2, op3); // t1 = op2[op3]
             res = op1;
+            is_char = (tab[pos].type == "char[]"); //顺序很重要，因为[]中间的表达式不能改变is_char的值
         }else if (sym == "("){ //代表是函数调用语句 ???如果遇到a = work(1); work是一个过程，怎么报错
             //!!!
             now = pos_line_header; //会退到读函数名的地方
@@ -176,12 +180,20 @@ void factor(string& str, string& res){ //＜因子＞    ::= ＜标识符＞｜�
                 cout << "!!!ERR: " << factor_name << " Not found" << endl;
             else if (mp_func[factor_name].type == "")
                 cout << "!!!ERR You can't assign a void " << factor_name << " value" << endl;
-            else
-                res = "RET_"+mp_func[factor_name].type; //!!!
+            else{ //******
+                //!!!!res = "RET_"+mp_func[factor_name].type; //!!! //这样写会带来i=work(1)+work(1) 编程i=RET_int+RET_int的麻烦 即都按成了后面那个来计算
+                newTmp(op1);
+                op2 = "RET_"+mp_func[factor_name].type;
+                addQuat("=", op1, op2, "");
+                res = op1;
+                is_char = (mp_func[factor_name].type == "char");
+            }
             //return ;
+        }else{
+            //否则就是一个单纯的标识符，也就是变量名，不需要做任何事
+            pos = locateVariable(factor_name, cnt_proc, offset, false);
+            is_char = (tab[pos].type == "char");
         }
-        //否则就是一个单纯的标识符，也就是变量名，不需要做任何事
-        
     }
     cout << "This is a factor statemnt::: " << str.substr(pos_line_header, last-pos_line_header) << endl << endl;
 }
@@ -200,6 +212,7 @@ void term(string& str, string& res){ //＜项＞     ::= ＜因子＞{＜乘法�
         op3 = res;
         newTmp(op1);
         addQuat(sign_term, op1, op2, op3);
+        is_char = false;
     }
     cout << "This is a term statemnt::: " << str.substr(pos_line_header, last-pos_line_header) << endl << endl;
     res = op1;
@@ -210,6 +223,7 @@ void expression(string& str, string& res){ //＜表达式＞    ::= ［＋｜－
     if (sym == "+" || sym == "-"){ //遇到前导的正号或者负号，先提取出来
         expression_sign = sym;
         id = lexicalAnalysis(str, sym);
+        is_char = false; //有正号负号就一定不会是char类型的了
     }
     term(str, res);
     op1 = res;
@@ -231,7 +245,7 @@ void expression(string& str, string& res){ //＜表达式＞    ::= ［＋｜－
     cout << "This is a expression statemnt::: " << str.substr(pos_line_header, last-pos_line_header) << endl << endl;
     res = op1;
 }
-void condStatement(string& str, bool is_loop, Quat& q){ //＜条件＞    ::=  ＜表达式＞＜关系运算符＞＜表达式＞｜＜表达式＞ //表达式为0条件为假，否则为真
+void condStatement(string& str, bool is_loop, Quat& q){ //＜条件＞::=＜表达式＞＜关系运算符＞＜表达式＞｜＜表达式＞//表达式为0条件为假，否则为真
     string op1, op2, op3, res, cond;
     int pos_line_header = last;
     expression(str, res);
@@ -241,17 +255,15 @@ void condStatement(string& str, bool is_loop, Quat& q){ //＜条件＞    ::=  �
         id = lexicalAnalysis(str, sym);
         expression(str, res);
         op2 = res;
+    }else if ((!is_loop&&sym == ")")||(is_loop&&sym==";")){ //代表是一个单独的表达式
+        cond = "!=";
+        op2 = "0";
     }else
         error(103);
-    if (!is_loop)
-        addQuat(cond, op1, op2, ""); //"==" ">="
-    else{
-        q.type = cond;
-        q.op1 = op1;
-        q.op2 = op2;
-        q.op3 = "";
-        q.program_id = cnt_proc;
-    }
+    
+    //if (!is_loop)
+    addQuat(cond, op1, op2, ""); //"==" ">="
+    //else{ q.type = cond; q.op1 = op1; q.op2 = op2; q.op3 = ""; q.program_id = cnt_proc;}
     cout << "This is a condition ::: " << str.substr(pos_line_header, last-pos_line_header) << endl << endl;
 }
 void ifelStatement(string& str){ //＜条件语句＞  ::=  if ‘(’＜条件＞‘)’＜语句＞［else＜语句＞］
@@ -263,7 +275,7 @@ void ifelStatement(string& str){ //＜条件语句＞  ::=  if ‘(’＜条件�
     id = lexicalAnalysis(str, sym);
     test({"("}, 12);
     id = lexicalAnalysis(str, sym); //读入下一个标识符给条件处理的语句使用
-    condStatement(str, false, ifel_quat); //ifel_quat没作用，只是为了配合for的演出
+    condStatement(str, false, ifel_quat); //false代表不是for循环 因为f语句的条件必须是由()包住区分，而for循环的条件不需要()
     test({")"}, 17);
     addQuat("BZ", "LABEL_"+int2string(label1), "", ""); //紧跟在 == 后面
     id = lexicalAnalysis(str, sym);
@@ -315,10 +327,67 @@ int step(string& str, string& num){//＜步长＞    ::=  ＜非零数字＞｛�
     id = lexicalAnalysis(str, sym);
     return 1;
 }
+//void loopStatement(string &str){ //＜循环语句＞::=for‘(’＜标识符＞＝＜表达式＞;＜条件＞;＜标识符＞＝＜标识符＞(+|-)＜步长＞‘)’＜语句＞
+//    string op1, op2, op3, res, loop_variment, step_num;
+//    Quat loop_cond_quat, loop_step;
+//    int pos_line_header = last, loop_pos, label_first, label_second;
+//    id = lexicalAnalysis(str, sym); //之前已经读进来过for了
+//    test({"("},18);
+//    id = lexicalAnalysis(str, sym);
+//    if (id < 1000) //必须是标识符
+//        error(19);
+//    loop_variment = sym;
+//    id = lexicalAnalysis(str, sym);
+//    test({"="},20);
+//    id = lexicalAnalysis(str, sym);
+//    expression(str, res);
+//    addQuat("=", loop_variment, res, ""); //i = 1
+//    
+//    loop_pos = cnt_quat;
+//    newLabel(label_first);
+//    quat[loop_pos+1].label.push_back(label_first);//= label_first; //在i=1的下一句加上标记
+//    
+//    test({";"},21);
+//    id = lexicalAnalysis(str, sym);
+//    condStatement(str, true, loop_cond_quat);
+//    
+//    test({";"},21);
+//    id = lexicalAnalysis(str, sym); //处理到=前面的标识符
+//    if (id < 1000) //必须是标识符
+//        error(19);
+//    id = lexicalAnalysis(str, sym); //处理到=
+//    test({"="},20);
+//    id = lexicalAnalysis(str, sym); //处理到=后面的标识符
+//    if (id < 1000) //必须是标识符
+//        error(19);
+//    id = lexicalAnalysis(str, sym); //处理到+ -
+//    test({"+", "-"},20);
+//    loop_step.type = sym; //+ -
+//    id = lexicalAnalysis(str, sym);
+//    step(str, step_num);
+//    test({")"}, 25);
+//    loop_step.op1 = loop_variment;
+//    loop_step.op2 = loop_variment;
+//    loop_step.op3 = step_num;
+//    loop_step.program_id = cnt_proc;
+//    //loop_step.label = quat[cnt_quat+1].label; //!!! 重要 //!!!时间错误
+//    id = lexicalAnalysis(str, sym);
+//    statement(str);
+//    loop_step.label = quat[cnt_quat+1].label;
+//    quat[++cnt_quat] = loop_step; //步长 i=i+1
+//    loop_cond_quat.label = quat[cnt_quat+1].label; //i<=tmp1
+//    quat[++cnt_quat] = loop_cond_quat;
+//    newLabel(label_second);
+//    addQuat("BZ", "LABEL_"+int2string(label_second),"","");
+//    addQuat("GOTO", "LABEL_"+int2string(label_first),"","");
+//    quat[cnt_quat+1].label.push_back(label_second);//= label_second;
+//    cout << "This is a loop statement::: " << str.substr(pos_line_header, last-pos_line_header) << endl << endl;
+//}
+
 void loopStatement(string &str){ //＜循环语句＞::=for‘(’＜标识符＞＝＜表达式＞;＜条件＞;＜标识符＞＝＜标识符＞(+|-)＜步长＞‘)’＜语句＞
-    string op1, op2, op3, res, loop_variment, step_num;
+    string op1, op2, op3, res, loop_variment, step_num, sym_end_loop;
     Quat loop_cond_quat, loop_step;
-    int pos_line_header = last, loop_pos, label_first, label_second;
+    int pos_line_header = last, loop_pos, loop_pos_program,label_first, label_second, pos_end_loop, pos_before_step, last_end_loop, id_end_loop;
     id = lexicalAnalysis(str, sym); //之前已经读进来过for了
     test({"("},18);
     id = lexicalAnalysis(str, sym);
@@ -332,14 +401,33 @@ void loopStatement(string &str){ //＜循环语句＞::=for‘(’＜标识符�
     addQuat("=", loop_variment, res, ""); //i = 1
     
     loop_pos = cnt_quat;
+    loop_pos_program = now;
     newLabel(label_first);
     quat[loop_pos+1].label.push_back(label_first);//= label_first; //在i=1的下一句加上标记
     
     test({";"},21);
-    id = lexicalAnalysis(str, sym);
-    condStatement(str, true, loop_cond_quat);
     
+    while (str[now]!=';')// id = lexicalAnalysis(str, sym); //    condStatement(str, true, loop_cond_quat);
+        now++;
+    now++;
+    pos_before_step = now;
+    sym=";";
     test({";"},21);
+    
+    while (str[now]!=')')
+        now++;
+    now++;
+    sym=")"; //Emit!!
+    test({")"}, 25);
+
+    id = lexicalAnalysis(str, sym);
+    statement(str);
+    pos_end_loop = now;
+    last_end_loop = last;
+    sym_end_loop = sym;
+    id_end_loop = id;
+    
+    now = pos_before_step;
     id = lexicalAnalysis(str, sym); //处理到=前面的标识符
     if (id < 1000) //必须是标识符
         error(19);
@@ -358,13 +446,19 @@ void loopStatement(string &str){ //＜循环语句＞::=for‘(’＜标识符�
     loop_step.op2 = loop_variment;
     loop_step.op3 = step_num;
     loop_step.program_id = cnt_proc;
-    //loop_step.label = quat[cnt_quat+1].label; //!!! 重要 //!!!时间错误
-    id = lexicalAnalysis(str, sym);
-    statement(str);
     loop_step.label = quat[cnt_quat+1].label;
-    quat[++cnt_quat] = loop_step;
-    loop_cond_quat.label = quat[cnt_quat+1].label;
-    quat[++cnt_quat] = loop_cond_quat;
+    quat[++cnt_quat] = loop_step; //步长 i=i+1
+    
+    now = loop_pos_program;
+    id = lexicalAnalysis(str, sym);
+    condStatement(str, true, loop_cond_quat); //true代表是for循环 因为条件后的是分号，以便和if语句的条件必须和()包住区分
+    test({";"},21);
+
+    now = pos_end_loop;
+    last = last_end_loop;
+    sym = sym_end_loop;
+    id = id_end_loop;
+    
     newLabel(label_second);
     addQuat("BZ", "LABEL_"+int2string(label_second),"","");
     addQuat("GOTO", "LABEL_"+int2string(label_first),"","");
@@ -389,23 +483,28 @@ void scanStatement(string& str){ //＜读语句＞    ::=  scanf ‘(’＜标�
     cout << "This is a scanf statement::: " << scan_cnt << " variables::: " << str.substr(pos_line_header, last-pos_line_header) << endl << endl;
 }
 void prinStatement(string& str){ //＜写语句＞    ::= printf ‘(’ ＜字符串＞,＜表达式＞ ‘)’| printf ‘(’＜字符串＞ ‘)’| printf ‘(’＜表达式＞‘)’
-    string op1, op2, op3, res;
+    string op1, op2, op3, res, prin_type = "int";
     int pos_line_header = last;
     id = lexicalAnalysis(str, sym);
     test({"("}, 29);
     id = lexicalAnalysis(str, sym);
     if (id == 97) { //代表是字符串
-        addQuat("PRINT", sym, "", "");
+        addQuat("PRINT", sym, "string", ""); //***op2是我后来加的，这个是可有可无的，因为我后来输出判断了是不是字符串
         id = lexicalAnalysis(str, sym);
         if (sym == ","){ //＜字符串＞,＜表达式＞
             id = lexicalAnalysis(str, sym);
             expression(str, res);
-            addQuat("PRINT", res, "", "");
+            if (is_char)
+                prin_type = "char";
+            addQuat("PRINT", res, prin_type, "");
         }
     }else{
         expression(str, res);
-        addQuat("PRINT", res, "", "");
+        if (is_char)
+            prin_type = "char";
+        addQuat("PRINT", res, prin_type, "");
     }
+    addQuat("PRINTLN", "", "", ""); //代表是输出一个空行
     test({")"}, 30);
     id = lexicalAnalysis(str, sym);
     cout << "This is a printf statement::: " << str.substr(pos_line_header, last-pos_line_header) << endl << endl;
@@ -427,7 +526,7 @@ void retuStatement(string& str){ //＜返回语句＞   ::=  return[‘(’＜�
     cout << "This is a return statement::: " << str.substr(pos_line_header, last-pos_line_header) << endl << endl;
     addQuat("ret", res, "", "");
 }
-void caseStatement(string& str, string swit_variment){ //＜情况表＞   ::=  ＜情况子语句＞{＜情况子语句＞}
+void caseStatement(string& str, string swit_variment, vector<int>& case_v){ //＜情况表＞   ::=  ＜情况子语句＞{＜情况子语句＞}
     //＜情况子语句＞  ::=  case＜常量＞：＜语句＞
     case_v.clear();
     string op1, op2, op3, res, case_constant;
@@ -483,6 +582,7 @@ void defuStatement(string& str){ //＜缺省＞   ::=  default : ＜语句＞
     cout << "This is a default statement::: " << str.substr(pos_line_header, last-pos_line_header) << endl << endl;
 }
 void switStatement(string& str){ //＜情况语句＞  ::=  switch ‘(’＜表达式＞‘)’ ‘{’＜情况表＞＜缺省＞‘}’
+    vector<int> case_v;
     string op1, op2, op3, res, swit_variment;
     int pos_line_header = last, label_after_default;
     id = lexicalAnalysis(str, sym);
@@ -495,7 +595,7 @@ void switStatement(string& str){ //＜情况语句＞  ::=  switch ‘(’＜表
     id = lexicalAnalysis(str, sym);
     test({"{"}, 35);
     id = lexicalAnalysis(str, sym);
-    caseStatement(str, swit_variment);
+    caseStatement(str, swit_variment, case_v);
     defuStatement(str);
     
     newLabel(label_after_default);
@@ -521,6 +621,7 @@ void statement(string& str){ //＜语句＞    ::= ＜条件语句＞｜＜循�
         case 17: statExecution(str, false, false); break;//"{" 语句列即不是复合语句(即不能有const、变量定义)
         default: { //剩下的就是一个标识符了，可能是赋值语句或者函数调用语句
             if (id < 1000){
+                cout << sym << endl;
                 test({},88);
                 break;
             }
@@ -594,6 +695,10 @@ void voidDeclartion(string& str, string kind, string type){ //有返回值函数
     
     void_pos = cnt_tab;
     addQuat(kind+"_"+type, void_name, "", ""); //"void_", "function_int" "function_char"
+    if (void_name=="switchcodintionans"){
+        int gg;
+        gg = 1;
+    }
     int variable_tot = procMainExec(str);
     
     cout << "This is a " + kind + type + " statement " << void_name << " ::: " << variable_tot << " parameters::: " << str.substr(pos_line_header, last-pos_line_header) << endl << endl;

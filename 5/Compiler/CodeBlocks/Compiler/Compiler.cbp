@@ -32,7 +32,15 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="enter.h" />
+		<Unit filename="error.h" />
+		<Unit filename="grammarHandler.h" />
+		<Unit filename="headers.h" />
+		<Unit filename="lexicalHandler.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="mipsGenerator.h" />
+		<Unit filename="myStd.h" />
+		<Unit filename="文法.txt" />
 		<Extensions>
 			<code_completion />
 			<envvars />

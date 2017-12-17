@@ -43,7 +43,7 @@ void enter(string name, string kind, string type, int value, int addr, int para_
     tab[cnt_tab].addr = addr;
     tab[cnt_tab].para_num = para_num;
     tab[cnt_tab].program_id = cnt_proc;
-    
+
     cout << "cnt_tab " << cnt_tab << " ::: " << name << " " << kind << " " << type << " " << value << " " << addr << " " << para_num << " &&& " << cnt_proc << endl;
 }
 
@@ -99,9 +99,9 @@ void printQuat(){
     if (!quat[cnt_quat+1].label.empty()){
         addQuat("nop", "", "", "");
     }
-    
+
     rep (i,1,cnt_quat) {
-        
+
         if (!quat[i].label.empty())// != -1)
             for (auto j: quat[i].label)//cout << "LABEL_" << quat[i].label << " ";
                 cout << "LABEL_" << j << " ";
@@ -118,6 +118,7 @@ void printQuat(){
             case 30: cout << quat[i].op1 << " = " << quat[i].op2 << "[" << quat[i].op3 << "]" << endl; break;
             case 40: cout << "var " << quat[i].type.substr(9,quat[i].type.size()-2-9) << " " << quat[i].op1 << "[" << quat[i].op2 << "]" << endl; break;
             case 50: cout << quat[i].type << endl;  break;
+            case 60: cout << quat[i].type << "_" << quat[i].op2 << " " << quat[i].op1 << endl; break;
             default: cout << "@@@" << quat[i].type << " " << mp_quat[quat[i].type] << endl; cout << quat[i].type << " " << quat[i].op1 << " " << quat[i].op2 << " " << quat[i].op3 << endl;
         }
     }
@@ -151,10 +152,10 @@ void calcTmp(){
     rep (i,1,cnt_quat){
         if (quat[i].type == "variable_int" || quat[i].type == "variable_char")
             mp_proc_variable[quat[i].program_id]++;
-        
+
         if (quat[i].type == "variable_int[]" || quat[i].type == "variable_char[]")
             mp_proc_variable[quat[i].program_id]+=mystoi(quat[i].op2);
-        
+
         if (quat[i].type == "function_int" || quat[i].type == "function_char" || quat[i].type == "void_"){
             rep (j,1,cnt_proc){
                 if (tab[index_proc[j]].name == quat[i].op1){
@@ -180,10 +181,10 @@ void calcTmp(){
             cout << quat[i].op1 << " ::: " << mp_tmp[quat[i].op1].first << " " << mp_tmp[quat[i].op1].second << endl;
         }
     }
-    
+
     cout << "------------------------------" << endl;
     cout << "------------------------------" << endl;
     cout << "------------------------------" << endl;
-    
+
 }
 #endif /* enter_h */

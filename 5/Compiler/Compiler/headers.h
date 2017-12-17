@@ -74,13 +74,13 @@ map<string, Func> mp_func; //函数名为键，值为对应的函数/过程信�
 
 map<string,int> mp = {
     {"<", 1},{"<=", 2},{">", 3},{">=", 4},{"!=", 5},{"==", 6},
-    
+
     {"+", 7},{"-", 8},{"*", 9},{"/", 10},
-    
+
     {"'", 11},{"\"", 12},{"(", 13},{")", 14},{"[", 15},{"]", 16},{"{", 17},{"}", 18},{";", 19},{",", 20},{":", 21},
-    
+
     {"=", 22},
-    
+
     {"int", 100},{"char", 101},{"const", 102},{"if", 103},{"else", 104},{"for", 105},{"switch", 106},{"case", 107},{"void", 108},{"return", 109},{"main", 110},
     {"scanf", 111}, {"printf", 112},
 };
@@ -88,13 +88,13 @@ map<string,int> mp = {
 
 map<string,string> mp_out = {
     {"<", "blt"},{"<=", "blt"},{">", "bgt"},{">=", "bge"},{"!=", "bne"},{"==", "beq"},
-    
+
     {"+", "add"},{"-", "sub"},{"*", "mul"},{"/", "div"},
-    
+
     {"(", "LeftParentheis"},{")", "RightParenthesis"},{"[", "LeftBracket"},{"]","RightBracket"},{"{", "LeftBrace"},{"}", "RightBrace"},
-    
+
     {";", "Semicolon"},{",", "Comma"},{":", "colon"},
-    
+
     {"=", "assign"}
 };
 
@@ -106,10 +106,10 @@ map<int,string> error_msg = {
     {4, "variable definition must need a variable name"},
     {5, "[ must follow a number"},
     {6, "Array can't be with 0"},
-    
+
     {9, "void must have a ("},
     {10, "void papameter list must have a )"},
-    
+
     {12, "if must have a ("},
     {13, "expression must have a )"},
     {14, "wrong format of expression"},
@@ -126,7 +126,7 @@ map<int,string> error_msg = {
     {25, "for step must have a )"},
     {26, "scanf must have a ("},
     {27, "scanf must have a identifier"},
-    
+
     {29, "printf must have a ("},
     {30, "printf must have a )"},
     {31, "return must start with a ("},
@@ -140,25 +140,25 @@ map<int,string> error_msg = {
     {40, "case must have a :"},
     {41, "switch must have a default statement"},
     {42, "default must have a :"},
-    
+
     {50, "assign missing a ]"},
     {51, "assign missing a ="},
-    
+
     {55, "const missing a ;"},
-    
+
     {56, "missing a {"},
     {57, "const must be a int if const int . ="},
     {57, "const must be a char if const char . ="},
-    
+
     {59, "case constant must have a unsigned int after +/-"},
-    
+
     {72, "call missing a )"},
-    
+
     {88, "!!!Error: statement:Unknown Indentifier!!!"},
-    
+
     {98, "missing a ;"},
     {99, "extra content after program ends."},
-    
+
     {100, "Duplicate name of a proc"},
     {101, "local variable same name with another local variable"},
     {103, "if must have a condition operation"},
@@ -174,7 +174,8 @@ map<string,int> mp_quat = {
     {"=",20}, {">=", 20}, {"==", 20}, {"!=", 20}, {"<=", 20}, {">", 20}, {"<", 20},
     {"variable_int[]", 40}, {"variable_char[]", 40},
     {"BEGIN", 50}, //这个是我人为加上的一个标记，代表的是函数中变量定义结束的位置，在这个时候我进行了ra和sp压到运行栈的步骤
-    {"GOTO", 100}, {"BZ", 100}, {"PRINT", 100}, {"READ", 100}, {"PUSH", 100}, {"ret", 100}, {"call", 100}, {"SWITCH", 100}, {"nop", 100},
+    {"PRINT", 60}, //从100搬到了60，把输出的类型打印出来了，例如RINT_int 方便debug
+    {"GOTO", 100}, {"BZ", 100},  {"READ", 100}, {"PUSH", 100}, {"ret", 100}, {"call", 100}, {"SWITCH", 100}, {"nop", 100},
     {"PRINTLN", 1000},
 };
 
@@ -186,7 +187,7 @@ map<string,int> mp_mips = {
     {"void_", 5},
     {"+", 10}, {"-", 11}, {"*", 12}, {"/", 13},
     {"=",20}, {">=", 21}, {"==", 21}, {"!=", 21}, {"<=", 21}, {">", 21}, {"<", 21},
-    
+
     {"variable_int[]", 40}, {"variable_char[]", 40},
     {"BEGIN", 50},
     {"PUSH", 101}, {"BZ", 102}, {"PRINT", 103}, {"READ", 104}, {"GOTO", 105}, {"ret", 106}, {"call", 105}, {"SWITCH", 107}, {"nop", 108},

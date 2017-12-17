@@ -1,16 +1,16 @@
 # depslib dependency file v1.0
-1512992821 source:e:\github\compiler\5\compiler\codeblocks\compiler\main.cpp
+1513510914 source:e:\github\compiler\5\compiler\codeblocks\compiler\main.cpp
 	"enter.h"
 	"lexicalHandler.h"
 	"grammarHandler.h"
 	"mipsGenerator.h"
 
-1512992821 e:\github\compiler\5\compiler\codeblocks\compiler\enter.h
+1513510618 e:\github\compiler\5\compiler\codeblocks\compiler\enter.h
 	"headers.h"
 	"myStd.h"
 	"error.h"
 
-1512992821 e:\github\compiler\5\compiler\codeblocks\compiler\headers.h
+1513510765 e:\github\compiler\5\compiler\codeblocks\compiler\headers.h
 	<iostream>
 	<cstdio>
 	<cstring>
@@ -32,14 +32,14 @@
 
 1512992821 e:\github\compiler\5\compiler\codeblocks\compiler\error.h
 
-1512992821 e:\github\compiler\5\compiler\codeblocks\compiler\lexicalhandler.h
+1513506483 e:\github\compiler\5\compiler\codeblocks\compiler\lexicalhandler.h
 	"headers.h"
 
-1512992821 e:\github\compiler\5\compiler\codeblocks\compiler\grammarhandler.h
+1513506483 e:\github\compiler\5\compiler\codeblocks\compiler\grammarhandler.h
 	"headers.h"
 	"error.h"
 	"myStd.h"
 
-1512992821 e:\github\compiler\5\compiler\codeblocks\compiler\mipsgenerator.h
+1513506483 e:\github\compiler\5\compiler\codeblocks\compiler\mipsgenerator.h
 	"headers.h"
 
