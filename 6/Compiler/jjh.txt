@@ -12,20 +12,24 @@ int fact(int n)
         return (n*fact(n - 1));
 }
 
-char toUpper(char x)
-{
-    if (x > 122) {
-        printf(" ");
-    }
-    else {
-        if (x < 97) {
-            printf(" ");
+int isLetter(char c1) {
+    if (c1 == '_')
+        return(1);
+    else if (c1 >= 'a') {
+        if (c1 <= 'z') {
+            return(1);
         }
-        else {
-            x = x - 32;
-        }
+        else
+            return(0);
     }
-    return (x);
+    else if (c1 >= 'A') {
+        if (c1 <= 'Z') {
+            return(1);
+        }
+        else;
+    }
+    else;
+    return(0);
 }
 
 int choose_pivot(int i, int j)
@@ -165,18 +169,10 @@ printf(fact(i));
 
 void letterCheck()
 {
-    char x,y;
+    char x;
 scanf(x);
-y = toUpper(x);
-if (x == y)
-for (hhh=1;x == y;hhh=hhh+1)
-{
-    scanf(x);
-    y = toUpper(x);
-}
-printf("->");
-printf(y);
-printf(" ");
+if (isLetter(x)) printf("True");
+else printf("False");
 }
 
 void main()

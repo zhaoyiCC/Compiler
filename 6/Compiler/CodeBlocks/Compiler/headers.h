@@ -19,7 +19,10 @@
 #define rep(i,a,b) for (int i = (a); i <= (b); ++i)
 #define MAX_QUAT 10000
 #define MAX_TAB 10000
+
+//#define debug
 using namespace std;
+string now_proc_type; //保存当前处理的过程的类型 void/int/main
 bool is_char = false; //全局变量判断当前处理完的表达式是什么类型
 /********************错误处理*********************/
 void error(int errorId);
@@ -30,6 +33,7 @@ void expression(string& str, string& res), statExecution(string& str, bool is_mu
 
 int id, cnt = 999, now = 0, last;
 size_t siz;
+map<int,int> mp_line;
 int addr = 0, cnt_quat, cnt_tab = 0, cnt_proc = 0, index_proc[1010], cnt_tmp = 0, cnt_label, para_i, para_now_cnt; //index_proc为分程序索引表，里面存的是每个程序的第一个定义的变量在符号表的位置(就是过程/函数自己，因为自己也会存在这个里面的)
 string route, sym, str; //sym: 获取到的接下来的一个字符串
 vector<char> oper_rela = {'<', '>', '='};
@@ -48,6 +52,7 @@ struct Tab{ //符号表
 struct Quat{ //四元式
     string type, op1, op2, op3;
     int program_id;//label=-1,
+    int block_id = -1; //默认不是基本块的起点，遇到一个过程的定义后的第一句话就是block_id=0，之后可能会编上标号。总之不是-1就代表不是基本块
     vector<int> label;
 }quat[MAX_QUAT+10];
 
@@ -69,6 +74,7 @@ struct Func{ //存放函数的结构体，其中type有三种类型，int, char,
     int tab_id; //在符号表的登录位置
     string type;
     int para_num;
+    vector<bool> is_char;
 };
 map<string, Func> mp_func; //函数名为键，值为对应的函数/过程信息
 
@@ -107,6 +113,7 @@ map<int,string> error_msg = {
     {5, "[ must follow a number"},
     {6, "Array can't be with 0"},
 
+    {8, "variable define missing a ;"},
     {9, "void must have a ("},
     {10, "void papameter list must have a )"},
 
@@ -140,6 +147,7 @@ map<int,string> error_msg = {
     {40, "case must have a :"},
     {41, "switch must have a default statement"},
     {42, "default must have a :"},
+    {45, "missing main )"},
 
     {50, "assign missing a ]"},
     {51, "assign missing a ="},
@@ -191,6 +199,21 @@ map<string,int> mp_mips = {
     {"variable_int[]", 40}, {"variable_char[]", 40},
     {"BEGIN", 50},
     {"PUSH", 101}, {"BZ", 102}, {"PRINT", 103}, {"READ", 104}, {"GOTO", 105}, {"ret", 106}, {"call", 105}, {"SWITCH", 107}, {"nop", 108},
+    {"PRINTLN", 1000},
+};
+
+map<string,int> mp_dag = {
+    {"const_int", 1}, {"const_char", 1},
+    {"variable_int", 3}, {"variable_char", 3},
+    {"function_int", 5}, {"function_char", 5},
+    {"parameter_int", 7}, {"parameter_char", 7},
+    {"void_", 9},
+    {"+", 10}, {"-", 10}, {"*", 10}, {"/", 10},
+    {"=",20}, {">=", 21}, {"==", 21}, {"!=", 21}, {"<=", 21}, {">", 21}, {"<", 21},
+    {"variable_int[]", 40}, {"variable_char[]", 40},
+    {"BEGIN", 50}, //这个是我人为加上的一个标记，代表的是函数中变量定义结束的位置，在这个时候我进行了ra和sp压到运行栈的步骤
+    {"PRINT", 60}, //从100搬到了60，把输出的类型打印出来了，例如RINT_int 方便debug
+    {"GOTO", 100}, {"BZ", 100},  {"READ", 100}, {"PUSH", 100}, {"ret", 100}, {"call", 100}, {"SWITCH", 100}, {"nop", 100},
     {"PRINTLN", 1000},
 };
 #endif /* headers_h */

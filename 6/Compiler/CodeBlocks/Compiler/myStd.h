@@ -31,6 +31,13 @@ bool isNumber(const std::string& s){
     while (it != s.end() && std::isdigit(*it)) ++it;
     return !s.empty() && it == s.end();
 }
+bool checkChar(int x){ //'＜加法运算符＞'｜'＜乘法运算符＞'｜'＜字母＞'｜'＜数字＞'
+    if (x == '+' || x == '-' || x == '*' || x == '/')
+        return true;
+    if ((x>='a'&&x<='z')||(x>='A'&&x<='Z')||(x>='0'&&x<='9'))
+        return true;
+    return false;
+}
 int str_replace(string &str, const string &src, const string &dest){ //把字符串中的src转换成dest，返回转换的个数
     int counter = 0;
     string::size_type pos = 0;
@@ -40,5 +47,15 @@ int str_replace(string &str, const string &src, const string &dest){ //把字符
         pos += dest.size();
     }
     return counter;
+}
+void splitArrayName(string s, string& array_name, string& subscript){
+    auto pos1 = s.find("[", 0);
+    auto pos2 = s.find("]", 0);
+    if (pos1 == s.npos || pos2 == s.npos){
+        cout << "!!!ERROR_splitArrayName::: " << s << "!!!" << endl;
+        return ;
+    }
+    array_name = s.substr(0, pos1);
+    subscript = s.substr(pos1+1, pos2-pos1-1);
 }
 #endif /* myStd_h */

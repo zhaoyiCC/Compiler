@@ -43,8 +43,9 @@ void enter(string name, string kind, string type, int value, int addr, int para_
     tab[cnt_tab].addr = addr;
     tab[cnt_tab].para_num = para_num;
     tab[cnt_tab].program_id = cnt_proc;
-
+    #ifdef debug
     cout << "cnt_tab " << cnt_tab << " ::: " << name << " " << kind << " " << type << " " << value << " " << addr << " " << para_num << " &&& " << cnt_proc << endl;
+    #endif // debug
 }
 
 int locateVariable(string name, int program_id, int& offset,bool is_mips=true){ //找到这个变量在哪里定义的，返回在符号表的位置，未找到则是-1 //默认参数，因为我是后来才加上要判断语法分析的合法性，因此
@@ -80,11 +81,15 @@ int locateVariable(string name, int program_id, int& offset,bool is_mips=true){ 
             return i;
         }
     }
+    if (name.size() >= 1 && name[0] == '#') //中间变量
+        return -5;
     return -2;
 }
 
 void addQuat(string type, string op1, string op2, string op3){
+    #ifdef debug
     cout << "QUAT!!!" << " " << type << " " << op1 << " " << op2 << " " << op3 << " ::: " << cnt_proc << endl;
+    #endif // debug
     ++cnt_quat;
     quat[cnt_quat].type = type;
     quat[cnt_quat].op1 = op1;
@@ -92,14 +97,19 @@ void addQuat(string type, string op1, string op2, string op3){
     quat[cnt_quat].op3 = op3;
     quat[cnt_quat].program_id = cnt_proc;
 }
-void printQuat(){
+void printSide(){
+    #ifdef debug
     cout << "------------------------------" << endl;
     cout << "------------------------------" << endl;
     cout << "------------------------------" << endl;
+    #endif // debug
+}
+void printQuat(){ //struct Quat quat[MAX_QUAT],int cnt_quat
+    printSide();
     if (!quat[cnt_quat+1].label.empty()){
         addQuat("nop", "", "", "");
     }
-
+    #ifdef debug
     rep (i,1,cnt_quat) {
 
         if (!quat[i].label.empty())// != -1)
@@ -122,29 +132,28 @@ void printQuat(){
             default: cout << "@@@" << quat[i].type << " " << mp_quat[quat[i].type] << endl; cout << quat[i].type << " " << quat[i].op1 << " " << quat[i].op2 << " " << quat[i].op3 << endl;
         }
     }
+    #endif // debug
 }
 void programTable(){
-    cout << "------------------------------" << endl;
-    cout << "------------------------------" << endl;
-    cout << "------------------------------" << endl;
+    printSide();
+    #ifdef debug
     rep (i,1,cnt_proc){
         cout << "Program " << i << " :  " << index_proc[i] << endl;
     }
     cout << "AddByMe Program " << cnt_proc+1 << " :  " << index_proc[cnt_proc+1] << endl;
+    #endif // debug
 }
 
 void symbolTable(){
-    cout << "------------------------------" << endl;
-    cout << "------------------------------" << endl;
-    cout << "------------------------------" << endl;
+    printSide();
+    #ifdef debug
     rep (i,1,cnt_tab){
         cout << "Symbol " << i << " :  " << tab[i].name << " " << tab[i].kind << " " << tab[i].type << " " << tab[i].value << " " << tab[i].addr << " " << tab[i].para_num << " " << tab[i].program_id << endl;
     }
+    #endif
 }
 void calcTmp(){
-    cout << "------------------------------" << endl;
-    cout << "------------------------------" << endl;
-    cout << "------------------------------" << endl;
+    printSide();
     map<int, int> mp_proc_cnt;
     rep (i,1,cnt_proc){
         mp_proc_cnt[i] = index_proc[i+1] - index_proc[i]-1; //这个过程块所有的参数局部变量。空出每段的第一个符号即函数自己
@@ -166,7 +175,9 @@ void calcTmp(){
                         }
                     }
                     mp_quat_para_num[quat[i].program_id] = tab[index_proc[j]].para_num; //^^^mp_quat_para_num[i] = tab[index_proc[j]].para_num;
+                    #ifdef debug
                     cout << i << " " << tab[index_proc[j]].para_num << " " <<  quat[i].program_id << endl;
+                    #endif // debug
                     break;
                 }
             }
@@ -178,13 +189,12 @@ void calcTmp(){
             }
             mp_quat_cnt_temp[quat[i].program_id] ++; //代表是这个过程块的四元式产生的第几个变量
             mp_tmp[quat[i].op1] = make_pair(quat[i].program_id, 3+mp_quat_para_num_with_local[quat[i].program_id]+mp_quat_cnt_temp[quat[i].program_id]); //3+mp_proc_cnt[quat[i].program_id]+mp_quat_cnt_temp[quat[i].program_id]
+            #ifdef debug
             cout << quat[i].op1 << " ::: " << mp_tmp[quat[i].op1].first << " " << mp_tmp[quat[i].op1].second << endl;
+            #endif // debug
         }
     }
 
-    cout << "------------------------------" << endl;
-    cout << "------------------------------" << endl;
-    cout << "------------------------------" << endl;
-
+    printSide();
 }
 #endif /* enter_h */

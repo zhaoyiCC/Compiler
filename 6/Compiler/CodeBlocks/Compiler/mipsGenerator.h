@@ -10,6 +10,7 @@
 #define mipsGenerator_h
 #include "headers.h"
 ofstream asm_out("asm.txt");
+//ofstream asm_out("/Users/Mr.ZY/Desktop/asm.txt");
 //#define asm_out asm_out
 
 int getT(){
@@ -53,18 +54,18 @@ void allocateArray(const Quat& q){
 void allocateFunction(const Quat& q){ //函数/过程的分配，主要是要保存fp和ra信息
     //    asm_out << q.type.substr(9, q.type.size()-9) << " " << q.op1 << "()" << endl;
     asm_out << "#END Const&Variable define" << endl;
-    
+
     asm_out <<"sw\t$s1,0($sp)"<<endl; //***保存sp
     asm_out <<"addi\t$sp,$sp,-4\n"<<endl; //***
-    
+
     asm_out <<"sw\t$ra,0($sp)"<<endl; //保存返回地址
-    
+
     //    asm_out <<"addi\t$fp,$sp,0"<<endl; //这个函数里的fp是一个基准线的作用，保存当前函数的顶部
     asm_out <<"addi\t$sp,$sp,-4\n"<<endl;
-    
+
     asm_out <<"sw\t$s0,0($sp)"<<endl; //压栈保存一下之前的fp在哪，因为之前已经先在函数定义的时候保存了
     asm_out <<"addi\t$sp,$sp,-4\n"<<endl;
-    
+
     asm_out << "addi\t$sp,$sp,-" << 4*mp_quat_cnt_temp[q.program_id] << endl; //***把中间代码产生的空间跳过去
     //    asm_out << "move\t$fp,$s0" << endl; //!!!
 }
@@ -105,7 +106,8 @@ void getVariableMips(int reg_t, string name, int program_id, bool is_load){ //is
     }
     int pos = locateVariable(name, program_id, offset); //如果是临时变量,pos = 0//把相对于函数的偏移量保存到offset //到四元式这一步，肯定是有定义了
     if (pos == -2){ //以防万一，!!!可删 -1是RET,虽然已经先处理过了RET了
-        asm_out << "!!!ERRNOT DEFINED!!!" << endl;
+        asm_out << "!!!ERROR:::NOT DEFINED$$$" << endl;
+        cout << name << "!!!ERROR:Not Defined$$$" << endl;
         return ;
     }
     /*
@@ -116,7 +118,7 @@ void getVariableMips(int reg_t, string name, int program_id, bool is_load){ //is
     }*/
     if (pos > 0 && pos < index_proc[1])
         start_pos = "gp";
-    
+
     //    if (pos < index_proc[1]) //代表是全局变量区 //0x2ffc
     //        start = 1;
     start = index_proc[program_id];
@@ -148,14 +150,14 @@ void allocateParameter(const Quat& q, int para_i){ //参数的分配，标准的
     getVariableMips(t_reg_1, q.op1, q.program_id, true);
     //    asm_out << "move\t$t" << t_reg_2 << ",$sp" << endl;
     //    asm_out << "subi\t$t" << t_reg_2 << ",$t" << t_reg_2 << "," << 4*para_i << endl;
-    
+
     //    asm_out << "sw\t$t" << t_reg_1 << ",0($t" << t_reg_2 << ")" << endl;
-    
-    
+
+
     //    asm_out << "move\t$t" << t_reg_2 << ",$fp" << endl;
     //    asm_out << "subi\t$t" << t_reg_2 << ",$t" << t_reg_2 << "," << 4*(para_i-1) << endl;
     //    asm_out << "sw\t$t" << t_reg_1 << ",0($t" << t_reg_2 << ")" << endl; //sw $t1,0($t2)
-    
+
     /*
      int temp_op2 = mystoi(q.op2);
      asm_out << "###Para" << temp_op2 << " " << para_i << endl;
@@ -164,7 +166,7 @@ void allocateParameter(const Quat& q, int para_i){ //参数的分配，标准的
      asm_out << "sw\t$t" << t_reg_1 << ",0($sp)" << endl;
      asm_out << "addi\t$sp,$sp,-4\n" <<endl;
      */
-    
+
     asm_out << "sw\t$t" << t_reg_1 << ",0($sp)" << endl;
     asm_out << "addi\t$sp,$sp,-4\n" <<endl;
 }
@@ -266,18 +268,18 @@ void retuMips(const Quat& q){ //add sub //#12 = x + 1
         asm_out << "move\t$v1,$t" << t_reg_1 << endl;
         //asm_out << "lw\t$v1,0($t" << t_reg_1 << ")" << endl; //***
     }
-    
+
     asm_out << "lw\t$sp,-" << int2string(4*(para_now_cnt)) << "($fp)" << endl; //****
     asm_out << "addi\t$sp,$sp," << 4*(mp_quat_para_num[q.program_id]) << endl; //加上$fp参数的个数
-    
+
     asm_out << "lw\t$ra,-" << int2string(4*(para_now_cnt+1)) << "($fp)" << endl; //这两个顺序不能反，因为取ra要用到目前的fp，因此不能先恢复fp现场
-    
-    
-    
+
+
+
     asm_out << "lw\t$fp,-" << int2string(4*(para_now_cnt+2)) << "($fp)" << endl;
-    
-    
-    
+
+
+
     asm_out << "jr\t$ra" << endl;
 }
 //void printGlobal(){
@@ -298,10 +300,10 @@ void quatMips(){
     }
     string str_out_trans;
     for (auto i: mp_s){
-//        str_out_trans = 
+//        str_out_trans =
         asm_out << "str" << i.second << ":\t.asciiz" << " " << i.first << endl <<endl;
     }
-    
+
     asm_out << ".text" << endl << endl;
     asm_out << "move\t$gp, $sp" << endl;
     rep (i, 1, cnt_quat){//main_pos-1){
