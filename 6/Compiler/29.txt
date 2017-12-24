@@ -1,0 +1,7 @@
+void main(){
+	int ans, a, b;
+	a = 10;
+ 	b = 666;
+	ans = a + b + (a + b); 
+	printf(ans);
+}

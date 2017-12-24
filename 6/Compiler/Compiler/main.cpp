@@ -9,44 +9,69 @@
 /*
  consDeclartion：处理常量定义
  variDeclartion：处理变量定义
-
  */
 //函数名也是和变量名一样放在mp里吗？？？
 #include "enter.h"
 #include "lexicalHandler.h"
 #include "grammarHandler.h"
 #include "mipsGenerator.h"
+#include "quatOptimizer.h"
+
 int main() {
+    
 //    freopen("out.txt","w",stdout);
     
+//    ofstream mcfile; //创建个对象
+//    mcfile.open("asm.txt"); //创建文件 //那个在mipsGenerator的文件是不会创建的，但是之前有asm.txt是写的进去的
     cout << "Please input a file:" << endl;
-    cin >> route;
-    ifstream r_t(route);
-    if (!r_t){
-        cout << "File Not exist" << endl;
-        return 0;
+//    cin >> route;
+//    ifstream r_t(route);
+//    if (!r_t){
+//        cout << "File Not exist" << endl;
+//        return 0;
+//    }
+    route = "30.txt";
+    
+//    std::ifstream t(route);//"");
+//    std::string s((std::istreambuf_iterator<char>(t)),
+//                  std::istreambuf_iterator<char>());
+//    transform(s.begin(), s.end(), s.begin(), ::tolower); //全部转成小写，应付while文法的！
+    
+    string s = "";
+    FILE *fp;
+    char c;
+    fp = fopen(route.data(), "r");
+    int line_num = 1, str_id = 0;
+    while ((c = fgetc(fp)) != EOF){
+        if (c == '\\'){ //转义字符要原样输出
+            s = s+c;
+            mp_line[str_id++] = line_num;
+        }
+        s = s+c;
+        mp_line[str_id++] = line_num;
+        if (c=='\n'){
+            line_num++;
+        }
     }
-    //route = "14011100_test.txt";
-    std::ifstream t(route);//"");
-    std::string s((std::istreambuf_iterator<char>(t)),
-                  std::istreambuf_iterator<char>());
-    transform(s.begin(), s.end(), s.begin(), ::tolower); //全部转成小写，应付while文法的！
     str = s;
+    cout << str.size() << " " << str_id << endl;
+//    return 0;
+    
     siz = str.size();   //cout << str << endl << endl;
     //lexical(str); //语义分析
     now = 0;
     index_proc[0] = 1; //第0个分程序表的第一个变量是1
     id = lexicalAnalysis(str, sym); //getNext();
-
+    
     consDeclarion(str);
     variDeclation(str);
     addr = 0;
     is_global = false; //之后进入函数/过程定义，都不是全局变量
     procDeclartion(str);
 
-    test({"("}, 45); //main()
+    test({"("}, 45, {}); //main()
     id = lexicalAnalysis(str, sym);
-    test({")"}, 46);
+    test({")"}, 46, {});
     id = lexicalAnalysis(str, sym);
 
     enter("main","void","",0,0,0); //把void main加入到符号表
@@ -59,7 +84,9 @@ int main() {
         error(99);
     cout << "siz = " << siz << " now = " << now << endl << endl;
 
-    printQuat();
+    printQuat(); //(quat, cnt_quat)
+    
+//    dagWork();
     programTable();
     symbolTable();
     calcTmp(); //cout << mp_tmp["#1"].second << endl;
@@ -67,4 +94,3 @@ int main() {
 
     return 0;
 }
-

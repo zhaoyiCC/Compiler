@@ -9,7 +9,7 @@
 /*
  consDeclartion：处理常量定义
  variDeclartion：处理变量定义
-
+ 
  */
 //函数名也是和变量名一样放在mp里吗？？？
 #include "enter.h"
@@ -18,6 +18,8 @@
 #include "mipsGenerator.h"
 int main() {
 //    freopen("out.txt","w",stdout);
+//    ofstream asm_out("asm.txt");
+//    asm_out << "123" << endl;
     
     cout << "Please input a file:" << endl;
     cin >> route;
@@ -26,29 +28,29 @@ int main() {
         cout << "File Not exist" << endl;
         return 0;
     }
-    //route = "14011100_test.txt";
-    std::ifstream t(route);//"");
+    
+    std::ifstream t(route);//"14011100_test.txt");
     std::string s((std::istreambuf_iterator<char>(t)),
                   std::istreambuf_iterator<char>());
-    transform(s.begin(), s.end(), s.begin(), ::tolower); //全部转成小写，应付while文法的！
+    
     str = s;
     siz = str.size();   //cout << str << endl << endl;
     //lexical(str); //语义分析
     now = 0;
     index_proc[0] = 1; //第0个分程序表的第一个变量是1
     id = lexicalAnalysis(str, sym); //getNext();
-
+    
     consDeclarion(str);
     variDeclation(str);
     addr = 0;
     is_global = false; //之后进入函数/过程定义，都不是全局变量
     procDeclartion(str);
-
+    
     test({"("}, 45); //main()
     id = lexicalAnalysis(str, sym);
     test({")"}, 46);
     id = lexicalAnalysis(str, sym);
-
+    
     enter("main","void","",0,0,0); //把void main加入到符号表
     addQuat("void_", "main", "", "");
     main_pos = cnt_quat; //标记住main函数开始的地方
@@ -58,13 +60,13 @@ int main() {
     if (now < siz)
         error(99);
     cout << "siz = " << siz << " now = " << now << endl << endl;
-
+    
     printQuat();
     programTable();
     symbolTable();
     calcTmp(); //cout << mp_tmp["#1"].second << endl;
     quatMips();
-
+    
     return 0;
 }
 
