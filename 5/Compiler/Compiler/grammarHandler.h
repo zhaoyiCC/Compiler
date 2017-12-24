@@ -7,6 +7,7 @@ void consDeclarion(string& str) { // ＜常量说明＞ ::=  const＜常量定�
     //＜常量定义＞   ::=   int＜标识符＞＝＜整数＞{,＜标识符＞＝＜整数＞}
     //char＜标识符＞＝＜字符＞{,＜标识符＞＝＜字符＞}
     int pos_line_header, const_cnt;
+    bool is_neg;
     while (sym == "const") { // 重复处理多个const语句
         const_cnt = 0;
         pos_line_header = last;
@@ -24,9 +25,10 @@ void consDeclarion(string& str) { // ＜常量说明＞ ::=  const＜常量定�
             if (cons_type == "const_int"){ //对于const int ... 跟上的是一个(有符号)整数，因此要判断有无 + -
                 const_value = mystoi(sym);
                 if (sym == "+" || sym == "-"){
+                    is_neg = (sym=="-");
                     id = lexicalAnalysis(str, sym);
                     const_value = mystoi(sym);
-                    if (sym == "-")
+                    if (is_neg)
                         const_value *= -1;
                 }
                 if (id != 99) //代表不是(无符号)整数

@@ -62,7 +62,17 @@ ToDo:
 * x = a[i]形式
 仍需要考虑优化。
 
+处理的语义错误：
 
+* switch后的case类型和switch变量的类型不匹配。输出!!!ERROR Incorrect type with switch_Linex$$$
+* case后出现的情况有重复的：!!!ERROR::: SAME case_2$$$
+* 函数/过程返回的结果的类型与该函数/过程的类型不一致，要报错。
+* 函数调用的值参和函数定义的参数列表的类型不一致，输出```"!!!ERROR: parameter type not coincide with xxxx.$$$"```。之后会指出是第一个参数的类型错了，例如```"***MISS The 2 Parameter from int to char.$$$"```
+* 只要是字符型向整型转换，都报错。即不允许x = 'a'; 其中a是int型。
+* 数组的下标不能越界。例如定义的是int a[100];然后访问a[9999]
+* 数组的下标不能是字符型。例如a['k']
+* 访问一个数组元素但是却没有用下标即直接a=1; a是一个数组元素
+* 对于常量的赋值，输出"!!!ERROR:::Const value cannot be changed:::" 
 
 
 

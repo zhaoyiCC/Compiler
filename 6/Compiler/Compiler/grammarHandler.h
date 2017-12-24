@@ -10,6 +10,7 @@ void consDeclarion(string& str) { // ＜常量说明＞ ::=  const＜常量定�
     //＜常量定义＞   ::=   int＜标识符＞＝＜整数＞{,＜标识符＞＝＜整数＞}
     //char＜标识符＞＝＜字符＞{,＜标识符＞＝＜字符＞}
     int pos_line_header, const_cnt;
+    bool is_neg;
     while (sym == "const") { // 重复处理多个const语句
         const_cnt = 0;
         pos_line_header = last;
@@ -27,9 +28,10 @@ void consDeclarion(string& str) { // ＜常量说明＞ ::=  const＜常量定�
             if (cons_type == "const_int"){ //对于const int ... 跟上的是一个(有符号)整数，因此要判断有无 + -
                 const_value = mystoi(sym);
                 if (sym == "+" || sym == "-"){
+                    is_neg = (sym == "-");
                     id = lexicalAnalysis(str, sym);
                     const_value = mystoi(sym);
-                    if (sym == "-")
+                    if (is_neg)
                         const_value *= -1;
                 }
                 if (id != 99) //代表不是(无符号)整数
@@ -98,9 +100,10 @@ void variDeclation(string& str){
         id = lexicalAnalysis(str, sym);
     }
 }
-void parameter(string& str){ //＜值参数表＞::= ＜表达式＞{,＜表达式＞}｜＜空＞
+void parameter(string& str, int& cnt_parameter, vector<bool>& is_char_func){ //＜值参数表＞::= ＜表达式＞{,＜表达式＞}｜＜空＞
+    is_char_func.clear();
     string op1, op2, op3, res;
-    int para_cnt = 0, pos_line_header = last, para_id = 0;
+    int para_cnt = 0, pos_line_header = last;//, para_id = 0;
     if (sym==")") {//应对值参数表为空的情况，因为表达式不会以)开始 也许有些多余，因为怕现在处理出错
         //id = lexicalAnalysis(str, sym);
         return ;
@@ -111,24 +114,40 @@ void parameter(string& str){ //＜值参数表＞::= ＜表达式＞{,＜表达�
                 id = lexicalAnalysis(str, sym); //得到变量名
             }
             expression(str, res);
+            is_char_func.push_back(is_char);
             addQuat("PUSH", res, int2string(para_cnt+1), "");
             para_cnt++;
         }while (sym == ",");
     }
+    cnt_parameter = para_cnt;
     cout << "This is a parameter with ::: " << para_cnt << " parameters_" << mp_line[pos_line_header] << " ::: " << str.substr(pos_line_header, last-pos_line_header) << endl << endl;
 }
 void funcCall(string& str){ //函数调用 //＜有（无）返回值函数调用语句＞ ::= ＜标识符＞‘(’＜值参数表＞‘)’
+    vector<bool> is_char_func;
     string func_name = sym; //把函数名保留一下
-    int pos_line_header = last, test_func;
+    int pos_line_header = last, test_func, cnt_parameter = 0;
     id = lexicalAnalysis(str, sym);
     test_func = test({"("},16,{")"});
     if (test_func == 1){
         id = lexicalAnalysis(str, sym);
-        parameter(str); //调用值参数表
+        parameter(str, cnt_parameter, is_char_func); //调用值参数表
         test_func = test({")"}, 17, {";"});
     }
     id = lexicalAnalysis(str, sym); //;
     cout << "This is function_call statement_" << mp_line[pos_line_header] << " ::: " << str.substr(pos_line_header, last-pos_line_header) << endl << endl;
+    if (cnt_parameter != mp_func[func_name].para_num){
+        cout << "!!!ERROR: parameter numbers not coincide with func/void_" << mp_func[func_name].para_num << ".$$$" << endl;
+    }else if (is_char_func != mp_func[func_name].is_char){
+        cout << "!!!ERROR: parameter type not coincide with " << func_name << ".$$$" << endl;
+        rep (j, 0, (int)is_char_func.size()-1){
+            if (is_char_func[j] != mp_func[func_name].is_char[j]){
+                if (is_char_func[j])
+                    cout << "***MISS The " << j+1 << " Parameter from int to char.$$$" << endl;
+                else
+                    cout << "***MISS The " << j+1 << " Parameter from char to int.$$$" << endl;
+            }
+        }
+    }
     addQuat("call", func_name, "", ""); //call mymax
 }
 void factor(string& str, string& res){ //＜因子＞    ::= ＜标识符＞｜＜标识符＞‘[’＜表达式＞‘]’｜＜整数＞|＜字符＞｜＜有返回值函数调用语句＞|‘(’＜表达式＞‘)’
@@ -167,14 +186,14 @@ void factor(string& str, string& res){ //＜因子＞    ::= ＜标识符＞｜�
         if (sym == "["){
             pos = locateVariable(factor_name, cnt_proc, offset, false);
             if (pos == -2){
-                cout << factor_name << "!!!ERROR:::NotDefined!!!" << endl;
+                cout << factor_name << "!!!ERROR:::NotDefined$$$" << endl;
             }
             
             id = lexicalAnalysis(str, sym);
             expression(str, op3);
             pos2 = locateVariable(op3, cnt_proc, offset2, false);
             if (pos >=0 && pos2==-3 && mystoi(op3) >= tab[pos].para_num){ //a[1000000000]要报错!!!
-                cout << op2+"["+op3+"]" << "!!!ERROR:::Excessive:::" << tab[pos].para_num << "!!!_Line" << mp_line[pos_line_header] << endl;
+                cout << op2+"["+op3+"]" << "!!!ERROR:::Excessive:::" << tab[pos].para_num << "$$$_Line" << mp_line[pos_line_header] << endl;
             }
             
             if (pos >=0 && (pos2 == -4 || (pos2>=0&&tab[pos2].type=="char"))){
@@ -196,7 +215,7 @@ void factor(string& str, string& res){ //＜因子＞    ::= ＜标识符＞｜�
             //            newTmp(op1);
             //            addQuat("assign", op1, factor_name, ""); //t1 =
             if (mp_func.count(factor_name) == 0)
-                cout << "!!!ERR: " << factor_name << " Not found" << endl;
+                cout << "!!!ERROR: " << factor_name << " Not found" << endl;
             else if (mp_func[factor_name].type == "")
                 cout << "!!!ERR You can't assign a void " << factor_name << " value" << endl;
             else{ //******
@@ -212,9 +231,11 @@ void factor(string& str, string& res){ //＜因子＞    ::= ＜标识符＞｜�
             //否则就是一个单纯的标识符，也就是变量名，不需要做任何事
             pos = locateVariable(factor_name, cnt_proc, offset, false);
             if (pos == -2){
-                cout << factor_name << "!!!ERROR:::NotDefined!!!" << endl;
+                cout << factor_name << "!!!ERROR:::NotDefined$$$" << endl;
             }
             is_char = (tab[pos].type == "char");
+            if (tab[pos].type == "char[]" || tab[pos].type == "int[]")
+                cout << factor_name << "!!!ERROR:::Cannot visit a array without []_Line" << mp_line[pos_line_header] << ".$$$" << endl;
         }
     }
     cout << "This is a factor statemnt_" << mp_line[pos_line_header] << " ::: " << str.substr(pos_line_header, last-pos_line_header) << endl << endl;
@@ -321,17 +342,23 @@ void ifelStatement(string& str){ //＜条件语句＞  ::=  if ‘(’＜条件�
 }
 void assiStatement(string& str){ //＜赋值语句＞   ::=  ＜标识符＞＝＜表达式＞|＜标识符＞‘[’＜表达式＞‘]’=＜表达式＞
     string op1, op2, op3 = "", res;
-    op1 = sym;
-    int offset, pos, offset2, pos2, pos_line_header = last;
-    id = lexicalAnalysis(str, sym); //一定是等于号，因为之前推过了
-    pos = locateVariable(op1, cnt_proc, offset, false);
+    op1 = sym; //之前推过，然后又回退了
     
+    int offset, pos, offset2, pos2, pos_line_header = last;
+    id = lexicalAnalysis(str, sym); //这个是=或者中括号
+    pos = locateVariable(op1, cnt_proc, offset, false);
+    bool is_char_left = (tab[pos].type=="char");
+    
+    if (tab[pos].kind=="const"){
+        cout << op1 << "!!!ERROR:::Const value cannot be changed:::" << op1 << "_Line" << mp_line[pos_line_header] << "$$$" << endl;
+    }
     
     if (pos == -2){
-        cout << op1 << "!!!ERROR:::NotDefined!!!" << endl;
+        cout << op1 << "!!!ERROR:::NotDefined$$$" << endl;
     }
     
     if (sym == "["){
+        is_char_left = (tab[pos].type=="char[]");
         op3 = "[]=";
         id = lexicalAnalysis(str, sym);
         expression(str, res);
@@ -340,20 +367,25 @@ void assiStatement(string& str){ //＜赋值语句＞   ::=  ＜标识符＞＝�
         pos2 = locateVariable(res, cnt_proc, offset2, false);
         
         if (pos >=0 && pos2==-3 && mystoi(res) >= tab[pos].para_num){ //pos2==-3=>isNumber(res)
-            cout << op1 << "!!!ERROR:::Excessive:::" << tab[pos].para_num << "!!!_Line" << mp_line[pos_line_header] << endl;
+            cout << op1 << "!!!ERROR:::Excessive:::" << tab[pos].para_num << "_Line" << mp_line[pos_line_header] << "$$$" << endl;
         }
         
         if (pos >=0 && (pos2 == -4 || (pos2>=0&&tab[pos2].type=="char"))){
-            cout << op1 << "!!!ERROR:::Array location must be int" << "!!!_Line" << mp_line[pos_line_header] << endl;
+            cout << op1 << "!!!ERROR:::Array location must be int" << "_Line" << mp_line[pos_line_header] << "$$$" << endl;
         }
         
         test({"]"}, 50, {";"});
         id = lexicalAnalysis(str, sym);
-    }
+    }else if (tab[pos].type=="char[]" || tab[pos].type=="int[]")
+        cout << op1 << "!!!ERROR:::Cannot visit a array without []_Line" << mp_line[pos_line_header] << ".$$$" << endl;
     test({"="}, 51, {";"});
     id = lexicalAnalysis(str, sym);
     expression(str, res);
     addQuat("=", op1, res, op3); //""); //a[i] = j
+//    pos = locateVariable(res, cnt_proc, offset, false);
+    if (!is_char_left && is_char){
+        cout << "!!!ERROR:::Wrong assiment type: int cannot be assigned by char_Line" << mp_line[pos_line_header] << ".$$$" << endl;
+    }
     cout << "This is an assign statement_" << mp_line[pos_line_header] << " ::: " << str.substr(pos_line_header, last-pos_line_header) << endl << endl;
 }
 int step(string& str, string& num){//＜步长＞    ::=  ＜非零数字＞｛＜数字＞｝
@@ -574,6 +606,8 @@ void retuStatement(string& str){ //＜返回语句＞   ::=  return[‘(’＜�
     int pos_line_header = last;
     id = lexicalAnalysis(str, sym);
     if (sym == ";"){ //代表是没有任何(表达式)即return ;的直接返回
+        if (now_proc_type != "void")
+            cout << "!!!ERROR: return must have a return value in function$$$" << endl;
         addQuat("ret", "", "", "");
         cout << "This is a return statement_" << mp_line[pos_line_header] << " ::: " << str.substr(pos_line_header, last-pos_line_header) << endl << endl;
         return ;
@@ -584,10 +618,15 @@ void retuStatement(string& str){ //＜返回语句＞   ::=  return[‘(’＜�
     test({")"}, 32, {";"});
     id = lexicalAnalysis(str, sym); //读到了最后的分号
     cout << "This is a return statement_" << mp_line[pos_line_header] << " ::: " << str.substr(pos_line_header, last-pos_line_header) << endl << endl;
+    if (now_proc_type == "void")
+        cout << "!!!ERROR: return cannot have a value in void.$$$" << endl;
+    else if ((now_proc_type == "int" && is_char) || (now_proc_type == "char" && !is_char))
+        cout << "!!!ERROR: return wrong value type in function$$$" << endl;
     addQuat("ret", res, "", "");
 }
 void caseStatement(string& str, string swit_variment, vector<int>& case_v, bool switch_is_char){ //＜情况表＞   ::=  ＜情况子语句＞{＜情况子语句＞}
     //＜情况子语句＞  ::=  case＜常量＞：＜语句＞
+    map<string, int> mp_case;
     case_v.clear();
     string op1, op2, op3, res, case_constant;
     int case_cnt = 0, pos_line_header = last, label_new = 0, label_now, case_pos;
@@ -606,10 +645,12 @@ void caseStatement(string& str, string swit_variment, vector<int>& case_v, bool 
             if (id != 98 && id != 99) //代表既不是是字符常量也不是整数常量
                 error(38);
             if ((switch_is_char && id == 99) || (!switch_is_char && id == 98)){
-                cout << "Case:" << sym << " !!!ERROR Incorrect type with switch!!!_Line" << mp_line[pos_line_header] << endl;
+                cout << "Case:" << sym << " !!!ERROR Incorrect type with switch_Line" << mp_line[pos_line_header] << " $$$" << endl;
             }
             case_constant = sym;
         }
+        if ((mp_case[case_constant]++) > 0)
+            cout << "!!!ERROR::: SAME case_" << case_constant << "$$$" << endl;
         if (case_cnt == 0) //第一次的case要新建一个当前分支的标号
             newLabel(label_now);
         else
@@ -722,7 +763,8 @@ void statExecution(string& str, bool is_multi_statement, bool is_main){ //处理
     }
     id = lexicalAnalysis(str, sym);
 }
-int procMainExec(string& str){
+int procMainExec(string& str, vector<bool>& is_char_func){
+    is_char_func.clear();
     int tot = 0;
     string para_type, para_name;
     if (id < 1000) //如果不是标识符，就报错
@@ -734,6 +776,10 @@ int procMainExec(string& str){
     para_type = sym;
     addr = 0; //每一个函数/过程的addr都为0
     while (sym == "int" || sym == "char"){
+        if (sym == "int")
+            is_char_func.push_back(false);
+        else
+            is_char_func.push_back(true);
         tot += (tot==0);//如果是第一次0就加一，因为后面的tot++统计的是逗号的个数
         id = lexicalAnalysis(str, sym); //得到变量名
         para_name = sym;
@@ -755,6 +801,7 @@ int procMainExec(string& str){
 }
 void voidDeclartion(string& str, string kind, string type){ //有返回值函数定义和无返回值函数定义 //处理void的定义, 注意已经在procDeclartion里面
     int void_pos, pos_line_header = last;
+    vector<bool> is_char_func;
     id = lexicalAnalysis(str, sym); //得到过程名
     string void_name = sym;
     
@@ -762,11 +809,12 @@ void voidDeclartion(string& str, string kind, string type){ //有返回值函数
     
     void_pos = cnt_tab;
     addQuat(kind+"_"+type, void_name, "", ""); //"void_", "function_int" "function_char"
-    int variable_tot = procMainExec(str);
+    int variable_tot = procMainExec(str, is_char_func);
     
     cout << "This is a " + kind + type + " statement " << void_name << " ::: " << variable_tot << " parameters_" << mp_line[pos_line_header] << " ::: " << str.substr(pos_line_header, last-pos_line_header) << endl << endl;
     tab[void_pos].para_num = variable_tot;
-    mp_func[void_name] = Func{void_pos, type, variable_tot};
+    
+    mp_func[void_name] = Func{void_pos, type, variable_tot, is_char_func};
     statExecution(str, true, false); //是复合语句，即可以有const和变量定义
     cout << "siz = " << siz << " now = " << now << endl << endl;
 }
@@ -784,7 +832,7 @@ void voidDeclartion(string& str, string kind, string type){ //有返回值函数
 void procDeclartion(string& str){ //处理所有的函数和过程的定义，直至做到void main为止
     int pos_line_header;
     while (sym == "int" || sym == "char" || sym == "void"){
-        
+        now_proc_type = sym;
         pos_line_header = last;
         if (sym == "void"){
             id = lexicalAnalysis(str, sym); //得到过程名

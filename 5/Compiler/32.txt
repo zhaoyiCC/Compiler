@@ -1,0 +1,4 @@
+const int MMM = -11111;
+void main(){
+    printf("MMM=", MMM);
+}

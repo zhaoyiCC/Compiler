@@ -1,0 +1,47 @@
+.data
+
+str1:	.asciiz "mmm="
+
+.text
+
+move	$gp, $sp
+#	const int mmm = -11111
+li	$t1,-11111
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+subi	$sp,$sp,0
+j	main
+
+main:
+move	$s1,$sp
+move	$s0,$fp
+addi	$fp,$sp,0
+subi	$sp,$sp,0
+#END Const&Variable define
+sw	$s1,0($sp)
+addi	$sp,$sp,-4
+
+sw	$ra,0($sp)
+addi	$sp,$sp,-4
+
+sw	$s0,0($sp)
+addi	$sp,$sp,-4
+
+addi	$sp,$sp,-0
+#	PRINT "mmm="
+la	$a0,str1
+li	$v0,4
+syscall
+
+#	PRINT mmm
+#~~~mmm
+lw	$t1,-0($gp)
+move	$a0,$t1
+li	$v0,1
+syscall
+
+#	PRINTLN 
+li	$a0,'\n'
+li	$v0,11
+syscall

@@ -18,19 +18,18 @@
 #include "quatOptimizer.h"
 
 int main() {
-    
 //    freopen("out.txt","w",stdout);
     
 //    ofstream mcfile; //创建个对象
 //    mcfile.open("asm.txt"); //创建文件 //那个在mipsGenerator的文件是不会创建的，但是之前有asm.txt是写的进去的
     cout << "Please input a file:" << endl;
-//    cin >> route;
-//    ifstream r_t(route);
-//    if (!r_t){
-//        cout << "File Not exist" << endl;
-//        return 0;
-//    }
-    route = "30.txt";
+    cin >> route;
+    ifstream r_t(route);
+    if (!r_t){
+        cout << "File Not exist" << endl;
+        return 0;
+    }
+//    route = "14011100_test.txt";
     
 //    std::ifstream t(route);//"");
 //    std::string s((std::istreambuf_iterator<char>(t)),

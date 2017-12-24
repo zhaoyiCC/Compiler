@@ -20,6 +20,7 @@
 #define MAX_QUAT 10000
 #define MAX_TAB 10000
 using namespace std;
+string now_proc_type; //保存当前处理的过程的类型 void/int/main
 bool is_char = false; //全局变量判断当前处理完的表达式是什么类型
 /********************错误处理*********************/
 void error(int errorId);
@@ -71,6 +72,7 @@ struct Func{ //存放函数的结构体，其中type有三种类型，int, char,
     int tab_id; //在符号表的登录位置
     string type;
     int para_num;
+    vector<bool> is_char;
 };
 map<string, Func> mp_func; //函数名为键，值为对应的函数/过程信息
 
