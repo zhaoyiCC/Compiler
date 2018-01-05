@@ -111,7 +111,7 @@ void dfs(int k){
     addNode(k);
     vis[k] = true;
     if ((dag[k].l != -1 || dag[k].r != -1) && !vis[k]){ //只会dfs非叶节点
-        v = dag[k].l;
+        v = dag[k].l; //按照该启发式
         if (checkDAG(v)){
             dfs(v);
         }

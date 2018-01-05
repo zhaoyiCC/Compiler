@@ -1,0 +1,10 @@
+void work()(
+	int p;
+	p = 2333;
+}
+void main(){
+	int ans, a;
+	a = 10;
+	ans = a + a + (a + a + a + (a + a + a + a));
+	printf(ans);
+}

@@ -19,6 +19,8 @@
 #define rep(i,a,b) for (int i = (a); i <= (b); ++i)
 #define MAX_QUAT 10000
 #define MAX_TAB 10000
+
+#define debug
 using namespace std;
 string now_proc_type; //保存当前处理的过程的类型 void/int/main
 bool is_char = false; //全局变量判断当前处理完的表达式是什么类型
@@ -146,7 +148,7 @@ map<int,string> error_msg = {
     {41, "switch must have a default statement"},
     {42, "default must have a :"},
     {45, "missing main )"},
-    
+
     {50, "assign missing a ]"},
     {51, "assign missing a ="},
 
