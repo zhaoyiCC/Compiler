@@ -14,10 +14,22 @@
 #include "enter.h"
 #include "lexicalHandler.h"
 #include "grammarHandler.h"
-#include "mipsGenerator.h"
+#include "mipsGenerator_new.h"
 #include "quatOptimizer.h"
+#include "dataFlow.h"
 
 int main() {
+    
+    vector<string> one = {"1","2","3","4","5"};
+    vector<string> two = {"4","5", "6"};
+    vector<string> result;
+    calcDifference(one, two, result);
+    for (auto p: result){
+        cout << p << endl;
+    }
+    
+//    cout << calcLabel("LABEL_100") << endl;
+    
 //    freopen("out.txt","w",stdout);
 
 //    ofstream mcfile; //创建个对象
@@ -84,11 +96,15 @@ int main() {
     cout << "siz = " << siz << " now = " << now << endl << endl;
     #endif // debug
     printQuat(); //(quat, cnt_quat)
-
-    dagWork();
     programTable();
     symbolTable();
     calcTmp(); //cout << mp_tmp["#1"].second << endl;
+    
+    
+    dagWork();
+    flowWork();
+    
+    
     quatMips();
 
     return 0;

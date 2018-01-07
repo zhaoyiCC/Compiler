@@ -97,6 +97,7 @@ void addNode(int k){
         //!!!对于所有的全局和out集合里的点，都需要导出到节点序列 然后如果只有临时变量只需要导出一个
     }
     
+    
     if (cnt_export == 0 || dag[k].cnt_print > 0){ //!!!如果这个节点有需要输出，那么必须给一个临时变量(这样做是为了防止输出pick，但是pick的值变了的情况)
         if (cnt_temp == 0)
             cout << "!!!ERROR:DAG!!!" << endl;
@@ -106,6 +107,8 @@ void addNode(int k){
 //        else
 //            dag[k].temp = s_temp; //!!!(可以省去看效果)如果是已经有对应的了，就不要用临时变量来更新了。感觉还是用局部变量代替比较权威。
     }
+    
+    
 }
 void dfs(int k){
     int v;
@@ -170,12 +173,15 @@ void dagBlock(int quat_start, int quat_end){
                 break;
             }
             case 20: {// =
-                if (quat[i].op3 == "=[]"){
-                    splitArrayName(quat[i].op2, s1, s2);
-                    l = addLeaf(s1);
-                    r = addLeaf(s2);
-                    addOp(quat[i].type, quat[i].op1, l, r);
-                }else if (quat[i].op3 != "[]="){
+                //!!!  之前没有注释掉这段，我很好奇是怎么还能对的
+//                if (quat[i].op3 == "=[]"){
+//                    splitArrayName(quat[i].op2, s1, s2);
+//                    l = addLeaf(s1);
+//                    r = addLeaf(s2);
+//                    addOp(quat[i].type, quat[i].op1, l, r);
+//                }else if (quat[i].op3 != "[]=")
+                
+                {
                     l = addLeaf(quat[i].op2);
                     addOp(quat[i].type, quat[i].op1, l, -1);
                 }
@@ -195,8 +201,6 @@ void dagBlock(int quat_start, int quat_end){
                         pos = it->second;
                         break;
                     }
-                    
-
                 }
                 if (pos == -1){ //加上了一个临时变量来保存输出后，应该不会再出现pos=-1的情况了
                     cout << "!!!ERROR:dag missing print temp!!!" << endl;
@@ -214,9 +218,17 @@ void dagBlock(int quat_start, int quat_end){
         cout << "%^&#*!@$@" << quat_start << endl;
         quat_new[cnt_quat_new+1].label = quat[quat_start].label;
     }
+    int quat_cnt_new_now = cnt_quat_new+1;
     vecGenerator(quat[quat_start].program_id);
     
+    
+    int test_cnt = 0;
+    
     rep (i,quat_start,quat_end){
+        
+        if (quat[i].label.size() > 0)
+            test_cnt++;
+        
         if (quat[i].type=="PRINT"){
             if (quat[i].op2=="string"){ //addQuat("PRINT", prin_str, "string", "");
 //                cnt_quat_new++;
@@ -224,18 +236,49 @@ void dagBlock(int quat_start, int quat_end){
 //                quat_new[cnt_quat_new].op1 = quat[i].op1;
 //                quat_new[cnt_quat_new].op2 = "";
                 quat_new[++cnt_quat_new] = quat[i];
+                
+                
+                quat_new[cnt_quat_new].label.clear();
+                
+                
                 cout << "PRINT_string " << quat[i].op1 << endl;
             }
             else{
                 quat_new[++cnt_quat_new] = quat[i];
+                
+                
+                quat_new[cnt_quat_new].label.clear();
+                
+                
                 quat_new[cnt_quat_new].op1 = dag[mp_dag_print[i]].temp;
                 cout << "PRINT_" << quat[i].op2 << " " << dag[mp_dag_print[i]].temp << endl;
             }
         }else if (mp_dag[quat[i].type] != 10 && mp_dag[quat[i].type] != 20){ // 不是= +-*/
             cout << quat[i].type << " ~~~~" << endl;
             quat_new[++cnt_quat_new] = quat[i];
+            
+            quat_new[cnt_quat_new].label.clear();
+            
+            
         }
     }
+    
+    cout << "()()" << quat_start << "()()" << quat_end << "()()" << test_cnt << endl;
+    
+    int cnt_this_quat = 0;
+    rep (i, quat_start, quat_end){
+        if (quat[i].label.size() > 0){
+            quat_new[quat_cnt_new_now].label = quat[i].label;
+            
+            cnt_this_quat++;
+        }
+        if (cnt_this_quat>1){
+            cout << "!!!ERROR:more than a label in a basic block$$$" << endl;
+        }
+    }
+    
+    
+    
     rep (i, 0, cnt_dag){
         father[i].clear();
         dag[i].value = dag[i].pick = dag[i].temp = ""; //标识符的名字
@@ -250,11 +293,17 @@ void dagWork(){ //处理DAG图，首先划分基本块
     printSide();
     rep (i, 1, cnt_quat){
         if (quat[i].type=="BEGIN" || quat[i].type=="GOTO" || quat[i].type=="call" || quat[i].type == "BZ" || quat[i].type == "ret" || quat[i].type == "READ" || quat[i].op3=="[]="){
+            cout << "^^^SEP" << i+1 << endl;
+            if (i+1==73){
+                int fuck;
+                fuck = 250;
+            }
             quat[i+1].block_id = 0; //!!!BEGIN下面的那一句(即定义后的第一句话)是块的入口语句
             if (quat_start == 0)
                 quat_start = i + 1;
         }
         if (quat[i].label.size() > 0){
+            cout << "%%%SEP" << i << "^^" << endl;
             quat[i].block_id = 0; //!!!LABEL对应的这一句必然是入口语句
             if (quat_start == 0)
                 quat_start = i + 1;
@@ -276,11 +325,9 @@ void dagWork(){ //处理DAG图，首先划分基本块
 //        }
         quat_start = quat_now;
     }
-    
     memcpy(quat, quat_new, sizeof(quat));
     cnt_quat = cnt_quat_new;
     printQuat(); //quat_new, cnt_quat_new
-    
 }
 
 #endif /* quatOptimizer_h */

@@ -58,4 +58,14 @@ void splitArrayName(string s, string& array_name, string& subscript){
     array_name = s.substr(0, pos1);
     subscript = s.substr(pos1+1, pos2-pos1-1);
 }
+int calcLabel(string s){
+    cout << s.substr(6, s.size()) << endl;
+    return mystoi(s.substr(6, s.size()));
+}
+void calcDifference(vector<string>& v1, vector<string>& v2, vector<string>& v_ans){
+    vector<string> ivec(max(v1.size(), v2.size()));
+    auto iter=set_difference(v1.begin(),v1.end(),v2.begin(),v2.end(),ivec.begin()); //ivec为：2,3,5,6,7
+    ivec.resize(iter-ivec.begin());//重新确定ivec大小
+    v_ans = ivec;
+}
 #endif /* myStd_h */

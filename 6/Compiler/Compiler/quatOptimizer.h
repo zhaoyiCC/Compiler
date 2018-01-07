@@ -52,7 +52,7 @@ void addOp(string op, string s, int l, int r){
     }
     for (int i = cnt_dag; i >=1; --i){
         if (dag[i].value == op && dag[i].l == l && dag[i].r == r){
-            dag[i].names.insert(dag[i].names.begin(), s); //插入到头部，即逆向插入 //dag[i].names.push_back(s);
+            dag[i].names.insert(dag[i].names.begin(), s); //插入到头部，即逆向插入 //dag[i].names.push_back(s); //出现晚的在前面 次序对于我的DAG图非常重要
             mp_dag[s] = i; //!!!更新节点表
             return ;
         }
@@ -82,7 +82,8 @@ bool checkDAG(int k){ //检查中间节点k是否可以导出
 void addNode(int k){
     int cnt_export = 0, cnt_temp = 0;
     string s_temp;
-    for (auto i: dag[k].names){
+    for (auto i: dag[k].names){ //因为插入是逆序出现的，所以出现晚的先被导出
+//        cout << i << endl;
         if (i.size() >0 && i[0] == '#'){
             if (cnt_temp == 0){
                 s_temp = i; //选取第一个临时变量作为我们中间节点的导出的点
@@ -91,6 +92,7 @@ void addNode(int k){
         }else{
             cnt_export++;
             route_dag.push_back(make_pair(i, k)); //{a, 3}
+            cout << "ADD_TO_ROUTE:(" << i << "," << k << ")" << endl;
             dag[k].pick = i; //随便选取一个标识符的名字作为这个中间节点的名字代表 //用最后面那个也就是第一次插入的那个，因为names是每次插入到头部即逆向插入的
         }
         //!!!对于所有的全局和out集合里的点，都需要导出到节点序列 然后如果只有临时变量只需要导出一个
@@ -110,16 +112,18 @@ void dfs(int k){
     int v;
     addNode(k);
     vis[k] = true;
+    //不采用书上说的那个启发式，而是每次而是每次选度数为0且编号大的
+    /*
     if ((dag[k].l != -1 || dag[k].r != -1) && !vis[k]){ //只会dfs非叶节点
         v = dag[k].l; //按照该启发式
         if (checkDAG(v)){
             dfs(v);
         }
-    }
+    }*/
 }
 void vecGenerator(int program_id){
     while (route_dag.size() < cnt_op){
-        for (int i = cnt_dag; i >= 1; --i){
+        for (int i = cnt_dag; i >= 1; --i){ //从大(出现晚的节点)往小的顺序导出
             if (checkDAG(i)){
 //                addNode(i);
                 dfs(i);
@@ -169,7 +173,10 @@ void dagBlock(int quat_start, int quat_end){
                     l = addLeaf(s1);
                     r = addLeaf(s2);
                     addOp(quat[i].type, quat[i].op1, l, r);
-                }else if (quat[i].op3 != "[]="){
+                }else if (quat[i].op3 != "[]=")
+                
+                
+                {
                     l = addLeaf(quat[i].op2);
                     addOp(quat[i].type, quat[i].op1, l, -1);
                 }

@@ -1,6 +1,6 @@
 #ifndef grammarHandler_h
 #define grammarHandler_h
-//#define OPTIMIZE
+#define OPTIMIZE
 #include "headers.h"
 #include "error.h"
 #include "myStd.h"

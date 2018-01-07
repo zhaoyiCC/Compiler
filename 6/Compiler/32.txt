@@ -3,7 +3,7 @@ void init(int x){
 	if (x == 1){
 		x = 8888;
 	}else{
-		x = 2333333;
+		x = 23333333;
 	}
 }
 int work(int p, int q){

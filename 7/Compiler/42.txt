@@ -27,10 +27,15 @@ int factorial(int n){
 }
 int C(int m, int n){ 
     int x, y, z;
+    printf("CCCCCCCCCCCCC",m);
+    printf(n);
     if (m <= n) ;
     
-    if (m > n)
+    if (m > n){
+        printf("--------1");
         return (-1);
+    }
+    printf("BBBBBBBBBBB");
     return (factorial(n)/factorial(m)/factorial(n-m));
 }
 void init(){
@@ -43,12 +48,15 @@ void init(){
 char work(int m, int n){
 
     int ans;
+    printf("WWWWWWWWWWWWW");
     ans = C(m,n);
+    printf("ANS=", ans);
     switch (ans - 2*(ans / 2)){ 
         case 1: return ('O'); 
         case -1: return ('O');
         default: return ('E'); 
     }
+    printf("NNNNN=",ans-2*(ans/2));
     return ('*');
 }
 

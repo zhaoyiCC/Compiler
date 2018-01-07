@@ -264,7 +264,13 @@ void term(string& str, string& res){ //＜项＞     ::= ＜因子＞{＜乘法�
         factor(str, res);
         op3 = res;
         newTmp(op1);
-        addQuat(sign_term, op1, op2, op3);
+        if (isNumber(op2) && isNumber(op3)){
+            if (sign_term == "*")
+                op1 = int2string(mystoi(op2) * mystoi(op3));
+            else
+                op1 = int2string(mystoi(op2) / mystoi(op3));
+        }else
+            addQuat(sign_term, op1, op2, op3);
         is_char = false;
     }
     #ifdef debug
@@ -286,7 +292,8 @@ void expression(string& str, string& res){ //＜表达式＞    ::= ［＋｜－
     if (expression_sign == "-"){
         newTmp(op1);
         op2 = res;
-        addQuat("*", op1, "-1", op2); //-1!!! //t1 = -1*op2
+        addQuat("-", op1, "0", op2); //从-1*x 变成了 0-x
+//        addQuat("*", op1, "-1", op2); //-1!!! //t1 = -1*op2
     }
     while (sym == "+" || sym == "-"){ //遇到前导的正号或者负号，先提取出来
         expression_sign = sym;
@@ -296,7 +303,13 @@ void expression(string& str, string& res){ //＜表达式＞    ::= ［＋｜－
         term(str, res);
         op3 = res;
         newTmp(op1);
-        addQuat(expression_sign, op1, op2, op3);
+        if (isNumber(op2) && isNumber(op3)){
+            if (expression_sign == "+")
+                op1 = int2string(mystoi(op2) + mystoi(op3));
+            else
+                op1 = int2string(mystoi(op2) - mystoi(op3));
+        }else
+            addQuat(expression_sign, op1, op2, op3);
         is_char = false;
     }
     #ifdef debug

@@ -25,13 +25,15 @@
 
 /* Begin PBXFileReference section */
 		5F0F59DA1FEE3A7600D8FEA5 /* quatOptimizer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = quatOptimizer.h; sourceTree = "<group>"; };
+		5F7257A61FFF6B61002B5BD0 /* dataFlow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dataFlow.h; sourceTree = "<group>"; };
+		5F7257BA20006AEF002B5BD0 /* mipsGenerator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mipsGenerator.h; sourceTree = "<group>"; };
 		5F834C4D1FD78F1E0092B859 /* Compiler */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Compiler; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F834C501FD78F1E0092B859 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		5FC63C2C1FDE7F4B00450251 /* myStd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = myStd.h; sourceTree = "<group>"; };
 		5FC63C2D1FDE81D800450251 /* grammarHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = grammarHandler.h; sourceTree = "<group>"; };
 		5FC63C2E1FDE829800450251 /* error.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = error.h; sourceTree = "<group>"; };
 		5FC63C2F1FDE857800450251 /* enter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = enter.h; sourceTree = "<group>"; };
-		5FC63C301FDE85B100450251 /* mipsGenerator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mipsGenerator.h; sourceTree = "<group>"; };
+		5FC63C301FDE85B100450251 /* mipsGenerator_new.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mipsGenerator_new.h; sourceTree = "<group>"; };
 		5FC63C311FDE86FD00450251 /* 文法.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "文法.txt"; sourceTree = "<group>"; };
 		5FEE8C561FDE7BDE0034E890 /* lexicalHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lexicalHandler.h; sourceTree = "<group>"; };
 		5FEE8C571FDE7BDE0034E890 /* headers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = headers.h; sourceTree = "<group>"; };
@@ -75,8 +77,10 @@
 				5FC63C2D1FDE81D800450251 /* grammarHandler.h */,
 				5FC63C2E1FDE829800450251 /* error.h */,
 				5FC63C2F1FDE857800450251 /* enter.h */,
-				5FC63C301FDE85B100450251 /* mipsGenerator.h */,
+				5FC63C301FDE85B100450251 /* mipsGenerator_new.h */,
 				5F0F59DA1FEE3A7600D8FEA5 /* quatOptimizer.h */,
+				5F7257A61FFF6B61002B5BD0 /* dataFlow.h */,
+				5F7257BA20006AEF002B5BD0 /* mipsGenerator.h */,
 			);
 			path = Compiler;
 			sourceTree = "<group>";

@@ -1116,11 +1116,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Compiler/quatOptimizer.h"
-            timestampString = "535786926.64062"
+            timestampString = "537016681.977396"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "125"
-            endingLineNumber = "125"
+            startingLineNumber = "129"
+            endingLineNumber = "129"
             landmarkName = "vecGenerator(int program_id)"
             landmarkType = "9">
          </BreakpointContent>
@@ -1132,11 +1132,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Compiler/quatOptimizer.h"
-            timestampString = "535786926.64062"
+            timestampString = "537016681.977396"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "130"
-            endingLineNumber = "130"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
             landmarkName = "vecGenerator(int program_id)"
             landmarkType = "9">
          </BreakpointContent>
@@ -1148,11 +1148,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Compiler/quatOptimizer.h"
-            timestampString = "535792699.191505"
+            timestampString = "537016681.977396"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "231"
-            endingLineNumber = "231"
+            startingLineNumber = "238"
+            endingLineNumber = "238"
             landmarkName = "dagWork()"
             landmarkType = "9">
          </BreakpointContent>
@@ -1164,11 +1164,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Compiler/quatOptimizer.h"
-            timestampString = "535792699.191505"
+            timestampString = "537016681.977396"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "247"
-            endingLineNumber = "247"
+            startingLineNumber = "254"
+            endingLineNumber = "254"
             landmarkName = "dagWork()"
             landmarkType = "9">
          </BreakpointContent>
@@ -1180,11 +1180,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Compiler/quatOptimizer.h"
-            timestampString = "535791015.820809"
+            timestampString = "537016681.977396"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "147"
-            endingLineNumber = "147"
+            startingLineNumber = "151"
+            endingLineNumber = "151"
             landmarkName = "vecGenerator(int program_id)"
             landmarkType = "9">
          </BreakpointContent>
@@ -1212,11 +1212,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Compiler/quatOptimizer.h"
-            timestampString = "535791015.820809"
+            timestampString = "537016681.977396"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "158"
-            endingLineNumber = "158"
+            startingLineNumber = "162"
+            endingLineNumber = "162"
             landmarkName = "dagBlock(int quat_start, int quat_end)"
             landmarkType = "9">
          </BreakpointContent>
@@ -1228,11 +1228,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Compiler/quatOptimizer.h"
-            timestampString = "535792699.191505"
+            timestampString = "537016681.977396"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "232"
-            endingLineNumber = "232"
+            startingLineNumber = "239"
+            endingLineNumber = "239"
             landmarkName = "dagWork()"
             landmarkType = "9">
          </BreakpointContent>
@@ -1260,11 +1260,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Compiler/quatOptimizer.h"
-            timestampString = "535791015.820809"
+            timestampString = "537016681.977396"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "184"
-            endingLineNumber = "184"
+            startingLineNumber = "191"
+            endingLineNumber = "191"
             landmarkName = "dagBlock(int quat_start, int quat_end)"
             landmarkType = "9">
          </BreakpointContent>
@@ -1276,11 +1276,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Compiler/quatOptimizer.h"
-            timestampString = "535791015.820809"
+            timestampString = "537016681.977396"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "185"
-            endingLineNumber = "185"
+            startingLineNumber = "192"
+            endingLineNumber = "192"
             landmarkName = "dagBlock(int quat_start, int quat_end)"
             landmarkType = "9">
          </BreakpointContent>
@@ -1292,11 +1292,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Compiler/quatOptimizer.h"
-            timestampString = "535791015.820809"
+            timestampString = "537016681.977396"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "201"
-            endingLineNumber = "201"
+            startingLineNumber = "208"
+            endingLineNumber = "208"
             landmarkName = "dagBlock(int quat_start, int quat_end)"
             landmarkType = "9">
          </BreakpointContent>
@@ -1308,28 +1308,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Compiler/quatOptimizer.h"
-            timestampString = "535792699.191505"
+            timestampString = "537016681.977396"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "258"
-            endingLineNumber = "258"
+            startingLineNumber = "265"
+            endingLineNumber = "265"
             landmarkName = "dagWork()"
-            landmarkType = "9">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Compiler/main.cpp"
-            timestampString = "535818969.856072"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
-            landmarkName = "main()"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1420,11 +1404,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Compiler/quatOptimizer.h"
-            timestampString = "535792088.983443"
+            timestampString = "537016681.977396"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "159"
-            endingLineNumber = "159"
+            startingLineNumber = "163"
+            endingLineNumber = "163"
             landmarkName = "dagBlock(int quat_start, int quat_end)"
             landmarkType = "9">
          </BreakpointContent>
@@ -1586,6 +1570,38 @@
             startingLineNumber = "356"
             endingLineNumber = "356"
             landmarkName = "ifelStatement(string&amp; str)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Compiler/quatOptimizer.h"
+            timestampString = "537016681.977396"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "157"
+            endingLineNumber = "157"
+            landmarkName = "dagBlock(int quat_start, int quat_end)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Compiler/quatOptimizer.h"
+            timestampString = "537016681.977396"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
+            landmarkName = "vecGenerator(int program_id)"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>

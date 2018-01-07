@@ -9,8 +9,8 @@
 #ifndef mipsGenerator_h
 #define mipsGenerator_h
 #include "headers.h"
-ofstream asm_out("asm.txt");
-//ofstream asm_out("/Users/Mr.ZY/Desktop/asm.txt");
+//ofstream asm_out("asm.txt");
+ofstream asm_out("/Users/Mr.ZY/Desktop/asm2.txt");
 //#define asm_out asm_out
 
 int getT(){

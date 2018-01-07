@@ -194,7 +194,9 @@ void calcTmp(){
             #endif // debug
         }
     }
-
+    for (auto it: mp_proc_variable){
+        cout << it.first << "@@@@@@" << it.second << endl;
+    }
     printSide();
 }
 #endif /* enter_h */

@@ -85,7 +85,7 @@ int main() {
     #endif // debug
     printQuat(); //(quat, cnt_quat)
 
-//    dagWork();
+    dagWork();
     programTable();
     symbolTable();
     calcTmp(); //cout << mp_tmp["#1"].second << endl;

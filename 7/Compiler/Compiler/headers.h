@@ -52,7 +52,7 @@ struct Tab{ //符号表
 struct Quat{ //四元式
     string type, op1, op2, op3;
     int program_id;//label=-1,
-    int block_id = -1; //默认不是基本块的起点，遇到一个过程的定义后的第一句话就是block_id=0，之后可能会编上标号。总之不是-1就代表不是基本块
+    int block_id = -1, block_pos = -1; //默认不是基本块的起点，遇到一个过程的定义后的第一句话就是block_id=0，之后可能会编上标号。总之不是-1就代表不是基本块
     vector<int> label;
 }quat[MAX_QUAT+10];
 
@@ -63,7 +63,11 @@ struct Quat{ //四元式
 map<string, int> mp_s;
 int cnt_mp_s = 0, sp = 0, main_pos;
 bool is_global = true; //是否是全局变量，在全局变量定义完之后置为false
-bool reg[41]; //寄存器使用状态，true代表正在被使用
+
+bool reg[41], dirty[41]; //寄存器使用状态，true代表正在被使用 //每个寄存器都有一个脏位的标记，初始为false, 每次被定义就变成true,当为true的时候我们要在基本块结束的时候进行进行重写回内存的操作
+map<int, pair<string, int>> mp_reg; //保存的是第几号寄存器对应的是什么变量(名字和程序块)
+map<int, int> mp_reg_line; //保存的是第几号寄存器对应的变量出现的行号，因为我们的临时寄存器使用的分配算法是LRU，因此要找出行号最小的那个进行T掉
+map<string,int> mp_v_dirty[MAX_QUAT];
 map<string, pair<int,int>> mp_tmp; //存放四元式产生的临时变量对应的在第几个程序块和在程序块的addr
 map<int, int> mp_quat_para_num, mp_quat_para_num_with_local, mp_quat_cnt_temp, mp_proc_variable; //这几个map的键都对应的是第几个程序块
 //mp_proc_variable存储的是第key号程序块的局部变量共占多少个单位，其中一般的变量算一个，数组算n个
@@ -74,6 +78,7 @@ struct Func{ //存放函数的结构体，其中type有三种类型，int, char,
     int tab_id; //在符号表的登录位置
     string type;
     int para_num;
+//    int block_id;
     vector<bool> is_char;
 };
 map<string, Func> mp_func; //函数名为键，值为对应的函数/过程信息
@@ -216,5 +221,42 @@ map<string,int> mp_dag = {
     {"GOTO", 100}, {"BZ", 100},  {"READ", 100}, {"PUSH", 100}, {"ret", 100}, {"call", 100}, {"SWITCH", 100}, {"nop", 100},
     {"PRINTLN", 1000},
 };
+
+map<int,string> mp_reg_name = {
+    {0, "$zero"},
+    {1, "$at"},
+    {2, "$v0"},
+    {3, "$v1"},
+    {4, "$a0"},
+    {5, "$a1"},
+    {6, "$a2"},
+    {7, "$a3"},
+    {8, "$t0"},
+    {9, "$t1"},
+    {10, "$t2"},
+    {11, "$t3"},
+    {12, "$t4"},
+    {13, "$t5"},
+    {14, "$t6"},
+    {15, "$t7"},
+    {16, "$s0"},
+    {17, "$s1"},
+    {18, "$s2"},
+    {19, "$s3"},
+    {20, "$s4"},
+    {21, "$s5"},
+    {22, "$s6"},
+    {23, "$s7"},
+    {24, "$t8"},
+    {25, "$t9"},
+    {26, "$k0"},
+    {27, "$k1"},
+    {28, "$gp"},
+    {29, "$sp"},
+    {30, "$fp"},
+    {31, "$ra"},
+};
+
+    
 #endif /* headers_h */
 
