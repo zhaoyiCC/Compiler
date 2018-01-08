@@ -28,18 +28,24 @@ void allocateZero(){
     asm_out << "addi\t$sp,$sp,-4" << endl << endl;
 }
 void allocateConst(const Quat& q){ //常量 //不允许修改i,并且是个引用，不需要复制
+    #ifdef mips
     asm_out << "#\tconst " << q.type.substr(6, q.type.size()-6) << " " << q.op1 << " = " << q.op2 << endl;
+    #endif
     int t_id = 1; //getT();
     asm_out << "li\t$t" << t_id << "," << q.op2 << endl; // li t0, num
     asm_out << "sw\t$t" << t_id << ",0($sp)" << endl;
     asm_out << "addi\t$sp,$sp,-4\n" << endl;
 }
 void allocateVariable(const Quat& q){
+    #ifdef mips
     asm_out << "#var " << q.type.substr(9, q.type.size()-9) << " " << q.op1 << endl;
+    #endif
     allocateZero();
 }
 void allocateArray(const Quat& q){
+    #ifdef mips
     asm_out << "#var " << q.type.substr(9,q.type.size()-2-9) << " " << q.op1 << "[" << q.op2 << "]" << endl;
+    #endif
     //    int label_print;//t_id = getT()
     //    asm_out << "li\t$t0,0" << endl;
     //    asm_out << "li\t$t1," << q.op2 << endl;
@@ -53,7 +59,9 @@ void allocateArray(const Quat& q){
 }
 void allocateFunction(const Quat& q){ //函数/过程的分配，主要是要保存fp和ra信息
     //    asm_out << q.type.substr(9, q.type.size()-9) << " " << q.op1 << "()" << endl;
+    #ifdef mips
     asm_out << "#END Const&Variable define" << endl;
+    #endif
     
     asm_out <<"sw\t$s1,0($sp)"<<endl; //***保存sp
     asm_out <<"addi\t$sp,$sp,-4\n"<<endl; //***
@@ -72,7 +80,9 @@ void allocateFunction(const Quat& q){ //函数/过程的分配，主要是要保
 //sw	$t0,0($t1)
 void getVariableMips(int reg_t, string name, int program_id, bool is_load){ //is_load:是否要取出值
     string name_array, name_offset, start_pos = "fp";
+    #ifdef mips
     asm_out << "#~~~" << name << endl; //~~~a[yyy]
+    #endif
     int offset, start; //offset = tab[pos].addr
     if (isChar(name)){
         asm_out << "li\t$t" << reg_t << "," << int(name[1]) << endl; //输出字符串的值
@@ -140,11 +150,9 @@ void getVariableMips(int reg_t, string name, int program_id, bool is_load){ //is
     
 }
 void allocateParameter(const Quat& q, int para_i){ //参数的分配，标准的分配方法是：前4个压到a0-a3，后面的压到栈上
-    if (q.op1=="8"){
-        int pp;
-        pp=1;
-    }
+    #ifdef mips
     asm_out << "#\t" << q.type << " " << q.op1 << endl;
+    #endif
     int t_reg_1 = 1, t_reg_2 = 2;;
     //!!!
     getVariableMips(t_reg_1, q.op1, q.program_id, true);
@@ -171,7 +179,9 @@ void allocateParameter(const Quat& q, int para_i){ //参数的分配，标准的
     asm_out << "addi\t$sp,$sp,-4\n" <<endl;
 }
 void assiMips(const Quat& q){ // y = x//赋值语句的转化
+    #ifdef mips
     asm_out << "#" << q.op1 << " " << q.type << " " << q.op2 << endl;
+    #endif
     int t_reg_1 = getT(), t_reg_2 = getT();
     //!!!
     t_reg_1 = 1, t_reg_2 = 2; //空出t0给li用
@@ -185,7 +195,9 @@ void assiMips(const Quat& q){ // y = x//赋值语句的转化
     asm_out << endl << "sw\t$t" << t_reg_2 << ",0($t" << t_reg_1 << ")" << endl; //sw $t2,0($t1)
 }
 void addMips(const Quat& q, string operation){ //add sub //#12 = x + 1
+    #ifdef mips
     asm_out << "#" << q.op1 << " = " << q.op2 << " " << q.type << " " << q.op3 << endl;
+    #endif
     int t_reg_1 = getT(), t_reg_2 = getT(), t_reg_3;
     //!!!
     t_reg_1 = 1, t_reg_2 = 2, t_reg_3 = 3; //空出t0给li用
@@ -202,7 +214,9 @@ void addMips(const Quat& q, string operation){ //add sub //#12 = x + 1
 }
 void compMips(const Quat& q, string operation){ //add sub //#12 = x + 1
     map<string, string> mp_comp = {{">=", "sge"}, {">", "sgt"}, {"<=", "sle"}, {"<", "slt"}, {"==", "seq"}, {"!=", "sne"}}; //sne seq  sge sgt sle有常数 slt没有
+    #ifdef mips
     asm_out << "#\t" << q.op1 << " " << q.type << " " << q.op2 << endl;
+    #endif
     int t_reg_1 = getT(), t_reg_2 = getT(), t_reg_3;
     //!!!
     t_reg_1 = 1, t_reg_2 = 2; //空出t0给li用
@@ -211,15 +225,21 @@ void compMips(const Quat& q, string operation){ //add sub //#12 = x + 1
     asm_out << mp_comp[operation] << "\t$t0,$t" << t_reg_1 << ",$t" << t_reg_2 << endl;
 }
 void jumpMips(const Quat& q){ //BZ LABEL_2 //READ x
+    #ifdef mips
     asm_out << "#\t" << q.type << " " << q.op1 << endl;
+    #endif
     asm_out << "bne\t$t0,1," << q.op1 << endl; //BZ是不满足就跳转，所以就是不等于1就跳转
 }
 void gotoMips(const Quat& q){ //BZ LABEL_2 //READ x
+    #ifdef mips
     asm_out << "#\t" << q.type << " " << q.op1 << endl;
+    #endif
     asm_out << "jal\t" << q.op1 << endl; //BZ是不满足就跳转，所以就是不等于1就跳转
 }
 void reprMips(const Quat& q, bool is_read){ //BZ LABEL_2 //READ x
+    #ifdef mips
     asm_out << "#\t" << q.type << " " << q.op1 << endl;
+    #endif
     if (q.type == "PRINTLN"){ //li $a0, '\n' //li $v0, 11 //syscall
         asm_out << "li\t$a0,'\\n'" << endl;
         asm_out << "li\t$v0,11" << endl;
@@ -253,10 +273,15 @@ void reprMips(const Quat& q, bool is_read){ //BZ LABEL_2 //READ x
     asm_out << "li\t$v0," << print_type << endl;
     asm_out << "syscall\n" << endl;
     if (is_read)
-        asm_out << "sw\t$v0,0($t" << t_reg_1 << ")" << endl << endl;
+        asm_out << "sw\t$v0,0($t" << t_reg_1 << ")" << endl;
+    #ifdef mips
+    cout << endl;
+    #endif
 }
 void retuMips(const Quat& q){ //add sub //#12 = x + 1
+    #ifdef mips
     asm_out << "#\t" << q.op1 << " " << q.type << " " << q.op2 << endl;
+    #endif
     if (q.program_id == cnt_proc){ //如果是主函数，就不要恢复现场了，直接退出程序
         asm_out << "li\t$v0,10" << endl;
         asm_out << "syscall" << endl;
@@ -290,7 +315,10 @@ void retuMips(const Quat& q){ //add sub //#12 = x + 1
 //}
 
 void quatMips(){
-    asm_out << ".data" << endl << endl;
+    asm_out << ".data" << endl;
+    #ifdef mips
+    cout << endl;
+    #endif
     rep (i, 1, cnt_quat){
         if (quat[i].type == "PRINT" && quat[i].op1[0] =='"'){
             if (mp_s.count(quat[i].op1) == 0){ //重复的就不要加了
@@ -301,7 +329,10 @@ void quatMips(){
     string str_out_trans;
     for (auto i: mp_s){
         //        str_out_trans =
-        asm_out << "str" << i.second << ":\t.asciiz" << " " << i.first << endl <<endl;
+        asm_out << "str" << i.second << ":\t.asciiz" << " " << i.first << endl;
+          #ifdef mips
+        cout<<endl;
+          #endif
     }
     
     asm_out << ".text" << endl << endl;
@@ -309,15 +340,15 @@ void quatMips(){
     rep (i, 1, cnt_quat){//main_pos-1){
         if (i == index_proc[1]){ //前面的都是全局的常变量。全局常变量占在一个固定的坑里，不会出来了，之后遇到全局变量也可以直接根据$sp(0x2ffc)-addr来找到 //在第一个分程序前定义的常变量都是全局的常变量，并且正好对应一条四元式
             asm_out << "subi\t$sp,$sp," << 4*mp_proc_variable[quat[0].program_id] << endl;
-            asm_out << "j\tmain" << endl << endl; //声明常变量后，先跳转到main进行!!!有必要吗
+            asm_out << "j\tmain" << endl;
+                #ifdef mips
+            cout << endl; //声明常变量后，先跳转到main进行!!!有必要吗
+                #endif
         }
         if (!quat[i].label.empty())//(quat[i].label != -1)
             for (auto j : quat[i].label)//asm_out << "LABEL_" << quat[i].label << ":" << endl;
                 asm_out << "LABEL_" << j << ":" << endl;
-        if (i==14){
-            int llll;
-            llll = 1;
-        }
+        
         switch (mp_mips[quat[i].type]){
             case 100: break;
             case 1: allocateConst(quat[i]); break;

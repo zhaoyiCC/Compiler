@@ -1,0 +1,36 @@
+const int cst1 = 1, cst2 = 2, cst3 = 3;
+const char csta = 'a', cstb = 'b', cstc = 'c';
+int g_a, g_b, g_arr[2048];
+char g_stra[1024], g_strb[2048];
+
+int mod(int n, int m){
+    return (n - n / m * m);
+}
+int gcd(int n, int m){
+    int rem;
+    rem = 0;
+    printf("n=", n);
+    printf("m=", m);
+    if (n == 0)
+        return (m);
+    printf("TTTT");
+    if (m == 0)
+        return (n);
+    printf("GGGGGGGGGGCCCCCCCCCCCD");
+    return (gcd(m, mod(n, m)));
+}
+
+
+void gcd_test(){
+    int n, m,toy;
+    printf("GCD: Please input two unsigned positive integer ?");
+    scanf(n, m);
+    
+    printf("The gcd's answer is ", gcd(n, m));
+}
+
+
+void main(){
+    gcd_test();
+    return ;
+}

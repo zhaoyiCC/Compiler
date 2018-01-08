@@ -189,21 +189,30 @@ string getT(string name, int program_id, int line_id, int& reg_id, bool is_load,
 }
 void allocateZero(){
     asm_out << "sw\t$0,0($sp)" << endl;
-    asm_out << "addi\t$sp,$sp,-4" << endl << endl;
+    asm_out << "addi\t$sp,$sp,-4" << endl;
+    #ifdef mips
+    asm_out << endl;
+    #endif
 }
-void allocateConst(const Quat& q){ //常量 //不允许修改i,并且是个引用，不需要复制
+void allocateConst(const Quat& q, int const_i){ //常量 //不允许修改i,并且是个引用，不需要复制
+    #ifdef mips
     asm_out << "#\tconst " << q.type.substr(6, q.type.size()-6) << " " << q.op1 << " = " << q.op2 << endl;
-    int t_id = 1; //getT();
-    asm_out << "li\t$t" << t_id << "," << q.op2 << endl; // li t0, num
-    asm_out << "sw\t$t" << t_id << ",0($sp)" << endl;
-    asm_out << "addi\t$sp,$sp,-4\n" << endl;
+    #endif
+    int t_id = 25; //"$t9" //1; //getT();
+    asm_out << "li\t" << mp_reg_name[t_id] << "," << q.op2 << endl; //t_id // li t0, num
+    asm_out << "sw\t" << mp_reg_name[t_id] << ",-" << 4*(const_i-1) << "($sp)" << endl;
+//    asm_out << "addi\t$sp,$sp,-4" << endl;
 }
 void allocateVariable(const Quat& q){
+    #ifdef mips
     asm_out << "#var " << q.type.substr(9, q.type.size()-9) << " " << q.op1 << endl;
+    #endif
     allocateZero();
 }
 void allocateArray(const Quat& q){
+    #ifdef mips
     asm_out << "#var " << q.type.substr(9,q.type.size()-2-9) << " " << q.op1 << "[" << q.op2 << "]" << endl;
+    #endif
 //    int label_print;//t_id = getT()
 //    asm_out << "li\t$t0,0" << endl;
 //    asm_out << "li\t$t1," << q.op2 << endl;
@@ -213,24 +222,46 @@ void allocateArray(const Quat& q){
 //    asm_out << "addi\t$t0,$t0,1" << endl;
 //    asm_out << "bne\t$t0,$t1,LABEL_" <<  label_print << endl << endl;
     //本来是把数组的元素都初始化的，后来觉得好像没啥必要，直接求出来$sp
-    asm_out << "addi\t$sp,$sp,-" << 4*mystoi(q.op2) << endl;
+    if (mystoi(q.op2) != 0) //窥孔优化无谓指令
+        asm_out << "addi\t$sp,$sp,-" << 4*mystoi(q.op2) << endl;
 }
 void allocateFunction(const Quat& q){ //函数/过程的分配，主要是要保存fp和ra信息
-    //    asm_out << q.type.substr(9, q.type.size()-9) << " " << q.op1 << "()" << endl;
+    cout << const_i << endl;
+    cout << mp_quat_para_num[q.program_id] << endl;
+    if (const_i+mp_proc_variable[q.program_id] != 0) //窥孔优化无谓指令
+        asm_out << "subi\t$sp,$sp," << 4*(const_i+mp_proc_variable[q.program_id]) << endl;
+    
+    #ifdef mips
     asm_out << "#END Const&Variable define" << endl;
-
-    asm_out <<"sw\t$s1,0($sp)"<<endl; //***保存sp
-    asm_out <<"addi\t$sp,$sp,-4\n"<<endl; //***
+    #endif
+/*
+    asm_out <<"sw\t$s1,0($sp)"<<endl; //保存sp
+    asm_out <<"addi\t$sp,$sp,-4"<<endl; //
 
     asm_out <<"sw\t$ra,0($sp)"<<endl; //保存返回地址
 
     //    asm_out <<"addi\t$fp,$sp,0"<<endl; //这个函数里的fp是一个基准线的作用，保存当前函数的顶部
-    asm_out <<"addi\t$sp,$sp,-4\n"<<endl;
+    asm_out <<"addi\t$sp,$sp,-4"<<endl;
 
     asm_out <<"sw\t$s0,0($sp)"<<endl; //压栈保存一下之前的fp在哪，因为之前已经先在函数定义的时候保存了
-    asm_out <<"addi\t$sp,$sp,-4\n"<<endl;
-
-    asm_out << "addi\t$sp,$sp,-" << 4*mp_quat_cnt_temp[q.program_id] << endl; //***把中间代码产生的空间跳过去
+    asm_out <<"addi\t$sp,$sp,-4"<<endl;
+    
+    if (mp_quat_cnt_temp[q.program_id] !=0) //窥孔优化无谓指令
+        asm_out << "addi\t$sp,$sp,-" << 4*mp_quat_cnt_temp[q.program_id] << endl; //***把中间代码产生的空间跳过去
+    //    asm_out << "move\t$fp,$s0" << endl; //!!!
+ */
+    asm_out <<"sw\t$s1,0($sp)"<<endl; //Important保存sp
+    //asm_out <<"addi\t$sp,$sp,-4"<<endl;
+    
+    asm_out <<"sw\t$ra,-4($sp)"<<endl; //保存返回地址
+    
+    //asm_out <<"addi\t$sp,$sp,-4"<<endl;
+    
+    asm_out <<"sw\t$s0,-8($sp)"<<endl; //压栈保存一下之前的fp在哪，因为之前已经先在函数定义的时候保存了
+    //asm_out <<"addi\t$sp,$sp,-4"<<endl;
+    int tot_offset = 12;
+    
+    asm_out << "addi\t$sp,$sp,-" << tot_offset+4*mp_quat_cnt_temp[q.program_id] << endl; //***把中间代码产生的空间跳过去
     //    asm_out << "move\t$fp,$s0" << endl; //!!!
 }
 
@@ -334,13 +365,25 @@ void getVariableMips(int reg_t, string name, int program_id, bool is_load){ //is
 
 }
 void allocateParameter(const Quat& q, int quat_i, int para_i){ //参数的分配，标准的分配方法是：前4个压到a0-a3，后面的压到栈上
+    #ifdef mips
     asm_out << "#\t" << q.type << " " << q.op1 << endl;
+    #endif
     string reg_res = transPara(25, q.op1, q.program_id, quat_i);
     asm_out << "sw\t" << reg_res << ",0($sp)" << endl;
-    asm_out << "addi\t$sp,$sp,-4\n" <<endl;
+    asm_out << "addi\t$sp,$sp,-4" <<endl; //!!!感觉很难进行优化 因为不是push完参数就一定call的，比如gcd(m, mod(m,n)) 是
+                               //PUSH m
+                               //PUSH n
+                               //PUSH m
+                               //call mod
+                               //#65 = RET_int
+                               //PUSH #65
+                               //call gcd
+                                //所以不可以在call的时候减去位置
 }
 void assiMips(const Quat& q, int quat_i){ // y = x//赋值语句的转化
+    #ifdef mips
     asm_out << "#" << q.op1 << " " << q.type << " " << q.op2 << endl;
+    #endif
     if (q.op1=="#30" && q.op2 == "a[#28]"){
         int lyj;
         lyj = 233;
@@ -357,10 +400,6 @@ void assiMips(const Quat& q, int quat_i){ // y = x//赋值语句的转化
     }
     asm_out << endl << "sw\t$t" << t_reg_2 << ",0($t" << t_reg_1 << ")" << endl; //sw $t2,0($t1)
      */
-    if (q.op2 == "RET_int"){
-        int awh ;
-        awh = 1;
-    }
     
 //    if (q.op1.find("[")!=string::npos){ //a[i] = j 必须先算a[i] 否则t2被后面的给挤掉了
 ////        getVariableMips(t_reg_1, q.op1, q.program_id, false); //get y.address to t1
@@ -401,7 +440,9 @@ void addMips(const Quat& q, int quat_i, string operation){
 //##22 = 1 + 2
 //    add	$t0,1,2
     //add sub //#12 = x + 1
+    #ifdef mips
     asm_out << "#" << q.op1 << " = " << q.op2 << " " << q.type << " " << q.op3 << endl;
+    #endif
 //    int t_reg_1 = getT(), t_reg_2 = getT(), t_reg_3;
 //    //!!!
 //    t_reg_1 = 1, t_reg_2 = 2, t_reg_3 = 3; //空出t0给li用
@@ -465,7 +506,9 @@ void addMips(const Quat& q, int quat_i, string operation){
 }
 void compMips(const Quat& q, int quat_i, string operation){ //!!!暂时把比较的结果放在了$t9里，之前是$t0 //add sub //#12 = x + 1
     map<string, string> mp_comp = {{">=", "sge"}, {">", "sgt"}, {"<=", "sle"}, {"<", "slt"}, {"==", "seq"}, {"!=", "sne"}};
+    #ifdef mips
     asm_out << "#\t" << q.op1 << " " << q.type << " " << q.op2 << endl;
+    #endif
 //    int t_reg_1 = getT(), t_reg_2 = getT(), t_reg_3;
 //    //!!!
 //    t_reg_1 = 1, t_reg_2 = 2; //空出t0给li用
@@ -489,15 +532,21 @@ void compMips(const Quat& q, int quat_i, string operation){ //!!!暂时把比较
     asm_out << mp_comp[operation] << "\t$t9," << t_reg_1 << "," << t_reg_2 << endl;
 }
 void jumpMips(const Quat& q){ //BZ LABEL_2 //READ x
+    #ifdef mips
     asm_out << "#\t" << q.type << " " << q.op1 << endl;
+    #endif
     asm_out << "bne\t$t9,1," << q.op1 << endl; //BZ是不满足就跳转，所以就是不等于1就跳转
 }
 void gotoMips(const Quat& q){ //BZ LABEL_2 //READ x
+    #ifdef mips
     asm_out << "#\t" << q.type << " " << q.op1 << endl;
+    #endif
     asm_out << "jal\t" << q.op1 << endl; //BZ是不满足就跳转，所以就是不等于1就跳转
 }
 void reprMips(const Quat& q, int quat_i, bool is_read){ //BZ LABEL_2 //READ x
+    #ifdef mips
     asm_out << "#\t" << q.type << " " << q.op1 << endl;
+    #endif
     if (q.type == "PRINTLN"){ //li $a0, '\n' //li $v0, 11 //syscall
         asm_out << "li\t$a0,'\\n'" << endl;
         asm_out << "li\t$v0,11" << endl;
@@ -509,8 +558,8 @@ void reprMips(const Quat& q, int quat_i, bool is_read){ //BZ LABEL_2 //READ x
     if (!is_read && q.op1[0] == '"'){ //q.op2 == "string" 也可以 //输出的内容是字符串，找到对应的是几号str，这个在之前的.data段定义过了
 //        cout << "%%%%PRINT q.op2=" << q.op2 << endl;
         asm_out << "la\t$a0,str" << mp_s[q.op1] << endl;
-        asm_out <<"li\t$v0,4"<<endl;
-        asm_out <<"syscall\n"<<endl;
+        asm_out << "li\t$v0,4" <<endl;
+        asm_out << "syscall" <<endl;
         return ;
     }
 //    int t_reg_1 = 1;//getT()!!!
@@ -548,12 +597,14 @@ void reprMips(const Quat& q, int quat_i, bool is_read){ //BZ LABEL_2 //READ x
     if (!is_read)
         asm_out << "move\t$a0," << t_reg_1 << endl;
     asm_out << "li\t$v0," << print_type << endl;
-    asm_out << "syscall\n" << endl;
+    asm_out << "syscall" << endl;
     if (is_read)
         asm_out << "move\t" << t_reg_1 << ",$v0" << endl; //读入的内容保存在$v0里面
 }
 void retuMips(const Quat& q, int quat_i){ //add sub //#12 = x + 1
+    #ifdef mips
     asm_out << "#\t" << q.op1 << " " << q.type << " " << q.op2 << endl;
+    #endif
     if (q.program_id == cnt_proc){ //如果是主函数，就不要恢复现场了，直接退出程序
         asm_out << "li\t$v0,10" << endl;
         asm_out << "syscall" << endl;
@@ -571,7 +622,8 @@ void retuMips(const Quat& q, int quat_i){ //add sub //#12 = x + 1
     }
 
     asm_out << "lw\t$sp,-" << int2string(4*(para_now_cnt)) << "($fp)" << endl; //****
-    asm_out << "addi\t$sp,$sp," << 4*(mp_quat_para_num[q.program_id]) << endl; //加上$fp参数的个数
+    if (mp_quat_para_num[q.program_id] != 0) //窥孔优化无谓指令
+        asm_out << "addi\t$sp,$sp," << 4*(mp_quat_para_num[q.program_id]) << endl; //加上$fp参数的个数
 
     asm_out << "lw\t$ra,-" << int2string(4*(para_now_cnt+1)) << "($fp)" << endl; //这两个顺序不能反，因为取ra要用到目前的fp，因此不能先恢复fp现场
 
@@ -603,7 +655,7 @@ void init_reg(int i){
             
             updateOffset(pos, quat[i].program_id, offset);
             
-            asm_out << "sw\t$t" << (j-T_START) << ",-" << offset << "($" << start_pos << ")" << endl;
+            asm_out << "sw\t" << mp_reg_name[j] << ",-" << offset << "($" << start_pos << ")" << endl;
         }
     }
     memset(dirty, false, sizeof(dirty));
@@ -613,7 +665,10 @@ void init_reg(int i){
 }
 void quatMips(){
     int offset;
-    asm_out << ".data" << endl << endl;
+    asm_out << ".data" << endl;
+    #ifdef mips
+    asm_out << endl;
+    #endif
     rep (i, 1, cnt_quat){
         if (quat[i].type == "PRINT" && quat[i].op1[0] =='"'){
             if (mp_s.count(quat[i].op1) == 0){ //重复的就不要加了
@@ -623,10 +678,16 @@ void quatMips(){
     }
     string start_pos;
     for (auto i: mp_s){
-        asm_out << "str" << i.second << ":\t.asciiz" << " " << i.first << endl <<endl;
+        asm_out << "str" << i.second << ":\t.asciiz" << " " << i.first << endl;
+            #ifdef mips
+        asm_out << endl;
+            #endif
     }
 
-    asm_out << ".text" << endl << endl;
+    asm_out << ".text" << endl;
+    #ifdef mips
+    asm_out << endl;
+    #endif
     asm_out << "move\t$gp, $sp" << endl;
     
     memset(dirty, false, sizeof(dirty));
@@ -635,7 +696,7 @@ void quatMips(){
     mp_reg_line.clear();
     rep (i, 1, cnt_quat){//main_pos-1){
         cout << i << "&&^&@#(" << mp_reg.size() << endl;
-        if (i==291){
+        if (i==36){
             int lll;
             lll = 1;
             cout << mp_reg.size() << endl;
@@ -643,8 +704,12 @@ void quatMips(){
         }
         cout << quat[i].type << "*******" << quat[i].op1 << "*******" << quat[i].block_pos << "**" << i << endl;
         if (i == index_proc[1]){ //前面的都是全局的常变量。全局常变量占在一个固定的坑里，不会出来了，之后遇到全局变量也可以直接根据$sp(0x2ffc)-addr来找到 //在第一个分程序前定义的常变量都是全局的常变量，并且正好对应一条四元式
-            asm_out << "subi\t$sp,$sp," << 4*mp_proc_variable[quat[0].program_id] << endl;
-            asm_out << "j\tmain" << endl << endl; //声明常变量后，先跳转到main进行!!!有必要吗
+            if (mp_proc_variable[quat[0].program_id] != 0) //去除无谓指令，例如subi $sp,$sp,0这种 !!!窥孔优化
+                asm_out << "subi\t$sp,$sp," << 4*mp_proc_variable[quat[0].program_id] << endl;
+            asm_out << "j\tmain" << endl; //声明常变量后，先跳转到main进行!!!有必要吗
+                #ifdef mips
+            asm_out << endl;
+                #endif
         }
         if (!quat[i].label.empty())//(quat[i].label != -1)
             for (auto j : quat[i].label)//asm_out << "LABEL_" << quat[i].label << ":" << endl;
@@ -659,12 +724,19 @@ void quatMips(){
                 cout << "~~~~~~~END BEGIN" << endl;
         }
         
+        if (quat[i].block_pos != quat[i-1].block_pos){
+            memset(dirty, false, sizeof(dirty));
+            memset(reg, false, sizeof(reg));
+            mp_reg.clear();
+            mp_reg_line.clear();
+        }
+        
         
         switch (mp_mips[quat[i].type]){
             case 100: break;
-            case 1: allocateConst(quat[i]); break; //"const int"
+            case 1: allocateConst(quat[i], ++const_i); break; //"const int"
             case 3:  break; //allocateVariable(quat[i]);
-            case 5: para_i = 0; asm_out << quat[i].op1 << ":" << endl; asm_out << "move\t$s1,$sp" << endl; asm_out << "move\t$s0,$fp" << endl; asm_out << "addi\t$fp,$sp," << 4*(mp_quat_para_num[quat[i].program_id]) << endl; para_now_cnt = mp_quat_para_num_with_local[quat[i].program_id]; break; //asm_out << "addi\t$fp,$sp," << 4*(mp_quat_para_num[i]) << endl;
+            case 5: const_i = para_i = 0; asm_out << quat[i].op1 << ":" << endl; asm_out << "move\t$s1,$sp" << endl; asm_out << "move\t$s0,$fp" << endl; asm_out << "addi\t$fp,$sp," << 4*(mp_quat_para_num[quat[i].program_id]) << endl; para_now_cnt = mp_quat_para_num_with_local[quat[i].program_id]; break; //asm_out << "addi\t$fp,$sp," << 4*(mp_quat_para_num[i]) << endl;
             case 7: break; //参数，直接无视，因为在PUSH里干了
             case 9: asm_out << quat[i].op1 << ":" << endl; break;
             case 10: addMips(quat[i], i, "add"); break; //处理加号
@@ -674,8 +746,9 @@ void quatMips(){
             case 20: assiMips(quat[i], i); break; // 赋值语句
             case 21: compMips(quat[i], i, quat[i].type); break; //小于等于 //#6 >= #10 //BZ LABEL_2
             case 40: break; //allocateArray(quat[i]);
-            case 50: asm_out << "subi\t$sp,$sp," << 4*mp_proc_variable[quat[i].program_id] << endl;
-                cout << "subi\t$sp,$sp," << 4*mp_proc_variable[quat[i].program_id] << endl;
+            case 50:
+//                if (mp_proc_variable[quat[i].program_id] != 0) //窥孔优化无谓指令
+//                        asm_out << "subi\t$sp,$sp," << 4*mp_proc_variable[quat[i].program_id] << endl;
                 allocateFunction(quat[i]); break; //在END...前
             case 101: allocateParameter(quat[i], i, ++para_i); break; //PUSH
             case 102: jumpMips(quat[i]); break;

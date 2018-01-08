@@ -34,7 +34,7 @@ void expression(string& str, string& res), statExecution(string& str, bool is_mu
 int id, cnt = 999, now = 0, last;
 size_t siz;
 map<int,int> mp_line;
-int addr = 0, cnt_quat, cnt_tab = 0, cnt_proc = 0, index_proc[1010], cnt_tmp = 0, cnt_label, para_i, para_now_cnt; //index_proc为分程序索引表，里面存的是每个程序的第一个定义的变量在符号表的位置(就是过程/函数自己，因为自己也会存在这个里面的)
+int addr = 0, cnt_quat, cnt_tab = 0, cnt_proc = 0, index_proc[1010], cnt_tmp = 0, cnt_label, para_i, const_i, para_now_cnt; //index_proc为分程序索引表，里面存的是每个程序的第一个定义的变量在符号表的位置(就是过程/函数自己，因为自己也会存在这个里面的)
 string route, sym, str; //sym: 获取到的接下来的一个字符串
 vector<char> oper_rela = {'<', '>', '='};
 vector<char> oper = {'+', '-', '*', '/'};
