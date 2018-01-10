@@ -1,0 +1,5 @@
+int p;
+void main(){
+int a;
+a=100;
+}

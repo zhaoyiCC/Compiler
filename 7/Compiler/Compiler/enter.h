@@ -18,6 +18,12 @@ void newLabel(int& res){
     res = (++cnt_label);
 }
 void enter(string name, string kind, string type, int value, int addr, int para_num, int line_pos){
+    #ifdef constDelete
+    if (kind == "const"){
+        const_cnt[cnt_proc]++;
+    }
+    #endif
+    
     if (kind == "void" || kind == "function") { //代表是过程或者函数
         rep (i, 1, cnt_proc){
             if (tab[index_proc[i]].name == name){ //重复定义函数
@@ -86,15 +92,47 @@ int locateVariable(string name, int program_id, int& offset,bool is_mips=true){ 
     return -2;
 }
 
+
+string constValue(string s){
+    int offset;
+    int pos = locateVariable(s, cnt_proc, offset, false);
+    if (pos <= 0)
+        return s;
+    if (tab[pos].kind == "const"){
+        if (tab[pos].type == "char"){
+            char c = tab[pos].value;
+            string res;
+            res.push_back('\'');
+            res.push_back(c);
+            res.push_back('\'');
+            return res; //'C'
+        }else
+            return int2string(tab[pos].value);
+    }
+    return s;
+}
+
 void addQuat(string type, string op1, string op2, string op3){
     #ifdef debug
     cout << "QUAT!!!" << " " << type << " " << op1 << " " << op2 << " " << op3 << " ::: " << cnt_proc << endl;
     #endif // debug
+    
+    #ifdef constDelete
+    if (type == "const_int" || type == "const_char")
+        return;
+    #endif
+    
     ++cnt_quat;
     quat[cnt_quat].type = type;
     quat[cnt_quat].op1 = op1;
     quat[cnt_quat].op2 = op2;
     quat[cnt_quat].op3 = op3;
+    #ifdef constDelete
+    quat[cnt_quat].op1 = constValue(op1);
+    quat[cnt_quat].op2 = constValue(op2);
+    quat[cnt_quat].op3 = constValue(op3);
+    #endif
+    
     quat[cnt_quat].program_id = cnt_proc;
 }
 void printSide(){
@@ -156,7 +194,7 @@ void calcTmp(){
     printSide();
     map<int, int> mp_proc_cnt;
     rep (i,1,cnt_proc){
-        mp_proc_cnt[i] = index_proc[i+1] - index_proc[i]-1; //这个过程块所有的参数局部变量。空出每段的第一个符号即函数自己
+        mp_proc_cnt[i] = index_proc[i+1] - index_proc[i]-const_cnt[i]-1; //这个过程块所有的参数局部变量。空出每段的第一个符号即函数自己
     }
     rep (i,1,cnt_quat){
         if (quat[i].type == "variable_int" || quat[i].type == "variable_char")
@@ -168,7 +206,7 @@ void calcTmp(){
         if (quat[i].type == "function_int" || quat[i].type == "function_char" || quat[i].type == "void_"){
             rep (j,1,cnt_proc){
                 if (tab[index_proc[j]].name == quat[i].op1){
-                    mp_quat_para_num_with_local[quat[i].program_id] = index_proc[j+1] - index_proc[j]-1;
+                    mp_quat_para_num_with_local[quat[i].program_id] = index_proc[j+1] - index_proc[j]-const_cnt[j]-1;
                     rep (k,index_proc[j]+1,index_proc[j+1]-1){
                         if (tab[k].type == "int[]" || tab[k].type=="char[]"){
                             mp_quat_para_num_with_local[quat[i].program_id] += tab[k].para_num-1; //****少算了这么多的单位 之前只把数组算了1因此ra的绝对地址就算消了

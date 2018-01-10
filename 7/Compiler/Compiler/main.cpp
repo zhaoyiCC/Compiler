@@ -70,6 +70,10 @@ int main() {
     siz = str.size();   //cout << str << endl << endl;
     //lexical(str); //语义分析
     now = 0;
+    memset(index_proc, 0, sizeof(index_proc));
+    memset(const_cnt, 0, sizeof(const_cnt));
+    
+    
     index_proc[0] = 1; //第0个分程序表的第一个变量是1
     id = lexicalAnalysis(str, sym); //getNext();
 

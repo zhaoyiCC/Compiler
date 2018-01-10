@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Compiler/main.cpp"
-            timestampString = "537014999.602263"
+            timestampString = "537268473.191311"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "130"
-            endingLineNumber = "130">
+            startingLineNumber = "134"
+            endingLineNumber = "134">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -24,11 +24,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Compiler/main.cpp"
-            timestampString = "537014999.602263"
+            timestampString = "537268473.191311"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133">
+            startingLineNumber = "137"
+            endingLineNumber = "137">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -252,11 +252,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Compiler/enter.h"
-            timestampString = "535712842.061989"
+            timestampString = "537268473.191311"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "163"
-            endingLineNumber = "163"
+            startingLineNumber = "201"
+            endingLineNumber = "201"
             landmarkName = "calcTmp()"
             landmarkType = "9">
          </BreakpointContent>
@@ -268,11 +268,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Compiler/enter.h"
-            timestampString = "535712842.061989"
+            timestampString = "537268473.191311"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
+            startingLineNumber = "143"
+            endingLineNumber = "143"
             landmarkName = "printSide()"
             landmarkType = "9">
          </BreakpointContent>
@@ -284,11 +284,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Compiler/enter.h"
-            timestampString = "535712842.061989"
+            timestampString = "537268473.191311"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "157"
-            endingLineNumber = "157"
+            startingLineNumber = "195"
+            endingLineNumber = "195"
             landmarkName = "calcTmp()"
             landmarkType = "9">
          </BreakpointContent>
@@ -300,11 +300,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Compiler/enter.h"
-            timestampString = "535712842.061989"
+            timestampString = "537268473.191311"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "151"
-            endingLineNumber = "151"
+            startingLineNumber = "189"
+            endingLineNumber = "189"
             landmarkName = "symbolTable()"
             landmarkType = "9">
          </BreakpointContent>
@@ -431,22 +431,6 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "442"
             endingLineNumber = "442">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Compiler/grammarHandler.h"
-            timestampString = "536913970.510816"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "422"
-            endingLineNumber = "422"
-            landmarkName = "assiStatement(string&amp; str)"
-            landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -610,11 +594,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Compiler/enter.h"
-            timestampString = "535712842.061989"
+            timestampString = "537268473.191311"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "167"
-            endingLineNumber = "167"
+            startingLineNumber = "205"
+            endingLineNumber = "205"
             landmarkName = "calcTmp()"
             landmarkType = "9">
          </BreakpointContent>
@@ -712,11 +696,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Compiler/enter.h"
-            timestampString = "535712842.061989"
+            timestampString = "537268473.191311"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "173"
-            endingLineNumber = "173"
+            startingLineNumber = "211"
+            endingLineNumber = "211"
             landmarkName = "calcTmp()"
             landmarkType = "9">
          </BreakpointContent>
@@ -790,11 +774,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Compiler/enter.h"
-            timestampString = "535364696.474361"
+            timestampString = "537268473.191311"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
             landmarkName = "enter(string name, string kind, string type, int value, int addr, int para_num, int line_pos)"
             landmarkType = "9">
          </BreakpointContent>
@@ -884,11 +868,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Compiler/main.cpp"
-            timestampString = "536913462.377634"
+            timestampString = "537268473.191311"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
             landmarkName = "main()"
             landmarkType = "9">
          </BreakpointContent>
@@ -900,11 +884,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Compiler/main.cpp"
-            timestampString = "536913462.377634"
+            timestampString = "537268473.191311"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
             landmarkName = "main()"
             landmarkType = "9">
          </BreakpointContent>
@@ -916,11 +900,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Compiler/main.cpp"
-            timestampString = "536913462.377634"
+            timestampString = "537268473.191311"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
             landmarkName = "main()"
             landmarkType = "9">
          </BreakpointContent>
@@ -1076,11 +1060,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Compiler/quatOptimizer.h"
-            timestampString = "537032254.08577"
+            timestampString = "537115644.325405"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "129"
-            endingLineNumber = "129"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
             landmarkName = "vecGenerator(int program_id)"
             landmarkType = "9">
          </BreakpointContent>
@@ -1092,11 +1076,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Compiler/quatOptimizer.h"
-            timestampString = "537032254.08577"
+            timestampString = "537115644.325405"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "134"
-            endingLineNumber = "134"
+            startingLineNumber = "141"
+            endingLineNumber = "141"
             landmarkName = "vecGenerator(int program_id)"
             landmarkType = "9">
          </BreakpointContent>
@@ -1108,11 +1092,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Compiler/quatOptimizer.h"
-            timestampString = "537033042.020668"
+            timestampString = "537115644.325405"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "293"
-            endingLineNumber = "293"
+            startingLineNumber = "300"
+            endingLineNumber = "300"
             landmarkName = "dagWork()"
             landmarkType = "9">
          </BreakpointContent>
@@ -1124,11 +1108,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Compiler/quatOptimizer.h"
-            timestampString = "537033042.020668"
+            timestampString = "537115644.325405"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "315"
-            endingLineNumber = "315"
+            startingLineNumber = "322"
+            endingLineNumber = "322"
             landmarkName = "dagWork()"
             landmarkType = "9">
          </BreakpointContent>
@@ -1140,11 +1124,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Compiler/quatOptimizer.h"
-            timestampString = "537032254.08577"
+            timestampString = "537115644.325405"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "151"
-            endingLineNumber = "151"
+            startingLineNumber = "158"
+            endingLineNumber = "158"
             landmarkName = "vecGenerator(int program_id)"
             landmarkType = "9">
          </BreakpointContent>
@@ -1172,11 +1156,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Compiler/quatOptimizer.h"
-            timestampString = "537032254.08577"
+            timestampString = "537115644.325405"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "167"
-            endingLineNumber = "167"
+            startingLineNumber = "174"
+            endingLineNumber = "174"
             landmarkName = "dagBlock(int quat_start, int quat_end)"
             landmarkType = "9">
          </BreakpointContent>
@@ -1188,11 +1172,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Compiler/quatOptimizer.h"
-            timestampString = "537033042.020668"
+            timestampString = "537115644.325405"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "294"
-            endingLineNumber = "294"
+            startingLineNumber = "301"
+            endingLineNumber = "301"
             landmarkName = "dagWork()"
             landmarkType = "9">
          </BreakpointContent>
@@ -1220,11 +1204,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Compiler/quatOptimizer.h"
-            timestampString = "537032254.08577"
+            timestampString = "537115644.325405"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "196"
-            endingLineNumber = "196"
+            startingLineNumber = "203"
+            endingLineNumber = "203"
             landmarkName = "dagBlock(int quat_start, int quat_end)"
             landmarkType = "9">
          </BreakpointContent>
@@ -1236,11 +1220,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Compiler/quatOptimizer.h"
-            timestampString = "537032254.08577"
+            timestampString = "537115644.325405"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "197"
-            endingLineNumber = "197"
+            startingLineNumber = "204"
+            endingLineNumber = "204"
             landmarkName = "dagBlock(int quat_start, int quat_end)"
             landmarkType = "9">
          </BreakpointContent>
@@ -1252,11 +1236,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Compiler/quatOptimizer.h"
-            timestampString = "537032689.948313"
+            timestampString = "537115644.325405"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "224"
-            endingLineNumber = "224"
+            startingLineNumber = "231"
+            endingLineNumber = "231"
             landmarkName = "dagBlock(int quat_start, int quat_end)"
             landmarkType = "9">
          </BreakpointContent>
@@ -1268,28 +1252,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Compiler/quatOptimizer.h"
-            timestampString = "537033042.020668"
+            timestampString = "537115644.325405"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "327"
-            endingLineNumber = "327"
+            startingLineNumber = "334"
+            endingLineNumber = "334"
             landmarkName = "dagWork()"
-            landmarkType = "9">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Compiler/main.cpp"
-            timestampString = "537020877.522586"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
-            landmarkName = "main()"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1342,11 +1310,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Compiler/quatOptimizer.h"
-            timestampString = "537032254.08577"
+            timestampString = "537115644.325405"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "168"
-            endingLineNumber = "168"
+            startingLineNumber = "175"
+            endingLineNumber = "175"
             landmarkName = "dagBlock(int quat_start, int quat_end)"
             landmarkType = "9">
          </BreakpointContent>
@@ -1517,28 +1485,12 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Compiler/main.cpp"
-            timestampString = "537020877.522586"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
-            landmarkName = "main()"
-            landmarkType = "9">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Compiler/quatOptimizer.h"
-            timestampString = "537033042.020668"
+            timestampString = "537115644.325405"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "322"
-            endingLineNumber = "322"
+            startingLineNumber = "329"
+            endingLineNumber = "329"
             landmarkName = "dagWork()"
             landmarkType = "9">
          </BreakpointContent>
@@ -1550,11 +1502,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Compiler/quatOptimizer.h"
-            timestampString = "537033042.020668"
+            timestampString = "537115644.325405"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "326"
-            endingLineNumber = "326"
+            startingLineNumber = "333"
+            endingLineNumber = "333"
             landmarkName = "dagWork()"
             landmarkType = "9">
          </BreakpointContent>
@@ -1608,11 +1560,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Compiler/quatOptimizer.h"
-            timestampString = "537032254.08577"
+            timestampString = "537115644.325405"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "205"
-            endingLineNumber = "205"
+            startingLineNumber = "212"
+            endingLineNumber = "212"
             landmarkName = "dagBlock(int quat_start, int quat_end)"
             landmarkType = "9">
          </BreakpointContent>
@@ -1624,11 +1576,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Compiler/quatOptimizer.h"
-            timestampString = "537032254.08577"
+            timestampString = "537115644.325405"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "206"
-            endingLineNumber = "206"
+            startingLineNumber = "213"
+            endingLineNumber = "213"
             landmarkName = "dagBlock(int quat_start, int quat_end)"
             landmarkType = "9">
          </BreakpointContent>
@@ -1640,11 +1592,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Compiler/quatOptimizer.h"
-            timestampString = "537032254.08577"
+            timestampString = "537115644.325405"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "157"
-            endingLineNumber = "157"
+            startingLineNumber = "164"
+            endingLineNumber = "164"
             landmarkName = "dagBlock(int quat_start, int quat_end)"
             landmarkType = "9">
          </BreakpointContent>
@@ -1672,11 +1624,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Compiler/quatOptimizer.h"
-            timestampString = "537032254.08577"
+            timestampString = "537115644.325405"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "222"
-            endingLineNumber = "222"
+            startingLineNumber = "229"
+            endingLineNumber = "229"
             landmarkName = "dagBlock(int quat_start, int quat_end)"
             landmarkType = "9">
          </BreakpointContent>
@@ -1688,11 +1640,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Compiler/quatOptimizer.h"
-            timestampString = "537032254.08577"
+            timestampString = "537115644.325405"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "125"
-            endingLineNumber = "125"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
             landmarkName = "vecGenerator(int program_id)"
             landmarkType = "9">
          </BreakpointContent>
@@ -1704,11 +1656,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Compiler/quatOptimizer.h"
-            timestampString = "537033042.020668"
+            timestampString = "537115644.325405"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "321"
-            endingLineNumber = "321"
+            startingLineNumber = "328"
+            endingLineNumber = "328"
             landmarkName = "dagWork()"
             landmarkType = "9">
          </BreakpointContent>
@@ -1720,11 +1672,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Compiler/quatOptimizer.h"
-            timestampString = "537032254.08577"
+            timestampString = "537115644.325405"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "156"
-            endingLineNumber = "156"
+            startingLineNumber = "163"
+            endingLineNumber = "163"
             landmarkName = "dagBlock(int quat_start, int quat_end)"
             landmarkType = "9">
          </BreakpointContent>
@@ -1736,11 +1688,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Compiler/quatOptimizer.h"
-            timestampString = "537033042.020668"
+            timestampString = "537115644.325405"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "323"
-            endingLineNumber = "323"
+            startingLineNumber = "330"
+            endingLineNumber = "330"
             landmarkName = "dagWork()"
             landmarkType = "9">
          </BreakpointContent>
@@ -1752,11 +1704,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Compiler/quatOptimizer.h"
-            timestampString = "537033042.020668"
+            timestampString = "537115644.325405"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "319"
-            endingLineNumber = "319"
+            startingLineNumber = "326"
+            endingLineNumber = "326"
             landmarkName = "dagWork()"
             landmarkType = "9">
          </BreakpointContent>
@@ -1976,11 +1928,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Compiler/quatOptimizer.h"
-            timestampString = "537032254.08577"
+            timestampString = "537115644.325405"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "161"
-            endingLineNumber = "161"
+            startingLineNumber = "168"
+            endingLineNumber = "168"
             landmarkName = "dagBlock(int quat_start, int quat_end)"
             landmarkType = "9">
          </BreakpointContent>
@@ -2056,11 +2008,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Compiler/quatOptimizer.h"
-            timestampString = "537033042.020668"
+            timestampString = "537115644.325405"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "299"
-            endingLineNumber = "299"
+            startingLineNumber = "306"
+            endingLineNumber = "306"
             landmarkName = "dagWork()"
             landmarkType = "9">
          </BreakpointContent>
@@ -2088,11 +2040,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Compiler/enter.h"
-            timestampString = "537020664.047021"
+            timestampString = "537268473.191311"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "200"
-            endingLineNumber = "200"
+            startingLineNumber = "238"
+            endingLineNumber = "238"
             landmarkName = "calcTmp()"
             landmarkType = "9">
          </BreakpointContent>
@@ -2344,11 +2296,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Compiler/enter.h"
-            timestampString = "537092354.796865"
+            timestampString = "537268473.191311"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "177"
-            endingLineNumber = "177"
+            startingLineNumber = "215"
+            endingLineNumber = "215"
             landmarkName = "calcTmp()"
             landmarkType = "9">
          </BreakpointContent>
@@ -2398,6 +2350,182 @@
             startingLineNumber = "230"
             endingLineNumber = "230"
             landmarkName = "allocateFunction(const Quat&amp; q)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Compiler/mipsGenerator_new.h"
+            timestampString = "537260656.1715879"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "707"
+            endingLineNumber = "707"
+            landmarkName = "quatMips()"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Compiler/mipsGenerator_new.h"
+            timestampString = "537260695.3169529"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "697"
+            endingLineNumber = "697"
+            landmarkName = "quatMips()"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Compiler/grammarHandler.h"
+            timestampString = "537264801.418889"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "378"
+            endingLineNumber = "378"
+            landmarkName = "assiStatement(string&amp; str)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Compiler/grammarHandler.h"
+            timestampString = "537265128.0718271"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "consDeclarion(string&amp; str)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Compiler/enter.h"
+            timestampString = "537268473.191311"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
+            landmarkName = "constValue(string s)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Compiler/enter.h"
+            timestampString = "537268473.191311"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "constValue(string s)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Compiler/enter.h"
+            timestampString = "537268473.191311"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
+            landmarkName = "constValue(string s)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Compiler/enter.h"
+            timestampString = "537268473.191311"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
+            landmarkName = "addQuat(string type, string op1, string op2, string op3)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Compiler/enter.h"
+            timestampString = "537268473.191311"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
+            landmarkName = "addQuat(string type, string op1, string op2, string op3)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Compiler/enter.h"
+            timestampString = "537268468.4550281"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "197"
+            endingLineNumber = "197"
+            landmarkName = "calcTmp()"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Compiler/mipsGenerator_new.h"
+            timestampString = "537269034.106758"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "706"
+            endingLineNumber = "706"
+            landmarkName = "quatMips()"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>

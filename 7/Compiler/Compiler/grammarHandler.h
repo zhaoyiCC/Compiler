@@ -194,7 +194,7 @@ void factor(string& str, string& res){ //＜因子＞    ::= ＜标识符＞｜�
         if (sym == "["){
             pos = locateVariable(factor_name, cnt_proc, offset, false);
             if (pos == -2){
-                cout << factor_name << "!!!ERROR:::NotDefined$$$" << endl;
+                cout << factor_name << "!!!ERROR:::Not___Defined$$$" << endl;
             }
 
             id = lexicalAnalysis(str, sym);
@@ -239,7 +239,7 @@ void factor(string& str, string& res){ //＜因子＞    ::= ＜标识符＞｜�
             //否则就是一个单纯的标识符，也就是变量名，不需要做任何事
             pos = locateVariable(factor_name, cnt_proc, offset, false);
             if (pos == -2){
-                cout << factor_name << "!!!ERROR:::NotDefined$$$" << endl;
+                cout << factor_name << "!!!ERROR:::Not_Defined$$$" << endl;
             }
             is_char = (tab[pos].type == "char");
             if (tab[pos].type == "char[]" || tab[pos].type == "int[]")
@@ -383,7 +383,7 @@ void assiStatement(string& str){ //＜赋值语句＞   ::=  ＜标识符＞＝�
     }
 
     if (pos == -2){
-        cout << op1 << "!!!ERROR:::NotDefined$$$" << endl;
+        cout << op1 << "!!!ERROR:::Not__Defined$$$" << endl;
     }
 
     if (sym == "["){

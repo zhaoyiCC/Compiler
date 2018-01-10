@@ -229,7 +229,7 @@ void allocateFunction(const Quat& q){ //函数/过程的分配，主要是要保
     cout << const_i << endl;
     cout << mp_quat_para_num[q.program_id] << endl;
     if (const_i+mp_proc_variable[q.program_id] != 0) //窥孔优化无谓指令
-        asm_out << "subi\t$sp,$sp," << 4*(const_i+mp_proc_variable[q.program_id]) << endl;
+        asm_out << "subi\t$sp,$sp," << 4*(const_i+mp_proc_variable[q.program_id]) << endl; //把常数开辟的空间全部都移到这儿减掉
     
     #ifdef mips
     asm_out << "#END Const&Variable define" << endl;
@@ -703,9 +703,9 @@ void quatMips(){
             
         }
         cout << quat[i].type << "*******" << quat[i].op1 << "*******" << quat[i].block_pos << "**" << i << endl;
-        if (i == index_proc[1]){ //前面的都是全局的常变量。全局常变量占在一个固定的坑里，不会出来了，之后遇到全局变量也可以直接根据$sp(0x2ffc)-addr来找到 //在第一个分程序前定义的常变量都是全局的常变量，并且正好对应一条四元式
-            if (mp_proc_variable[quat[0].program_id] != 0) //去除无谓指令，例如subi $sp,$sp,0这种 !!!窥孔优化
-                asm_out << "subi\t$sp,$sp," << 4*mp_proc_variable[quat[0].program_id] << endl;
+        if (i == index_proc[1]-const_cnt[0]){ //前面的都是全局的常变量。全局常变量占在一个固定的坑里，不会出来了，之后遇到全局变量也可以直接根据$sp(0x2ffc)-addr来找到 //在第一个分程序前定义的常变量都是全局的常变量，并且正好对应一条四元式
+            if (const_i+mp_proc_variable[quat[0].program_id] != 0) //去除无谓指令，例如subi $sp,$sp,0这种 !!!窥孔优化
+                asm_out << "subi\t$sp,$sp," << 4*(const_i+mp_proc_variable[quat[0].program_id]) << endl; //重大bug:之前没加上全局常量的偏移 即const_i+
             asm_out << "j\tmain" << endl; //声明常变量后，先跳转到main进行!!!有必要吗
                 #ifdef mips
             asm_out << endl;

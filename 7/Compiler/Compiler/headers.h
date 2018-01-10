@@ -19,7 +19,8 @@
 #define rep(i,a,b) for (int i = (a); i <= (b); ++i)
 #define MAX_QUAT 10000
 #define MAX_TAB 10000
-
+#define constDelete
+//#define mips
 #define debug
 using namespace std;
 string now_proc_type; //保存当前处理的过程的类型 void/int/main
@@ -34,7 +35,7 @@ void expression(string& str, string& res), statExecution(string& str, bool is_mu
 int id, cnt = 999, now = 0, last;
 size_t siz;
 map<int,int> mp_line;
-int addr = 0, cnt_quat, cnt_tab = 0, cnt_proc = 0, index_proc[1010], cnt_tmp = 0, cnt_label, para_i, const_i, para_now_cnt; //index_proc为分程序索引表，里面存的是每个程序的第一个定义的变量在符号表的位置(就是过程/函数自己，因为自己也会存在这个里面的)
+int addr = 0, cnt_quat, cnt_tab = 0, cnt_proc = 0, index_proc[1010], cnt_tmp = 0, cnt_label, para_i, const_i, para_now_cnt, const_cnt[1010]; //index_proc为分程序索引表，里面存的是每个程序的第一个定义的变量在符号表的位置(就是过程/函数自己，因为自己也会存在这个里面的)
 string route, sym, str; //sym: 获取到的接下来的一个字符串
 vector<char> oper_rela = {'<', '>', '='};
 vector<char> oper = {'+', '-', '*', '/'};
@@ -70,7 +71,7 @@ map<int, int> mp_reg_line; //保存的是第几号寄存器对应的变量出现
 map<string,int> mp_v_dirty[MAX_QUAT];
 map<string, pair<int,int>> mp_tmp; //存放四元式产生的临时变量对应的在第几个程序块和在程序块的addr
 map<int, int> mp_quat_para_num, mp_quat_para_num_with_local, mp_quat_cnt_temp, mp_proc_variable; //这几个map的键都对应的是第几个程序块
-//mp_proc_variable存储的是第key号程序块的局部变量共占多少个单位，其中一般的变量算一个，数组算n个
+//mp_proc_variable存储的是第key号程序块的局部变量共占多少个单位，其中一般的变量算一个，数组算n个(不包括局部的常量)
 //mp_quat_cnt_temp存储的是第key号程序块的四元式产生了多少中间变量
 //mp_quat_para_num_with_local存储的是第key号程序块的四元式的变量个数(包括参数，局部常变量，其中数组算n个，不包括中间变量)
 //mp_quat_para_num存储的是第key号程序块的参数的个数，这个就对应的是符号表里函数过程的para_num

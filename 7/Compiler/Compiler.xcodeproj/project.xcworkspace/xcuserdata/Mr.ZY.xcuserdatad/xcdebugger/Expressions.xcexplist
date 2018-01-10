@@ -12,10 +12,16 @@
                value = "tab">
             </PersistentString>
             <PersistentString
+               value = "index_proc">
+            </PersistentString>
+            <PersistentString
                value = "mp_quat_para_num_with_local">
             </PersistentString>
             <PersistentString
-               value = "index_proc[j]">
+               value = "const_cnt">
+            </PersistentString>
+            <PersistentString
+               value = "mp_quat_cnt_temp">
             </PersistentString>
             <PersistentString
                value = "quat[i]">
@@ -117,6 +123,14 @@
             </PersistentString>
             <PersistentString
                value = "is_char">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "addQuat(std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;, std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;, std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;, std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;):enter.h">
+         <PersistentStrings>
+            <PersistentString
+               value = "quat[cnt_quat]">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -469,6 +483,17 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "constValue(std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;):enter.h">
+         <PersistentStrings>
+            <PersistentString
+               value = "tab">
+            </PersistentString>
+            <PersistentString
+               value = "cnt_proc">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "checkDAG(int):quatOptimizer.h">
          <PersistentStrings>
             <PersistentString
@@ -667,16 +692,28 @@
          contextName = "quatMips():mipsGenerator_new.h">
          <PersistentStrings>
             <PersistentString
-               value = "quat[i]">
+               value = "const_i">
             </PersistentString>
             <PersistentString
-               value = "dirty">
+               value = "const_cnt">
             </PersistentString>
             <PersistentString
                value = "quat[i+1]">
             </PersistentString>
             <PersistentString
                value = "mp_reg.size()">
+            </PersistentString>
+            <PersistentString
+               value = "quat">
+            </PersistentString>
+            <PersistentString
+               value = "quat[i]">
+            </PersistentString>
+            <PersistentString
+               value = "dirty">
+            </PersistentString>
+            <PersistentString
+               value = "index_proc">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

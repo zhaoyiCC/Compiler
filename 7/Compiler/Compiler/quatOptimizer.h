@@ -81,6 +81,11 @@ bool checkDAG(int k){ //检查中间节点k是否可以导出
     return true;
 }
 void addNode(int k){
+    cout << k << " " << dag[k].value << " " << dag[k].pick << endl;
+    for (auto i: dag[k].names){
+        cout << i << " ";
+    }
+    cout << endl;
     int cnt_export = 0, cnt_temp = 0;
     string s_temp;
     for (auto i: dag[k].names){
@@ -92,6 +97,7 @@ void addNode(int k){
         }else{
             cnt_export++;
             route_dag.push_back(make_pair(i, k)); //{a, 3}
+            cout << "ADD_TO_ROUTE:(" << i << "," << k << ")" << endl;
             dag[k].pick = i; //随便选取一个标识符的名字作为这个中间节点的名字代表 //用最后面那个也就是第一次插入的那个，因为names是每次插入到头部即逆向插入的
         }
         //!!!对于所有的全局和out集合里的点，都需要导出到节点序列 然后如果只有临时变量只需要导出一个
@@ -102,6 +108,7 @@ void addNode(int k){
         if (cnt_temp == 0)
             cout << "!!!ERROR:DAG!!!" << endl;
         route_dag.push_back(make_pair(s_temp, k));
+        cout << "ADD_TO_ROUTE:(" << s_temp << "," << k << ")" << endl;
 //        if (cnt_export == 0) //!!!
         dag[k].temp = dag[k].pick = s_temp;
 //        else
@@ -292,7 +299,7 @@ void dagWork(){ //处理DAG图，首先划分基本块
     int quat_start = 0, quat_now;
     printSide();
     rep (i, 1, cnt_quat){
-        if (quat[i].type=="BEGIN" || quat[i].type=="GOTO" || quat[i].type=="call" || quat[i].type == "BZ" || quat[i].type == "ret" || quat[i].type == "READ" || quat[i].op3=="[]="){
+        if (quat[i].type=="BEGIN" || quat[i].type=="GOTO" || quat[i].type=="call" || quat[i].type == "BZ" || quat[i].type == "ret" || quat[i].type == "READ"){ //quat[i].op3=="[]=" || quat[i].op3=="=[]"
             cout << "^^^SEP" << i+1 << endl;
             if (i+1==73){
                 int fuck;
@@ -302,7 +309,7 @@ void dagWork(){ //处理DAG图，首先划分基本块
             if (quat_start == 0)
                 quat_start = i + 1;
         }
-        if (quat[i].label.size() > 0){
+        if (quat[i].label.size() > 0 || quat[i].op3=="[]=" || quat[i].op3=="=[]"){ // 数组放哪儿想清楚，之前只把a[i] = j放在最后好像没问题，现在决定放在这儿//因为不能#1 = a[i]; 然后到一个新的基本块print #1
             cout << "%%%SEP" << i << "^^" << endl;
             quat[i].block_id = 0; //!!!LABEL对应的这一句必然是入口语句
             if (quat_start == 0)
@@ -325,7 +332,10 @@ void dagWork(){ //处理DAG图，首先划分基本块
 //        }
         quat_start = quat_now;
     }
-    memcpy(quat, quat_new, sizeof(quat));
+//    memcpy(quat, quat_new, sizeof(quat)); //!!!不知道为什么的 执行这句就会return后crash
+    rep (i,0,MAX_QUAT){
+        quat[i] = quat_new[i];
+    }
     cnt_quat = cnt_quat_new;
     printQuat(); //quat_new, cnt_quat_new
 }
