@@ -21,8 +21,23 @@
 #define MAX_TAB 10000
 #define constDelete
 //#define mips
+#define println
 #define debug
+#define T_START 8
+#define T_END 15
+#define S_START 16
+#define S_END 23
 using namespace std;
+
+map<string, vector<string>> v_node, v_node_old;
+vector<string> flow_in[MAX_QUAT], flow_out[MAX_QUAT], flow_in_old[MAX_QUAT], flow_out_old[MAX_QUAT], def[MAX_QUAT], use[MAX_QUAT];
+vector<int> suffix[MAX_QUAT], prefix[MAX_QUAT];
+vector<string> flow_in_line[MAX_QUAT], flow_out_line[MAX_QUAT], def_line[MAX_QUAT], use_line[MAX_QUAT];
+vector<pair<string, int>> deg;
+map<string, int> mp_reg_global;
+map<int, vector<string>> reg_has_allocated;
+
+
 string now_proc_type; //保存当前处理的过程的类型 void/int/main
 bool is_char = false; //全局变量判断当前处理完的表达式是什么类型
 /********************错误处理*********************/
@@ -204,7 +219,7 @@ map<string,int> mp_mips = {
 
     {"variable_int[]", 40}, {"variable_char[]", 40},
     {"BEGIN", 50},
-    {"PUSH", 101}, {"BZ", 102}, {"PRINT", 103}, {"READ", 104}, {"GOTO", 105}, {"ret", 106}, {"call", 105}, {"SWITCH", 107}, {"nop", 108},
+    {"PUSH", 101}, {"BZ", 102}, {"PRINT", 103}, {"READ", 104}, {"GOTO", 105}, {"ret", 106},  {"SWITCH", 107}, {"nop", 108}, {"call", 109},
     {"PRINTLN", 1000},
 };
 

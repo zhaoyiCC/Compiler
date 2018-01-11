@@ -59,13 +59,25 @@ void splitArrayName(string s, string& array_name, string& subscript){
     subscript = s.substr(pos1+1, pos2-pos1-1);
 }
 int calcLabel(string s){
+    if (s.size() < 6) //LABEL_
+        return -9999;
     cout << s.substr(6, s.size()) << endl;
     return mystoi(s.substr(6, s.size()));
 }
 void calcDifference(vector<string>& v1, vector<string>& v2, vector<string>& v_ans){
-    vector<string> ivec(max(v1.size(), v2.size()));
-    auto iter=set_difference(v1.begin(),v1.end(),v2.begin(),v2.end(),ivec.begin()); //ivec为：2,3,5,6,7
-    ivec.resize(iter-ivec.begin());//重新确定ivec大小
-    v_ans = ivec;
+//    vector<string> ivec(max(v1.size(), v2.size()));
+//    auto iter=set_difference(v1.begin(),v1.end(),v2.begin(),v2.end(),ivec.begin()); //ivec为：2,3,5,6,7
+//    ivec.resize(iter-ivec.begin());//重新确定ivec大小
+//    v_ans = ivec;
+    v_ans.clear();
+    for (auto i: v1){
+        if (find(v2.begin(), v2.end(), i) == v2.end())
+            v_ans.push_back(i);
+    }
+}
+void uniqueVector(vector<string>& v){
+    sort(v.begin(),v.end());
+    v.erase(unique(v.begin(), v.end()), v.end());
+    //unique()函数将重复的元素放到vector的尾部 然后返回指向第一个重复元素的迭代器 再用erase函数擦除从这个元素到最后元素的所有的元素
 }
 #endif /* myStd_h */

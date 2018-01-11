@@ -4,7 +4,6 @@ void complete_num()
   int k[1024];
   int i,j,n,s,x1;
   int m,k2,h,leap,x2;
-
   for(j=2;j< MAX_NUM ;j=j+1)
   {
     n = -1;
@@ -29,8 +28,8 @@ void complete_num()
       	printf("  ",k[i]);
       printf("  ") ;
     }
-
   }
+
   printf("---------------------------------------------------------------\n");
   h = 0 ;
   leap = 1 ;
@@ -44,7 +43,6 @@ void complete_num()
         leap=0;
       }
      }
-
     if(leap == 1)
     {
       printf(" ",m);
@@ -57,9 +55,11 @@ void complete_num()
   }
   printf("The total is ",h);
 }
-
 void main()
 {
    complete_num() ;
 }
+
+
+
 

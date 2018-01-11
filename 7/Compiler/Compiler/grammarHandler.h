@@ -292,7 +292,10 @@ void expression(string& str, string& res){ //＜表达式＞    ::= ［＋｜－
     if (expression_sign == "-"){
         newTmp(op1);
         op2 = res;
-        addQuat("-", op1, "0", op2); //从-1*x 变成了 0-x
+        if (isNumber(op2)){
+            op1 = int2string(0-mystoi(op2));
+        }else
+            addQuat("-", op1, "0", op2); //从-1*x 变成了 0-x
 //        addQuat("*", op1, "-1", op2); //-1!!! //t1 = -1*op2
     }
     while (sym == "+" || sym == "-"){ //遇到前导的正号或者负号，先提取出来
@@ -603,12 +606,12 @@ void prinStatement(string& str){ //＜写语句＞    ::= printf ‘(’ ＜字�
     id = lexicalAnalysis(str, sym);
     if (id == 97) { //代表是字符串
         prin_str = sym;
-//        addQuat("PRINT", sym, "string", ""); //***op2是我后来加的，这个是可有可无的，因为我后来输出判断了是不是字符串
+//        addQuat("PRINT", sym, "-string", ""); //***op2是我后来加的，这个是可有可无的，因为我后来输出判断了是不是字符串
         id = lexicalAnalysis(str, sym);
         if (sym == ","){ //＜字符串＞,＜表达式＞
             id = lexicalAnalysis(str, sym);
             expression(str, res);
-            addQuat("PRINT", prin_str, "string", ""); //***op2是我后来加的，这个是可有可无的，因为我后来输出判断了是不是字符串
+            addQuat("PRINT", prin_str, "-string", ""); //***op2是我后来加的，这个是可有可无的，因为我后来输出判断了是不是字符串
             if (is_char)
                 prin_type = "char";
                     #ifdef OPTIMIZE
@@ -620,7 +623,7 @@ void prinStatement(string& str){ //＜写语句＞    ::= printf ‘(’ ＜字�
                     #endif
             addQuat("PRINT", res, prin_type, "");
         }else
-            addQuat("PRINT", prin_str, "string", ""); //***op2是我后来加的，这个是可有可无的，因为我后来输出判断了是不是字符串
+            addQuat("PRINT", prin_str, "-string", ""); //***op2是我后来加的，这个是可有可无的，因为我后来输出判断了是不是字符串
     }else{
         expression(str, res);
         if (is_char)

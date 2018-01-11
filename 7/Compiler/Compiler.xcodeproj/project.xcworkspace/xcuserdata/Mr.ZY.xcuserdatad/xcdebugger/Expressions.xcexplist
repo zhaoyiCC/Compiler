@@ -377,13 +377,31 @@
          contextName = "flowWork():dataFlow.h">
          <PersistentStrings>
             <PersistentString
+               value = "quat">
+            </PersistentString>
+            <PersistentString
+               value = "quat[14]">
+            </PersistentString>
+            <PersistentString
+               value = "flow_in[i]">
+            </PersistentString>
+            <PersistentString
+               value = "use[i]">
+            </PersistentString>
+            <PersistentString
+               value = "quat[13]">
+            </PersistentString>
+            <PersistentString
+               value = "quat[8]">
+            </PersistentString>
+            <PersistentString
                value = "i">
             </PersistentString>
             <PersistentString
-               value = "quat[j]">
+               value = "quat[i]">
             </PersistentString>
             <PersistentString
-               value = "quat[i+3]">
+               value = "quat[j]">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -457,6 +475,14 @@
             </PersistentString>
             <PersistentString
                value = "id">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "calcDefUse(int, int, int):dataFlow.h">
+         <PersistentStrings>
+            <PersistentString
+               value = "quat">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -707,6 +733,9 @@
                value = "quat">
             </PersistentString>
             <PersistentString
+               value = "mp_reg">
+            </PersistentString>
+            <PersistentString
                value = "quat[i]">
             </PersistentString>
             <PersistentString
@@ -850,6 +879,9 @@
             </PersistentString>
             <PersistentString
                value = "dirty">
+            </PersistentString>
+            <PersistentString
+               value = "mp_reg.size()">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

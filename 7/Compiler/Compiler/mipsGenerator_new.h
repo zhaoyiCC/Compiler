@@ -9,8 +9,7 @@
 #ifndef mipsGenerator_h
 #define mipsGenerator_h
 #include "headers.h"
-#define T_START 8
-#define T_END 15
+
 //ofstream asm_out("asm.txt");
 ofstream asm_out("/Users/Mr.ZY/Desktop/asm.txt");
 //#define asm_out asm_out
@@ -80,8 +79,8 @@ string getT(string name, int program_id, int line_id, int& reg_id, bool is_load,
     }
     
     if (name.find("[") != string::npos && name.find("]") != string::npos){ //检测是不是数组元素
-        int name_pos1 = name.find("[");
-        int name_pos2 = name.find("]");
+        size_t name_pos1 = name.find("[");
+        size_t name_pos2 = name.find("]");
         string name_array = name.substr(0,name_pos1);
         string name_offset = name.substr(name_pos1+1, name_pos2-name_pos1-1);
         getArray(25, name_array, program_id, line_id); //$t9
@@ -106,6 +105,13 @@ string getT(string name, int program_id, int line_id, int& reg_id, bool is_load,
     }
     
     
+    //如果分配了全局寄存器，就直接给
+    if (mp_reg_global[name] >= S_START && mp_reg_global[name] <= S_END){
+        reg_id_1 = mp_reg_global[name];
+        return mp_reg_name[mp_reg_global[name]];
+    }
+    
+    
     int res = -1;//reg_id = -1;
     bool has_alloc = false, is_full = true;
     for (auto it: mp_reg){
@@ -114,7 +120,6 @@ string getT(string name, int program_id, int line_id, int& reg_id, bool is_load,
             has_alloc = true;
             res = reg_id = it.first;
             mp_reg_line[res] = line_id; //更新一下出现的时间，以防被LRU给T掉
-            
             
             
             
@@ -504,53 +509,112 @@ void addMips(const Quat& q, int quat_i, string operation){
     dirty[reg_id_1] = true;
     asm_out << operation << "\t" << t_reg_1 << "," << t_reg_2 << "," << t_reg_3 << endl;
 }
+bool checkRight(string sx, string sy, string op){
+    int x, y;
+    if (isNumber(sx))
+        x = mystoi(sx);
+    else//'2'
+        x = sx[1];
+    if (isNumber(sy))
+        y = mystoi(sy);
+    else//'2'
+        y = sy[1];
+    if (op == ">=")
+        return (x >= y);
+    if (op == "<=")
+        return (x <= y);
+    if (op == ">")
+        return (x > y);
+    if (op == "<")
+        return (x <= y);
+    if (op == "==")
+        return (x == y);
+    if (op == "!=")
+        return (x != y);
+    cout << op << "!!!ERROR: Wrong operation!!!" << endl;
+    return true;
+}
 void compMips(const Quat& q, int quat_i, string operation){ //!!!暂时把比较的结果放在了$t9里，之前是$t0 //add sub //#12 = x + 1
-    map<string, string> mp_comp = {{">=", "sge"}, {">", "sgt"}, {"<=", "sle"}, {"<", "slt"}, {"==", "seq"}, {"!=", "sne"}};
+    //map<string, string> mp_comp = {{">=", "sge"}, {">", "sgt"}, {"<=", "sle"}, {"<", "slt"}, {"==", "seq"}, {"!=", "sne"}};
+    map<string, string> mp_comp = {{">=", "blt"}, {"<", "bge"}, {">", "ble"}, {"<=", "bgt"},
+           {"==", "bne"}, {"!=", "beq"}};
+    map<string, string> mp_comp_opposite = {{">=", "bgt"}, {"<", "ble"}, {">", "bge"}, {"<=", "blt"},
+        {"==", "bne"}, {"!=", "beq"}};
     #ifdef mips
     asm_out << "#\t" << q.op1 << " " << q.type << " " << q.op2 << endl;
+    asm_out << "#\t" << quat[quat_i+1].type << " " << quat[quat_i+1].op1 << endl;
     #endif
-//    int t_reg_1 = getT(), t_reg_2 = getT(), t_reg_3;
-//    //!!!
-//    t_reg_1 = 1, t_reg_2 = 2; //空出t0给li用
-//    getVariableMips(t_reg_1, q.op1, q.program_id, true);
-//    getVariableMips(t_reg_2, q.op2, q.program_id, true);
-//    asm_out << mp_comp[operation] << "\t$t0,$t" << t_reg_1 << ",$t" << t_reg_2 << endl;
 
     if (q.op1=="#19" && q.op2=="1"){
         int zhuangbi;
         zhuangbi = 1;
     }
     string t_reg_1 = getT(q.op1, q.program_id, quat_i, reg_id_1, true, false), t_reg_2 = getT(q.op2, q.program_id,quat_i, reg_id_2, true, false);
-    if (isNumber(t_reg_1) || isChar(t_reg_1)){ //!!!非常迫切的想优化掉 //如果只是t_reg_1换一些位置？再变一下类型？
+    /*if (isNumber(t_reg_1) || isChar(t_reg_1)){ !!!非常迫切的想优化掉 //如果只是t_reg_1换一些位置？再变一下类型？
         asm_out << "li\t$t9," << t_reg_1 << endl;
         t_reg_1 = "$t9";
     }
-    if (isNumber(t_reg_2) && mp_comp[operation] == "slt"){ //slti $t9,1
+    if (isNumber(t_reg_2) && mp_comp[operation] == "slt"){ slti $t9,1
         asm_out << mp_comp[operation] << "i\t$t9," << t_reg_1 << "," << t_reg_2 << endl;
         return ;
     }
-    asm_out << mp_comp[operation] << "\t$t9," << t_reg_1 << "," << t_reg_2 << endl;
+    asm_out << mp_comp[operation] << "\t$t9," << t_reg_1 << "," << t_reg_2 << endl;*/
+    
+    if ((isNumber(t_reg_1) || isChar(t_reg_1)) && (isNumber(t_reg_2) || isChar(t_reg_2))){//2 == 3
+        if (!checkRight(t_reg_1, t_reg_2, operation)){
+            asm_out << "#ALWAYS satisfied " << quat[quat_i+1].op1 << endl;
+            asm_out << "j\t" << quat[quat_i+1].op1 << endl;
+            cout << "j\t" << quat[quat_i+1].op1 << endl;
+        }else{
+            asm_out << "#NEVER j " << quat[quat_i+1].op1 << endl;
+            cout << "#NEVER j " << quat[quat_i+1].op1 << endl;
+        }
+        return ;
+    }
+    
+    if ((isNumber(t_reg_1) || isChar(t_reg_1)) && !(isNumber(t_reg_2) || isChar(t_reg_2))){//2048 == i，交换次序，对于大于这些换成相反的，==直接交换保持bne就好
+        asm_out << mp_comp_opposite[operation] << "\t" << t_reg_2 << "," << t_reg_1 << "," << quat[quat_i+1].op1 << endl;
+        cout << mp_comp_opposite[operation] << "\t" << t_reg_2 << "," << t_reg_1 << "," << quat[quat_i+1].op1 << endl;
+        return ;
+    }
+    
+    
+    asm_out << mp_comp[operation] << "\t" << t_reg_1 << "," << t_reg_2 << "," << quat[quat_i+1].op1 << endl;
+    cout << mp_comp[operation] << "\t" << t_reg_1 << "," << t_reg_2 << "," << quat[quat_i+1].op1 << endl;
 }
+
+
 void jumpMips(const Quat& q){ //BZ LABEL_2 //READ x
-    #ifdef mips
-    asm_out << "#\t" << q.type << " " << q.op1 << endl;
-    #endif
-    asm_out << "bne\t$t9,1," << q.op1 << endl; //BZ是不满足就跳转，所以就是不等于1就跳转
+    //将这个一个和之前的条件比较的四元式进行合并成一条mips语句，即i==0 BZ LABEL_4 直接合并成 bne $i,0,LABEL_4
+    //#ifdef mips
+    // asm_out << "#\t" << q.type << " " << q.op1 << endl;
+    //#endif
+    //asm_out << "bne\t$t9,1," << q.op1 << endl; BZ是不满足就跳转，所以就是不等于1就跳转
 }
-void gotoMips(const Quat& q){ //BZ LABEL_2 //READ x
+
+void gotoMips(const Quat& q){ //GOTO LABEL_1
     #ifdef mips
     asm_out << "#\t" << q.type << " " << q.op1 << endl;
     #endif
-    asm_out << "jal\t" << q.op1 << endl; //BZ是不满足就跳转，所以就是不等于1就跳转
+    asm_out << "j\t" << q.op1 << endl;
+}
+void callMips(const Quat& q){ //GOTO LABEL_1
+#ifdef mips
+    asm_out << "#\t" << q.type << " " << q.op1 << endl;
+#endif
+    asm_out << "jal\t" << q.op1 << endl;
 }
 void reprMips(const Quat& q, int quat_i, bool is_read){ //BZ LABEL_2 //READ x
     #ifdef mips
     asm_out << "#\t" << q.type << " " << q.op1 << endl;
     #endif
+    
     if (q.type == "PRINTLN"){ //li $a0, '\n' //li $v0, 11 //syscall
+        #ifdef println
         asm_out << "li\t$a0,'\\n'" << endl;
         asm_out << "li\t$v0,11" << endl;
         asm_out << "syscall" << endl;
+        #endif
         return ;
     }
     if (q.op1.size() == 0)
@@ -695,8 +759,8 @@ void quatMips(){
     mp_reg.clear();
     mp_reg_line.clear();
     rep (i, 1, cnt_quat){//main_pos-1){
-        cout << i << "&&^&@#(" << mp_reg.size() << endl;
-        if (i==36){
+        cout << i << "mp_reg.size() = " << mp_reg.size() << endl;
+        if (i==18){
             int lll;
             lll = 1;
             cout << mp_reg.size() << endl;
@@ -755,10 +819,11 @@ void quatMips(){
             case 103: reprMips(quat[i], i, false); break;
             case 104: reprMips(quat[i], i, true); break;
             case 1000: reprMips(quat[i], i, true); break;
-            case 105: gotoMips(quat[i]); break;
+            case 105: gotoMips(quat[i]); break; //GOTO label_1
             case 106: retuMips(quat[i], i); break;
             case 107: asm_out << "#\t" << quat[i].type << " " << quat[i].op1 << endl; break;
             case 108: asm_out << quat[i].type << endl; break; //nop
+            case 109: callMips(quat[i]); break; //call label_1
             default: asm_out << "???" << quat[i].type << " " << quat[i].op1 << endl;
         }
         

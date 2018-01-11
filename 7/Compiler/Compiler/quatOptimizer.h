@@ -9,6 +9,8 @@
 #ifndef quatOptimizer_h
 #define quatOptimizer_h
 #define fDEBUG
+#define T_START 8
+#define T_END 15
 #include "headers.h"
 int cnt_dag, cnt_op, cnt_node, cnt_quat_new = 0; //cnt_node是节点表里的节点个数 cnt_dag是所有DAG图里的节点个数 cnt_op是dag图里的操作符也就是非叶节点的个数(因为所有的非叶节点都是运算符)
 set<int> father[MAX_QUAT];
@@ -195,7 +197,7 @@ void dagBlock(int quat_start, int quat_end){
                 break;
             }
             case 60: { //PRINT
-                if (quat[i].op2=="string")
+                if (quat[i].op2=="_string")
                     break;
                 int pos = -1;
                 for (auto it = mp_node.begin(); it != mp_node.end(); ++it){
@@ -237,7 +239,7 @@ void dagBlock(int quat_start, int quat_end){
             test_cnt++;
         
         if (quat[i].type=="PRINT"){
-            if (quat[i].op2=="string"){ //addQuat("PRINT", prin_str, "string", "");
+            if (quat[i].op2=="-string"){ //addQuat("PRINT", prin_str, "string", "");
 //                cnt_quat_new++;
 //                quat_new[cnt_quat_new].type = "PRINT";
 //                quat_new[cnt_quat_new].op1 = quat[i].op1;
