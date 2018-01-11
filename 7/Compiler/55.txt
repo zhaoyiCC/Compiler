@@ -152,7 +152,7 @@ void condition_test(){
 void miscellaneous(){
     int _, a, array[23], i, endid,toy;
     char ch1, buf[256];
-    _ = 1; a = 2; i = 0;
+    _ = 1; a = 2;
     for(toy=0;i<23;toy=toy+1) {
         array[i] = i;
         i = i + 1;
@@ -307,37 +307,10 @@ int iswrong(char A){
 void main(){
     char kind;
     int toy;
-    printf("Please input Test Type:E(Easy), (M)Middle, H(Hard): ");
-    scanf(kind);
-    if (iswrong(kind)) {
-        for(toy=0;iswrong(kind);toy=toy+1){
-            printf("Try Again: ");
-            scanf(kind);
-        }
-    }
-    switch(kind){
-    case 'E': {
-                define_test();
-                operator_test();
-                fibonaci_test();
-            }
-    case 'M': {
-                dowhile_test();
-                condition_test();
-                string_test();
-                gcd_test();
-            }
-    case 'H': {
-            define_test();
-            operator_test();
-            dowhile_test();
-            condition_test();
-            string_test();
+    {
             miscellaneous_test();
-            prime_factorization_test();
-        }
-    default:
-        printf("default");
-    }
+            
+     }
+   
     return ;
 }

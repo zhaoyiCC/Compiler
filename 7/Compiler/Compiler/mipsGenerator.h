@@ -248,7 +248,7 @@ void reprMips(const Quat& q, bool is_read){ //BZ LABEL_2 //READ x
     }
     if (q.op1.size() == 0)
         return ;
-    if (!is_read && q.op1[0] == '"'){ //q.op2 == "string" 也可以 //输出的内容是字符串，找到对应的是几号str，这个在之前的.data段定义过了
+    if (!is_read && q.op1[0] == '"'){ //q.op2 == "-string" 也可以 //输出的内容是字符串，找到对应的是几号str，这个在之前的.data段定义过了
         //        cout << "%%%%PRINT q.op2=" << q.op2 << endl;
         asm_out << "la\t$a0,str" << mp_s[q.op1] << endl;
         asm_out <<"li\t$v0,4"<<endl;

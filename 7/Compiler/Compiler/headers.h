@@ -20,7 +20,7 @@
 #define MAX_QUAT 10000
 #define MAX_TAB 10000
 #define constDelete
-//#define mips
+#define mips
 #define println
 #define debug
 #define T_START 8
@@ -29,12 +29,13 @@
 #define S_END 23
 using namespace std;
 
+set<string> v_set_flow; //存放每个基本块中出现的局部变量和参数
 map<string, vector<string>> v_node, v_node_old;
 vector<string> flow_in[MAX_QUAT], flow_out[MAX_QUAT], flow_in_old[MAX_QUAT], flow_out_old[MAX_QUAT], def[MAX_QUAT], use[MAX_QUAT];
 vector<int> suffix[MAX_QUAT], prefix[MAX_QUAT];
 vector<string> flow_in_line[MAX_QUAT], flow_out_line[MAX_QUAT], def_line[MAX_QUAT], use_line[MAX_QUAT];
 vector<pair<string, int>> deg;
-map<string, int> mp_reg_global;
+map<string, int> mp_reg_global[MAX_QUAT];
 map<int, vector<string>> reg_has_allocated;
 
 

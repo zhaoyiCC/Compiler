@@ -1,0 +1,27 @@
+void main(){
+int _, a, array[23], i, endid,toy;
+    char ch1, buf[256];
+    _ = 1; a = 2;i=0;
+    for(toy=0;i<23;toy=toy+1) {
+        array[i] = i;
+        i = i + 1;
+    }
+    ch1 = 'a';
+    i = 0;
+    for(toy=0;ch1<127;toy=toy+1) {
+        buf[i] = ch1;
+        ch1 = ch1 + 1;
+        i = i + 1;
+    }
+    endid = i;
+    _ = 0;
+
+    for(toy=0;_<endid;toy=toy+1) {
+        buf[ (_ * 1 - _ - 1 + 2 / 1 - 1) / 2] =  'a';
+        _ = _ + 1;
+    }
+
+    ;;;;;;;;;{}{};;;;;{}{}{;;;;;;};;;
+    if (buf[0] == 'a')
+    printf("miscellaneous test passed");
+}

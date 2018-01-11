@@ -197,7 +197,7 @@ void dagBlock(int quat_start, int quat_end){
                 break;
             }
             case 60: { //PRINT
-                if (quat[i].op2=="_string")
+                if (quat[i].op2=="-string")
                     break;
                 int pos = -1;
                 for (auto it = mp_node.begin(); it != mp_node.end(); ++it){

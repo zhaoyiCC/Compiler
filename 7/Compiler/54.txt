@@ -1,0 +1,16 @@
+int a,b;
+void init(int x){
+	int p,q, r;
+	if (x > 80)
+		return ;
+	p=x+1;
+	q=x+2;
+	init(x*x);
+	printf(x);
+	printf(p);
+	printf(q);
+}
+
+void main(){
+	init(3);
+}
