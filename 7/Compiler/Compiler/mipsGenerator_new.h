@@ -18,9 +18,11 @@ int reg_id_1, reg_id_2, reg_id_3;
 void updateOffset(int pos, int program_id, int& offset){
     //    if (pos < index_proc[1]) //代表是全局变量区 //0x2ffc
     //        start = 1;
-    int start = index_proc[program_id];
-    if (pos < index_proc[1]) //代表在全局区找到了
+    int start = index_proc[program_id], this_program_id = program_id;
+    if (pos > 0 && pos < index_proc[1]){ //代表在全局区找到了
         start = 1;
+        this_program_id = 0;
+    }
     if (program_id == 0)
         start = 1;
     rep (i,start,pos-1){
@@ -28,6 +30,10 @@ void updateOffset(int pos, int program_id, int& offset){
             offset += tab[i].para_num-1;
         }
     }
+    #ifdef constDelete
+    if (offset >= mp_quat_para_num[this_program_id]) //offset已经建过1了，即第一个参数是0//参数在最前面，其次是常量再次是变量//!!!跳过常数，因为现在整个的代码空间也没有常数了
+        offset -= const_cnt[this_program_id];
+    #endif
     offset*=4;
 }
 void calcOffset(string name, int program_id, string& start_pos, int& offset){
@@ -65,8 +71,11 @@ void getArray(int reg_t, string name, int program_id, int line_id){
     return ;
 }
 string getT(string name, int program_id, int line_id, int& reg_id, bool is_load, bool is_modify){
+    
     int offset;
     string start_pos;
+    
+    
     if (isNumber(name) || isChar(name)){
         return name;
     }
@@ -104,14 +113,14 @@ string getT(string name, int program_id, int line_id, int& reg_id, bool is_load,
         return "$t9"; //mp_reg_name[25]
     }
     
-    
+    #ifdef globalReg
     //如果分配了全局寄存器，就直接给
     if (mp_reg_global[program_id][name] >= S_START && mp_reg_global[program_id][name] <= S_END){
         reg_id_1 = mp_reg_global[program_id][name];
         return mp_reg_name[mp_reg_global[program_id][name]];
     }
-    
-    
+    #endif
+
     int res = -1;//reg_id = -1;
     bool has_alloc = false, is_full = true;
     for (auto it: mp_reg){
@@ -120,23 +129,7 @@ string getT(string name, int program_id, int line_id, int& reg_id, bool is_load,
             has_alloc = true;
             res = reg_id = it.first;
             mp_reg_line[res] = line_id; //更新一下出现的时间，以防被LRU给T掉
-            
-            
-            
-            
-//            if (!is_modify)
-//            { //!!!!!!!!!!!!要更新！！！！！！！！因为可能从其它的地方跳到这个地方
-//                calcOffset(name, program_id, start_pos, offset);
-//                
-//                asm_out << "lw\t" << mp_reg_name[reg_id] << ",-" << offset << "($" << start_pos << ")" << endl;
-//            }
-//            mp_v_dirty[program_id][name]++;
-            
-            
-            
-            
-            
-            
+        
             break;
         }
     }
@@ -162,7 +155,7 @@ string getT(string name, int program_id, int line_id, int& reg_id, bool is_load,
             
             asm_out << "lw\t" << mp_reg_name[reg_id] << ",-" << offset << "($" << start_pos << ")" << endl;
         }
-        mp_v_dirty[program_id][name]++;
+//        mp_v_dirty[program_id][name]++;
         return mp_reg_name[reg_id];
     }
     reg_id = T_START;
@@ -177,7 +170,11 @@ string getT(string name, int program_id, int line_id, int& reg_id, bool is_load,
     
     //把这个变量写回到内存空间里去
     calcOffset(mp_reg[reg_id].first, program_id, start_pos, offset);
-    asm_out << "sw\t" << mp_reg_name[reg_id] << ",-" << offset << "($" << start_pos << ")" << endl;
+    if (mp_v_dirty[program_id][name] > 0){ //!!!Add late //如果在这个函数块修改过才需要才会回写到内存区
+        asm_out << "sw\t" << mp_reg_name[reg_id] << ",-" << offset << "($" << start_pos << ")" << endl;
+    }else{
+        cout << name << "$$$ Not dirty." << endl;
+    }
     
     mp_reg[reg_id] = make_pair(name, program_id);
     mp_reg_line[reg_id] = line_id;
@@ -189,7 +186,7 @@ string getT(string name, int program_id, int line_id, int& reg_id, bool is_load,
         
         asm_out << "lw\t" << mp_reg_name[reg_id] << ",-" << offset << "($" << start_pos << ")" << endl;
     }
-    mp_v_dirty[program_id][name]++;
+//    mp_v_dirty[program_id][name]++;
     return mp_reg_name[reg_id];
 }
 void allocateZero(){
@@ -203,10 +200,14 @@ void allocateConst(const Quat& q, int const_i){ //常量 //不允许修改i,并�
     #ifdef mips
     asm_out << "#\tconst " << q.type.substr(6, q.type.size()-6) << " " << q.op1 << " = " << q.op2 << endl;
     #endif
+//    cout << "!!!ERROR: const off" << endl;
+    //如果没有删除const就需要向内存分配，注意这里是ifndef不是ifdef
+    #ifndef constDelete
     int t_id = 25; //"$t9" //1; //getT();
     asm_out << "li\t" << mp_reg_name[t_id] << "," << q.op2 << endl; //t_id // li t0, num
     asm_out << "sw\t" << mp_reg_name[t_id] << ",-" << 4*(const_i-1) << "($sp)" << endl;
 //    asm_out << "addi\t$sp,$sp,-4" << endl;
+    #endif
 }
 void allocateVariable(const Quat& q){
     #ifdef mips
@@ -280,11 +281,14 @@ string transPara(int reg_t, string name, int program_id, int line_id){
     if (name == "RET_int" || name == "RET_char"){
         return "$v1";
     }
+    
+    #ifdef globalReg
     //如果分配了全局寄存器，就直接给
     if (mp_reg_global[program_id][name] >= S_START && mp_reg_global[program_id][name] <= S_END){
         reg_id_1 = mp_reg_global[program_id][name];
         return mp_reg_name[mp_reg_global[program_id][name]];
     }
+    #endif
     
     
     bool has_alloc = false;
@@ -423,8 +427,10 @@ void assiMips(const Quat& q, int quat_i){ // y = x//赋值语句的转化
 //        getVariableMips(t_reg_1, q.op1, q.program_id, false); //get y.address to t1
 //    }
     string t_reg_2 = getT(q.op2, q.program_id, quat_i, reg_id_2, true, false), t_reg_1 = getT(q.op1, q.program_id, quat_i, reg_id_1, false, true);
-    if (reg_id_1 >= T_START && reg_id_1 <= T_END)
+    if (reg_id_1 >= T_START && reg_id_1 <= T_END){
         dirty[reg_id_1] = true; //脏位修改为true， 代表被修改过了
+        mp_v_dirty[q.program_id][t_reg_1]++;
+    }
     else //还有可能是t9
         cout << "OOOOOOO:" << reg_id_1 << endl;
     //!!!还没考虑数组的情况
@@ -489,6 +495,7 @@ void addMips(const Quat& q, int quat_i, string operation){
         }
         asm_out << "li\t" << t_reg_1 << "," << res << endl;
         dirty[reg_id_1] = true;
+        mp_v_dirty[q.program_id][t_reg_1]++;
         return ;
     }
     if (isNumber(t_reg_2) || isChar(t_reg_2)){
@@ -501,9 +508,10 @@ void addMips(const Quat& q, int quat_i, string operation){
                 asm_out << "sw\t$t8,0(" << t_reg_1 << ")" << endl; //sw $ ,0($t1)
                 return ;
             }
-            asm_out << "li\t" << t_reg_1 << "," << t_reg_2 << endl; //li $.., 2
-            asm_out << operation << "\t" << t_reg_1 << "," << t_reg_1 << "," << t_reg_3 << endl;//sub $.., $.., $..
+            asm_out << "li\t$t8," << t_reg_2 << endl; //li $t8,2 //li $.., 2
+            asm_out << operation << "\t" << t_reg_1 << ",$t8," << t_reg_3 << endl;//sub $.., $t8, $..
             dirty[reg_id_1] = true;
+            mp_v_dirty[q.program_id][t_reg_1]++;
             return ;
         }
     }
@@ -513,6 +521,7 @@ void addMips(const Quat& q, int quat_i, string operation){
         asm_out << "sw\t$t8,0(" << t_reg_1 << ")" << endl; //sw $ ,0($t1)
         return ;
     }
+    mp_v_dirty[q.program_id][t_reg_1]++;
     dirty[reg_id_1] = true;
     asm_out << operation << "\t" << t_reg_1 << "," << t_reg_2 << "," << t_reg_3 << endl;
 }
@@ -608,27 +617,44 @@ void callMips(const Quat& q, int quat_i){ //GOTO LABEL_1
     cout << "#\t" << q.type << " " << q.op1 << endl;
     int offset;
     //string s_reg;
+    #ifdef globalReg
     for (auto i: flow_in_line[quat_i]){
         cout << i << endl;
+        
+        if (i=="#57"){
+            int xiarui;
+            xiarui = 520;
+        }
         int pos = locateVariable(i, q.program_id, offset); //如果是临时变量,pos = 0//把相对于函数的偏移量保存到offset //到四元式这一步，肯定是有定义了
         if (pos == -2){ //以防万一，!!!可删 -1是RET,虽然已经先处理过了RET了
             asm_out << "!!!ERROR:::NOT DEFINED______CALL_Restore$$$" << endl;
             cout << i << "!!!ERROR:Not Defined______CALL_Restore#$$" << endl;
             return ;
         }
-        if (pos > 0 && pos < index_proc[1]){
+        if (pos > 0 && pos < index_proc[1]){ //flow_in_line是包括了全局变量和参数的，因此可能是0，我们要把这种排除掉
             cout << i << " _global variable Should not be allocated with a global register" << endl;
             continue;
         }
-        if (tab[pos].kind == "parameter"){
+        
+        if (tab[pos].kind == "parameter"){ //flow_in_line是包括了全局变量和参数的，因此可能是0，我们要把这种排除掉
             cout << i << " _parameter Should not be allocated with a global register" << endl;
             continue;
         }
+        if (mp_reg_global[q.program_id][i] < S_START || mp_reg_global[q.program_id][i] > S_END){ //存在因为节点度数太大使得没有分配到全局寄存器的变量
+            cout << i << "  not able to allocate a global register_MidcodeLine:" << para_i << endl;
+            continue;
+        }
         updateOffset(pos, q.program_id, offset);
+        if (offset < 0){
+            int xiarui;
+            xiarui = 520;
+        }
         cout << mp_reg_global[q.program_id][i] << endl;
         asm_out << "sw\t" << mp_reg_name[mp_reg_global[q.program_id][i]] << ",-" << offset << "($fp)" << endl; //可以对脏位进行判断一下，即在call这句话的in集合里并且是脏位才sw //全局寄存器不会分配给全局变量
     }
+    #endif
     asm_out << "jal\t" << q.op1 << endl;
+    #ifdef globalReg
     for (auto i: flow_in_line[quat_i]){
         cout << i << endl;
         int pos = locateVariable(i, q.program_id, offset); //如果是临时变量,pos = 0//把相对于函数的偏移量保存到offset //到四元式这一步，肯定是有定义了
@@ -640,9 +666,15 @@ void callMips(const Quat& q, int quat_i){ //GOTO LABEL_1
             cout << i << " _parameter Should not be allocated with a global register" << endl;
             continue;
         }
+        if (mp_reg_global[q.program_id][i] < S_START || mp_reg_global[q.program_id][i] > S_END){ //存在因为节点度数太大使得没有分配到全局寄存器的变量
+            cout << i << "  not able to allocate a global register_MidcodeLine:" << para_i << endl;
+            continue;
+        }
         updateOffset(pos, q.program_id, offset);
+        
         asm_out << "lw\t" << mp_reg_name[mp_reg_global[q.program_id][i]] << ",-" << offset << "($fp)" << endl; //可以对脏位进行判断一下，即在call这句话的in集合里并且是脏位才sw //全局寄存器不会分配给全局变量
     }
+    #endif
 }
 void reprMips(const Quat& q, int quat_i, bool is_read){ //BZ LABEL_2 //READ x
     #ifdef mips
@@ -687,6 +719,7 @@ void reprMips(const Quat& q, int quat_i, bool is_read){ //BZ LABEL_2 //READ x
 //        asm_out << "sw\t$v0,0($t" << t_reg_1 << ")" << endl << endl;
     string t_reg_1 = getT(q.op1, q.program_id, quat_i, reg_id_1, true, is_read); //!!!最后是这样的吗 read就会修改
     dirty[reg_id_1] = true;
+    mp_v_dirty[q.program_id][t_reg_1]++;
     int offset, print_type=0;
     int pos = locateVariable(q.op1, q.program_id, offset);
     if (pos == -3 || (pos == -1 && q.op1 == "RET_int") || (pos == 0&&q.op2=="int") || (pos>0&&tab[pos].type == "int")){ //pos==0代表是四元式产生的局部变量
@@ -746,12 +779,7 @@ void init_reg(int i){
                 cout << mp_reg[j].first << "!!!ERROR:Not Defined_REG$$$" << endl;
                 return ;
             }
-            /*
-             if (pos > 0 && pos < index_proc[1]){//        beg = "0xx2ffc";
-             asm_out << "move\t$t" << reg_t << ",$gp" << endl;
-             }else {//        asm_out << "li\t$t" << reg_t << ",0" << endl;
-             asm_out << "move\t$t" << reg_t << ",$fp" << endl;
-             }*/
+            
             if (pos > 0 && pos < index_proc[1])
                 start_pos = "gp";
             else

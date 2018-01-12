@@ -84,12 +84,13 @@ bool checkDAG(int k){ //检查中间节点k是否可以导出
 }
 void addNode(int k){
     cout << k << " " << dag[k].value << " " << dag[k].pick << endl;
-    for (auto i: dag[k].names){
+    for (auto i: dag[k].names){ //如果一个非叶节点没有任何变量被代表的情况，是危险的
         cout << i << " ";
     }
     cout << endl;
     int cnt_export = 0, cnt_temp = 0;
-    string s_temp;
+    string s_temp, s_temp_new;
+    bool has_allocated = false; //是否有局部变量之后没有更新过，如果有就代表该节点
     for (auto i: dag[k].names){
         if (i.size() >0 && i[0] == '#'){
             if (cnt_temp == 0){
@@ -100,15 +101,25 @@ void addNode(int k){
             cnt_export++;
             route_dag.push_back(make_pair(i, k)); //{a, 3}
             cout << "ADD_TO_ROUTE:(" << i << "," << k << ")" << endl;
-            dag[k].pick = i; //随便选取一个标识符的名字作为这个中间节点的名字代表 //用最后面那个也就是第一次插入的那个，因为names是每次插入到头部即逆向插入的
+            if (mp_node[i] == k){
+                has_allocated = true;
+                dag[k].pick = i;
+            }
+            //!!!错误！必须选取和节点表里是一致的临时变量//dag[k].pick = i; //随便选取一个标识符的名字作为这个中间节点的名字代表 //用最后面那个也就是第一次插入的那个，因为names是每次插入到头部即逆向插入的
         }
         //!!!对于所有的全局和out集合里的点，都需要导出到节点序列 然后如果只有临时变量只需要导出一个
     }
     
     
-    if (cnt_export == 0 || dag[k].cnt_print > 0){ //!!!如果这个节点有需要输出，那么必须给一个临时变量(这样做是为了防止输出pick，但是pick的值变了的情况)
-        if (cnt_temp == 0)
-            cout << "!!!ERROR:DAG!!!" << endl;
+    if (!has_allocated || cnt_export == 0 || dag[k].cnt_print > 0){ //!!!如果没有任何局部变量代表该节点//!!!如果这个节点有需要输出，那么必须给一个临时变量(这样做是为了防止输出pick，但是pick的值变了的情况)
+        if (cnt_temp == 0){
+            if (has_allocated) //出现这种情况肯定是没有局部变量分配寄存器的情况
+                cout << "!!!ERROR:DAG!!!" << endl;
+            newTmp(s_temp_new); //新生成一个中间节点来代表这个点
+            mp_node[s_temp_new] = k;
+            s_temp = s_temp_new;
+            cout << "ADDDDDD TEMP Node" << s_temp << ":::" << k << endl;
+        }
         route_dag.push_back(make_pair(s_temp, k));
         cout << "ADD_TO_ROUTE:(" << s_temp << "," << k << ")" << endl;
 //        if (cnt_export == 0) //!!!
@@ -131,6 +142,16 @@ void dfs(int k){
     }
 }
 void vecGenerator(int program_id){
+    map<int,int> mp_non_leaf;
+    for (auto i: mp_node){
+        cout << i.first << " " << i.second << endl;
+        mp_non_leaf[i.second]++;
+    }
+    rep (i,1,cnt_node){
+        if (!(dag[i].l == -1 && dag[i].r==-1) && mp_non_leaf[i] == 0){
+            cout << i << "!!!Dangerous" << endl;
+        }
+    }
     while (route_dag.size() < cnt_op){
         for (int i = cnt_dag; i >= 1; --i){
             if (checkDAG(i)){
@@ -182,18 +203,8 @@ void dagBlock(int quat_start, int quat_end){
                 break;
             }
             case 20: {// =
-                //!!!  之前没有注释掉这段，我很好奇是怎么还能对的
-//                if (quat[i].op3 == "=[]"){
-//                    splitArrayName(quat[i].op2, s1, s2);
-//                    l = addLeaf(s1);
-//                    r = addLeaf(s2);
-//                    addOp(quat[i].type, quat[i].op1, l, r);
-//                }else if (quat[i].op3 != "[]=")
-                
-                {
-                    l = addLeaf(quat[i].op2);
-                    addOp(quat[i].type, quat[i].op1, l, -1);
-                }
+                l = addLeaf(quat[i].op2);
+                addOp(quat[i].type, quat[i].op1, l, -1);
                 break;
             }
             case 60: { //PRINT
@@ -240,35 +251,20 @@ void dagBlock(int quat_start, int quat_end){
         
         if (quat[i].type=="PRINT"){
             if (quat[i].op2=="-string"){ //addQuat("PRINT", prin_str, "string", "");
-//                cnt_quat_new++;
-//                quat_new[cnt_quat_new].type = "PRINT";
-//                quat_new[cnt_quat_new].op1 = quat[i].op1;
-//                quat_new[cnt_quat_new].op2 = "";
                 quat_new[++cnt_quat_new] = quat[i];
-                
-                
                 quat_new[cnt_quat_new].label.clear();
-                
-                
                 cout << "PRINT_string " << quat[i].op1 << endl;
             }
             else{
                 quat_new[++cnt_quat_new] = quat[i];
-                
-                
                 quat_new[cnt_quat_new].label.clear();
-                
-                
                 quat_new[cnt_quat_new].op1 = dag[mp_dag_print[i]].temp;
                 cout << "PRINT_" << quat[i].op2 << " " << dag[mp_dag_print[i]].temp << endl;
             }
         }else if (mp_dag[quat[i].type] != 10 && mp_dag[quat[i].type] != 20){ // 不是= +-*/
             cout << quat[i].type << " ~~~~" << endl;
             quat_new[++cnt_quat_new] = quat[i];
-            
             quat_new[cnt_quat_new].label.clear();
-            
-            
         }
     }
     
@@ -278,15 +274,12 @@ void dagBlock(int quat_start, int quat_end){
     rep (i, quat_start, quat_end){
         if (quat[i].label.size() > 0){
             quat_new[quat_cnt_new_now].label = quat[i].label;
-            
             cnt_this_quat++;
         }
         if (cnt_this_quat>1){
             cout << "!!!ERROR:more than a label in a basic block$$$" << endl;
         }
     }
-    
-    
     
     rep (i, 0, cnt_dag){
         father[i].clear();
@@ -301,7 +294,7 @@ void dagWork(){ //处理DAG图，首先划分基本块
     int quat_start = 0, quat_now;
     printSide();
     rep (i, 1, cnt_quat){
-        if (quat[i].type=="BEGIN" || quat[i].type=="GOTO" || quat[i].type=="call" || quat[i].type == "BZ" || quat[i].type == "ret" || quat[i].type == "READ"){ //quat[i].op3=="[]=" || quat[i].op3=="=[]"
+        if (quat[i].type=="BEGIN" || quat[i].type=="GOTO" || quat[i].type=="call" || quat[i].type == "BZ" || quat[i].type == "ret" || quat[i].type == "READ"){ //|| quat[i].type == "PRINT" //quat[i].op3=="[]=" || quat[i].op3=="=[]"
             cout << "^^^SEP" << i+1 << endl;
             if (i+1==73){
                 int fuck;
@@ -326,12 +319,6 @@ void dagWork(){ //处理DAG图，首先划分基本块
         while (quat[quat_now].block_id == -1 && quat_now <= cnt_quat)
             quat_now++;
         dagBlock(quat_start, quat_now-1);
-//        if (quat_now <= cnt_quat)
-//            dagBlock(quat_start, quat_now-1);
-//        else{ //更新到新的quat里面
-//            rep (i, quat_start,cnt_quat)
-//                quat_new[++cnt_quat_new] = quat[i];
-//        }
         quat_start = quat_now;
     }
 //    memcpy(quat, quat_new, sizeof(quat)); //!!!不知道为什么的 执行这句就会return后crash

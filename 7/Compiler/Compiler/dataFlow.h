@@ -15,7 +15,7 @@
 int typeUseDef(string s, string s_type){ //1:Def 2:Use 0:null
     if (s == "" || isNumber(s) || isChar(s) || s.find("[") != string::npos || s.find("\"") != string::npos || s== "-string" || s=="int" || s=="char" || s=="RET_int" || s=="RET_char")
         return 0;
-    if (s_type == "=" || s_type == "-" || s_type == "*" || s_type == "+" || s_type == "/")
+    if (s_type == "=" || s_type == "-" || s_type == "*" || s_type == "+" || s_type == "/" || s_type == "READ") //读入是得放在def集而不是use集吧
         return 1;
     if (mp_mips[s_type] == 21 || mp_mips[s_type] == 103 || mp_mips[s_type] == 104 || mp_mips[s_type] == 106 || mp_mips[s_type] == 107 || mp_mips[s_type] == 101) //比较运算符 读入输出 返回 PUSH
         //        {"PUSH", 101}, {"BZ", 102}, {"PRINT", 103}, {"READ", 104}, {"GOTO", 105}, {"ret", 106}, {"call", 105}, {"SWITCH", 107}, {"nop", 108},
@@ -23,7 +23,7 @@ int typeUseDef(string s, string s_type){ //1:Def 2:Use 0:null
     return 0;
 }
 
-void calcLineDefUse(int i){
+void calcLineDefUse(int i){ //计算每一行的Def集和Use集
     string op1 = quat[i].op1, op2 = quat[i].op2, op3 = quat[i].op3;
     if (typeUseDef(op2, quat[i].type)){
         use_line[i].push_back(op2);
@@ -192,7 +192,7 @@ void flowPerWork(int f_start, int f_end, int program_id){
     
     
     for (int i = f_end; i >= f_start; --i){
-        if (i==22){
+        if (i==117){
             int jjjjj;
             jjjjj = 1;
         }
@@ -206,6 +206,7 @@ void flowPerWork(int f_start, int f_end, int program_id){
         calcLineDefUse(i);
         
         outVector(use_line[i], "use_line");
+        outVector(def_line[i], "def_line");
         flow_in_line[i] = use_line[i];
         calcDifference(flow_out_line[i], def_line[i], v_diff);
         
@@ -220,8 +221,29 @@ void flowPerWork(int f_start, int f_end, int program_id){
         
         outVector(flow_out_line[i], "Out_Line");
         outVector(flow_in_line[i], "In_line");
+        
+            #ifdef globalRegConflictDefinePos
+        for (auto p: def_line[i]){ //是否要保守分析一下，即定义点处活跃的和out集里的所有的冲突
+            cout << i << "$$$" << p << endl;
+            if (checkIfParaGlobal(p, program_id)){
+                v_set_flow.insert(p);
+                for (auto q: flow_out_line[i]){
+                    if (p != q && checkIfParaGlobal(q, program_id)){
+                        cout << q << endl;
+                        v_set_flow.insert(q);
+                        if (find(v_node[p].begin(), v_node[p].end(), q) == v_node[p].end()){
+                            v_node[p].push_back(q);
+                        }
+                        if (find(v_node[q].begin(), v_node[q].end(), p) == v_node[q].end()){
+                            v_node[q].push_back(p);
+                        }
+                    }
+                }
+            }
+        }
+            #endif
+                
         for (auto p: flow_in_line[i]){
-            
             if (checkIfParaGlobal(p, program_id)){
                 v_set_flow.insert(p);
                 for (auto q: flow_in_line[i]){
@@ -361,7 +383,7 @@ void flowWork(){ //首先划分基本块
                 int ppppppp = 1;
                 ppppppp ++;
             }
-            cout << quat[i].op1 << endl;
+//            cout << quat[i].op1 << endl;
             rep (j, 1, cnt_quat){
                 if (j==22){
                     int kk;
