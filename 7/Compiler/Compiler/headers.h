@@ -19,24 +19,26 @@
 #define rep(i,a,b) for (int i = (a); i <= (b); ++i)
 #define MAX_QUAT 10000
 #define MAX_TAB 10000
+
 #define globalRegConflictDefinePos
 #define globalReg
 #define constDelete
 #define printNonSeprate
 
 #define mips
-//#define println
+#define println
 //#define debug
 
 //#define dagxyz
 //可能导致tmp x y的错误，慎加
 
-
 #define T_START 8
 #define T_END 15
 #define S_START 16
 #define S_END 23
+
 using namespace std;
+
 ofstream asm_out("asm.txt");//("/Users/Mr.ZY/Desktop/asm.txt");
 ofstream flow_block_out("flowBlock.txt");
 ofstream flow_line_out("flowLine.txt");
@@ -44,6 +46,7 @@ ofstream midcode_after_out("midCodeAfter.txt");
 ofstream midcode_before_out("midCodeBefore.txt");
 ofstream dag_out("dagLog.txt");
 ofstream symbol_table_out("symbolTable.txt");
+
 
 set<string> v_set_flow; //存放每个基本块中出现的局部变量和参数
 map<string, vector<string>> v_node, v_node_old;
@@ -188,7 +191,7 @@ map<int,string> error_msg = {
     {55, "const missing a ;"},
     {56, "missing a {"},
     {57, "const must be a int if const int . ="},
-    {57, "const must be a char if const char . ="},
+    {58, "const must be a char if const char . ="},
 
     {59, "case constant must have a unsigned int after +/-"},
 
