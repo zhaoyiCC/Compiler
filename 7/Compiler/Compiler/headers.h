@@ -19,7 +19,7 @@
 #define rep(i,a,b) for (int i = (a); i <= (b); ++i)
 #define MAX_QUAT 10000
 #define MAX_TAB 10000
-//#define globalRegConflictDefinePos
+#define globalRegConflictDefinePos
 #define globalReg
 #define constDelete
 #define printNonSeprate
@@ -28,11 +28,22 @@
 //#define println
 //#define debug
 
+//#define dagxyz
+//可能导致tmp x y的错误，慎加
+
+
 #define T_START 8
 #define T_END 15
 #define S_START 16
 #define S_END 23
 using namespace std;
+ofstream asm_out("asm.txt");//("/Users/Mr.ZY/Desktop/asm.txt");
+ofstream flow_block_out("flowBlock.txt");
+ofstream flow_line_out("flowLine.txt");
+ofstream midcode_after_out("midCodeAfter.txt");
+ofstream midcode_before_out("midCodeBefore.txt");
+ofstream dag_out("dagLog.txt");
+ofstream symbol_table_out("symbolTable.txt");
 
 set<string> v_set_flow; //存放每个基本块中出现的局部变量和参数
 map<string, vector<string>> v_node, v_node_old;
@@ -104,7 +115,6 @@ struct Func{ //存放函数的结构体，其中type有三种类型，int, char,
     vector<bool> is_char;
 };
 map<string, Func> mp_func; //函数名为键，值为对应的函数/过程信息
-
 map<string,int> mp = {
     {"<", 1},{"<=", 2},{">", 3},{">=", 4},{"!=", 5},{"==", 6},
 
@@ -117,8 +127,6 @@ map<string,int> mp = {
     {"int", 100},{"char", 101},{"const", 102},{"if", 103},{"else", 104},{"for", 105},{"switch", 106},{"case", 107},{"void", 108},{"return", 109},{"main", 110},
     {"scanf", 111}, {"printf", 112},
 };
-
-
 map<string,string> mp_out = {
     {"<", "blt"},{"<=", "blt"},{">", "bgt"},{">=", "bge"},{"!=", "bne"},{"==", "beq"},
 
@@ -130,8 +138,6 @@ map<string,string> mp_out = {
 
     {"=", "assign"}
 };
-
-
 map<int,string> error_msg = {
     {1, "const must be a int or char"},
     {2, "const must need a ="},
@@ -180,7 +186,6 @@ map<int,string> error_msg = {
     {51, "assign missing a ="},
 
     {55, "const missing a ;"},
-
     {56, "missing a {"},
     {57, "const must be a int if const int . ="},
     {57, "const must be a char if const char . ="},
@@ -247,32 +252,12 @@ map<string,int> mp_dag = {
 map<int,string> mp_reg_name = {
     {0, "$zero"},
     {1, "$at"},
-    {2, "$v0"},
-    {3, "$v1"},
-    {4, "$a0"},
-    {5, "$a1"},
-    {6, "$a2"},
-    {7, "$a3"},
-    {8, "$t0"},
-    {9, "$t1"},
-    {10, "$t2"},
-    {11, "$t3"},
-    {12, "$t4"},
-    {13, "$t5"},
-    {14, "$t6"},
-    {15, "$t7"},
-    {16, "$s0"},
-    {17, "$s1"},
-    {18, "$s2"},
-    {19, "$s3"},
-    {20, "$s4"},
-    {21, "$s5"},
-    {22, "$s6"},
-    {23, "$s7"},
-    {24, "$t8"},
-    {25, "$t9"},
-    {26, "$k0"},
-    {27, "$k1"},
+    {2, "$v0"},{3, "$v1"},
+    {4, "$a0"},{5, "$a1"},{6, "$a2"},{7, "$a3"},
+    {8, "$t0"},{9, "$t1"},{10, "$t2"},{11, "$t3"},{12, "$t4"},{13, "$t5"},{14, "$t6"},{15, "$t7"},
+    {16, "$s0"},{17, "$s1"},{18, "$s2"},{19, "$s3"},{20, "$s4"},{21, "$s5"},{22, "$s6"},{23, "$s7"},
+    {24, "$t8"},{25, "$t9"},
+    {26, "$k0"},{27, "$k1"},
     {28, "$gp"},
     {29, "$sp"},
     {30, "$fp"},

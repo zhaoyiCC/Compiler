@@ -1,11 +1,3 @@
-//
-//  enter.h
-//  Compiler
-//
-//  Created by ohazyi on 2017/12/11.
-//  Copyright © 2017年 ohazyi. All rights reserved.
-//
-
 #ifndef enter_h
 #define enter_h
 #include "headers.h"
@@ -135,63 +127,66 @@ void addQuat(string type, string op1, string op2, string op3){
     
     quat[cnt_quat].program_id = cnt_proc;
 }
-void printSide(){
+//void printSide(){
+//#ifdef debug
+//    cout << "------------------------------" << endl;
+//    cout << "------------------------------" << endl;
+//    cout << "------------------------------" << endl;
+//#endif // debug
+//}
+void printSide(ofstream& o_out){
     #ifdef debug
-    cout << "------------------------------" << endl;
-    cout << "------------------------------" << endl;
-    cout << "------------------------------" << endl;
+    o_out << "------------------------------" << endl;
+    o_out << "------------------------------" << endl;
+    o_out << "------------------------------" << endl;
     #endif // debug
 }
-void printQuat(){ //struct Quat quat[MAX_QUAT],int cnt_quat
-    printSide();
+void printQuat(ofstream& quat_out){ //struct Quat quat[MAX_QUAT],int cnt_quat
+//    ofstream quat_out("ttttt.txt");
+    
+//    printSide(quat_out);
     if (!quat[cnt_quat+1].label.empty()){
         addQuat("nop", "", "", "");
     }
-    #ifdef debug
     rep (i,1,cnt_quat) {
-
         if (!quat[i].label.empty())// != -1)
             for (auto j: quat[i].label)//cout << "LABEL_" << quat[i].label << " ";
-                cout << "LABEL_" << j << " ";
+                quat_out << "LABEL_" << j << " ";
         switch (mp_quat[quat[i].type]){
-            case 1000: cout << quat[i].type << endl; break;
-            case 100: cout << quat[i].type << " " << quat[i].op1 << endl; break;
-            case 1: cout << "const " << quat[i].type.substr(6, quat[i].type.size()-6) << " " << quat[i].op1 << " = " << quat[i].op2 << endl; break;
-            case 3: cout << "var " << quat[i].type.substr(9, quat[i].type.size()-9) << " " << quat[i].op1 << endl; break;
-            case 5: cout << quat[i].type.substr(9, quat[i].type.size()-9) << " " << quat[i].op1 << "()" << endl; break;
-            case 7: cout << "para " << quat[i].type.substr(10, quat[i].type.size()-10) << " " << quat[i].op1 << endl; break;
-            case 9: cout << "void " << quat[i].op1 << "()" << endl; break;
-            case 10: cout << quat[i].op1 << " = " << quat[i].op2 << " " << quat[i].type << " " << quat[i].op3 << endl; break;
-            case 20: cout << quat[i].op1 << " " << quat[i].type << " " << quat[i].op2 << endl; break;
-            case 30: cout << quat[i].op1 << " = " << quat[i].op2 << "[" << quat[i].op3 << "]" << endl; break;
-            case 40: cout << "var " << quat[i].type.substr(9,quat[i].type.size()-2-9) << " " << quat[i].op1 << "[" << quat[i].op2 << "]" << endl; break;
-            case 50: cout << quat[i].type << endl;  break;
-            case 60: cout << quat[i].type << "_" << quat[i].op2 << " " << quat[i].op1 << endl; break;
-            default: cout << "@@@" << quat[i].type << " " << mp_quat[quat[i].type] << endl; cout << quat[i].type << " " << quat[i].op1 << " " << quat[i].op2 << " " << quat[i].op3 << endl;
+            case 1000: quat_out << quat[i].type << endl; break;
+            case 100: quat_out << quat[i].type << " " << quat[i].op1 << endl; break;
+            case 1: quat_out << "const " << quat[i].type.substr(6, quat[i].type.size()-6) << " " << quat[i].op1 << " = " << quat[i].op2 << endl; break;
+            case 3: quat_out << "var " << quat[i].type.substr(9, quat[i].type.size()-9) << " " << quat[i].op1 << endl; break;
+            case 5: quat_out << quat[i].type.substr(9, quat[i].type.size()-9) << " " << quat[i].op1 << "()" << endl; break;
+            case 7: quat_out << "para " << quat[i].type.substr(10, quat[i].type.size()-10) << " " << quat[i].op1 << endl; break;
+            case 9: quat_out << "void " << quat[i].op1 << "()" << endl; break;
+            case 10: quat_out << quat[i].op1 << " = " << quat[i].op2 << " " << quat[i].type << " " << quat[i].op3 << endl; break;
+            case 20: quat_out << quat[i].op1 << " " << quat[i].type << " " << quat[i].op2 << endl; break;
+            case 30: quat_out << quat[i].op1 << " = " << quat[i].op2 << "[" << quat[i].op3 << "]" << endl; break;
+            case 40: quat_out << "var " << quat[i].type.substr(9,quat[i].type.size()-2-9) << " " << quat[i].op1 << "[" << quat[i].op2 << "]" << endl; break;
+            case 50: quat_out << quat[i].type << endl;  break;
+            case 60: quat_out << quat[i].type << "_" << quat[i].op2 << " " << quat[i].op1 << endl; break;
+            default: quat_out << "@@@" << quat[i].type << " " << mp_quat[quat[i].type] << endl; quat_out << quat[i].type << " " << quat[i].op1 << " " << quat[i].op2 << " " << quat[i].op3 << endl;
         }
     }
-    #endif // debug
 }
 void programTable(){
-    printSide();
-    #ifdef debug
+    printSide(symbol_table_out);//#ifdef debug
     rep (i,1,cnt_proc){
-        cout << "Program " << i << " :  " << index_proc[i] << endl;
+        symbol_table_out << "Program " << i << " :  " << index_proc[i] << endl;
     }
-    cout << "AddByMe Program " << cnt_proc+1 << " :  " << index_proc[cnt_proc+1] << endl;
-    #endif // debug
+    symbol_table_out << "AddByMe Program " << cnt_proc+1 << " :  " << index_proc[cnt_proc+1] << endl;//#endif // debug
 }
 
 void symbolTable(){
-    printSide();
-    #ifdef debug
+//    printSide(symbol_table_out);//#ifdef debug
+    symbol_table_out << "      id name kind type value type addr para_num program_id" << endl;
     rep (i,1,cnt_tab){
-        cout << "Symbol " << i << " :  " << tab[i].name << " " << tab[i].kind << " " << tab[i].type << " " << tab[i].value << " " << tab[i].addr << " " << tab[i].para_num << " " << tab[i].program_id << endl;
-    }
-    #endif
+        symbol_table_out << "Symbol  " << i << " :   " << tab[i].name << "   " << tab[i].kind << "   " << tab[i].type << "   " << tab[i].value << "   " << tab[i].addr << "   " << tab[i].para_num << "  " << tab[i].program_id << endl;
+    }//#endif
 }
 void calcTmp(){
-    printSide();
+    printSide(symbol_table_out);
     map<int, int> mp_proc_cnt;
     rep (i,1,cnt_proc){
         mp_proc_cnt[i] = index_proc[i+1] - index_proc[i]-const_cnt[i]-1; //这个过程块所有的参数局部变量。空出每段的第一个符号即函数自己
@@ -213,9 +208,7 @@ void calcTmp(){
                         }
                     }
                     mp_quat_para_num[quat[i].program_id] = tab[index_proc[j]].para_num; //^^^mp_quat_para_num[i] = tab[index_proc[j]].para_num;
-                    #ifdef debug
-                    cout << i << " " << tab[index_proc[j]].para_num << " " <<  quat[i].program_id << endl;
-                    #endif // debug
+//                    symbol_table_out << i << " " << tab[index_proc[j]].para_num << " " <<  quat[i].program_id << endl;
                     break;
                 }
             }
@@ -227,14 +220,8 @@ void calcTmp(){
             }
             mp_quat_cnt_temp[quat[i].program_id] ++; //代表是这个过程块的四元式产生的第几个变量
             mp_tmp[quat[i].op1] = make_pair(quat[i].program_id, 3+mp_quat_para_num_with_local[quat[i].program_id]+mp_quat_cnt_temp[quat[i].program_id]); //3+mp_proc_cnt[quat[i].program_id]+mp_quat_cnt_temp[quat[i].program_id]
-            #ifdef debug
-            cout << quat[i].op1 << " ::: " << mp_tmp[quat[i].op1].first << " " << mp_tmp[quat[i].op1].second << endl;
-            #endif // debug
+            symbol_table_out << quat[i].op1 << " ::: (Program_id:" << mp_tmp[quat[i].op1].first << " ,Offset:" << mp_tmp[quat[i].op1].second << ")" << endl;
         }
     }
-    for (auto it: mp_proc_variable){
-        cout << it.first << "@@@@@@" << it.second << endl;
-    }
-    printSide();
 }
 #endif /* enter_h */

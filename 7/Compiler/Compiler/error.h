@@ -1,11 +1,3 @@
-//
-//  error.h
-//  Compiler
-//
-//  Created by ohazyi on 2017/12/11.
-//  Copyright © 2017年 ohazyi. All rights reserved.
-//
-
 #ifndef error_h
 #define error_h
 int test(vector<string> v, int errorId, vector<string> v_skip, int line_pos){ //判断必须是这个里面的内容，否则就是第errorId号错误
@@ -26,16 +18,9 @@ int test(vector<string> v, int errorId, vector<string> v_skip, int line_pos){ //
     }
     return 1;
 }
-//void error(int errorId){
-//    cout << "!!!ERROR!!!" << endl;
-//    cout << error_msg[errorId] << endl << endl;
-//}
+
 void error(int errorId, int line_pos){
     cout << "!!!ERROR!!!" << endl;
     cout << error_msg[errorId] << "   Line:" << line_pos << endl << endl;
-    //    switch (errorId) {
-    //        case 1: cout << error_msg[errorId] << endl << endl; break;
-    //        case 2: cout << error_msg[errorId] << endl << endl; break;
-    //    }
 }
 #endif /* error_h */

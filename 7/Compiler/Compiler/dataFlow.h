@@ -1,11 +1,3 @@
-//
-//  dataFlow.h
-//  Compiler
-//
-//  Created by ohazyi on 2018/1/5.
-//  Copyright © 2018年 ohazyi. All rights reserved.
-//
-
 #ifndef dataFlow_h
 #define dataFlow_h
 #define fDEBUG
@@ -49,19 +41,10 @@ void calcLineDefUse(int i){ //计算每一行的Def集和Use集
 }
 
 void calcDefUse(int quat_start, int quat_end, int block_id){
-    cout << "***************" << quat_start << "    " << quat_end << "    " << block_id << "**************" << endl;
     map<string, int> vis;
-    
     rep (i, quat_start, quat_end){
         //        quat[i].block_pos = block_id;//之前的一个while循环已经计算过了
         string op1 = quat[i].op1, op2 = quat[i].op2, op3 = quat[i].op3;
-        
-        if (op1.find("[") != string::npos && op1.find("]") != string::npos){
-            int xrrr;
-            xrrr=1;
-        }
-        
-        cout << quat[i].type << "!!!" << op1 << "!!!" << op2 << "!!!" << op3 << endl;
         if (typeUseDef(op2, quat[i].type) && vis[op2] == 0){
             use[block_id].push_back(op2);
             vis[op2]++;
@@ -81,35 +64,31 @@ void calcDefUse(int quat_start, int quat_end, int block_id){
     }
     uniqueVector(def[block_id]); //应该是无用的，因为我的vis标记保证了只会加入到def集和use集一次
     uniqueVector(use[block_id]);
-    cout << "USE:::" << endl;
-    for (auto i: use[block_id]){
-        cout << i << endl;
-    }
-    cout << "DEF:::" << endl;
-    for (auto i: def[block_id]){
-        cout << i << endl;
-    }
-    cout << "------------------------------" << endl;
+//    cout << "USE:::" << endl;
+//    for (auto i: use[block_id]){
+//        cout << i << endl;
+//    }
+//    cout << "DEF:::" << endl;
+//    for (auto i: def[block_id]){
+//        cout << i << endl;
+//    }
+//    cout << "------------------------------" << endl;
 }
 
-void outVector(vector<string>& v, string s){
-    cout << s << "::: ";
+void outVector(vector<string>& v, string s, ofstream& o_out){
+    o_out << s << "::: ";
     for (auto k: v)
-        cout << k << " ";
-    cout << endl;
+        o_out << k << " ";
+    o_out << endl;
 }
 bool cmp(pair<string, int> a, pair<string, int> b){
     return a.second < b.second;
 }
 void removeNode(string s){
     for (auto&& it: v_node){ //否则只是拷贝，erase不能改变原来的值
-        //        cout << "$$$" << it.first << "$$$" << it.second.size() << endl;
         for (auto&& i = it.second.begin(); i != it.second.end();){
-            //            cout << *i << "LLLLLL" << s << endl;
             if (*i == s){
-                //                cout << "BEFORE:::" << it.second.size() << endl;
                 i = it.second.erase(i);
-                //                cout << "AFTER:::" << it.second.size() << endl;
             }else
                 i++;
         }
@@ -118,10 +97,8 @@ void removeNode(string s){
 }
 bool checkIfParaGlobal(string p, int program_id){
     int offset;
-    cout << p << "#@$!@$" << endl;
     int pos = locateVariable(p, program_id, offset); //如果是临时变量,pos = 0//把相对于函数的偏移量保存到offset //到四元式这一步，肯定是有定义了
     if (pos == -2){ //以防万一，!!!可删 -1是RET,虽然已经先处理过了RET了
-        asm_out << "!!!ERROR:::NOT DEFINED____dataflow$$$" << endl;
         cout << p << "!!!ERROR:Not DEFINED____dataflow$$$" << endl;
         return false;
     }
@@ -134,6 +111,7 @@ bool checkIfParaGlobal(string p, int program_id){
     return true;
 }
 void flowPerWork(int f_start, int f_end, int program_id){
+    flow_line_out << "---------------------------Program_id:" << program_id << " Line " << f_start << "~" << f_end << "--------------------" << endl;
     int quat_start = 0, quat_now, block_cnt = 0;
     vector<string> v_deg;
     v_deg.clear();
@@ -150,13 +128,6 @@ void flowPerWork(int f_start, int f_end, int program_id){
         calcDefUse(quat_start, quat_now, quat[quat_start].block_pos); //计算def集和use集
         quat_start = quat_now+1;
     }
-    //    while (quat_start <= cnt_quat){
-    //        quat_now = quat_start+1;
-    //        while (quat[quat_now].block_id == -1 && quat_now <= cnt_quat)
-    //            quat_now++;
-    //        calcDefUse(quat_start, quat_now-1, ++block_cnt); //计算def集和use集
-    //        quat_start = quat_now;
-    //    }
     
     vector<string> v_diff;
     //迭代进行计算IN 和 OUT集
@@ -169,88 +140,63 @@ void flowPerWork(int f_start, int f_end, int program_id){
         }
         for (int i = quat[f_end].block_pos; i >= quat[f_start].block_pos; --i){
             for (auto j: suffix[i])
-            if (j >= quat[f_start].block_pos && j <= quat[f_end].block_pos) //拒绝跨函数的跨基本块(call不需要考虑数据流)
-            {
+                if (j >= quat[f_start].block_pos && j <= quat[f_end].block_pos){ //拒绝跨函数的跨基本块(call不需要考虑数据流)
                 flow_out[i].insert(flow_out[i].end(), flow_in[j].begin(), flow_in[j].end());
             }
             uniqueVector(flow_out[i]);
-            if (i==3){
-                int lllyyjj;
-                lllyyjj = 1;
-            }
-                        outVector(flow_out[i], "flow_out");
-                        outVector(def[i], "def");
-                        cout << "*****" << endl;
+        
             flow_in[i] = use[i];
-                        outVector(flow_in[i], "flow_in");
             calcDifference(flow_out[i], def[i], v_diff);
-                        outVector(v_diff, "diff");
             flow_in[i].insert(flow_in[i].end(), v_diff.begin(), v_diff.end());
             
             uniqueVector(flow_out[i]);
             uniqueVector(flow_in[i]);
             
-            cout << "#########" << i << "##########" << endl;
-            
+            flow_block_out << "-----------Block" << i << "-----------" << endl;
             if (flow_in[i] != flow_in_old[i] || flow_out[i] != flow_out_old[i]){
-                cout << "!!!" << i << "!!!" << endl;
-                outVector(flow_out_old[i], "Out_Old");
-                outVector(flow_in_old[i], "In_Old");
+//                outVector(flow_out_old[i], "Out_Old", flow_block_out);
+//                outVector(flow_in_old[i], "In_Old", flow_block_out);
                 is_changed = true;
             }
             
-            outVector(flow_out[i], "Out");
-            outVector(use[i], "Use");
-            outVector(def[i], "Def");
-            outVector(flow_in[i], "In");
+            outVector(flow_out[i], "Out", flow_block_out);
+            outVector(use[i], "Use", flow_block_out);
+            outVector(def[i], "Def", flow_block_out);
+            outVector(flow_in[i], " In", flow_block_out);
         }
     }
     
     
     for (int i = f_end; i >= f_start; --i){
-        if (i==117){
-            int jjjjj;
-            jjjjj = 1;
-        }
         if (quat[i].block_pos != quat[i+1].block_pos){ //代表是这个基本块的最后一句了，直接用这个块的out集给out
-            cout << "YES " << i << endl;
             flow_out_line[i] = flow_out[quat[i].block_pos];
         }else{
             flow_out_line[i] = flow_in_line[i+1];
         }
-        outVector(flow_out_line[i], "flow_out_line");
-        if (i==118){
-            int summer;
-            summer = 1;
-        }
+//        outVector(flow_out_line[i], "out_line", flow_line_out);
         calcLineDefUse(i);
-        
-        outVector(use_line[i], "use_line");
-        outVector(def_line[i], "def_line");
         flow_in_line[i] = use_line[i];
         calcDifference(flow_out_line[i], def_line[i], v_diff);
         
         flow_in_line[i].insert(flow_in_line[i].end(), v_diff.begin(), v_diff.end());
-        
-        outVector(flow_in_line[i], "flow_in_line");
+//        outVector(flow_in_line[i], "in_line", flow_line_out);
         
         uniqueVector(flow_out_line[i]);
         uniqueVector(flow_in_line[i]);
         
-        cout << "%%%%%%%%%%" << i << "%%%%%%%%%%" << endl;
+        flow_line_out << "----------Line" << i << "-----------" << endl;
         
-        
-        outVector(flow_out_line[i], "Out_Line");
-        outVector(flow_in_line[i], "In_line");
+        outVector(flow_out_line[i], "Out_Line", flow_line_out);
+        outVector(use_line[i], "Use_Line", flow_line_out);
+        outVector(def_line[i], "Def_Line", flow_line_out);
+        outVector(flow_in_line[i], " In_Line", flow_line_out);
         
             #ifdef globalRegConflictDefinePos
         for (auto p: def_line[i]){ //是否要保守分析一下，即定义点处活跃的和out集里的所有的冲突
-            cout << i << "$$$" << p << endl;
             if (checkIfParaGlobal(p, program_id)){
                 v_set_flow.insert(p);
                 for (auto q: flow_out_line[i]){
                     if (p != q && checkIfParaGlobal(q, program_id)){
-                        cout << q << endl;
                         v_set_flow.insert(q);
                         if (find(v_node[p].begin(), v_node[p].end(), q) == v_node[p].end()){
                             v_node[p].push_back(q);
@@ -283,50 +229,51 @@ void flowPerWork(int f_start, int f_end, int program_id){
     }
     
     //图着色
-    int tot_allocate = 0, reg_id;
-    //    memset(reg_has_allocated, false, sizeof(reg_has_allocated));
     v_node_old = v_node;
-    
+
+    flow_line_out << endl << "----Start NonConfilct Variable---" << endl;
     //先把全局变量和参数从冲突图里删掉
     for (auto i: v_set_flow){ //把所有没有和任何寄存器冲突的变量赋给$s7
         if (v_node[i].size() == 0){ //
-            cout << i << " Not conflicted with anyone in ProgramId_" << program_id << endl;
+//            cout << i << " Not conflicted with anyone in ProgramId_" << program_id << endl;
             mp_reg_global[program_id][i] = S_END;
-            cout << mp_reg_global[program_id][i] << " " << mp_reg_name[mp_reg_global[program_id][i]] << endl;
+            flow_line_out << i << ":    REG" << mp_reg_global[program_id][i] << "   " << mp_reg_name[mp_reg_global[program_id][i]] << endl;
         }
     }
+    flow_line_out << "------End NonConfilct Variable---" << endl << endl;
+    
+    flow_line_out << "-------------Conlict Start----------------" << endl;
     while (true){//tot_allocate <= (S_END-S_START+1)
         deg.clear();
         for (auto it: v_node){
             if (mp_reg_global[program_id][it.first] == S_END) //不和任何点冲突，之前已经分配了$s7，现在不需要再分配了
                 continue ;
-            cout << it.first << "::: ";
+            flow_line_out << it.first << ":::      ";
             for (auto j: it.second){
-                cout << j << " ";
+                flow_line_out << j << " ";
             }
-            cout << endl;
+            flow_line_out << endl;
             deg.push_back(make_pair(it.first, it.second.size()));
         }
         
         if (deg.size() == 0){
-            cout << "!!!Conlict End!!!" << program_id << endl;
+            flow_line_out << "-------------Conlict End------------------" << endl;
             break;
         }
         sort(deg.begin(), deg.end(), cmp);
         if (deg[0].second < (S_END-S_START+1)){
             v_deg.insert(v_deg.begin(), deg[0].first); //插入到头部
-            //            mp_reg_global[deg[0].first] = reg_id = (tot_allocate++) + S_START;
-            cout << deg[0].first << "~~~~" << deg[0].second << "~~~~" << endl;
-            //            reg_has_allocated[reg_id] = true;
-            //            reg_has_allocated[reg_id].push_back()
+            flow_line_out << "Choose:" << deg[0].first << "  Degree:" << deg[0].second << endl;
             removeNode(deg[0].first);
             deg.erase(deg.begin()); //删除第一个元素
         }else{
-            cout << "REMOVE----" << deg.back().first << "----" << deg.back().second << "----" << endl;
+            flow_line_out << "Remove:" << deg.back().first << "  Degree:" << deg.back().second << endl;
             removeNode(deg.back().first); //删除度数最大的点
             deg.pop_back();//删除最后一个元素
         }
     }
+    
+    flow_line_out << endl << "----Start Graph Coloring---" << endl;
     
     bool reg_s[40];
     map<string, int> mp_vis; //给已经分配好的寄存器打上是第几号的标签，之后选择的点不能选这个
@@ -348,34 +295,29 @@ void flowPerWork(int f_start, int f_end, int program_id){
             }
         }
         if (!has_a){
-            cout << "!!!!!!NOT ALLCATED" << i << "!!!!!!" << endl;
+            flow_line_out << "NOT ALLOCATED:    " << i << endl;
         }else{
-            cout << i << "~~~~" << mp_vis[i] << endl;
+            flow_line_out << i << ":    Reg" << mp_vis[i] << "     " << mp_reg_name[mp_vis[i]] << endl;
         }
     }
+    flow_line_out << "------End Graph Coloring---" << endl;
+    flow_line_out << "---------------------------Program_id:" << program_id << " Conlict End-------------------" << endl << endl;
 }
 void flowWork(){ //首先划分基本块
     rep (i,0,MAX_QUAT){
         quat[i].block_id = quat[i].block_pos = -1;
     }
     int quat_start = 0, quat_now, block_cnt = 0;
-    printSide();
     rep (i, 1, cnt_quat){
         if (quat[i].type=="BEGIN" || quat[i].type=="GOTO" || quat[i].type=="call" || quat[i].type == "BZ" || quat[i].type == "ret"){ //|| quat[i].type == "READ"
             quat[i].block_pos = block_cnt;
             quat[i+1].block_id = ++block_cnt; //quat[i+1].block_pos //0; //!!!BEGIN下面的那一句(即定义后的第一句话)是块的入口语句
-            cout << "&&&SEP" << i+1 << endl;
-            if (i+1==72){
-                int ily;
-                ily = 1;
-            }
             if (quat_start == 0)
                 quat_start = i + 1;
         }
         if (quat[i].label.size() > 0 || quat[i].op3=="[]=" || quat[i].op3=="=[]"){
             if (quat[i].block_id == -1){
                 quat[i].block_id = ++block_cnt;//= quat[i].block_pos //0; //!!!LABEL对应的这一句必然是入口语句
-                cout << "&&&" << i << endl;
             }
             if (quat_start == 0)
                 quat_start = i + 1;
@@ -395,23 +337,19 @@ void flowWork(){ //首先划分基本块
         quat_start = quat_now;
     }
     
-    
+    flow_block_out << "----------------------Start Line Analysis--------------" << endl;
     rep (i, 1, cnt_quat){ //计算前驱集合和后继集合
         if (quat[i].type=="GOTO" || quat[i].type == "BZ" || quat[i].type=="call"){
             rep (j, 1, cnt_quat){
-                
                 if ((quat[j].type == "function_int" || quat[j].type == "function_char" || quat[j].type == "void_") && (quat[j].op1 == quat[i].op1)){
                     suffix[quat[i].block_pos].push_back(quat[j].block_pos+1); //j要加一是因为函数定义的地方还没加上去  只有在BEGIN结束之后才会加上去
-                    cout << quat[i].type << " " << quat[i].op1 << endl;
-                    cout << quat[i].block_pos << " --> " << quat[j].block_pos+1 << endl;
+                    flow_block_out << "Line" << i << "(" << quat[i].type << " " << quat[i].op1 << ")    Block:";
+                    flow_block_out << quat[i].block_pos << " --> " << quat[j].block_pos+1 << endl;
                     prefix[quat[j].block_pos+1].push_back(quat[i].block_pos);
-                    
                 }
-                
-                if (quat[j].label.size() > 0 && find(quat[j].label.begin(), quat[j].label.end(), calcLabel(quat[i].op1)) != quat[j].label.end())
-                {
-                    cout << quat[i].type << " " << quat[i].op1 << endl;
-                    cout << quat[i].block_pos << " --> " << quat[j].block_pos << endl;
+                if (quat[j].label.size() > 0 && find(quat[j].label.begin(), quat[j].label.end(), calcLabel(quat[i].op1)) != quat[j].label.end()){
+                    flow_block_out << "Line" << i << "(" << quat[i].type << " " << quat[i].op1 << ")    Block:";
+                    flow_block_out << quat[i].block_pos << " --> " << quat[j].block_pos << endl;
                     suffix[quat[i].block_pos].push_back(quat[j].block_pos);
                     prefix[quat[j].block_pos].push_back(quat[i].block_pos);
                 }
@@ -419,24 +357,29 @@ void flowWork(){ //首先划分基本块
         }
     }
     
+    flow_block_out << endl;
     rep (i, 1, cnt_quat-1){ //最后一条语句不需要和出口相连边!!!//计算前驱集合和后继集合
         if (quat[i].block_pos != quat[i+1].block_pos){
             if (quat[i].type != "GOTO" && quat[i].type != "ret"){
-                cout << i << " " << quat[i].block_pos << " NEXT: " << quat[i+1].block_pos << endl;
+                flow_block_out << "Line" << i << " (Block" << quat[i].block_pos << ")    NEXT: " << quat[i+1].block_pos << endl;
                 suffix[quat[i].block_pos].push_back(quat[i+1].block_pos);
                 prefix[quat[i+1].block_pos].push_back(quat[i].block_pos);
             }
         }
     }
     
+    flow_block_out << "----------------------End Line Analysis-----------------" << endl << endl;
+    
+    flow_block_out << "----------------------Print Block suffix----------------" << endl;
     rep (i,1,block_cnt+1){
-        cout << i << ":---------->" << endl;
+        flow_block_out << "Block " << i << " ----------> ";
         uniqueVector(suffix[i]);
         for (auto j: suffix[i]){
-            cout << j << "???" << endl;
+            flow_block_out << j << ",";
         }
-        cout << endl;
+        flow_block_out << endl;
     }
+    flow_block_out << "----------------------End Block suffix------------------" << endl << endl;
     
     int q_start, q_end, q_now=1;
     
@@ -447,7 +390,7 @@ void flowWork(){ //首先划分基本块
                 q_now++;
             }
             q_end = q_now-1;
-            cout << q_start << "***" << q_end << endl;
+            flow_block_out << q_start << "***" << q_end << endl;
             flowPerWork(q_start, q_end, quat[q_start].program_id);
         }
         q_now++;
