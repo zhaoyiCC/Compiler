@@ -1,7 +1,7 @@
 #ifndef mipsGenerator_h
 #define mipsGenerator_h
 #include "headers.h"
-ofstream asm_out("asm.txt");
+//ofstream asm_out("asm.txt");
 //ofstream asm_out("/Users/Mr.ZY/Desktop/asm.txt");
 //#define asm_out asm_out
 int getT(){
@@ -188,9 +188,11 @@ void reprMips(const Quat& q, bool is_read){ //BZ LABEL_2 //READ x
     asm_out << "#\t" << q.type << " " << q.op1 << endl;
     #endif
     if (q.type == "PRINTLN"){ //li $a0, '\n' //li $v0, 11 //syscall
+        #ifdef println
         asm_out << "li\t$a0,'\\n'" << endl;
         asm_out << "li\t$v0,11" << endl;
         asm_out << "syscall" << endl;
+        #endif
         return ;
     }
     if (q.op1.size() == 0)
@@ -222,7 +224,7 @@ void reprMips(const Quat& q, bool is_read){ //BZ LABEL_2 //READ x
     if (is_read)
         asm_out << "sw\t$v0,0($t" << t_reg_1 << ")" << endl;
     #ifdef mips
-    cout << endl;
+    asm_out << endl;
     #endif
 }
 void retuMips(const Quat& q){ //add sub //#12 = x + 1
@@ -254,7 +256,7 @@ void retuMips(const Quat& q){ //add sub //#12 = x + 1
 void quatMips(){
     asm_out << ".data" << endl;
     #ifdef mips
-    cout << endl;
+    asm_out << endl;
     #endif
     rep (i, 1, cnt_quat){
         if (quat[i].type == "PRINT" && quat[i].op1[0] =='"'){
@@ -267,7 +269,7 @@ void quatMips(){
     for (auto i: mp_s){
         asm_out << "str" << i.second << ":\t.asciiz" << " " << i.first << endl;
           #ifdef mips
-        cout<<endl;
+        asm_out<<endl;
           #endif
     }
     
@@ -278,7 +280,7 @@ void quatMips(){
             asm_out << "subi\t$sp,$sp," << 4*mp_proc_variable[quat[0].program_id] << endl;
             asm_out << "j\tmain" << endl;
                 #ifdef mips
-            cout << endl; //声明常变量后，先跳转到main进行!!!有必要吗
+            asm_out << endl; //声明常变量后，先跳转到main进行!!!有必要吗
                 #endif
         }
         if (!quat[i].label.empty())//(quat[i].label != -1)
@@ -305,10 +307,12 @@ void quatMips(){
             case 103: reprMips(quat[i], false); break;
             case 104: reprMips(quat[i], true); break;
             case 1000: reprMips(quat[i], true); break;
+            case 109:
             case 105: gotoMips(quat[i]); break;
             case 106: retuMips(quat[i]); break;
             case 107: asm_out << "#\t" << quat[i].type << " " << quat[i].op1 << endl; break;
             case 108: asm_out << quat[i].type << endl; break; //nop
+            
             default: asm_out << "???" << quat[i].type << " " << quat[i].op1 << endl;
         }
     }

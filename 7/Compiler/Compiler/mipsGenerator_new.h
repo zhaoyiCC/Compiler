@@ -29,7 +29,7 @@ void updateOffset(int pos, int program_id, int& offset){
 void calcOffset(string name, int program_id, string& start_pos, int& offset){
     int pos = locateVariable(name, program_id, offset); //如果是临时变量,pos = 0//把相对于函数的偏移量保存到offset //到四元式这一步，肯定是有定义了
     if (pos == -2){ //以防万一，!!!可删 -1是RET,虽然已经先处理过了RET了
-        cout << name << "!!!ERROR:Not Defined_ADD$$$" << endl;
+        cout << name << "!!!ERROR:Not Defined_calcOffset$$$" << endl;
         return ;
     }
     if (pos > 0 && pos < index_proc[1])

@@ -150,9 +150,9 @@ void funcCall(string& str){ //函数调用 //＜有（无）返回值函数调�
         rep (j, 0, (int)is_char_func.size()-1){
             if (is_char_func[j] != mp_func[func_name].is_char[j]){
                 if (is_char_func[j])
-                    cout << "***MISS The " << j+1 << " Parameter from int to char.$$$" << endl;
+                    cout << "!!!Warning***MISS The " << j+1 << " Parameter from int to char.$$$" << endl;
                 else
-                    cout << "***MISS The " << j+1 << " Parameter from char to int.$$$" << endl;
+                    cout << "!!!Warning***MISS The " << j+1 << " Parameter from char to int.$$$" << endl;
             }
         }
     }
@@ -417,7 +417,7 @@ void assiStatement(string& str){ //＜赋值语句＞   ::=  ＜标识符＞＝�
 //    pos = locateVariable(res, cnt_proc, offset, false);
     if (is_char_left && !is_char){
         if (isNumber(res) && (!checkChar(mystoi(res))))
-            cout << "!!!ERROR:::Wrong assiment type: char cannot be assigned by int out of range:" << mystoi(res) << "_Line" << mp_line[pos_line_header] << ".$$$" << endl;
+            cout << "!!!Warning:::Wrong assiment type: char cannot be assigned by int out of range:" << mystoi(res) << "_Line" << mp_line[pos_line_header] << ".$$$" << endl;
     }
     #ifdef debug
     cout << "This is an assign statement_" << mp_line[pos_line_header] << " ::: " << str.substr(pos_line_header, last-pos_line_header) << endl << endl;
@@ -650,7 +650,7 @@ void retuStatement(string& str){ //＜返回语句＞   ::=  return[‘(’＜�
     id = lexicalAnalysis(str, sym);
     if (sym == ";"){ //代表是没有任何(表达式)即return ;的直接返回
         if (now_proc_type != "void")
-            cout << "!!!ERROR: return must have a return value in function$$$" << endl;
+            cout << "!!!ERROR: return must have a return value in function_" << mp_line[pos_line_header] << "$$$" << endl;
         addQuat("ret", "", "", "");
         #ifdef debug
         cout << "This is a return statement_" << mp_line[pos_line_header] << " ::: " << str.substr(pos_line_header, last-pos_line_header) << endl << endl;

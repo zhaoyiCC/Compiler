@@ -24,7 +24,7 @@
 #define constDelete
 #define printNonSeprate
 
-//#define mips
+#define mips
 //#define println
 //#define debug
 
