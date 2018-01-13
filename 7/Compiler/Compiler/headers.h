@@ -22,10 +22,12 @@
 //#define globalRegConflictDefinePos
 #define globalReg
 #define constDelete
-#define printSeprate
+#define printNonSeprate
+
 //#define mips
 //#define println
 //#define debug
+
 #define T_START 8
 #define T_END 15
 #define S_START 16

@@ -304,8 +304,8 @@ void dagWork(){ //处理DAG图，首先划分基本块
             if (quat_start == 0)
                 quat_start = i + 1;
         }
-            #ifndef printSeprate
-        if (quat[i].type == "PRINT"){
+            #ifndef printNonSeprate
+        if (quat[i].type == "PRINT"){ //没有定义过要处理print，就隔开
             cout << "^^^SEP" << i+1 << endl;
             quat[i+1].block_id = 0; //!!!BEGIN下面的那一句(即定义后的第一句话)是块的入口语句
             if (quat_start == 0)

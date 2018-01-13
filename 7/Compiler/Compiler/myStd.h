@@ -7,6 +7,11 @@ bool isChar(const std::string& s){
         return false;
     return true;//检测合法!!!
 }
+bool isString(const std::string& s){
+    if (s[0]!='\"'||s[s.size()-1]!='\"')
+        return false;
+    return true;
+}
 bool isNumber(const std::string& s){
     if (s=="-" || s=="+") return false;
     std::string::const_iterator it = s.begin();
@@ -63,7 +68,6 @@ void splitArrayName(string s, string& array_name, string& subscript){
 int calcLabel(string s){
     if (s.size() < 6) //LABEL_
         return -9999;
-    cout << s.substr(6, s.size()) << endl;
     return mystoi(s.substr(6, s.size()));
 }
 void calcDifference(vector<string>& v1, vector<string>& v2, vector<string>& v_ans){
@@ -76,6 +80,10 @@ void calcDifference(vector<string>& v1, vector<string>& v2, vector<string>& v_an
         if (find(v2.begin(), v2.end(), i) == v2.end())
             v_ans.push_back(i);
     }
+}
+void uniqueVector(vector<int>& v){
+    sort(v.begin(),v.end());
+    v.erase(unique(v.begin(), v.end()), v.end());
 }
 void uniqueVector(vector<string>& v){
     sort(v.begin(),v.end());

@@ -160,7 +160,7 @@ void printQuat(){ //struct Quat quat[MAX_QUAT],int cnt_quat
             case 3: cout << "var " << quat[i].type.substr(9, quat[i].type.size()-9) << " " << quat[i].op1 << endl; break;
             case 5: cout << quat[i].type.substr(9, quat[i].type.size()-9) << " " << quat[i].op1 << "()" << endl; break;
             case 7: cout << "para " << quat[i].type.substr(10, quat[i].type.size()-10) << " " << quat[i].op1 << endl; break;
-            case 9: cout << "void " << quat[i].op1 << endl; break;
+            case 9: cout << "void " << quat[i].op1 << "()" << endl; break;
             case 10: cout << quat[i].op1 << " = " << quat[i].op2 << " " << quat[i].type << " " << quat[i].op3 << endl; break;
             case 20: cout << quat[i].op1 << " " << quat[i].type << " " << quat[i].op2 << endl; break;
             case 30: cout << quat[i].op1 << " = " << quat[i].op2 << "[" << quat[i].op3 << "]" << endl; break;

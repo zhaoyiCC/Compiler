@@ -34,6 +34,10 @@ void updateOffset(int pos, int program_id, int& offset){
     if (offset >= mp_quat_para_num[this_program_id]) //offset已经建过1了，即第一个参数是0//参数在最前面，其次是常量再次是变量//!!!跳过常数，因为现在整个的代码空间也没有常数了
         offset -= const_cnt[this_program_id];
     #endif
+    if (offset < 0){
+        int xr;
+        xr = 520;
+    }
     offset*=4;
 }
 void calcOffset(string name, int program_id, string& start_pos, int& offset){
@@ -771,9 +775,17 @@ void retuMips(const Quat& q, int quat_i){ //add sub //#12 = x + 1
 void init_reg(int i){
     int offset;
     string start_pos;
-    
+    if (flow_out[quat[i].block_pos].size() > 0){
+        cout << i << "&&&& ";
+        for (auto i: flow_out[quat[i].block_pos]){
+            cout << i << " ";
+        }
+        cout << endl;
+    }
     rep (j, T_START, T_END){
         if (dirty[j]) { //进行写回内存
+            cout << mp_reg[j].first << endl;
+            
             int pos = locateVariable(mp_reg[j].first, quat[i].program_id, offset); //如果是临时变量,pos = 0//把相对于函数的偏移量保存到offset //到四元式这一步，肯定是有定义了
             if (pos == -2){ //以防万一，!!!可删 -1是RET,虽然已经先处理过了RET了
                 asm_out << "!!!ERROR:::NOT DEFINED$$$" << endl;
@@ -781,12 +793,26 @@ void init_reg(int i){
                 return ;
             }
             
+                #ifdef localRegEndBlockOut
+            if (pos >= index_proc[1])
+            if (find(flow_out[quat[i].block_pos].begin(), flow_out[quat[i].block_pos].end(), mp_reg[j].first) == flow_out[quat[i].block_pos].end()){
+                cout << "!!!!!!!!!!!!!!!!" << endl;
+                continue;
+            }
+                #endif
+
+            
             if (pos > 0 && pos < index_proc[1])
                 start_pos = "gp";
             else
                 start_pos = "fp";
             
             updateOffset(pos, quat[i].program_id, offset);
+            
+            if (offset < 0){
+                int kkl;
+                kkl=1;
+            }
             
             asm_out << "sw\t" << mp_reg_name[j] << ",-" << offset << "($" << start_pos << ")" << endl;
         }

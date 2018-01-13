@@ -12,7 +12,16 @@
 #define MAX_VARIABLE 10010
 #include "headers.h"
 
-int typeUseDef(string s, string s_type){ //1:Def 2:Use 0:null
+int typeUseDef(string& s, string s_type){ //1:Def 2:Use 0:null
+    if (s!="=[]" && s!="[]=" && !isString(s) && s.find("[") != string::npos && s.find("]") != string::npos){
+        string array_name, subscript;
+        splitArrayName(s, array_name, subscript);
+        s = subscript;
+        if (s == "" || isNumber(s) || isChar(s) || s.find("[") != string::npos || s.find("\"") != string::npos || s== "-string" || s=="int" || s=="char" || s=="RET_int" || s=="RET_char")
+            return 0;
+        return 2;
+    }
+    
     if (s == "" || isNumber(s) || isChar(s) || s.find("[") != string::npos || s.find("\"") != string::npos || s== "-string" || s=="int" || s=="char" || s=="RET_int" || s=="RET_char")
         return 0;
     if (s_type == "=" || s_type == "-" || s_type == "*" || s_type == "+" || s_type == "/" || s_type == "READ") //读入是得放在def集而不是use集吧
@@ -46,6 +55,12 @@ void calcDefUse(int quat_start, int quat_end, int block_id){
     rep (i, quat_start, quat_end){
         //        quat[i].block_pos = block_id;//之前的一个while循环已经计算过了
         string op1 = quat[i].op1, op2 = quat[i].op2, op3 = quat[i].op3;
+        
+        if (op1.find("[") != string::npos && op1.find("]") != string::npos){
+            int xrrr;
+            xrrr=1;
+        }
+        
         cout << quat[i].type << "!!!" << op1 << "!!!" << op2 << "!!!" << op3 << endl;
         if (typeUseDef(op2, quat[i].type) && vis[op2] == 0){
             use[block_id].push_back(op2);
@@ -103,6 +118,7 @@ void removeNode(string s){
 }
 bool checkIfParaGlobal(string p, int program_id){
     int offset;
+    cout << p << "#@$!@$" << endl;
     int pos = locateVariable(p, program_id, offset); //如果是临时变量,pos = 0//把相对于函数的偏移量保存到offset //到四元式这一步，肯定是有定义了
     if (pos == -2){ //以防万一，!!!可删 -1是RET,虽然已经先处理过了RET了
         asm_out << "!!!ERROR:::NOT DEFINED____dataflow$$$" << endl;
@@ -203,6 +219,10 @@ void flowPerWork(int f_start, int f_end, int program_id){
             flow_out_line[i] = flow_in_line[i+1];
         }
         outVector(flow_out_line[i], "flow_out_line");
+        if (i==118){
+            int summer;
+            summer = 1;
+        }
         calcLineDefUse(i);
         
         outVector(use_line[i], "use_line");
@@ -218,6 +238,7 @@ void flowPerWork(int f_start, int f_end, int program_id){
         uniqueVector(flow_in_line[i]);
         
         cout << "%%%%%%%%%%" << i << "%%%%%%%%%%" << endl;
+        
         
         outVector(flow_out_line[i], "Out_Line");
         outVector(flow_in_line[i], "In_line");
@@ -340,7 +361,7 @@ void flowWork(){ //首先划分基本块
     int quat_start = 0, quat_now, block_cnt = 0;
     printSide();
     rep (i, 1, cnt_quat){
-        if (quat[i].type=="BEGIN" || quat[i].type=="GOTO" || quat[i].type=="call" || quat[i].type == "BZ" || quat[i].type == "ret" || quat[i].type == "READ"){
+        if (quat[i].type=="BEGIN" || quat[i].type=="GOTO" || quat[i].type=="call" || quat[i].type == "BZ" || quat[i].type == "ret"){ //|| quat[i].type == "READ"
             quat[i].block_pos = block_cnt;
             quat[i+1].block_id = ++block_cnt; //quat[i+1].block_pos //0; //!!!BEGIN下面的那一句(即定义后的第一句话)是块的入口语句
             cout << "&&&SEP" << i+1 << endl;
@@ -359,8 +380,6 @@ void flowWork(){ //首先划分基本块
             if (quat_start == 0)
                 quat_start = i + 1;
         }
-        //        if (quat[i].block_id == -1)
-        //            quat[i].block_pos = block_cnt;
     }
     
     //计算每个块的block_pos
@@ -379,16 +398,8 @@ void flowWork(){ //首先划分基本块
     
     rep (i, 1, cnt_quat){ //计算前驱集合和后继集合
         if (quat[i].type=="GOTO" || quat[i].type == "BZ" || quat[i].type=="call"){
-            if (i==90){
-                int ppppppp = 1;
-                ppppppp ++;
-            }
-//            cout << quat[i].op1 << endl;
             rep (j, 1, cnt_quat){
-                if (j==22){
-                    int kk;
-                    kk=1;
-                }
+                
                 if ((quat[j].type == "function_int" || quat[j].type == "function_char" || quat[j].type == "void_") && (quat[j].op1 == quat[i].op1)){
                     suffix[quat[i].block_pos].push_back(quat[j].block_pos+1); //j要加一是因为函数定义的地方还没加上去  只有在BEGIN结束之后才会加上去
                     cout << quat[i].type << " " << quat[i].op1 << endl;
@@ -420,8 +431,9 @@ void flowWork(){ //首先划分基本块
     
     rep (i,1,block_cnt+1){
         cout << i << ":---------->" << endl;
+        uniqueVector(suffix[i]);
         for (auto j: suffix[i]){
-            cout << j << endl;
+            cout << j << "???" << endl;
         }
         cout << endl;
     }
@@ -439,7 +451,6 @@ void flowWork(){ //首先划分基本块
             flowPerWork(q_start, q_end, quat[q_start].program_id);
         }
         q_now++;
-        
     }
 }
 
