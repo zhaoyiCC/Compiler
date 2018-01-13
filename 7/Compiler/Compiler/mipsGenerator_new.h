@@ -11,7 +11,7 @@
 #include "headers.h"
 
 //ofstream asm_out("asm.txt");
-ofstream asm_out("/Users/Mr.ZY/Desktop/asm.txt");
+ofstream asm_out("asm.txt");//("/Users/Mr.ZY/Desktop/asm.txt");
 //#define asm_out asm_out
 int reg_id_1, reg_id_2, reg_id_3;
 
@@ -771,6 +771,7 @@ void retuMips(const Quat& q, int quat_i){ //add sub //#12 = x + 1
 void init_reg(int i){
     int offset;
     string start_pos;
+    
     rep (j, T_START, T_END){
         if (dirty[j]) { //进行写回内存
             int pos = locateVariable(mp_reg[j].first, quat[i].program_id, offset); //如果是临时变量,pos = 0//把相对于函数的偏移量保存到offset //到四元式这一步，肯定是有定义了

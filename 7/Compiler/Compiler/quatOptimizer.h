@@ -45,13 +45,13 @@ int addLeaf(string s){
     return cnt_dag;
 }
 void addOp(string op, string s, int l, int r){
-    if (op=="="){
-        if (dag[l].l != -1 || dag[l].r != -1){ //非叶子节点
-            dag[l].names.insert(dag[l].names.begin(), s);
-            mp_node[s] = l;
-            return ;
-        }
-    }
+//    if (op=="="){
+//        if (dag[l].l != -1 || dag[l].r != -1){ //非叶子节点
+//            dag[l].names.insert(dag[l].names.begin(), s);
+//            mp_node[s] = l;
+//            return ;
+//        }
+//    }
     for (int i = cnt_dag; i >=1; --i){
         if (dag[i].value == op && dag[i].l == l && dag[i].r == r){
             dag[i].names.insert(dag[i].names.begin(), s); //插入到头部，即逆向插入 //dag[i].names.push_back(s);
@@ -304,6 +304,14 @@ void dagWork(){ //处理DAG图，首先划分基本块
             if (quat_start == 0)
                 quat_start = i + 1;
         }
+            #ifndef printSeprate
+        if (quat[i].type == "PRINT"){
+            cout << "^^^SEP" << i+1 << endl;
+            quat[i+1].block_id = 0; //!!!BEGIN下面的那一句(即定义后的第一句话)是块的入口语句
+            if (quat_start == 0)
+                quat_start = i + 1;
+        }
+            #endif
         if (quat[i].label.size() > 0 || quat[i].op3=="[]=" || quat[i].op3=="=[]"){ // 数组放哪儿想清楚，之前只把a[i] = j放在最后好像没问题，现在决定放在这儿//因为不能#1 = a[i]; 然后到一个新的基本块print #1
             cout << "%%%SEP" << i << "^^" << endl;
             quat[i].block_id = 0; //!!!LABEL对应的这一句必然是入口语句

@@ -30,7 +30,7 @@ int main() {
     
 //    cout << calcLabel("LABEL_100") << endl;
     
-//    freopen("out.txt","w",stdout);
+    freopen("out.txt","w",stdout);
 
 //    ofstream mcfile; //创建个对象
 //    mcfile.open("asm.txt"); //创建文件 //那个在mipsGenerator的文件是不会创建的，但是之前有asm.txt是写的进去的
@@ -102,10 +102,13 @@ int main() {
     printQuat(); //(quat, cnt_quat)
     programTable();
     symbolTable();
-    calcTmp(); //cout << mp_tmp["#1"].second << endl;
+    
     
     
     dagWork();
+    
+    calcTmp(); //cout << mp_tmp["#1"].second << endl;
+    
     flowWork();
     
     

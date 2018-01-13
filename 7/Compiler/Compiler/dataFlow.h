@@ -404,7 +404,6 @@ void flowWork(){ //首先划分基本块
                     suffix[quat[i].block_pos].push_back(quat[j].block_pos);
                     prefix[quat[j].block_pos].push_back(quat[i].block_pos);
                 }
-                cout << j << endl;
             }
         }
     }

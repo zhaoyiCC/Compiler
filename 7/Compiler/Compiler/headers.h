@@ -19,12 +19,13 @@
 #define rep(i,a,b) for (int i = (a); i <= (b); ++i)
 #define MAX_QUAT 10000
 #define MAX_TAB 10000
-#define globalRegConflictDefinePos
+//#define globalRegConflictDefinePos
 #define globalReg
 #define constDelete
+#define printSeprate
 //#define mips
 //#define println
-#define debug
+//#define debug
 #define T_START 8
 #define T_END 15
 #define S_START 16
