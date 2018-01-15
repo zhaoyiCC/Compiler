@@ -22,7 +22,7 @@ int main() {
 //    mcfile.open("asm.txt"); //创建文件 //那个在mipsGenerator的文件是不会创建的，但是之前有asm.txt是写的进去的
     cout << "Please input a file:" << endl;
     
-//    freopen("out.txt","w",stdout);
+    //freopen("out.txt","w",stdout);
     
     cin >> route;
     ifstream r_t(route);

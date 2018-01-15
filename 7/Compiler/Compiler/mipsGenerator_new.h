@@ -1,7 +1,7 @@
 #ifndef mipsGenerator_h
 #define mipsGenerator_h
 #include "headers.h"
-
+//#define asm_out cout
 //ofstream asm_out("asm.txt");
 
 //#define asm_out asm_out
@@ -21,7 +21,7 @@ void updateOffset(int pos, int program_id, int& offset){
         }
     }
     #ifdef constDelete
-    if (offset >= mp_quat_para_num[this_program_id]) //offset已经建过1了，即第一个参数是0//参数在最前面，其次是常量再次是变量//!!!跳过常数，因为现在整个的代码空间也没有常数了
+    if (pos > 0 && offset >= mp_quat_para_num[this_program_id]) //offset已经建过1了，即第一个参数是0//参数在最前面，其次是常量再次是变量//!!!跳过常数，因为现在整个的代码空间也没有常数了
         offset -= const_cnt[this_program_id];
     #endif
     offset*=4;
@@ -98,7 +98,7 @@ string getT(string name, int program_id, int line_id, int& reg_id, bool is_load,
         return mp_reg_name[mp_reg_global[program_id][name]];
     }
     #endif
-
+    
     int res = -1;//reg_id = -1;
     bool has_alloc = false, is_full = true;
     for (auto it: mp_reg){
@@ -144,11 +144,17 @@ string getT(string name, int program_id, int line_id, int& reg_id, bool is_load,
     
     //把这个变量写回到内存空间里去
     calcOffset(mp_reg[reg_id].first, program_id, start_pos, offset);
-    if (mp_v_dirty[program_id][name] > 0){ //!!!Add late //如果在这个函数块修改过才需要才会回写到内存区
+    
+    //之前错写成了mp_v_dirty[program_id][name]
+    if (mp_v_dirty[program_id][mp_reg_name[reg_id]] > 0) //AAAAAAA//mp_v_dirty[program_id][name]
+    //!!!!!!!!!! 不是是name吗 ？ 我现在怎么感觉是reg_id对应的
+    { //!!!Add late //如果在这个函数块修改过才需要才会回写到内存区
         asm_out << "sw\t" << mp_reg_name[reg_id] << ",-" << offset << "($" << start_pos << ")" << endl;
-    }else{
-        //cout << name << "$$$ Not dirty." << endl;
     }
+//    else{
+//        cout << name << "$$$ Not dirty." << reg_id << endl;
+//    }
+//    cout << "@#$@@" << endl;
     
     mp_reg[reg_id] = make_pair(name, program_id);
     mp_reg_line[reg_id] = line_id;
@@ -157,6 +163,12 @@ string getT(string name, int program_id, int line_id, int& reg_id, bool is_load,
         calcOffset(name, program_id, start_pos, offset);
         asm_out << "lw\t" << mp_reg_name[reg_id] << ",-" << offset << "($" << start_pos << ")" << endl;
     }//    mp_v_dirty[program_id][name]++;
+    
+    //下面这两行是最后加的，不加的话，可能效果会变差，但不影响正确性。
+    mp_v_dirty[program_id][mp_reg_name[reg_id]] = 0; //AAAAA //按道理是需要加的，因为刚分配的时候不是脏的，我们都是出现在赋值左部
+    dirty[reg_id] = false; //AAAAA
+    
+    
     return mp_reg_name[reg_id];
 }
 void allocateZero(){
@@ -314,6 +326,10 @@ void assiMips(const Quat& q, int quat_i){ // y = x//赋值语句的转化
     asm_out << "#" << q.op1 << " " << q.type << " " << q.op2 << endl;
     #endif
 
+    if (q.op1=="e"){
+        int xr;
+        xr=1;
+    }
     string t_reg_2 = getT(q.op2, q.program_id, quat_i, reg_id_2, true, false), t_reg_1 = getT(q.op1, q.program_id, quat_i, reg_id_1, false, true);
     if (reg_id_1 >= T_START && reg_id_1 <= T_END){
         dirty[reg_id_1] = true; //脏位修改为true， 代表被修改过了
@@ -580,7 +596,8 @@ void init_reg(int i){
     int offset;
     string start_pos;
     rep (j, T_START, T_END){
-        if (dirty[j]) { //进行写回内存
+        if (dirty[j])
+        { //进行写回内存
             int pos = locateVariable(mp_reg[j].first, quat[i].program_id, offset); //如果是临时变量,pos = 0//把相对于函数的偏移量保存到offset //到四元式这一步，肯定是有定义了
             if (pos == -2){ //以防万一，!!!可删 -1是RET,虽然已经先处理过了RET了
                 cout << mp_reg[j].first << "!!!ERROR:Not Defined_REG$$$" << endl;

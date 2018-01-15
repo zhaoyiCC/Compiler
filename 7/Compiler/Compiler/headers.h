@@ -21,12 +21,12 @@
 #define MAX_TAB 10000
 
 #define globalRegConflictDefinePos
-#define globalReg
+//#define globalReg
 #define constDelete
 #define printNonSeprate
 
 #define mips
-#define println
+//#define println
 //#define debug
 
 //#define dagxyz

@@ -385,7 +385,7 @@ void dagBlock(int quat_start, int quat_end){
 void dagWork(){ //处理DAG图，首先划分基本块
     int quat_start = 0, quat_now;
     rep (i, 1, cnt_quat){
-        if (quat[i].type=="BEGIN" || quat[i].type=="GOTO" || quat[i].type=="call" || quat[i].type == "BZ" || quat[i].type == "ret" || quat[i].type == "READ"){ //|| quat[i].type == "PRINT" //quat[i].op3=="[]=" || quat[i].op3=="=[]"
+        if (quat[i].type=="BEGIN" || quat[i].type=="GOTO" || quat[i].type=="call" || quat[i].type == "BZ" || quat[i].type == "ret" || quat[i].type == "READ" ){ //|| quat[i].type == "PRINT" //quat[i].op3=="[]=" || quat[i].op3=="=[]"
             quat[i+1].block_id = 0; //!!!BEGIN下面的那一句(即定义后的第一句话)是块的入口语句
             if (quat_start == 0)
                 quat_start = i + 1;
