@@ -1,0 +1,72 @@
+----------------------Start Line Analysis--------------
+Line44(call fib)    Block:4 --> 2
+Line48(call fib)    Block:5 --> 2
+Line55(call caltest)    Block:8 --> 4
+
+Line6 (Block1)    NEXT: 2
+Line19 (Block3)    NEXT: 4
+Line44 (Block4)    NEXT: 5
+Line48 (Block5)    NEXT: 6
+Line53 (Block7)    NEXT: 8
+----------------------End Line Analysis-----------------
+
+----------------------Print Block suffix----------------
+Block 1 ----------> 2,
+Block 2 ----------> 
+Block 3 ----------> 4,
+Block 4 ----------> 2,5,
+Block 5 ----------> 2,6,
+Block 6 ----------> 
+Block 7 ----------> 8,
+Block 8 ----------> 4,
+Block 9 ----------> 
+----------------------End Block suffix------------------
+
+7***8
+-----------Block2-----------
+Out::: 
+Use::: x y 
+Def::: #1 
+ In::: x y 
+-----------Block2-----------
+Out::: 
+Use::: x y 
+Def::: #1 
+ In::: x y 
+20***51
+-----------Block6-----------
+Out::: 
+Use::: #17 
+Def::: #18 h 
+ In::: #17 
+-----------Block5-----------
+Out::: #17 
+Use::: 
+Def::: #17 
+ In::: 
+-----------Block4-----------
+Out::: 
+Use::: 
+Def::: #12 #13 #14 #15 #16 a b c d e f g 
+ In::: 
+-----------Block6-----------
+Out::: 
+Use::: #17 
+Def::: #18 h 
+ In::: #17 
+-----------Block5-----------
+Out::: #17 
+Use::: 
+Def::: #17 
+ In::: 
+-----------Block4-----------
+Out::: 
+Use::: 
+Def::: #12 #13 #14 #15 #16 a b c d e f g 
+ In::: 
+54***55
+-----------Block8-----------
+Out::: 
+Use::: 
+Def::: 
+ In::: 

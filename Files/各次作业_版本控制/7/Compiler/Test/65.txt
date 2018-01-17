@@ -1,0 +1,6 @@
+void init(int x, int y, int z){
+	x=666;
+	y=777;
+	z=888;
+}
+void main(){	int i;	init(2,3,4);}

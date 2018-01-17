@@ -1,0 +1,49 @@
+int mod(int n, int m){
+	const int kkkk = 666;
+	int yyy;
+    return (n - n / m * m);
+}
+int is_prime(int x){
+    int i,toy;
+    i = 2;
+    if (x == 2)
+        return (1);
+    for(toy=0;i*i<x;toy=toy+1) {
+        if (mod(x, i) == 0)
+            return (0);
+        i = i + 1;
+    }
+    return (1);
+}
+
+void main(){
+int n;
+int i, first,toy,fuck;
+scanf(n);
+    i = 2;
+    first = 0;
+    if (n == 1){
+        printf("1");
+        return ;
+    }
+    for(fuck=0;i*i<n;fuck=fuck+1) {
+        if (is_prime(i) == 1) {
+            if (mod(n, i) == 0){
+                for(toy=0;mod(n,i)==0;toy=toy+1) {
+                    n = n / i;
+                    if (first == 1)
+                        printf("*");
+                    first = 1;
+                    printf(i);
+                }
+            }
+        }
+        i = i + 1;
+    }
+
+    if (n != 1){
+        if (first == 1)
+            printf("*");
+        printf(n);
+    }
+}

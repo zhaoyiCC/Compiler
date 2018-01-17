@@ -1,0 +1,56 @@
+var int u
+int fib()
+para int x
+para int y
+var int u
+BEGIN
+#1 = x + y
+ret #1
+void caltest()
+para int x
+var int a
+var int b
+var int c
+var int d
+var int e
+var int f
+var int g
+var int h
+BEGIN
+a = 66
+b = -84
+c = -1027
+d = -6
+e = 19298
+#12 = a
+PRINT_int #12
+PRINTLN
+#13 = b
+PRINT_int #13
+PRINTLN
+#14 = c
+PRINT_int #14
+PRINTLN
+#15 = d
+PRINT_int #15
+PRINTLN
+#16 = e
+PRINT_int #16
+PRINTLN
+f = a
+g = b
+PUSH 1
+PUSH 2
+call fib
+#17 = RET_int
+PUSH 3
+PUSH 4
+call fib
+#18 = RET_int
+#19 = #17 + #18
+h = #19
+ret 
+void main()
+BEGIN
+PUSH 2
+call caltest

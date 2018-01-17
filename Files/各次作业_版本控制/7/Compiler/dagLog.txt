@@ -1,0 +1,109 @@
+***************7    8**************
+ADDLEAF: x
+ADDLEAF: y
+ADD_TO_ROUTE:(#1,3)
+#1=x+y
+ret ~~~~
+***************9    19**************
+void_ ~~~~
+parameter_int ~~~~
+variable_int ~~~~
+variable_int ~~~~
+variable_int ~~~~
+variable_int ~~~~
+variable_int ~~~~
+variable_int ~~~~
+variable_int ~~~~
+variable_int ~~~~
+BEGIN ~~~~
+***************20    44**************
+ADDLEAF: 66
+ADDLEAF: -84
+ADDLEAF: -1027
+ADDLEAF: -6
+ADDLEAF: 19298
+ADDLEAF: a
+#12:::11
+ADDLEAF: b
+#12:::11
+#13:::12
+ADDLEAF: c
+#12:::11
+#13:::12
+#14:::13
+ADDLEAF: d
+#12:::11
+#13:::12
+#14:::13
+#15:::14
+ADDLEAF: e
+#12:::11
+#13:::12
+#14:::13
+#15:::14
+#16:::15
+ADDLEAF: a
+f&&&11
+ADDLEAF: b
+g&&&12
+ADD_TO_ROUTE:(#16,15)
+ADD_TO_ROUTE:(#15,14)
+ADD_TO_ROUTE:(#14,13)
+ADD_TO_ROUTE:(g,12)
+ADD_TO_ROUTE:(#13,12)
+ADD_TO_ROUTE:(f,11)
+ADD_TO_ROUTE:(#12,11)
+ADD_TO_ROUTE:(e,10)
+ADD_TO_ROUTE:(d,8)
+ADD_TO_ROUTE:(c,6)
+ADD_TO_ROUTE:(b,4)
+ADD_TO_ROUTE:(a,2)
+a=66
+b=-84
+c=-1027
+d=-6
+e=19298
+#12=a
+f=a
+#13=b
+g=b
+#14=c
+#15=d
+#16=e
+PRINT_int #12
+PRINTLN ~~~~
+PRINT_int #13
+PRINTLN ~~~~
+PRINT_int #14
+PRINTLN ~~~~
+PRINT_int #15
+PRINTLN ~~~~
+PRINT_int #16
+PRINTLN ~~~~
+PUSH ~~~~
+PUSH ~~~~
+call ~~~~
+***************45    48**************
+ADDLEAF: RET_int
+ADD_TO_ROUTE:(#17,2)
+#17=RET_int
+PUSH ~~~~
+PUSH ~~~~
+call ~~~~
+***************49    52**************
+ADDLEAF: RET_int
+ADDLEAF: #17
+ADDLEAF: #18
+ADDLEAF: #19
+ADD_TO_ROUTE:(h,5)
+ADD_TO_ROUTE:(#19,4)
+ADD_TO_ROUTE:(#18,2)
+#18=RET_int
+#19=#17+#18
+ret ~~~~
+***************53    54**************
+void_ ~~~~
+BEGIN ~~~~
+***************55    56**************
+PUSH ~~~~
+call ~~~~

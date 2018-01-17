@@ -1,0 +1,351 @@
+---------------------------Program_id:1 Line 7~8--------------------
+----------Line8-----------
+Out_Line::: 
+Use_Line::: #1 
+Def_Line::: 
+ In_Line::: #1 
+----------Line7-----------
+Out_Line::: #1 
+Use_Line::: x y 
+Def_Line::: #1 
+ In_Line::: x y 
+
+----Start NonConfilct Variable---
+#1:    REG23   $s7
+------End NonConfilct Variable---
+
+-------------Conlict Start----------------
+-------------Conlict End------------------
+
+----Start Graph Coloring---
+------End Graph Coloring---
+---------------------------Program_id:1 Conlict End-------------------
+
+---------------------------Program_id:2 Line 20~51--------------------
+----------Line51-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line50-----------
+Out_Line::: 
+Use_Line::: #17 #18 
+Def_Line::: h 
+ In_Line::: #17 #18 
+----------Line49-----------
+Out_Line::: #17 #18 
+Use_Line::: 
+Def_Line::: #18 
+ In_Line::: #17 
+----------Line48-----------
+Out_Line::: #17 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: #17 
+----------Line47-----------
+Out_Line::: #17 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: #17 
+----------Line46-----------
+Out_Line::: #17 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: #17 
+----------Line45-----------
+Out_Line::: #17 
+Use_Line::: 
+Def_Line::: #17 
+ In_Line::: 
+----------Line44-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line43-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line42-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line41-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line40-----------
+Out_Line::: 
+Use_Line::: #16 
+Def_Line::: 
+ In_Line::: #16 
+----------Line39-----------
+Out_Line::: #16 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: #16 
+----------Line38-----------
+Out_Line::: #16 
+Use_Line::: #15 
+Def_Line::: 
+ In_Line::: #15 #16 
+----------Line37-----------
+Out_Line::: #15 #16 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: #15 #16 
+----------Line36-----------
+Out_Line::: #15 #16 
+Use_Line::: #14 
+Def_Line::: 
+ In_Line::: #14 #15 #16 
+----------Line35-----------
+Out_Line::: #14 #15 #16 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: #14 #15 #16 
+----------Line34-----------
+Out_Line::: #14 #15 #16 
+Use_Line::: #13 
+Def_Line::: 
+ In_Line::: #13 #14 #15 #16 
+----------Line33-----------
+Out_Line::: #13 #14 #15 #16 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: #13 #14 #15 #16 
+----------Line32-----------
+Out_Line::: #13 #14 #15 #16 
+Use_Line::: #12 
+Def_Line::: 
+ In_Line::: #12 #13 #14 #15 #16 
+----------Line31-----------
+Out_Line::: #12 #13 #14 #15 #16 
+Use_Line::: e 
+Def_Line::: #16 
+ In_Line::: #12 #13 #14 #15 e 
+----------Line30-----------
+Out_Line::: #12 #13 #14 #15 e 
+Use_Line::: d 
+Def_Line::: #15 
+ In_Line::: #12 #13 #14 d e 
+----------Line29-----------
+Out_Line::: #12 #13 #14 d e 
+Use_Line::: c 
+Def_Line::: #14 
+ In_Line::: #12 #13 c d e 
+----------Line28-----------
+Out_Line::: #12 #13 c d e 
+Use_Line::: b 
+Def_Line::: g 
+ In_Line::: #12 #13 b c d e 
+----------Line27-----------
+Out_Line::: #12 #13 b c d e 
+Use_Line::: b 
+Def_Line::: #13 
+ In_Line::: #12 b c d e 
+----------Line26-----------
+Out_Line::: #12 b c d e 
+Use_Line::: a 
+Def_Line::: f 
+ In_Line::: #12 a b c d e 
+----------Line25-----------
+Out_Line::: #12 a b c d e 
+Use_Line::: a 
+Def_Line::: #12 
+ In_Line::: a b c d e 
+----------Line24-----------
+Out_Line::: a b c d e 
+Use_Line::: 
+Def_Line::: e 
+ In_Line::: a b c d 
+----------Line23-----------
+Out_Line::: a b c d 
+Use_Line::: 
+Def_Line::: d 
+ In_Line::: a b c 
+----------Line22-----------
+Out_Line::: a b c 
+Use_Line::: 
+Def_Line::: c 
+ In_Line::: a b 
+----------Line21-----------
+Out_Line::: a b 
+Use_Line::: 
+Def_Line::: b 
+ In_Line::: a 
+----------Line20-----------
+Out_Line::: a 
+Use_Line::: 
+Def_Line::: a 
+ In_Line::: 
+
+----Start NonConfilct Variable---
+h:    REG23   $s7
+------End NonConfilct Variable---
+
+-------------Conlict Start----------------
+#12:::      #13 #14 #15 #16 e d c g b f a 
+#13:::      #14 #15 #16 #12 e d c g b 
+#14:::      #15 #16 #13 #12 e d 
+#15:::      #16 #14 #13 #12 e 
+#16:::      #15 #14 #13 #12 
+#17:::      #18 
+#18:::      #17 
+a:::      #12 b c d e 
+b:::      #12 #13 c d e f a 
+c:::      #12 #13 d e g b f a 
+d:::      #12 #13 #14 e c g b f a 
+e:::      #12 #13 #14 #15 d c g b f a 
+f:::      #12 b c d e 
+g:::      #12 #13 c d e 
+Choose:#18  Degree:1
+#12:::      #13 #14 #15 #16 e d c g b f a 
+#13:::      #14 #15 #16 #12 e d c g b 
+#14:::      #15 #16 #13 #12 e d 
+#15:::      #16 #14 #13 #12 e 
+#16:::      #15 #14 #13 #12 
+#17:::      
+a:::      #12 b c d e 
+b:::      #12 #13 c d e f a 
+c:::      #12 #13 d e g b f a 
+d:::      #12 #13 #14 e c g b f a 
+e:::      #12 #13 #14 #15 d c g b f a 
+f:::      #12 b c d e 
+g:::      #12 #13 c d e 
+Choose:#17  Degree:0
+#12:::      #13 #14 #15 #16 e d c g b f a 
+#13:::      #14 #15 #16 #12 e d c g b 
+#14:::      #15 #16 #13 #12 e d 
+#15:::      #16 #14 #13 #12 e 
+#16:::      #15 #14 #13 #12 
+a:::      #12 b c d e 
+b:::      #12 #13 c d e f a 
+c:::      #12 #13 d e g b f a 
+d:::      #12 #13 #14 e c g b f a 
+e:::      #12 #13 #14 #15 d c g b f a 
+f:::      #12 b c d e 
+g:::      #12 #13 c d e 
+Choose:#16  Degree:4
+#12:::      #13 #14 #15 e d c g b f a 
+#13:::      #14 #15 #12 e d c g b 
+#14:::      #15 #13 #12 e d 
+#15:::      #14 #13 #12 e 
+a:::      #12 b c d e 
+b:::      #12 #13 c d e f a 
+c:::      #12 #13 d e g b f a 
+d:::      #12 #13 #14 e c g b f a 
+e:::      #12 #13 #14 #15 d c g b f a 
+f:::      #12 b c d e 
+g:::      #12 #13 c d e 
+Choose:#15  Degree:4
+#12:::      #13 #14 e d c g b f a 
+#13:::      #14 #12 e d c g b 
+#14:::      #13 #12 e d 
+a:::      #12 b c d e 
+b:::      #12 #13 c d e f a 
+c:::      #12 #13 d e g b f a 
+d:::      #12 #13 #14 e c g b f a 
+e:::      #12 #13 #14 d c g b f a 
+f:::      #12 b c d e 
+g:::      #12 #13 c d e 
+Choose:#14  Degree:4
+#12:::      #13 e d c g b f a 
+#13:::      #12 e d c g b 
+a:::      #12 b c d e 
+b:::      #12 #13 c d e f a 
+c:::      #12 #13 d e g b f a 
+d:::      #12 #13 e c g b f a 
+e:::      #12 #13 d c g b f a 
+f:::      #12 b c d e 
+g:::      #12 #13 c d e 
+Choose:g  Degree:5
+#12:::      #13 e d c b f a 
+#13:::      #12 e d c b 
+a:::      #12 b c d e 
+b:::      #12 #13 c d e f a 
+c:::      #12 #13 d e b f a 
+d:::      #12 #13 e c b f a 
+e:::      #12 #13 d c b f a 
+f:::      #12 b c d e 
+Choose:f  Degree:5
+#12:::      #13 e d c b a 
+#13:::      #12 e d c b 
+a:::      #12 b c d e 
+b:::      #12 #13 c d e a 
+c:::      #12 #13 d e b a 
+d:::      #12 #13 e c b a 
+e:::      #12 #13 d c b a 
+Choose:a  Degree:5
+#12:::      #13 e d c b 
+#13:::      #12 e d c b 
+b:::      #12 #13 c d e 
+c:::      #12 #13 d e b 
+d:::      #12 #13 e c b 
+e:::      #12 #13 d c b 
+Choose:#12  Degree:5
+#13:::      e d c b 
+b:::      #13 c d e 
+c:::      #13 d e b 
+d:::      #13 e c b 
+e:::      #13 d c b 
+Choose:#13  Degree:4
+b:::      c d e 
+c:::      d e b 
+d:::      e c b 
+e:::      d c b 
+Choose:b  Degree:3
+c:::      d e 
+d:::      e c 
+e:::      d c 
+Choose:c  Degree:2
+d:::      e 
+e:::      d 
+Choose:d  Degree:1
+e:::      
+Choose:e  Degree:0
+-------------Conlict End------------------
+
+----Start Graph Coloring---
+e:    Reg16     $s0
+d:    Reg17     $s1
+c:    Reg18     $s2
+b:    Reg19     $s3
+#13:    Reg20     $s4
+#12:    Reg21     $s5
+a:    Reg20     $s4
+f:    Reg20     $s4
+g:    Reg19     $s3
+#14:    Reg18     $s2
+#15:    Reg17     $s1
+#16:    Reg16     $s0
+#17:    Reg16     $s0
+#18:    Reg17     $s1
+------End Graph Coloring---
+---------------------------Program_id:2 Conlict End-------------------
+
+---------------------------Program_id:3 Line 54~55--------------------
+----------Line55-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line54-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+
+----Start NonConfilct Variable---
+------End NonConfilct Variable---
+
+-------------Conlict Start----------------
+-------------Conlict End------------------
+
+----Start Graph Coloring---
+------End Graph Coloring---
+---------------------------Program_id:3 Conlict End-------------------
+

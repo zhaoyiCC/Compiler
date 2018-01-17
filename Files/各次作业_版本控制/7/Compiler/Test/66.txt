@@ -1,0 +1,15 @@
+void main(){	int a,b,tmp,x,y,z;
+	scanf(a);
+	tmp = a;
+	scanf(b);
+	a=b;
+	b=tmp;
+	printf(a);
+	z=b+3;
+	y=b+3;
+	scanf(z);
+	b=z+y;
+	printf(b);
+	printf(z);
+	printf(y);
+}

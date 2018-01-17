@@ -1,9 +1,0 @@
-void work(){
-
-}
-void main(){
-    int pppppppppppp
-    printf("f:\a\b\n");
-    work();
-    return (0);
-}

@@ -1,0 +1,80 @@
+.data
+
+.text
+
+move	$gp, $sp
+subi	$sp,$sp,0
+j	main
+
+main:
+move	$s1,$sp
+move	$s0,$fp
+addi	$fp,$sp,0
+subi	$sp,$sp,4
+#END Const&Variable define
+sw	$s1,0($sp)
+addi	$sp,$sp,-4
+
+sw	$ra,0($sp)
+addi	$sp,$sp,-4
+
+sw	$s0,0($sp)
+addi	$sp,$sp,-4
+
+addi	$sp,$sp,-8
+#a = 'a'
+#~~~'a'
+li	$t2,97
+#~~~a
+subi	$t1,$fp,0
+
+sw	$t2,0($t1)
+##1 = 'a' + 1
+#~~~1
+li	$t2,1
+#~~~'a'
+li	$t1,97
+add	$t1,$t1,$t2
+#~~~#1
+subi	$t3,$fp,16
+
+sw	$t1,0($t3)
+#a = #1
+#~~~#1
+lw	$t2,-16($fp)
+#~~~a
+subi	$t1,$fp,0
+
+sw	$t2,0($t1)
+#	PRINT a
+#~~~a
+lw	$t1,-0($fp)
+move	$a0,$t1
+li	$v0,11
+syscall
+
+#	PRINTLN 
+li	$a0,'\n'
+li	$v0,11
+syscall
+##2 = 'b' + 1
+#~~~1
+li	$t2,1
+#~~~'b'
+li	$t1,98
+add	$t1,$t1,$t2
+#~~~#2
+subi	$t3,$fp,20
+
+sw	$t1,0($t3)
+#	PRINT #2
+#~~~#2
+lw	$t1,-20($fp)
+move	$a0,$t1
+li	$v0,1
+syscall
+
+#	PRINTLN 
+li	$a0,'\n'
+li	$v0,11
+syscall

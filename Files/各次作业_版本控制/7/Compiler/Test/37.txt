@@ -1,0 +1,13 @@
+int calc(){
+	int a, b, c, d, e, f;
+    a = 1;
+	b = 232;
+    b = a + b; 
+return (b);
+}
+
+void main()
+{
+printf(calc());
+	return;
+}

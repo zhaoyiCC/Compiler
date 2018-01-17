@@ -1,0 +1,1242 @@
+***************8    14**************
+ADDLEAF: 1
+#1:::2
+ADDLEAF: '/'
+#1:::2
+#2:::4
+ADD_TO_ROUTE:(#2,4)
+ADD_TO_ROUTE:(#1,2)
+#1=1
+#2='/'
+PRINT_int #1
+PRINTLN ~~~~
+PRINT_char #2
+PRINTLN ~~~~
+ret ~~~~
+***************15    16**************
+void_ ~~~~
+BEGIN ~~~~
+***************17    17**************
+call ~~~~
+***************18    18**************
+ret ~~~~
+***************19    34**************
+void_ ~~~~
+variable_int ~~~~
+variable_int[] ~~~~
+variable_int ~~~~
+variable_int[] ~~~~
+variable_int ~~~~
+variable_int[] ~~~~
+variable_char ~~~~
+variable_char[] ~~~~
+variable_char ~~~~
+variable_char[] ~~~~
+variable_char ~~~~
+variable_char[] ~~~~
+variable_int ~~~~
+variable_char ~~~~
+BEGIN ~~~~
+***************35    35**************
+ret ~~~~
+***************36    37**************
+void_ ~~~~
+BEGIN ~~~~
+***************38    38**************
+call ~~~~
+***************39    39**************
+ret ~~~~
+***************40    44**************
+void_ ~~~~
+variable_int ~~~~
+variable_char ~~~~
+variable_char[] ~~~~
+BEGIN ~~~~
+***************45    45**************
+ret ~~~~
+***************46    47**************
+void_ ~~~~
+BEGIN ~~~~
+***************48    48**************
+call ~~~~
+***************49    49**************
+call ~~~~
+***************50    50**************
+call ~~~~
+***************51    53**************
+PRINT_string "define test passed"
+PRINTLN ~~~~
+ret ~~~~
+***************54    61**************
+void_ ~~~~
+variable_int ~~~~
+variable_int ~~~~
+variable_int ~~~~
+variable_int ~~~~
+variable_int ~~~~
+variable_int ~~~~
+BEGIN ~~~~
+***************62    89**************
+ADDLEAF: 1
+ADDLEAF: 3
+ADDLEAF: 3
+c&&&4
+ADDLEAF: -4
+ADDLEAF: 5
+ADDLEAF: 6
+ADDLEAF: b
+ADDLEAF: 3
+ADDLEAF: #6
+ADDLEAF: c
+ADDLEAF: d
+ADDLEAF: 4
+ADDLEAF: #7
+ADDLEAF: #8
+ADDLEAF: a
+ADDLEAF: a
+ADDLEAF: #9
+ADDLEAF: #10
+ADDLEAF: #11
+ADDLEAF: 0
+ADDLEAF: a
+ADDLEAF: a
+ADDLEAF: 3
+ADDLEAF: #12
+ADDLEAF: #13
+ADDLEAF: #14
+ADDLEAF: c
+ADDLEAF: d
+ADDLEAF: 4
+#16&&&14
+ADDLEAF: #15
+ADDLEAF: #16
+ADDLEAF: e
+ADDLEAF: f
+ADDLEAF: #17
+ADDLEAF: #18
+ADDLEAF: #19
+ADDLEAF: 0
+ADDLEAF: a
+ADDLEAF: b
+ADDLEAF: 0
+ADDLEAF: #20
+ADDLEAF: #21
+ADDLEAF: #22
+ADDLEAF: 1
+ADDLEAF: #24
+ADD_TO_ROUTE:(e,32)
+ADD_TO_ROUTE:(#24,31)
+ADD_TO_ROUTE:(#22,30)
+ADD_TO_ROUTE:(#21,29)
+ADD_TO_ROUTE:(#20,28)
+ADD_TO_ROUTE:(b,27)
+ADD_TO_ROUTE:(#19,26)
+ADD_TO_ROUTE:(#18,25)
+ADD_TO_ROUTE:(#17,24)
+ADD_TO_ROUTE:(#15,23)
+ADD_TO_ROUTE:(#14,22)
+ADD_TO_ROUTE:(#13,21)
+ADD_TO_ROUTE:(#12,20)
+ADD_TO_ROUTE:(a,18)
+ADD_TO_ROUTE:(#11,17)
+ADD_TO_ROUTE:(#10,16)
+ADD_TO_ROUTE:(#9,15)
+ADD_TO_ROUTE:(#16,14)
+ADD_TO_ROUTE:(#7,12)
+ADD_TO_ROUTE:(#6,11)
+ADD_TO_ROUTE:(f,10)
+ADD_TO_ROUTE:(e,8)
+ADDDDDD TEMP Node#83:::8
+ADD_TO_ROUTE:(#83,8)
+ADD_TO_ROUTE:(d,6)
+ADD_TO_ROUTE:(c,4)
+ADD_TO_ROUTE:(b,4)
+ADD_TO_ROUTE:(a,2)
+ADDDDDD TEMP Node#84:::2
+ADD_TO_ROUTE:(#84,2)
+#84=1
+a=1
+b=3
+c=3
+d=-4
+#83=5
+e=5
+f=6
+#6=c*3
+#7=#6+c
+#16=d/4
+#9=#7-#16
+#10=#84/#84
+#11=#9+#10
+#12=0+a
+#13=a*3
+#14=#12+#13
+#15=#14+c
+#17=#15-#16
+#18=#83*f
+#19=#17+#18
+#20=0-a
+#21=b*0
+#22=#20+#21
+#24=#22-1
+ret ~~~~
+***************90    91**************
+void_ ~~~~
+BEGIN ~~~~
+***************92    92**************
+call ~~~~
+***************93    95**************
+PRINT_string "operator test passed"
+PRINTLN ~~~~
+ret ~~~~
+***************96    97**************
+void_ ~~~~
+BEGIN ~~~~
+***************98    102**************
+PRINT_string "ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz"
+PRINTLN ~~~~
+PRINT_string "!#$%&'()*+,-./:;<=>?@[]^_`{|}~"
+PRINTLN ~~~~
+ret ~~~~
+***************103    104**************
+void_ ~~~~
+BEGIN ~~~~
+***************105    105**************
+call ~~~~
+***************106    106**************
+ret ~~~~
+***************107    110**************
+void_ ~~~~
+variable_int ~~~~
+variable_int ~~~~
+BEGIN ~~~~
+***************111    112**************
+ADDLEAF: 100
+ADDLEAF: 0
+ADD_TO_ROUTE:(toy,4)
+ADD_TO_ROUTE:(i,2)
+i=100
+toy=0
+***************113    114**************
+>= ~~~~
+BZ ~~~~
+***************115    116**************
+ADDLEAF: i
+ADDLEAF: 2
+ADDLEAF: #25
+ADD_TO_ROUTE:(i,4)
+ADD_TO_ROUTE:(#25,3)
+#25=i/2
+***************117    118**************
+< ~~~~
+BZ ~~~~
+***************119    121**************
+ADDLEAF: i
+ADDLEAF: 10
+ADDLEAF: #26
+ADDLEAF: 10
+ADDLEAF: #27
+ADD_TO_ROUTE:(i,5)
+ADD_TO_ROUTE:(#27,4)
+ADD_TO_ROUTE:(#26,3)
+#26=i+10
+#27=#26/10
+***************122    124**************
+ADDLEAF: toy
+ADDLEAF: 1
+ADD_TO_ROUTE:(toy,3)
+toy=toy+1
+>= ~~~~
+BZ ~~~~
+***************125    125**************
+GOTO ~~~~
+***************126    126**************
+ADDLEAF: 0
+ADD_TO_ROUTE:(toy,2)
+toy=0
+***************127    133**************
+ADDLEAF: i
+ADDLEAF: 1
+ADDLEAF: #28
+ADDLEAF: toy
+ADDLEAF: 1
+ADD_TO_ROUTE:(toy,6)
+ADD_TO_ROUTE:(i,4)
+ADD_TO_ROUTE:(#28,3)
+#28=i-1
+toy=toy+1
+PRINT_string "dowhile test passed"
+PRINTLN ~~~~
+!= ~~~~
+BZ ~~~~
+***************134    134**************
+GOTO ~~~~
+***************135    135**************
+ret ~~~~
+***************136    137**************
+void_ ~~~~
+BEGIN ~~~~
+***************138    138**************
+call ~~~~
+***************139    139**************
+ret ~~~~
+***************140    143**************
+void_ ~~~~
+variable_int ~~~~
+variable_int ~~~~
+BEGIN ~~~~
+***************144    147**************
+ADDLEAF: 1
+ADDLEAF: 0
+ADD_TO_ROUTE:(rightnumber,4)
+ADD_TO_ROUTE:(a,2)
+a=1
+rightnumber=0
+== ~~~~
+BZ ~~~~
+***************148    149**************
+ADDLEAF: rightnumber
+ADDLEAF: 1
+ADDLEAF: #29
+ADD_TO_ROUTE:(rightnumber,4)
+ADD_TO_ROUTE:(#29,3)
+#29=rightnumber+1
+***************150    152**************
+ADDLEAF: 2
+ADD_TO_ROUTE:(a,2)
+a=2
+> ~~~~
+BZ ~~~~
+***************153    154**************
+ADDLEAF: rightnumber
+ADDLEAF: 1
+ADDLEAF: #30
+ADD_TO_ROUTE:(rightnumber,4)
+ADD_TO_ROUTE:(#30,3)
+#30=rightnumber+1
+***************155    157**************
+ADDLEAF: 0
+ADD_TO_ROUTE:(a,2)
+a=0
+< ~~~~
+BZ ~~~~
+***************158    159**************
+ADDLEAF: rightnumber
+ADDLEAF: 1
+ADDLEAF: #31
+ADD_TO_ROUTE:(rightnumber,4)
+ADD_TO_ROUTE:(#31,3)
+#31=rightnumber+1
+***************160    161**************
+!= ~~~~
+BZ ~~~~
+***************162    163**************
+ADDLEAF: rightnumber
+ADDLEAF: 1
+ADDLEAF: #32
+ADD_TO_ROUTE:(rightnumber,4)
+ADD_TO_ROUTE:(#32,3)
+#32=rightnumber+1
+***************164    165**************
+>= ~~~~
+BZ ~~~~
+***************166    167**************
+ADDLEAF: rightnumber
+ADDLEAF: 1
+ADDLEAF: #33
+ADD_TO_ROUTE:(rightnumber,4)
+ADD_TO_ROUTE:(#33,3)
+#33=rightnumber+1
+***************168    169**************
+<= ~~~~
+BZ ~~~~
+***************170    171**************
+ADDLEAF: rightnumber
+ADDLEAF: 1
+ADDLEAF: #34
+ADD_TO_ROUTE:(rightnumber,4)
+ADD_TO_ROUTE:(#34,3)
+#34=rightnumber+1
+***************172    173**************
+!= ~~~~
+BZ ~~~~
+***************174    175**************
+PRINT_string "ifcondition clause error!"
+PRINTLN ~~~~
+***************176    177**************
+!= ~~~~
+BZ ~~~~
+***************178    179**************
+PRINT_string "ifcondition clause error"
+PRINTLN ~~~~
+***************180    180**************
+ret ~~~~
+***************181    183**************
+function_int ~~~~
+parameter_int ~~~~
+BEGIN ~~~~
+***************184    186**************
+SWITCH ~~~~
+== ~~~~
+BZ ~~~~
+***************187    187**************
+ret ~~~~
+***************188    188**************
+GOTO ~~~~
+***************189    190**************
+== ~~~~
+BZ ~~~~
+***************191    191**************
+ret ~~~~
+***************192    192**************
+GOTO ~~~~
+***************193    194**************
+== ~~~~
+BZ ~~~~
+***************195    195**************
+ret ~~~~
+***************196    196**************
+GOTO ~~~~
+***************197    197**************
+ret ~~~~
+***************198    202**************
+function_int ~~~~
+variable_int ~~~~
+variable_int ~~~~
+variable_int ~~~~
+BEGIN ~~~~
+***************203    205**************
+ADDLEAF: 1
+ADDLEAF: 0
+ADDLEAF: 0
+toy&&&4
+ADD_TO_ROUTE:(toy,4)
+ADD_TO_ROUTE:(rightnumber,4)
+ADD_TO_ROUTE:(i,2)
+i=1
+rightnumber=0
+toy=0
+***************206    208**************
+ADDLEAF: i
+ADDLEAF: 1
+ADD_TO_ROUTE:(#39,3)
+#39=i+1
+PUSH ~~~~
+call ~~~~
+***************209    211**************
+ADDLEAF: RET_int
+ADD_TO_ROUTE:(#40,2)
+#40=RET_int
+== ~~~~
+BZ ~~~~
+***************212    213**************
+ADDLEAF: rightnumber
+ADDLEAF: 1
+ADDLEAF: #41
+ADD_TO_ROUTE:(rightnumber,4)
+ADD_TO_ROUTE:(#41,3)
+#41=rightnumber+1
+***************214    218**************
+ADDLEAF: i
+ADDLEAF: 1
+ADDLEAF: #42
+ADDLEAF: toy
+ADDLEAF: 1
+ADD_TO_ROUTE:(toy,6)
+ADD_TO_ROUTE:(i,4)
+ADD_TO_ROUTE:(#42,3)
+#42=i+1
+toy=toy+1
+< ~~~~
+BZ ~~~~
+***************219    219**************
+GOTO ~~~~
+***************220    221**************
+!= ~~~~
+BZ ~~~~
+***************222    223**************
+PRINT_string "switchcodintion clause  error!"
+PRINTLN ~~~~
+***************224    225**************
+!= ~~~~
+BZ ~~~~
+***************226    226**************
+ret ~~~~
+***************227    232**************
+PRINT_string "switchcodintion clause  error!"
+PRINTLN ~~~~
+void_ ~~~~
+variable_int ~~~~
+variable_int ~~~~
+BEGIN ~~~~
+***************233    234**************
+ADDLEAF: 0
+ADDLEAF: 0
+toy&&&2
+ADD_TO_ROUTE:(toy,2)
+ADD_TO_ROUTE:(iter,2)
+iter=0
+toy=0
+***************235    237**************
+SWITCH ~~~~
+== ~~~~
+BZ ~~~~
+***************238    239**************
+!= ~~~~
+BZ ~~~~
+***************240    241**************
+PRINT_string "error 0"
+PRINTLN ~~~~
+***************242    242**************
+GOTO ~~~~
+***************243    244**************
+== ~~~~
+BZ ~~~~
+***************245    246**************
+!= ~~~~
+BZ ~~~~
+***************247    248**************
+PRINT_string "error 1"
+PRINTLN ~~~~
+***************249    249**************
+GOTO ~~~~
+***************250    251**************
+== ~~~~
+BZ ~~~~
+***************252    253**************
+!= ~~~~
+BZ ~~~~
+***************254    255**************
+PRINT_string "error 2"
+PRINTLN ~~~~
+***************256    256**************
+GOTO ~~~~
+***************257    261**************
+ADDLEAF: iter
+ADDLEAF: 1
+ADDLEAF: #43
+ADDLEAF: toy
+ADDLEAF: 1
+ADD_TO_ROUTE:(toy,6)
+ADD_TO_ROUTE:(iter,4)
+ADD_TO_ROUTE:(#43,3)
+#43=iter+1
+toy=toy+1
+< ~~~~
+BZ ~~~~
+***************262    262**************
+GOTO ~~~~
+***************263    263**************
+ret ~~~~
+***************264    265**************
+void_ ~~~~
+BEGIN ~~~~
+***************266    266**************
+call ~~~~
+***************267    267**************
+call ~~~~
+***************268    268**************
+call ~~~~
+***************269    271**************
+PRINT_string "condition test passed"
+PRINTLN ~~~~
+ret ~~~~
+***************272    281**************
+void_ ~~~~
+variable_int ~~~~
+variable_int ~~~~
+variable_int[] ~~~~
+variable_int ~~~~
+variable_int ~~~~
+variable_int ~~~~
+variable_char ~~~~
+variable_char[] ~~~~
+BEGIN ~~~~
+***************282    285**************
+ADDLEAF: 0
+ADDLEAF: 1
+ADDLEAF: 2
+ADDLEAF: 0
+toy&&&2
+ADD_TO_ROUTE:(a,6)
+ADD_TO_ROUTE:(_,4)
+ADD_TO_ROUTE:(toy,2)
+ADD_TO_ROUTE:(i,2)
+i=0
+toy=0
+_=1
+a=2
+***************286    291**************
+ADDLEAF: i
+ADDLEAF: i
+ADDLEAF: 1
+ADDLEAF: #44
+ADDLEAF: toy
+ADDLEAF: 1
+ADD_TO_ROUTE:(toy,7)
+ADD_TO_ROUTE:(i,5)
+ADD_TO_ROUTE:(#44,4)
+ADD_TO_ROUTE:(array[i],2)
+array[i]=i
+#44=i+1
+toy=toy+1
+< ~~~~
+BZ ~~~~
+***************292    292**************
+GOTO ~~~~
+***************293    295**************
+ADDLEAF: 'a'
+ADDLEAF: 0
+ADDLEAF: 0
+toy&&&4
+ADD_TO_ROUTE:(toy,4)
+ADD_TO_ROUTE:(i,4)
+ADD_TO_ROUTE:(ch1,2)
+ch1='a'
+i=0
+toy=0
+***************296    303**************
+ADDLEAF: ch1
+ADDLEAF: ch1
+ADDLEAF: 1
+ADDLEAF: #45
+ADDLEAF: i
+ADDLEAF: 1
+ADDLEAF: #46
+ADDLEAF: toy
+ADDLEAF: 1
+ADD_TO_ROUTE:(toy,10)
+ADD_TO_ROUTE:(i,8)
+ADD_TO_ROUTE:(#46,7)
+ADD_TO_ROUTE:(ch1,5)
+ADD_TO_ROUTE:(#45,4)
+ADD_TO_ROUTE:(buf[i],2)
+buf[i]=ch1
+#45=ch1+1
+#46=i+1
+toy=toy+1
+< ~~~~
+BZ ~~~~
+***************304    304**************
+GOTO ~~~~
+***************305    307**************
+ADDLEAF: i
+ADDLEAF: 0
+ADDLEAF: 0
+toy&&&4
+ADD_TO_ROUTE:(toy,4)
+ADD_TO_ROUTE:(_,4)
+ADD_TO_ROUTE:(endid,2)
+endid=i
+_=0
+toy=0
+***************308    313**************
+ADDLEAF: _
+ADDLEAF: 1
+ADDLEAF: #47
+ADDLEAF: _
+ADDLEAF: #48
+ADDLEAF: 1
+ADDLEAF: #49
+ADDLEAF: 2
+ADDLEAF: #51
+ADDLEAF: 1
+ADDLEAF: #52
+ADDLEAF: 2
+ADD_TO_ROUTE:(#53,9)
+ADD_TO_ROUTE:(#52,8)
+ADD_TO_ROUTE:(#51,7)
+ADD_TO_ROUTE:(#49,5)
+ADD_TO_ROUTE:(#48,4)
+ADD_TO_ROUTE:(#47,3)
+#47=_*1
+#48=#47-_
+#49=#48-1
+#51=#49+2
+#52=#51-1
+#53=#52/2
+***************314    319**************
+ADDLEAF: 'a'
+ADDLEAF: _
+ADDLEAF: 1
+ADDLEAF: #54
+ADDLEAF: toy
+ADDLEAF: 1
+ADD_TO_ROUTE:(toy,8)
+ADD_TO_ROUTE:(_,6)
+ADD_TO_ROUTE:(#54,5)
+ADD_TO_ROUTE:(buf[#53],2)
+buf[#53]='a'
+#54=_+1
+toy=toy+1
+< ~~~~
+BZ ~~~~
+***************320    320**************
+GOTO ~~~~
+***************321    323**************
+ADDLEAF: buf[0]
+ADD_TO_ROUTE:(#55,2)
+#55=buf[0]
+== ~~~~
+BZ ~~~~
+***************324    325**************
+PRINT_string "miscellaneous test passed"
+PRINTLN ~~~~
+***************326    326**************
+ret ~~~~
+***************327    328**************
+void_ ~~~~
+BEGIN ~~~~
+***************329    329**************
+call ~~~~
+***************330    330**************
+ret ~~~~
+***************331    333**************
+function_int ~~~~
+parameter_int ~~~~
+BEGIN ~~~~
+***************334    336**************
+SWITCH ~~~~
+== ~~~~
+BZ ~~~~
+***************337    337**************
+ret ~~~~
+***************338    338**************
+GOTO ~~~~
+***************339    340**************
+== ~~~~
+BZ ~~~~
+***************341    341**************
+ret ~~~~
+***************342    342**************
+GOTO ~~~~
+***************343    344**************
+== ~~~~
+BZ ~~~~
+***************345    345**************
+ret ~~~~
+***************346    346**************
+GOTO ~~~~
+***************347    349**************
+ADDLEAF: n
+ADDLEAF: 1
+ADD_TO_ROUTE:(#56,3)
+#56=n-1
+PUSH ~~~~
+call ~~~~
+***************350    353**************
+ADDLEAF: RET_int
+ADDLEAF: n
+ADDLEAF: 2
+ADD_TO_ROUTE:(#58,5)
+ADD_TO_ROUTE:(#57,2)
+#57=RET_int
+#58=n-2
+PUSH ~~~~
+call ~~~~
+***************354    356**************
+ADDLEAF: RET_int
+ADDLEAF: #57
+ADDLEAF: #59
+ADD_TO_ROUTE:(#60,4)
+ADD_TO_ROUTE:(#59,2)
+#59=RET_int
+#60=#57+#59
+ret ~~~~
+***************357    360**************
+void_ ~~~~
+variable_int ~~~~
+variable_int ~~~~
+BEGIN ~~~~
+***************361    363**************
+PRINT_string "Fibonaci: Please input a unsigned positive integer ?"
+PRINTLN ~~~~
+READ ~~~~
+***************364    364**************
+ADDLEAF: 0
+ADD_TO_ROUTE:(toy,2)
+toy=0
+***************365    366**************
+< ~~~~
+BZ ~~~~
+***************367    369**************
+PRINT_string "Input error, try again:"
+PRINTLN ~~~~
+READ ~~~~
+***************370    371**************
+>= ~~~~
+BZ ~~~~
+***************372    373**************
+PUSH ~~~~
+call ~~~~
+***************374    377**************
+ADDLEAF: RET_int
+#61:::2
+ADD_TO_ROUTE:(#61,2)
+#61=RET_int
+PRINT_string "The fibonaci's answer is "
+PRINT_int #61
+PRINTLN ~~~~
+***************378    380**************
+ADDLEAF: toy
+ADDLEAF: 1
+ADD_TO_ROUTE:(toy,3)
+toy=toy+1
+< ~~~~
+BZ ~~~~
+***************381    381**************
+GOTO ~~~~
+***************382    382**************
+ret ~~~~
+***************383    386**************
+function_int ~~~~
+parameter_int ~~~~
+parameter_int ~~~~
+BEGIN ~~~~
+***************387    390**************
+ADDLEAF: n
+ADDLEAF: m
+ADDLEAF: #62
+ADDLEAF: m
+ADDLEAF: n
+ADDLEAF: #63
+ADD_TO_ROUTE:(#64,5)
+ADD_TO_ROUTE:(#63,4)
+ADD_TO_ROUTE:(#62,3)
+#62=n/m
+#63=#62*m
+#64=n-#63
+ret ~~~~
+***************391    395**************
+function_int ~~~~
+parameter_int ~~~~
+parameter_int ~~~~
+variable_int ~~~~
+BEGIN ~~~~
+***************396    398**************
+ADDLEAF: 0
+ADD_TO_ROUTE:(rem,2)
+rem=0
+== ~~~~
+BZ ~~~~
+***************399    399**************
+ret ~~~~
+***************400    401**************
+== ~~~~
+BZ ~~~~
+***************402    402**************
+ret ~~~~
+***************403    406**************
+PUSH ~~~~
+PUSH ~~~~
+PUSH ~~~~
+call ~~~~
+***************407    409**************
+ADDLEAF: RET_int
+ADD_TO_ROUTE:(#65,2)
+#65=RET_int
+PUSH ~~~~
+call ~~~~
+***************410    411**************
+ADDLEAF: RET_int
+ADD_TO_ROUTE:(#66,2)
+#66=RET_int
+ret ~~~~
+***************412    415**************
+function_int ~~~~
+parameter_int ~~~~
+parameter_int ~~~~
+BEGIN ~~~~
+***************416    417**************
+<= ~~~~
+BZ ~~~~
+***************418    418**************
+ret ~~~~
+***************419    420**************
+<= ~~~~
+BZ ~~~~
+***************421    421**************
+ret ~~~~
+***************422    422**************
+ret ~~~~
+***************423    427**************
+void_ ~~~~
+variable_int ~~~~
+variable_int ~~~~
+variable_int ~~~~
+BEGIN ~~~~
+***************428    430**************
+PRINT_string "GCD: Please input two unsigned positive integer ?"
+PRINTLN ~~~~
+READ ~~~~
+***************431    431**************
+READ ~~~~
+***************432    434**************
+PUSH ~~~~
+PUSH ~~~~
+call ~~~~
+***************435    437**************
+ADDLEAF: RET_int
+ADD_TO_ROUTE:(#67,2)
+#67=RET_int
+!= ~~~~
+BZ ~~~~
+***************438    438**************
+ADDLEAF: 0
+ADD_TO_ROUTE:(toy,2)
+toy=0
+***************439    441**************
+PRINT_string "Input error, try Again: "
+PRINTLN ~~~~
+READ ~~~~
+***************442    442**************
+READ ~~~~
+***************443    446**************
+ADDLEAF: toy
+ADDLEAF: 1
+ADD_TO_ROUTE:(toy,3)
+toy=toy+1
+PUSH ~~~~
+PUSH ~~~~
+call ~~~~
+***************447    449**************
+ADDLEAF: RET_int
+ADD_TO_ROUTE:(#68,2)
+#68=RET_int
+!= ~~~~
+BZ ~~~~
+***************450    450**************
+GOTO ~~~~
+***************451    453**************
+PUSH ~~~~
+PUSH ~~~~
+call ~~~~
+***************454    458**************
+ADDLEAF: RET_int
+#69:::2
+ADD_TO_ROUTE:(#69,2)
+#69=RET_int
+PRINT_string "The gcd's answer is "
+PRINT_int #69
+PRINTLN ~~~~
+ret ~~~~
+***************459    463**************
+function_int ~~~~
+parameter_int ~~~~
+variable_int ~~~~
+variable_int ~~~~
+BEGIN ~~~~
+***************464    466**************
+ADDLEAF: 2
+ADD_TO_ROUTE:(i,2)
+i=2
+== ~~~~
+BZ ~~~~
+***************467    467**************
+ret ~~~~
+***************468    468**************
+ADDLEAF: 0
+ADD_TO_ROUTE:(toy,2)
+toy=0
+***************469    471**************
+PUSH ~~~~
+PUSH ~~~~
+call ~~~~
+***************472    474**************
+ADDLEAF: RET_int
+ADD_TO_ROUTE:(#70,2)
+#70=RET_int
+== ~~~~
+BZ ~~~~
+***************475    475**************
+ret ~~~~
+***************476    481**************
+ADDLEAF: i
+ADDLEAF: 1
+ADDLEAF: #71
+ADDLEAF: toy
+ADDLEAF: 1
+ADDLEAF: i
+ADDLEAF: i
+ADD_TO_ROUTE:(#72,7)
+ADD_TO_ROUTE:(toy,6)
+ADD_TO_ROUTE:(i,4)
+ADD_TO_ROUTE:(#71,3)
+#71=i+1
+toy=toy+1
+#72=i*i
+< ~~~~
+BZ ~~~~
+***************482    482**************
+GOTO ~~~~
+***************483    483**************
+ret ~~~~
+***************484    490**************
+void_ ~~~~
+parameter_int ~~~~
+variable_int ~~~~
+variable_int ~~~~
+variable_int ~~~~
+variable_int ~~~~
+BEGIN ~~~~
+***************491    494**************
+ADDLEAF: 2
+ADDLEAF: 0
+ADD_TO_ROUTE:(first,4)
+ADD_TO_ROUTE:(i,2)
+i=2
+first=0
+== ~~~~
+BZ ~~~~
+***************495    497**************
+PRINT_string "1"
+PRINTLN ~~~~
+ret ~~~~
+***************498    498**************
+ADDLEAF: 0
+ADD_TO_ROUTE:(fuck,2)
+fuck=0
+***************499    500**************
+PUSH ~~~~
+call ~~~~
+***************501    503**************
+ADDLEAF: RET_int
+ADD_TO_ROUTE:(#73,2)
+#73=RET_int
+== ~~~~
+BZ ~~~~
+***************504    506**************
+PUSH ~~~~
+PUSH ~~~~
+call ~~~~
+***************507    509**************
+ADDLEAF: RET_int
+ADD_TO_ROUTE:(#74,2)
+#74=RET_int
+== ~~~~
+BZ ~~~~
+***************510    510**************
+ADDLEAF: 0
+ADD_TO_ROUTE:(toy,2)
+toy=0
+***************511    514**************
+ADDLEAF: n
+ADDLEAF: i
+ADDLEAF: #75
+ADD_TO_ROUTE:(n,4)
+ADD_TO_ROUTE:(#75,3)
+#75=n/i
+== ~~~~
+BZ ~~~~
+***************515    516**************
+PRINT_string "*"
+PRINTLN ~~~~
+***************517    524**************
+ADDLEAF: 1
+ADDLEAF: i
+#76:::4
+ADDLEAF: toy
+ADDLEAF: 1
+ADD_TO_ROUTE:(toy,6)
+ADD_TO_ROUTE:(#76,4)
+ADD_TO_ROUTE:(first,2)
+first=1
+#76=i
+toy=toy+1
+PRINT_int #76
+PRINTLN ~~~~
+PUSH ~~~~
+PUSH ~~~~
+call ~~~~
+***************525    527**************
+ADDLEAF: RET_int
+ADD_TO_ROUTE:(#77,2)
+#77=RET_int
+== ~~~~
+BZ ~~~~
+***************528    528**************
+GOTO ~~~~
+***************529    534**************
+ADDLEAF: i
+ADDLEAF: 1
+ADDLEAF: #78
+ADDLEAF: fuck
+ADDLEAF: 1
+ADDLEAF: i
+ADDLEAF: i
+ADD_TO_ROUTE:(#79,7)
+ADD_TO_ROUTE:(fuck,6)
+ADD_TO_ROUTE:(i,4)
+ADD_TO_ROUTE:(#78,3)
+#78=i+1
+fuck=fuck+1
+#79=i*i
+< ~~~~
+BZ ~~~~
+***************535    535**************
+GOTO ~~~~
+***************536    537**************
+!= ~~~~
+BZ ~~~~
+***************538    539**************
+== ~~~~
+BZ ~~~~
+***************540    541**************
+PRINT_string "*"
+PRINTLN ~~~~
+***************542    544**************
+ADDLEAF: n
+#80:::2
+ADD_TO_ROUTE:(#80,2)
+#80=n
+PRINT_int #80
+PRINTLN ~~~~
+***************545    545**************
+ret ~~~~
+***************546    549**************
+void_ ~~~~
+variable_int ~~~~
+variable_int ~~~~
+BEGIN ~~~~
+***************550    552**************
+PRINT_string "prime_factorization: Please input a unsigned positive integer(<2^31-1) ?"
+PRINTLN ~~~~
+READ ~~~~
+***************553    553**************
+ADDLEAF: 0
+ADD_TO_ROUTE:(toy,2)
+toy=0
+***************554    555**************
+< ~~~~
+BZ ~~~~
+***************556    558**************
+PRINT_string "Input error, try again:"
+PRINTLN ~~~~
+READ ~~~~
+***************559    561**************
+ADDLEAF: toy
+ADDLEAF: 1
+ADD_TO_ROUTE:(toy,3)
+toy=toy+1
+< ~~~~
+BZ ~~~~
+***************562    562**************
+GOTO ~~~~
+***************563    566**************
+PRINT_string "The factor of n is "
+PRINTLN ~~~~
+PUSH ~~~~
+call ~~~~
+***************567    567**************
+ret ~~~~
+***************568    570**************
+function_int ~~~~
+parameter_char ~~~~
+BEGIN ~~~~
+***************571    572**************
+== ~~~~
+BZ ~~~~
+***************573    573**************
+ret ~~~~
+***************574    575**************
+== ~~~~
+BZ ~~~~
+***************576    576**************
+ret ~~~~
+***************577    578**************
+== ~~~~
+BZ ~~~~
+***************579    579**************
+ret ~~~~
+***************580    580**************
+ret ~~~~
+***************581    584**************
+void_ ~~~~
+variable_char ~~~~
+variable_int ~~~~
+BEGIN ~~~~
+***************585    587**************
+PRINT_string "Please input Test Type:E(Easy), (M)Middle, H(Hard): "
+PRINTLN ~~~~
+READ ~~~~
+***************588    589**************
+PUSH ~~~~
+call ~~~~
+***************590    592**************
+ADDLEAF: RET_int
+ADD_TO_ROUTE:(#81,2)
+#81=RET_int
+!= ~~~~
+BZ ~~~~
+***************593    593**************
+ADDLEAF: 0
+ADD_TO_ROUTE:(toy,2)
+toy=0
+***************594    596**************
+PRINT_string "Try Again: "
+PRINTLN ~~~~
+READ ~~~~
+***************597    599**************
+ADDLEAF: toy
+ADDLEAF: 1
+ADD_TO_ROUTE:(toy,3)
+toy=toy+1
+PUSH ~~~~
+call ~~~~
+***************600    602**************
+ADDLEAF: RET_int
+ADD_TO_ROUTE:(#82,2)
+#82=RET_int
+!= ~~~~
+BZ ~~~~
+***************603    603**************
+GOTO ~~~~
+***************604    606**************
+SWITCH ~~~~
+== ~~~~
+BZ ~~~~
+***************607    607**************
+call ~~~~
+***************608    608**************
+call ~~~~
+***************609    609**************
+call ~~~~
+***************610    610**************
+GOTO ~~~~
+***************611    612**************
+== ~~~~
+BZ ~~~~
+***************613    613**************
+call ~~~~
+***************614    614**************
+call ~~~~
+***************615    615**************
+call ~~~~
+***************616    616**************
+call ~~~~
+***************617    617**************
+GOTO ~~~~
+***************618    619**************
+== ~~~~
+BZ ~~~~
+***************620    620**************
+call ~~~~
+***************621    621**************
+call ~~~~
+***************622    622**************
+call ~~~~
+***************623    623**************
+call ~~~~
+***************624    624**************
+call ~~~~
+***************625    625**************
+call ~~~~
+***************626    626**************
+call ~~~~
+***************627    627**************
+GOTO ~~~~
+***************628    629**************
+PRINT_string "default"
+PRINTLN ~~~~
+***************630    630**************
+ret ~~~~

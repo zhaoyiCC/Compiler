@@ -1,0 +1,26 @@
+const int awh = 666;
+int ans;
+int messi[100];
+char shit[1];
+char work(char c, int a, char b){
+char p;
+awh=1;
+messi[10]=shit[0]+shit[0];
+ans=12;
+p= 233;
+b=c;
+
+	return (p);
+}
+void main(){
+	const int jjj = 2;
+	char c;
+	switch (c){
+		case '1': ans = 999;
+		case '2': printf("FUCK U");
+		case 'A': {printf("3333"); }
+		default: printf("111111");
+	}
+	work(c, 222, c);
+	return ;
+}

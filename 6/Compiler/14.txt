@@ -1,7 +1,0 @@
-void work(){
-	if (1==0);
-}
-void main() {
-	work();
-	if (1==1);    
-}

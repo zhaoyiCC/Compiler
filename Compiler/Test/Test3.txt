@@ -1,0 +1,18 @@
+int work(int p, int q){
+	int ans, a;
+	a = p + q;
+	printf(a);
+	ans = a + a;
+	printf("ans1=", a+a);
+	printf("ans2=", a+a+a);
+	printf("ans3=", (a + a + a + (a + a + a + a)));
+	ans = a + a + (a + a + a + (a + a + a + a));
+	printf("ans4=", a + a + (a + a + a + (a + a + a + a)));
+	printf("ans5=", ans);
+	ans = a + a + (a + a + a + (a + a + a + a));
+	return (ans);
+}
+void main(){
+	int q,x,y,a;
+	printf("TEST",work(100, 200));
+}

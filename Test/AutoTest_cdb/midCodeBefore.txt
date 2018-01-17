@@ -1,0 +1,630 @@
+var int g_a
+var int g_b
+var int g_arr[2048]
+var char g_stra[1024]
+var char g_strb[2048]
+void const_define()
+BEGIN
+#1 = 1
+PRINT_int #1
+PRINTLN
+#2 = '/'
+PRINT_char #2
+PRINTLN
+ret 
+void const_define_test()
+BEGIN
+call const_define
+ret 
+void var_define()
+var int a
+var int arr[1]
+var int _a
+var int _arr[2]
+var int a1
+var int arr1[3]
+var char b
+var char strb[1]
+var char _b
+var char _bstr[2]
+var char _b1
+var char _bstr1[3]
+var int c
+var char z
+BEGIN
+ret 
+void var_define_test()
+BEGIN
+call var_define
+ret 
+void define()
+var int val1
+var char b
+var char strb[1]
+BEGIN
+ret 
+void define_test()
+BEGIN
+call var_define_test
+call const_define_test
+call define
+PRINT_-string "define test passed"
+PRINTLN
+ret 
+void operator()
+var int a
+var int b
+var int c
+var int d
+var int e
+var int f
+BEGIN
+a = 1
+b = 3
+c = 3
+d = -4
+e = 5
+f = 6
+#6 = b * 3
+#7 = #6 + c
+#8 = d / 4
+#9 = #7 - #8
+#10 = a / a
+#11 = #9 + #10
+a = #11
+#12 = 0 + a
+#13 = a * 3
+#14 = #12 + #13
+#15 = #14 + c
+#16 = d / 4
+#17 = #15 - #16
+#18 = e * f
+#19 = #17 + #18
+b = #19
+#20 = 0 - a
+#21 = b * 0
+#22 = #20 + #21
+#24 = #22 - 1
+e = #24
+ret 
+void operator_test()
+BEGIN
+call operator
+PRINT_-string "operator test passed"
+PRINTLN
+ret 
+void string()
+BEGIN
+PRINT_-string "ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz"
+PRINTLN
+PRINT_-string "!#$%&'()*+,-./:;<=>?@[]^_`{|}~"
+PRINTLN
+ret 
+void string_test()
+BEGIN
+call string
+ret 
+void dowhile()
+var int i
+var int toy
+BEGIN
+i = 100
+toy = 0
+LABEL_1 i >= 50
+BZ LABEL_2
+#25 = i / 2
+i = #25
+LABEL_2 i < 50
+BZ LABEL_4
+#26 = i + 10
+#27 = #26 / 10
+i = #27
+LABEL_4 toy = toy + 1
+i >= 10
+BZ LABEL_6
+GOTO LABEL_1
+LABEL_6 toy = 0
+LABEL_7 #28 = i - 1
+i = #28
+PRINT_-string "dowhile test passed"
+PRINTLN
+toy = toy + 1
+0 != 0
+BZ LABEL_8
+GOTO LABEL_7
+LABEL_8 ret 
+void dowhile_test()
+BEGIN
+call dowhile
+ret 
+void ifcondition()
+var int a
+var int rightnumber
+BEGIN
+a = 1
+rightnumber = 0
+a == 1
+BZ LABEL_9
+#29 = rightnumber + 1
+rightnumber = #29
+LABEL_9 a = 2
+a > 1
+BZ LABEL_11
+#30 = rightnumber + 1
+rightnumber = #30
+LABEL_11 a = 0
+a < 1
+BZ LABEL_13
+#31 = rightnumber + 1
+rightnumber = #31
+LABEL_13 a != 1
+BZ LABEL_15
+#32 = rightnumber + 1
+rightnumber = #32
+LABEL_15 a >= 0
+BZ LABEL_17
+#33 = rightnumber + 1
+rightnumber = #33
+LABEL_17 a <= 0
+BZ LABEL_19
+#34 = rightnumber + 1
+rightnumber = #34
+LABEL_19 rightnumber != 6
+BZ LABEL_21
+PRINT_-string "ifcondition clause error!"
+PRINTLN
+LABEL_21 rightnumber != rightnumber
+BZ LABEL_23
+PRINT_-string "ifcondition clause error"
+PRINTLN
+LABEL_23 ret 
+int switchcodintionans()
+para int x
+BEGIN
+SWITCH x
+x == 1
+BZ LABEL_26
+ret 2
+GOTO LABEL_29
+LABEL_26 x == 2
+BZ LABEL_27
+ret 3
+GOTO LABEL_29
+LABEL_27 x == 3
+BZ LABEL_28
+ret 4
+GOTO LABEL_29
+LABEL_28 LABEL_29 ret 5
+int switchcodintion()
+var int i
+var int rightnumber
+var int toy
+BEGIN
+i = 1
+rightnumber = 0
+toy = 0
+LABEL_30 #39 = i + 1
+PUSH i
+call switchcodintionans
+#40 = RET_int
+#39 == #40
+BZ LABEL_31
+#41 = rightnumber + 1
+rightnumber = #41
+LABEL_31 #42 = i + 1
+i = #42
+toy = toy + 1
+i < 5
+BZ LABEL_33
+GOTO LABEL_30
+LABEL_33 rightnumber != 4
+BZ LABEL_34
+PRINT_-string "switchcodintion clause  error!"
+PRINTLN
+LABEL_34 rightnumber != 0
+BZ LABEL_36
+ret i
+LABEL_36 PRINT_-string "switchcodintion clause  error!"
+PRINTLN
+void condition()
+var int iter
+var int toy
+BEGIN
+iter = 0
+toy = 0
+LABEL_38 SWITCH iter
+iter == 0
+BZ LABEL_40
+iter != 0
+BZ LABEL_41
+PRINT_-string "error 0"
+PRINTLN
+LABEL_41 GOTO LABEL_49
+LABEL_40 iter == 1
+BZ LABEL_43
+iter != 1
+BZ LABEL_44
+PRINT_-string "error 1"
+PRINTLN
+LABEL_44 GOTO LABEL_49
+LABEL_43 iter == 2
+BZ LABEL_46
+iter != 2
+BZ LABEL_47
+PRINT_-string "error 2"
+PRINTLN
+LABEL_47 GOTO LABEL_49
+LABEL_46 LABEL_49 #43 = iter + 1
+iter = #43
+toy = toy + 1
+iter < 5
+BZ LABEL_50
+GOTO LABEL_38
+LABEL_50 ret 
+void condition_test()
+BEGIN
+call ifcondition
+call switchcodintion
+call condition
+PRINT_-string "condition test passed"
+PRINTLN
+ret 
+void miscellaneous()
+var int _
+var int a
+var int array[23]
+var int i
+var int endid
+var int toy
+var char ch1
+var char buf[256]
+BEGIN
+i = 0
+_ = 1
+a = 2
+toy = 0
+LABEL_51 array[i] = i
+#44 = i + 1
+i = #44
+toy = toy + 1
+i < 23
+BZ LABEL_52
+GOTO LABEL_51
+LABEL_52 ch1 = 'a'
+i = 0
+toy = 0
+LABEL_53 buf[i] = ch1
+#45 = ch1 + 1
+ch1 = #45
+#46 = i + 1
+i = #46
+toy = toy + 1
+ch1 < 127
+BZ LABEL_54
+GOTO LABEL_53
+LABEL_54 endid = i
+_ = 0
+toy = 0
+LABEL_55 #47 = _ * 1
+#48 = #47 - _
+#49 = #48 - 1
+#51 = #49 + 2
+#52 = #51 - 1
+#53 = #52 / 2
+buf[#53] = 'a'
+#54 = _ + 1
+_ = #54
+toy = toy + 1
+_ < endid
+BZ LABEL_56
+GOTO LABEL_55
+LABEL_56 #55 = buf[0]
+#55 == 'a'
+BZ LABEL_57
+PRINT_-string "miscellaneous test passed"
+PRINTLN
+LABEL_57 ret 
+void miscellaneous_test()
+BEGIN
+call miscellaneous
+ret 
+int fibonaci()
+para int n
+BEGIN
+SWITCH n
+n == 0
+BZ LABEL_60
+ret 0
+GOTO LABEL_63
+LABEL_60 n == 1
+BZ LABEL_61
+ret 1
+GOTO LABEL_63
+LABEL_61 n == 2
+BZ LABEL_62
+ret 1
+GOTO LABEL_63
+LABEL_62 LABEL_63 #56 = n - 1
+PUSH #56
+call fibonaci
+#57 = RET_int
+#58 = n - 2
+PUSH #58
+call fibonaci
+#59 = RET_int
+#60 = #57 + #59
+ret #60
+void fibonaci_test()
+var int n
+var int toy
+BEGIN
+PRINT_-string "Fibonaci: Please input a unsigned positive integer ?"
+PRINTLN
+READ n
+toy = 0
+LABEL_64 n < 0
+BZ LABEL_65
+PRINT_-string "Input error, try again:"
+PRINTLN
+READ n
+LABEL_65 n >= 0
+BZ LABEL_67
+PUSH n
+call fibonaci
+#61 = RET_int
+PRINT_-string "The fibonaci's answer is "
+PRINT_int #61
+PRINTLN
+LABEL_67 toy = toy + 1
+n < 0
+BZ LABEL_69
+GOTO LABEL_64
+LABEL_69 ret 
+int mod()
+para int n
+para int m
+BEGIN
+#62 = n / m
+#63 = #62 * m
+#64 = n - #63
+ret #64
+int gcd()
+para int n
+para int m
+var int rem
+BEGIN
+rem = 0
+n == 0
+BZ LABEL_70
+ret m
+LABEL_70 m == 0
+BZ LABEL_72
+ret n
+LABEL_72 PUSH m
+PUSH n
+PUSH m
+call mod
+#65 = RET_int
+PUSH #65
+call gcd
+#66 = RET_int
+ret #66
+int isWrongGcd()
+para int n
+para int m
+BEGIN
+n <= 0
+BZ LABEL_74
+ret 1
+LABEL_74 m <= 0
+BZ LABEL_76
+ret 1
+LABEL_76 ret 0
+void gcd_test()
+var int n
+var int m
+var int toy
+BEGIN
+PRINT_-string "GCD: Please input two unsigned positive integer ?"
+PRINTLN
+READ n
+READ m
+PUSH n
+PUSH m
+call isWrongGcd
+#67 = RET_int
+#67 != 0
+BZ LABEL_78
+toy = 0
+LABEL_80 PRINT_-string "Input error, try Again: "
+PRINTLN
+READ n
+READ m
+toy = toy + 1
+PUSH n
+PUSH m
+call isWrongGcd
+#68 = RET_int
+#68 != 0
+BZ LABEL_81
+GOTO LABEL_80
+LABEL_81 LABEL_78 PUSH n
+PUSH m
+call gcd
+#69 = RET_int
+PRINT_-string "The gcd's answer is "
+PRINT_int #69
+PRINTLN
+ret 
+int is_prime()
+para int x
+var int i
+var int toy
+BEGIN
+i = 2
+x == 2
+BZ LABEL_82
+ret 1
+LABEL_82 toy = 0
+LABEL_84 PUSH x
+PUSH i
+call mod
+#70 = RET_int
+#70 == 0
+BZ LABEL_85
+ret 0
+LABEL_85 #71 = i + 1
+i = #71
+toy = toy + 1
+#72 = i * i
+#72 < x
+BZ LABEL_87
+GOTO LABEL_84
+LABEL_87 ret 1
+void prime_factorization()
+para int n
+var int i
+var int first
+var int toy
+var int fuck
+BEGIN
+i = 2
+first = 0
+n == 1
+BZ LABEL_88
+PRINT_-string "1"
+PRINTLN
+ret 
+LABEL_88 fuck = 0
+LABEL_90 PUSH i
+call is_prime
+#73 = RET_int
+#73 == 1
+BZ LABEL_91
+PUSH n
+PUSH i
+call mod
+#74 = RET_int
+#74 == 0
+BZ LABEL_93
+toy = 0
+LABEL_95 #75 = n / i
+n = #75
+first == 1
+BZ LABEL_96
+PRINT_-string "*"
+PRINTLN
+LABEL_96 first = 1
+#76 = i
+PRINT_int #76
+PRINTLN
+toy = toy + 1
+PUSH n
+PUSH i
+call mod
+#77 = RET_int
+#77 == 0
+BZ LABEL_98
+GOTO LABEL_95
+LABEL_98 LABEL_93 LABEL_91 #78 = i + 1
+i = #78
+fuck = fuck + 1
+#79 = i * i
+#79 < n
+BZ LABEL_99
+GOTO LABEL_90
+LABEL_99 n != 1
+BZ LABEL_100
+first == 1
+BZ LABEL_102
+PRINT_-string "*"
+PRINTLN
+LABEL_102 #80 = n
+PRINT_int #80
+PRINTLN
+LABEL_100 ret 
+void prime_factorization_test()
+var int n
+var int toy
+BEGIN
+PRINT_-string "prime_factorization: Please input a unsigned positive integer(<2^31-1) ?"
+PRINTLN
+READ n
+toy = 0
+LABEL_104 n < 0
+BZ LABEL_105
+PRINT_-string "Input error, try again:"
+PRINTLN
+READ n
+LABEL_105 toy = toy + 1
+n < 0
+BZ LABEL_107
+GOTO LABEL_104
+LABEL_107 PRINT_-string "The factor of n is "
+PRINTLN
+PUSH n
+call prime_factorization
+ret 
+int iswrong()
+para char A
+BEGIN
+'E' == A
+BZ LABEL_108
+ret 0
+LABEL_108 'M' == A
+BZ LABEL_110
+ret 0
+LABEL_110 'H' == A
+BZ LABEL_112
+ret 0
+LABEL_112 ret 1
+void main()
+var char kind
+var int toy
+BEGIN
+PRINT_-string "Please input Test Type:E(Easy), (M)Middle, H(Hard): "
+PRINTLN
+READ kind
+PUSH kind
+call iswrong
+#81 = RET_int
+#81 != 0
+BZ LABEL_114
+toy = 0
+LABEL_116 PRINT_-string "Try Again: "
+PRINTLN
+READ kind
+toy = toy + 1
+PUSH kind
+call iswrong
+#82 = RET_int
+#82 != 0
+BZ LABEL_117
+GOTO LABEL_116
+LABEL_117 LABEL_114 SWITCH kind
+kind == 'E'
+BZ LABEL_119
+call define_test
+call operator_test
+call fibonaci_test
+GOTO LABEL_122
+LABEL_119 kind == 'M'
+BZ LABEL_120
+call dowhile_test
+call condition_test
+call string_test
+call gcd_test
+GOTO LABEL_122
+LABEL_120 kind == 'H'
+BZ LABEL_121
+call define_test
+call operator_test
+call dowhile_test
+call condition_test
+call string_test
+call miscellaneous_test
+call prime_factorization_test
+GOTO LABEL_122
+LABEL_121 PRINT_-string "default"
+PRINTLN
+LABEL_122 ret 

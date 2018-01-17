@@ -1,0 +1,761 @@
+***************18    20**************
+ADDLEAF: x
+ADD_TO_ROUTE:(ans,2)
+ans=x
+> ~~~~
+BZ ~~~~
+***************21    22**************
+ADDLEAF: y
+ADD_TO_ROUTE:(ans,2)
+ans=y
+GOTO ~~~~
+***************23    23**************
+ret ~~~~
+***************24    27**************
+function_int ~~~~
+parameter_int ~~~~
+variable_int ~~~~
+BEGIN ~~~~
+***************28    29**************
+< ~~~~
+BZ ~~~~
+***************30    30**************
+ret ~~~~
+***************31    33**************
+SWITCH ~~~~
+== ~~~~
+BZ ~~~~
+***************34    35**************
+ADDLEAF: 1
+ADD_TO_ROUTE:(res,2)
+res=1
+GOTO ~~~~
+***************36    37**************
+== ~~~~
+BZ ~~~~
+***************38    39**************
+ADDLEAF: 1
+ADD_TO_ROUTE:(res,2)
+res=1
+GOTO ~~~~
+***************40    42**************
+ADDLEAF: n
+ADDLEAF: 1
+ADD_TO_ROUTE:(#2,3)
+#2=n-1
+PUSH ~~~~
+call ~~~~
+***************43    45**************
+ADDLEAF: RET_int
+ADDLEAF: n
+ADDLEAF: #3
+ADDLEAF: #4
+ADD_TO_ROUTE:(res,5)
+ADD_TO_ROUTE:(#4,4)
+ADD_TO_ROUTE:(#3,2)
+#3=RET_int
+#4=n*#3
+***************46    46**************
+ret ~~~~
+***************47    53**************
+function_int ~~~~
+parameter_int ~~~~
+parameter_int ~~~~
+variable_int ~~~~
+variable_int ~~~~
+variable_int ~~~~
+BEGIN ~~~~
+***************54    55**************
+<= ~~~~
+BZ ~~~~
+***************56    57**************
+> ~~~~
+BZ ~~~~
+***************58    58**************
+ret ~~~~
+***************59    60**************
+PUSH ~~~~
+call ~~~~
+***************61    63**************
+ADDLEAF: RET_int
+ADD_TO_ROUTE:(#6,2)
+#6=RET_int
+PUSH ~~~~
+call ~~~~
+***************64    68**************
+ADDLEAF: RET_int
+ADDLEAF: #6
+ADDLEAF: #7
+ADDLEAF: n
+ADDLEAF: m
+ADD_TO_ROUTE:(#9,7)
+ADD_TO_ROUTE:(#8,4)
+ADD_TO_ROUTE:(#7,2)
+#7=RET_int
+#8=#6/#7
+#9=n-m
+PUSH ~~~~
+call ~~~~
+***************69    71**************
+ADDLEAF: RET_int
+ADDLEAF: #8
+ADDLEAF: #10
+ADD_TO_ROUTE:(#11,4)
+ADD_TO_ROUTE:(#10,2)
+#10=RET_int
+#11=#8/#10
+ret ~~~~
+***************72    73**************
+void_ ~~~~
+BEGIN ~~~~
+***************74    77**************
+ADDLEAF: 5
+ADD_TO_ROUTE:(m,2)
+m=5
+PRINT_string "Please enter n,m,k,ch:"
+PRINTLN ~~~~
+READ ~~~~
+***************78    78**************
+READ ~~~~
+***************79    79**************
+READ ~~~~
+***************80    80**************
+READ ~~~~
+***************81    83**************
+PRINT_string ""
+PRINTLN ~~~~
+ret ~~~~
+***************84    88**************
+function_char ~~~~
+parameter_int ~~~~
+parameter_int ~~~~
+variable_int ~~~~
+BEGIN ~~~~
+***************89    91**************
+PUSH ~~~~
+PUSH ~~~~
+call ~~~~
+***************92    99**************
+ADDLEAF: RET_int
+ADDLEAF: #12
+ADDLEAF: ans
+ADDLEAF: 2
+ADDLEAF: 2
+ADDLEAF: #13
+ADDLEAF: ans
+ADDLEAF: #14
+ADD_TO_ROUTE:(#15,7)
+ADD_TO_ROUTE:(#14,6)
+ADD_TO_ROUTE:(#13,5)
+ADD_TO_ROUTE:(ans,3)
+ADD_TO_ROUTE:(#12,2)
+#12=RET_int
+#13=ans/2
+#14=2*#13
+#15=ans-#14
+SWITCH ~~~~
+== ~~~~
+BZ ~~~~
+***************100    100**************
+ret ~~~~
+***************101    101**************
+GOTO ~~~~
+***************102    103**************
+== ~~~~
+BZ ~~~~
+***************104    104**************
+ret ~~~~
+***************105    105**************
+GOTO ~~~~
+***************106    106**************
+ret ~~~~
+***************107    107**************
+ret ~~~~
+***************108    111**************
+void_ ~~~~
+variable_int ~~~~
+variable_int[] ~~~~
+BEGIN ~~~~
+***************112    115**************
+PRINT_string "************************"
+PRINTLN ~~~~
+PRINT_string "START test_switch"
+PRINTLN ~~~~
+***************116    116**************
+ADDLEAF: -1
+ADD_TO_ROUTE:(a[2],2)
+a[2]=-1
+***************117    122**************
+ADDLEAF: -2
+ADDLEAF: 2
+ADDLEAF: Int
+#20:::5
+ADD_TO_ROUTE:(#20,5)
+ADD_TO_ROUTE:(Int,4)
+ADD_TO_ROUTE:(a[1],2)
+a[1]=-2
+Int=2
+#20=Int
+PRINT_string "Int="
+PRINT_int #20
+PRINTLN ~~~~
+***************123    128**************
+ADDLEAF: a[2]
+ADDLEAF: #23
+ADDLEAF: Int
+#23:::2
+#24:::4
+ADD_TO_ROUTE:(#24,4)
+ADD_TO_ROUTE:(Int,3)
+ADD_TO_ROUTE:(#23,2)
+#23=a[2]
+#24=Int
+PRINT_string "Int="
+PRINT_int #24
+PRINTLN ~~~~
+***************129    130**************
+ADDLEAF: a[2]
+ADDLEAF: 2
+ADDLEAF: #27
+ADD_TO_ROUTE:(#28,4)
+ADD_TO_ROUTE:(#27,2)
+#27=a[2]
+#28=2+#27
+***************131    136**************
+ADDLEAF: a[#28]
+ADDLEAF: #29
+ADDLEAF: Int
+#29:::2
+#30:::4
+ADD_TO_ROUTE:(#30,4)
+ADD_TO_ROUTE:(Int,3)
+ADD_TO_ROUTE:(#29,2)
+#29=a[#28]
+#30=Int
+PRINT_string "Int="
+PRINT_int #30
+PRINTLN ~~~~
+***************137    138**************
+ADDLEAF: a[2]
+ADDLEAF: 2
+ADDLEAF: #33
+ADD_TO_ROUTE:(#34,4)
+ADD_TO_ROUTE:(#33,2)
+#33=a[2]
+#34=2+#33
+***************139    140**************
+ADDLEAF: a[#34]
+ADDLEAF: #35
+ADDLEAF: 3
+ADD_TO_ROUTE:(#36,4)
+ADD_TO_ROUTE:(#35,2)
+#35=a[#34]
+#36=#35+3
+***************141    149**************
+ADDLEAF: a[#36]
+ADDLEAF: #37
+ADDLEAF: Int
+#37:::2
+#38:::4
+ADD_TO_ROUTE:(#38,4)
+ADD_TO_ROUTE:(Int,3)
+ADD_TO_ROUTE:(#37,2)
+#37=a[#36]
+#38=Int
+PRINT_string "Int="
+PRINT_int #38
+PRINTLN ~~~~
+SWITCH ~~~~
+== ~~~~
+BZ ~~~~
+***************150    152**************
+PRINT_string "fail_switch1"
+PRINTLN ~~~~
+GOTO ~~~~
+***************153    154**************
+== ~~~~
+BZ ~~~~
+***************155    157**************
+PRINT_string "success_switch1"
+PRINTLN ~~~~
+GOTO ~~~~
+***************158    162**************
+ADDLEAF: Int
+ADDLEAF: 1
+ADDLEAF: #39
+ADDLEAF: 'b'
+ADD_TO_ROUTE:(#40,5)
+ADD_TO_ROUTE:(#39,3)
+#39=Int+1
+#40=#39+'b'
+SWITCH ~~~~
+== ~~~~
+BZ ~~~~
+***************163    165**************
+ADDLEAF: Int
+ADDLEAF: 1
+ADDLEAF: #41
+ADD_TO_ROUTE:(Int,4)
+ADD_TO_ROUTE:(#41,3)
+#41=Int+1
+GOTO ~~~~
+***************166    167**************
+== ~~~~
+BZ ~~~~
+***************168    170**************
+PRINT_string "success_switch2"
+PRINTLN ~~~~
+GOTO ~~~~
+***************171    172**************
+== ~~~~
+BZ ~~~~
+***************173    180**************
+ADDLEAF: Int
+#42:::2
+ADDLEAF: Int
+#43&&&2
+#42:::2
+ADD_TO_ROUTE:(#43,2)
+#43=Int
+PRINT_string "fail_switch1"
+PRINT_int #43
+PRINTLN ~~~~
+PRINT_int #43
+PRINTLN ~~~~
+GOTO ~~~~
+***************181    182**************
+PRINT_string "FAIL_switch1"
+PRINTLN ~~~~
+***************183    187**************
+PRINT_string "END test_switch"
+PRINTLN ~~~~
+PRINT_string "************************"
+PRINTLN ~~~~
+ret ~~~~
+***************188    189**************
+void_ ~~~~
+BEGIN ~~~~
+***************190    194**************
+PRINT_string "************************"
+PRINTLN ~~~~
+PUSH ~~~~
+PUSH ~~~~
+call ~~~~
+***************195    200**************
+ADDLEAF: RET_int
+ADDLEAF: #45
+ADDLEAF: x
+ADDLEAF: +8
+ADD_TO_ROUTE:(#46,5)
+ADD_TO_ROUTE:(x,3)
+ADD_TO_ROUTE:(#45,2)
+#45=RET_int
+#46=x++8
+PUSH ~~~~
+PUSH ~~~~
+call ~~~~
+***************201    206**************
+ADDLEAF: RET_int
+ADDLEAF: #47
+ADDLEAF: 4
+ADDLEAF: 7
+ADD_TO_ROUTE:(z,7)
+ADD_TO_ROUTE:(y,5)
+ADD_TO_ROUTE:(x,3)
+ADD_TO_ROUTE:(#47,2)
+#47=RET_int
+y=4
+z=7
+> ~~~~
+BZ ~~~~
+***************207    208**************
+> ~~~~
+BZ ~~~~
+***************209    210**************
+ADDLEAF: x
+ADD_TO_ROUTE:(mx,2)
+mx=x
+GOTO ~~~~
+***************211    211**************
+ADDLEAF: z
+ADD_TO_ROUTE:(mx,2)
+mx=z
+***************212    212**************
+GOTO ~~~~
+***************213    214**************
+> ~~~~
+BZ ~~~~
+***************215    216**************
+ADDLEAF: y
+ADD_TO_ROUTE:(mx,2)
+mx=y
+GOTO ~~~~
+***************217    217**************
+ADDLEAF: z
+ADD_TO_ROUTE:(mx,2)
+mx=z
+***************218    223**************
+ADDLEAF: mx
+#48:::2
+ADD_TO_ROUTE:(#48,2)
+#48=mx
+PRINT_string "mx = "
+PRINT_int #48
+PRINTLN ~~~~
+== ~~~~
+BZ ~~~~
+***************224    226**************
+PRINT_string "test_max success!"
+PRINTLN ~~~~
+GOTO ~~~~
+***************227    228**************
+PRINT_string "test_max fail!"
+PRINTLN ~~~~
+***************229    231**************
+PRINT_string "************************"
+PRINTLN ~~~~
+ret ~~~~
+***************232    233**************
+void_ ~~~~
+BEGIN ~~~~
+***************234    239**************
+ADDLEAF: k
+ADDLEAF: 1
+ADDLEAF: #49
+ADD_TO_ROUTE:(i,4)
+ADD_TO_ROUTE:(#49,3)
+#49=k+1
+PRINT_string "************************"
+PRINTLN ~~~~
+PRINT_string "START test_for_1_loop"
+PRINTLN ~~~~
+***************240    240**************
+ADDLEAF: k
+ADDLEAF: i
+ADD_TO_ROUTE:(#50,3)
+#50=k+i
+***************241    241**************
+ADDLEAF: #50
+ADD_TO_ROUTE:(a[i],2)
+a[i]=#50
+***************242    245**************
+ADDLEAF: ch
+ADDLEAF: i
+ADDLEAF: 1
+ADD_TO_ROUTE:(i,5)
+ADD_TO_ROUTE:(s[i],2)
+s[i]=ch
+i=i-1
+>= ~~~~
+BZ ~~~~
+***************246    246**************
+GOTO ~~~~
+***************247    247**************
+ADDLEAF: 0
+ADD_TO_ROUTE:(i,2)
+i=0
+***************248    252**************
+ADDLEAF: k
+ADDLEAF: 1
+ADDLEAF: #51
+ADDLEAF: i
+ADDLEAF: 1
+ADD_TO_ROUTE:(i,6)
+ADD_TO_ROUTE:(k,4)
+ADD_TO_ROUTE:(#51,3)
+#51=k+1
+i=i-1
+> ~~~~
+BZ ~~~~
+***************253    253**************
+GOTO ~~~~
+***************254    257**************
+ADDLEAF: k
+#52:::2
+ADD_TO_ROUTE:(#52,2)
+#52=k
+PRINT_string "k = "
+PRINT_int #52
+PRINTLN ~~~~
+***************258    261**************
+ADDLEAF: s[k]
+#53:::2
+ADD_TO_ROUTE:(#53,2)
+#53=s[k]
+PRINT_string "ch = "
+PRINT_char #53
+PRINTLN ~~~~
+***************262    264**************
+ADDLEAF: s[k]
+ADD_TO_ROUTE:(#54,2)
+#54=s[k]
+== ~~~~
+BZ ~~~~
+***************265    267**************
+PRINT_string "test_for_1_loop success!"
+PRINTLN ~~~~
+GOTO ~~~~
+***************268    269**************
+PRINT_string "test_for_1_loop fail!"
+PRINTLN ~~~~
+***************270    274**************
+PRINT_string "END test_for_1_loop"
+PRINTLN ~~~~
+PRINT_string "************************"
+PRINTLN ~~~~
+ret ~~~~
+***************275    277**************
+void_ ~~~~
+parameter_int ~~~~
+BEGIN ~~~~
+***************278    295**************
+ADDLEAF: -2
+ADDLEAF: Int
+#56:::3
+ADDLEAF: Int
+ADDLEAF: 1
+ADDLEAF: #57
+ADDLEAF: Int
+ADDLEAF: 1
+ADDLEAF: #58
+ADDLEAF: Int
+#56:::3
+#57:::5
+#58:::7
+#59:::9
+ADDLEAF: Int
+i&&&9
+ADD_TO_ROUTE:(i,9)
+ADD_TO_ROUTE:(#59,9)
+ADD_TO_ROUTE:(Int,8)
+ADD_TO_ROUTE:(#58,7)
+ADD_TO_ROUTE:(Int,6)
+ADDDDDD TEMP Node#78:::6
+ADD_TO_ROUTE:(#78,6)
+ADD_TO_ROUTE:(#57,5)
+ADD_TO_ROUTE:(#56,3)
+ADD_TO_ROUTE:(Int,2)
+ADDDDDD TEMP Node#79:::2
+ADD_TO_ROUTE:(#79,2)
+#79=-2
+Int=-2
+#56=#79
+#57=#79+1
+#78=#57
+Int=#57
+#58=#78+1
+#59=Int
+i=Int
+PRINT_string "************************"
+PRINTLN ~~~~
+PRINT_string "START test_for_2_loop"
+PRINTLN ~~~~
+PRINT_string "Int="
+PRINT_int #56
+PRINTLN ~~~~
+PRINT_string "Int="
+PRINT_int #59
+PRINTLN ~~~~
+***************296    296**************
+ADDLEAF: Int
+ADD_TO_ROUTE:(i,2)
+i=Int
+***************297    302**************
+ADDLEAF: Int
+ADDLEAF: 1
+ADDLEAF: #60
+ADDLEAF: i
+ADDLEAF: 1
+ADDLEAF: i
+ADDLEAF: 1
+ADD_TO_ROUTE:(#61,7)
+ADD_TO_ROUTE:(i,6)
+ADD_TO_ROUTE:(Int,4)
+ADD_TO_ROUTE:(#60,3)
+#60=Int+1
+i=i+1
+#61=i-1
+<= ~~~~
+BZ ~~~~
+***************303    303**************
+GOTO ~~~~
+***************304    307**************
+ADDLEAF: i
+ADDLEAF: 1
+ADDLEAF: 1000
+ADDLEAF: Int
+ADD_TO_ROUTE:(#62,6)
+ADD_TO_ROUTE:(i,3)
+i=i+1
+#62=1000-Int
+<= ~~~~
+BZ ~~~~
+***************308    308**************
+GOTO ~~~~
+***************309    314**************
+ADDLEAF: Int
+#63:::2
+ADD_TO_ROUTE:(#63,2)
+#63=Int
+PRINT_string "Int="
+PRINT_int #63
+PRINTLN ~~~~
+== ~~~~
+BZ ~~~~
+***************315    317**************
+PRINT_string "test_for_2_loop success!"
+PRINTLN ~~~~
+GOTO ~~~~
+***************318    319**************
+PRINT_string "test_for_2_loop fail!"
+PRINTLN ~~~~
+***************320    324**************
+PRINT_string "END test_for_2_loop"
+PRINTLN ~~~~
+PRINT_string "************************"
+PRINTLN ~~~~
+ret ~~~~
+***************325    326**************
+function_int ~~~~
+BEGIN ~~~~
+***************327    330**************
+PUSH ~~~~
+PUSH ~~~~
+PUSH ~~~~
+call ~~~~
+***************331    334**************
+ADDLEAF: RET_int
+ADD_TO_ROUTE:(#65,2)
+#65=RET_int
+PUSH ~~~~
+PUSH ~~~~
+call ~~~~
+***************335    339**************
+ADDLEAF: RET_int
+ADDLEAF: #65
+ADDLEAF: #66
+ADDLEAF: #67
+ADDLEAF: 99
+ADD_TO_ROUTE:(#69,6)
+ADD_TO_ROUTE:(#67,4)
+ADD_TO_ROUTE:(#66,2)
+#66=RET_int
+#67=#65/#66
+#69=#67*99
+PUSH ~~~~
+call ~~~~
+***************340    341**************
+ADDLEAF: RET_int
+ADD_TO_ROUTE:(#70,2)
+#70=RET_int
+ret ~~~~
+***************342    343**************
+void_ ~~~~
+BEGIN ~~~~
+***************344    344**************
+call ~~~~
+***************345    345**************
+ADDLEAF: 0
+ADD_TO_ROUTE:(i,2)
+i=0
+***************346    349**************
+ADDLEAF: m
+ADDLEAF: i
+ADDLEAF: #71
+ADD_TO_ROUTE:(j,4)
+ADD_TO_ROUTE:(#71,3)
+#71=m-i
+== ~~~~
+BZ ~~~~
+***************350    356**************
+PRINT_string "************************"
+PRINTLN ~~~~
+PRINT_string "START work"
+PRINTLN ~~~~
+PUSH ~~~~
+PUSH ~~~~
+call ~~~~
+***************357    364**************
+ADDLEAF: RET_char
+#72:::2
+ADD_TO_ROUTE:(#72,2)
+#72=RET_char
+PRINT_string "C(n,m) is Odd or Even:"
+PRINT_char #72
+PRINTLN ~~~~
+PRINT_string "END WORK"
+PRINTLN ~~~~
+PRINT_string "************************"
+PRINTLN ~~~~
+***************365    375**************
+ADDLEAF: n
+#73:::2
+ADDLEAF: j
+#73:::2
+#74:::4
+ADD_TO_ROUTE:(#74,4)
+ADD_TO_ROUTE:(#73,2)
+#73=n
+#74=j
+PRINT_string "N:"
+PRINT_int #73
+PRINTLN ~~~~
+PRINT_string "M:"
+PRINT_int #74
+PRINTLN ~~~~
+PUSH ~~~~
+PUSH ~~~~
+call ~~~~
+***************376    384**************
+ADDLEAF: RET_int
+#75:::2
+ADDLEAF: i
+ADDLEAF: 1
+ADD_TO_ROUTE:(i,5)
+ADD_TO_ROUTE:(#75,2)
+#75=RET_int
+i=i+1
+PRINT_string "C:"
+PRINT_int #75
+PRINTLN ~~~~
+PRINT_string "************************"
+PRINTLN ~~~~
+<= ~~~~
+BZ ~~~~
+***************385    385**************
+GOTO ~~~~
+***************386    386**************
+call ~~~~
+***************387    387**************
+call ~~~~
+***************388    388**************
+call ~~~~
+***************389    390**************
+PUSH ~~~~
+call ~~~~
+***************391    391**************
+call ~~~~
+***************392    394**************
+ADDLEAF: RET_int
+ADD_TO_ROUTE:(#76,2)
+#76=RET_int
+== ~~~~
+BZ ~~~~
+***************395    395**************
+call ~~~~
+***************396    400**************
+ADDLEAF: RET_int
+#77:::2
+ADD_TO_ROUTE:(#77,2)
+#77=RET_int
+PRINT_string "Success test_call="
+PRINT_int #77
+PRINTLN ~~~~
+GOTO ~~~~
+***************401    402**************
+PRINT_string "Fail test_call"
+PRINTLN ~~~~
+***************403    405**************
+PRINT_string "************************"
+PRINTLN ~~~~
+ret ~~~~

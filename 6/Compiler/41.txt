@@ -1,15 +1,0 @@
-void init(){
-int a, c, e;
-	a = 0;
-c=a+1;
-	a=2+a;
-e = a+c;
-	
-	
-}
-void main(){
-int x, a,b,c,d;
-	init();
-x=x;
-a=c+d;b=c+d;
-}

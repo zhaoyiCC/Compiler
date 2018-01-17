@@ -1,0 +1,1973 @@
+---------------------------Program_id:1 Line 18~23--------------------
+----------Line23-----------
+Out_Line::: 
+Use_Line::: ans 
+Def_Line::: 
+ In_Line::: ans 
+----------Line22-----------
+Out_Line::: ans 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: ans 
+----------Line21-----------
+Out_Line::: ans 
+Use_Line::: y 
+Def_Line::: ans 
+ In_Line::: y 
+----------Line20-----------
+Out_Line::: ans y 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: ans y 
+----------Line19-----------
+Out_Line::: ans y 
+Use_Line::: x y 
+Def_Line::: 
+ In_Line::: ans x y 
+----------Line18-----------
+Out_Line::: ans x y 
+Use_Line::: x 
+Def_Line::: ans 
+ In_Line::: x y 
+
+----Start NonConfilct Variable---
+ans:    REG23   $s7
+------End NonConfilct Variable---
+
+-------------Conlict Start----------------
+-------------Conlict End------------------
+
+----Start Graph Coloring---
+------End Graph Coloring---
+---------------------------Program_id:1 Conlict End-------------------
+
+---------------------------Program_id:2 Line 28~45--------------------
+----------Line45-----------
+Out_Line::: 
+Use_Line::: res 
+Def_Line::: 
+ In_Line::: res 
+----------Line44-----------
+Out_Line::: res 
+Use_Line::: n #3 
+Def_Line::: res 
+ In_Line::: #3 n 
+----------Line43-----------
+Out_Line::: #3 n 
+Use_Line::: 
+Def_Line::: #3 
+ In_Line::: n 
+----------Line42-----------
+Out_Line::: n 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: n 
+----------Line41-----------
+Out_Line::: n 
+Use_Line::: #2 
+Def_Line::: 
+ In_Line::: #2 n 
+----------Line40-----------
+Out_Line::: #2 n 
+Use_Line::: n 
+Def_Line::: #2 
+ In_Line::: n 
+----------Line39-----------
+Out_Line::: res 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: res 
+----------Line38-----------
+Out_Line::: res 
+Use_Line::: 
+Def_Line::: res 
+ In_Line::: 
+----------Line37-----------
+Out_Line::: n 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: n 
+----------Line36-----------
+Out_Line::: n 
+Use_Line::: n 
+Def_Line::: 
+ In_Line::: n 
+----------Line35-----------
+Out_Line::: res 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: res 
+----------Line34-----------
+Out_Line::: res 
+Use_Line::: 
+Def_Line::: res 
+ In_Line::: 
+----------Line33-----------
+Out_Line::: n 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: n 
+----------Line32-----------
+Out_Line::: n 
+Use_Line::: n 
+Def_Line::: 
+ In_Line::: n 
+----------Line31-----------
+Out_Line::: n 
+Use_Line::: n 
+Def_Line::: 
+ In_Line::: n 
+----------Line30-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line29-----------
+Out_Line::: n 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: n 
+----------Line28-----------
+Out_Line::: n 
+Use_Line::: n 
+Def_Line::: 
+ In_Line::: n 
+
+----Start NonConfilct Variable---
+#2:    REG23   $s7
+#3:    REG23   $s7
+res:    REG23   $s7
+------End NonConfilct Variable---
+
+-------------Conlict Start----------------
+-------------Conlict End------------------
+
+----Start Graph Coloring---
+------End Graph Coloring---
+---------------------------Program_id:2 Conlict End-------------------
+
+---------------------------Program_id:3 Line 53~70--------------------
+----------Line70-----------
+Out_Line::: 
+Use_Line::: #11 
+Def_Line::: 
+ In_Line::: #11 
+----------Line69-----------
+Out_Line::: #11 
+Use_Line::: #8 #10 
+Def_Line::: #11 
+ In_Line::: #10 #8 
+----------Line68-----------
+Out_Line::: #10 #8 
+Use_Line::: 
+Def_Line::: #10 
+ In_Line::: #8 
+----------Line67-----------
+Out_Line::: #8 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: #8 
+----------Line66-----------
+Out_Line::: #8 
+Use_Line::: #9 
+Def_Line::: 
+ In_Line::: #8 #9 
+----------Line65-----------
+Out_Line::: #8 #9 
+Use_Line::: n m 
+Def_Line::: #9 
+ In_Line::: #8 m n 
+----------Line64-----------
+Out_Line::: #8 m n 
+Use_Line::: #6 #7 
+Def_Line::: #8 
+ In_Line::: #6 #7 m n 
+----------Line63-----------
+Out_Line::: #6 #7 m n 
+Use_Line::: 
+Def_Line::: #7 
+ In_Line::: #6 m n 
+----------Line62-----------
+Out_Line::: #6 m n 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: #6 m n 
+----------Line61-----------
+Out_Line::: #6 m n 
+Use_Line::: m 
+Def_Line::: 
+ In_Line::: #6 m n 
+----------Line60-----------
+Out_Line::: #6 m n 
+Use_Line::: 
+Def_Line::: #6 
+ In_Line::: m n 
+----------Line59-----------
+Out_Line::: m n 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: m n 
+----------Line58-----------
+Out_Line::: m n 
+Use_Line::: n 
+Def_Line::: 
+ In_Line::: m n 
+----------Line57-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line56-----------
+Out_Line::: m n 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: m n 
+----------Line55-----------
+Out_Line::: m n 
+Use_Line::: n m 
+Def_Line::: 
+ In_Line::: m n 
+----------Line54-----------
+Out_Line::: m n 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: m n 
+----------Line53-----------
+Out_Line::: m n 
+Use_Line::: n m 
+Def_Line::: 
+ In_Line::: m n 
+
+----Start NonConfilct Variable---
+#11:    REG23   $s7
+------End NonConfilct Variable---
+
+-------------Conlict Start----------------
+#10:::      #8 
+#6:::      #7 
+#7:::      #6 
+#8:::      #10 #9 
+#9:::      #8 
+Choose:#10  Degree:1
+#6:::      #7 
+#7:::      #6 
+#8:::      #9 
+#9:::      #8 
+Choose:#6  Degree:1
+#7:::      
+#8:::      #9 
+#9:::      #8 
+Choose:#7  Degree:0
+#8:::      #9 
+#9:::      #8 
+Choose:#8  Degree:1
+#9:::      
+Choose:#9  Degree:0
+-------------Conlict End------------------
+
+----Start Graph Coloring---
+#9:    Reg16     $s0
+#8:    Reg17     $s1
+#7:    Reg16     $s0
+#6:    Reg17     $s1
+#10:    Reg16     $s0
+------End Graph Coloring---
+---------------------------Program_id:3 Conlict End-------------------
+
+---------------------------Program_id:4 Line 73~82--------------------
+----------Line82-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line81-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line80-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line79-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: ch 
+ In_Line::: 
+----------Line78-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: k 
+ In_Line::: 
+----------Line77-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: m 
+ In_Line::: 
+----------Line76-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: n 
+ In_Line::: 
+----------Line75-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line74-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line73-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: m 
+ In_Line::: 
+
+----Start NonConfilct Variable---
+------End NonConfilct Variable---
+
+-------------Conlict Start----------------
+-------------Conlict End------------------
+
+----Start Graph Coloring---
+------End Graph Coloring---
+---------------------------Program_id:4 Conlict End-------------------
+
+---------------------------Program_id:5 Line 88~105--------------------
+----------Line105-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line104-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line103-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line102-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line101-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line100-----------
+Out_Line::: 
+Use_Line::: #15 
+Def_Line::: 
+ In_Line::: #15 
+----------Line99-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line98-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line97-----------
+Out_Line::: #15 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: #15 
+----------Line96-----------
+Out_Line::: #15 
+Use_Line::: #15 
+Def_Line::: 
+ In_Line::: #15 
+----------Line95-----------
+Out_Line::: #15 
+Use_Line::: #15 
+Def_Line::: 
+ In_Line::: #15 
+----------Line94-----------
+Out_Line::: #15 
+Use_Line::: ans #14 
+Def_Line::: #15 
+ In_Line::: #14 ans 
+----------Line93-----------
+Out_Line::: #14 ans 
+Use_Line::: #13 
+Def_Line::: #14 
+ In_Line::: #13 ans 
+----------Line92-----------
+Out_Line::: #13 ans 
+Use_Line::: ans 
+Def_Line::: #13 
+ In_Line::: ans 
+----------Line91-----------
+Out_Line::: ans 
+Use_Line::: 
+Def_Line::: ans 
+ In_Line::: 
+----------Line90-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line89-----------
+Out_Line::: 
+Use_Line::: n 
+Def_Line::: 
+ In_Line::: n 
+----------Line88-----------
+Out_Line::: n 
+Use_Line::: m 
+Def_Line::: 
+ In_Line::: m n 
+
+----Start NonConfilct Variable---
+#15:    REG23   $s7
+------End NonConfilct Variable---
+
+-------------Conlict Start----------------
+#13:::      ans 
+#14:::      ans 
+ans:::      #14 #13 
+Choose:#13  Degree:1
+#14:::      ans 
+ans:::      #14 
+Choose:#14  Degree:1
+ans:::      
+Choose:ans  Degree:0
+-------------Conlict End------------------
+
+----Start Graph Coloring---
+ans:    Reg16     $s0
+#14:    Reg17     $s1
+#13:    Reg17     $s1
+------End Graph Coloring---
+---------------------------Program_id:5 Conlict End-------------------
+
+---------------------------Program_id:6 Line 110~180--------------------
+----------Line180-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line179-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line178-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line177-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line176-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line175-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line174-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line173-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line172-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line171-----------
+Out_Line::: 
+Use_Line::: #43 
+Def_Line::: 
+ In_Line::: #43 
+----------Line170-----------
+Out_Line::: #43 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: #43 
+----------Line169-----------
+Out_Line::: #43 
+Use_Line::: #43 
+Def_Line::: 
+ In_Line::: #43 
+----------Line168-----------
+Out_Line::: #43 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: #43 
+----------Line167-----------
+Out_Line::: #43 
+Use_Line::: Int 
+Def_Line::: #43 
+ In_Line::: Int 
+----------Line166-----------
+Out_Line::: Int 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: Int 
+----------Line165-----------
+Out_Line::: Int 
+Use_Line::: #40 
+Def_Line::: 
+ In_Line::: #40 Int 
+----------Line164-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line163-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line162-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line161-----------
+Out_Line::: #40 Int 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: #40 Int 
+----------Line160-----------
+Out_Line::: #40 Int 
+Use_Line::: #40 
+Def_Line::: 
+ In_Line::: #40 Int 
+----------Line159-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line158-----------
+Out_Line::: 
+Use_Line::: Int 
+Def_Line::: Int 
+ In_Line::: Int 
+----------Line157-----------
+Out_Line::: #40 Int 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: #40 Int 
+----------Line156-----------
+Out_Line::: #40 Int 
+Use_Line::: #40 
+Def_Line::: 
+ In_Line::: #40 Int 
+----------Line155-----------
+Out_Line::: #40 Int 
+Use_Line::: #40 
+Def_Line::: 
+ In_Line::: #40 Int 
+----------Line154-----------
+Out_Line::: #40 Int 
+Use_Line::: #39 
+Def_Line::: #40 
+ In_Line::: #39 Int 
+----------Line153-----------
+Out_Line::: #39 Int 
+Use_Line::: Int 
+Def_Line::: #39 
+ In_Line::: Int 
+----------Line152-----------
+Out_Line::: Int 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: Int 
+----------Line151-----------
+Out_Line::: Int 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: Int 
+----------Line150-----------
+Out_Line::: Int 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: Int 
+----------Line149-----------
+Out_Line::: Int 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: Int 
+----------Line148-----------
+Out_Line::: Int 
+Use_Line::: Int 
+Def_Line::: 
+ In_Line::: Int 
+----------Line147-----------
+Out_Line::: Int 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: Int 
+----------Line146-----------
+Out_Line::: Int 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: Int 
+----------Line145-----------
+Out_Line::: Int 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: Int 
+----------Line144-----------
+Out_Line::: Int 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: Int 
+----------Line143-----------
+Out_Line::: Int 
+Use_Line::: Int 
+Def_Line::: 
+ In_Line::: Int 
+----------Line142-----------
+Out_Line::: Int 
+Use_Line::: Int 
+Def_Line::: 
+ In_Line::: Int 
+----------Line141-----------
+Out_Line::: Int 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: Int 
+----------Line140-----------
+Out_Line::: Int 
+Use_Line::: #38 
+Def_Line::: 
+ In_Line::: #38 Int 
+----------Line139-----------
+Out_Line::: #38 Int 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: #38 Int 
+----------Line138-----------
+Out_Line::: #38 Int 
+Use_Line::: Int 
+Def_Line::: #38 
+ In_Line::: Int 
+----------Line137-----------
+Out_Line::: Int 
+Use_Line::: #36 
+Def_Line::: Int 
+ In_Line::: #36 
+----------Line136-----------
+Out_Line::: #36 
+Use_Line::: #35 
+Def_Line::: #36 
+ In_Line::: #35 
+----------Line135-----------
+Out_Line::: #35 
+Use_Line::: #34 
+Def_Line::: #35 
+ In_Line::: #34 
+----------Line134-----------
+Out_Line::: #34 
+Use_Line::: #33 
+Def_Line::: #34 
+ In_Line::: #33 
+----------Line133-----------
+Out_Line::: #33 
+Use_Line::: 
+Def_Line::: #33 
+ In_Line::: 
+----------Line132-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line131-----------
+Out_Line::: 
+Use_Line::: #30 
+Def_Line::: 
+ In_Line::: #30 
+----------Line130-----------
+Out_Line::: #30 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: #30 
+----------Line129-----------
+Out_Line::: #30 
+Use_Line::: Int 
+Def_Line::: #30 
+ In_Line::: Int 
+----------Line128-----------
+Out_Line::: Int 
+Use_Line::: #28 
+Def_Line::: Int 
+ In_Line::: #28 
+----------Line127-----------
+Out_Line::: #28 
+Use_Line::: #27 
+Def_Line::: #28 
+ In_Line::: #27 
+----------Line126-----------
+Out_Line::: #27 
+Use_Line::: 
+Def_Line::: #27 
+ In_Line::: 
+----------Line125-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line124-----------
+Out_Line::: 
+Use_Line::: #24 
+Def_Line::: 
+ In_Line::: #24 
+----------Line123-----------
+Out_Line::: #24 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: #24 
+----------Line122-----------
+Out_Line::: #24 
+Use_Line::: Int 
+Def_Line::: #24 
+ In_Line::: Int 
+----------Line121-----------
+Out_Line::: Int 
+Use_Line::: 
+Def_Line::: Int 
+ In_Line::: 
+----------Line120-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line119-----------
+Out_Line::: 
+Use_Line::: #20 
+Def_Line::: 
+ In_Line::: #20 
+----------Line118-----------
+Out_Line::: #20 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: #20 
+----------Line117-----------
+Out_Line::: #20 
+Use_Line::: Int 
+Def_Line::: #20 
+ In_Line::: Int 
+----------Line116-----------
+Out_Line::: Int 
+Use_Line::: 
+Def_Line::: Int 
+ In_Line::: 
+----------Line115-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line114-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line113-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line112-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line111-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line110-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+
+----Start NonConfilct Variable---
+#20:    REG23   $s7
+#24:    REG23   $s7
+#27:    REG23   $s7
+#28:    REG23   $s7
+#30:    REG23   $s7
+#33:    REG23   $s7
+#34:    REG23   $s7
+#35:    REG23   $s7
+#36:    REG23   $s7
+#43:    REG23   $s7
+------End NonConfilct Variable---
+
+-------------Conlict Start----------------
+#38:::      Int 
+#39:::      Int 
+#40:::      Int 
+Int:::      #40 #39 #38 
+Choose:#38  Degree:1
+#39:::      Int 
+#40:::      Int 
+Int:::      #40 #39 
+Choose:#39  Degree:1
+#40:::      Int 
+Int:::      #40 
+Choose:#40  Degree:1
+Int:::      
+Choose:Int  Degree:0
+-------------Conlict End------------------
+
+----Start Graph Coloring---
+Int:    Reg16     $s0
+#40:    Reg17     $s1
+#39:    Reg17     $s1
+#38:    Reg17     $s1
+------End Graph Coloring---
+---------------------------Program_id:6 Conlict End-------------------
+
+---------------------------Program_id:7 Line 183~222--------------------
+----------Line222-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line221-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line220-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line219-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line218-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line217-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line216-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line215-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line214-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line213-----------
+Out_Line::: 
+Use_Line::: mx 
+Def_Line::: 
+ In_Line::: mx 
+----------Line212-----------
+Out_Line::: mx 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: mx 
+----------Line211-----------
+Out_Line::: mx 
+Use_Line::: #48 
+Def_Line::: 
+ In_Line::: #48 mx 
+----------Line210-----------
+Out_Line::: #48 mx 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: #48 mx 
+----------Line209-----------
+Out_Line::: #48 mx 
+Use_Line::: mx 
+Def_Line::: #48 
+ In_Line::: mx 
+----------Line208-----------
+Out_Line::: mx 
+Use_Line::: z 
+Def_Line::: mx 
+ In_Line::: z 
+----------Line207-----------
+Out_Line::: mx 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: mx 
+----------Line206-----------
+Out_Line::: mx 
+Use_Line::: y 
+Def_Line::: mx 
+ In_Line::: y 
+----------Line205-----------
+Out_Line::: y z 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: y z 
+----------Line204-----------
+Out_Line::: y z 
+Use_Line::: z y 
+Def_Line::: 
+ In_Line::: y z 
+----------Line203-----------
+Out_Line::: mx 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: mx 
+----------Line202-----------
+Out_Line::: mx 
+Use_Line::: z 
+Def_Line::: mx 
+ In_Line::: z 
+----------Line201-----------
+Out_Line::: mx 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: mx 
+----------Line200-----------
+Out_Line::: mx 
+Use_Line::: x 
+Def_Line::: mx 
+ In_Line::: x 
+----------Line199-----------
+Out_Line::: x z 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: x z 
+----------Line198-----------
+Out_Line::: x z 
+Use_Line::: z x 
+Def_Line::: 
+ In_Line::: x z 
+----------Line197-----------
+Out_Line::: x y z 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: x y z 
+----------Line196-----------
+Out_Line::: x y z 
+Use_Line::: y x 
+Def_Line::: 
+ In_Line::: x y z 
+----------Line195-----------
+Out_Line::: x y z 
+Use_Line::: 
+Def_Line::: z 
+ In_Line::: x y 
+----------Line194-----------
+Out_Line::: x y 
+Use_Line::: 
+Def_Line::: y 
+ In_Line::: x 
+----------Line193-----------
+Out_Line::: x 
+Use_Line::: 
+Def_Line::: x 
+ In_Line::: 
+----------Line192-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line191-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line190-----------
+Out_Line::: 
+Use_Line::: #46 
+Def_Line::: 
+ In_Line::: #46 
+----------Line189-----------
+Out_Line::: #46 
+Use_Line::: x 
+Def_Line::: #46 
+ In_Line::: x 
+----------Line188-----------
+Out_Line::: x 
+Use_Line::: 
+Def_Line::: x 
+ In_Line::: 
+----------Line187-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line186-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line185-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line184-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line183-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+
+----Start NonConfilct Variable---
+#46:    REG23   $s7
+#48:    REG23   $s7
+------End NonConfilct Variable---
+
+-------------Conlict Start----------------
+-------------Conlict End------------------
+
+----Start Graph Coloring---
+------End Graph Coloring---
+---------------------------Program_id:7 Conlict End-------------------
+
+---------------------------Program_id:8 Line 225~263--------------------
+----------Line263-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line262-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line261-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line260-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line259-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line258-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line257-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line256-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line255-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line254-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line253-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line252-----------
+Out_Line::: 
+Use_Line::: ch #54 
+Def_Line::: 
+ In_Line::: #54 ch 
+----------Line251-----------
+Out_Line::: #54 ch 
+Use_Line::: k 
+Def_Line::: #54 
+ In_Line::: ch k 
+----------Line250-----------
+Out_Line::: ch k 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: ch k 
+----------Line249-----------
+Out_Line::: ch k 
+Use_Line::: #53 
+Def_Line::: 
+ In_Line::: #53 ch k 
+----------Line248-----------
+Out_Line::: #53 ch k 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: #53 ch k 
+----------Line247-----------
+Out_Line::: #53 ch k 
+Use_Line::: k 
+Def_Line::: #53 
+ In_Line::: ch k 
+----------Line246-----------
+Out_Line::: ch k 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: ch k 
+----------Line245-----------
+Out_Line::: ch k 
+Use_Line::: #52 
+Def_Line::: 
+ In_Line::: #52 ch k 
+----------Line244-----------
+Out_Line::: #52 ch k 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: #52 ch k 
+----------Line243-----------
+Out_Line::: #52 ch k 
+Use_Line::: k 
+Def_Line::: #52 
+ In_Line::: ch k 
+----------Line242-----------
+Out_Line::: ch i k 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: ch i k 
+----------Line241-----------
+Out_Line::: ch i k 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: ch i k 
+----------Line240-----------
+Out_Line::: ch i k 
+Use_Line::: k i 
+Def_Line::: 
+ In_Line::: ch i k 
+----------Line239-----------
+Out_Line::: ch i k 
+Use_Line::: i 
+Def_Line::: i 
+ In_Line::: ch i k 
+----------Line238-----------
+Out_Line::: ch i k 
+Use_Line::: k 
+Def_Line::: k 
+ In_Line::: ch i k 
+----------Line237-----------
+Out_Line::: ch i k 
+Use_Line::: 
+Def_Line::: i 
+ In_Line::: ch k 
+----------Line236-----------
+Out_Line::: ch i k 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: ch i k 
+----------Line235-----------
+Out_Line::: ch i k 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: ch i k 
+----------Line234-----------
+Out_Line::: ch i k 
+Use_Line::: i 
+Def_Line::: 
+ In_Line::: ch i k 
+----------Line233-----------
+Out_Line::: ch i k 
+Use_Line::: i 
+Def_Line::: i 
+ In_Line::: ch i k 
+----------Line232-----------
+Out_Line::: ch i k 
+Use_Line::: ch i 
+Def_Line::: 
+ In_Line::: ch i k 
+----------Line231-----------
+Out_Line::: ch i k 
+Use_Line::: #50 i 
+Def_Line::: 
+ In_Line::: #50 ch i k 
+----------Line230-----------
+Out_Line::: #50 ch i k 
+Use_Line::: k i 
+Def_Line::: #50 
+ In_Line::: ch i k 
+----------Line229-----------
+Out_Line::: ch i k 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: ch i k 
+----------Line228-----------
+Out_Line::: ch i k 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: ch i k 
+----------Line227-----------
+Out_Line::: ch i k 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: ch i k 
+----------Line226-----------
+Out_Line::: ch i k 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: ch i k 
+----------Line225-----------
+Out_Line::: ch i k 
+Use_Line::: k 
+Def_Line::: i 
+ In_Line::: ch k 
+
+----Start NonConfilct Variable---
+#50:    REG23   $s7
+#52:    REG23   $s7
+#53:    REG23   $s7
+#54:    REG23   $s7
+------End NonConfilct Variable---
+
+-------------Conlict Start----------------
+-------------Conlict End------------------
+
+----Start Graph Coloring---
+------End Graph Coloring---
+---------------------------Program_id:8 Conlict End-------------------
+
+---------------------------Program_id:9 Line 267~313--------------------
+----------Line313-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line312-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line311-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line310-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line309-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line308-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line307-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line306-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line305-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line304-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line303-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line302-----------
+Out_Line::: 
+Use_Line::: Int 
+Def_Line::: 
+ In_Line::: Int 
+----------Line301-----------
+Out_Line::: Int 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: Int 
+----------Line300-----------
+Out_Line::: Int 
+Use_Line::: #63 
+Def_Line::: 
+ In_Line::: #63 Int 
+----------Line299-----------
+Out_Line::: #63 Int 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: #63 Int 
+----------Line298-----------
+Out_Line::: #63 Int 
+Use_Line::: Int 
+Def_Line::: #63 
+ In_Line::: Int 
+----------Line297-----------
+Out_Line::: Int 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: Int 
+----------Line296-----------
+Out_Line::: Int 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: Int 
+----------Line295-----------
+Out_Line::: Int 
+Use_Line::: #62 i 
+Def_Line::: 
+ In_Line::: #62 Int i 
+----------Line294-----------
+Out_Line::: #62 Int i 
+Use_Line::: Int 
+Def_Line::: #62 
+ In_Line::: Int i 
+----------Line293-----------
+Out_Line::: Int i 
+Use_Line::: i 
+Def_Line::: i 
+ In_Line::: Int i 
+----------Line292-----------
+Out_Line::: Int i 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: Int i 
+----------Line291-----------
+Out_Line::: Int i 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: Int i 
+----------Line290-----------
+Out_Line::: Int i 
+Use_Line::: #61 i 
+Def_Line::: 
+ In_Line::: #61 Int i 
+----------Line289-----------
+Out_Line::: #61 Int i 
+Use_Line::: i 
+Def_Line::: #61 
+ In_Line::: Int i 
+----------Line288-----------
+Out_Line::: Int i 
+Use_Line::: i 
+Def_Line::: i 
+ In_Line::: Int i 
+----------Line287-----------
+Out_Line::: Int i 
+Use_Line::: Int 
+Def_Line::: Int 
+ In_Line::: Int i 
+----------Line286-----------
+Out_Line::: Int i 
+Use_Line::: Int 
+Def_Line::: i 
+ In_Line::: Int 
+----------Line285-----------
+Out_Line::: Int 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: Int 
+----------Line284-----------
+Out_Line::: Int 
+Use_Line::: #59 
+Def_Line::: 
+ In_Line::: #59 Int 
+----------Line283-----------
+Out_Line::: #59 Int 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: #59 Int 
+----------Line282-----------
+Out_Line::: #59 Int 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: #59 Int 
+----------Line281-----------
+Out_Line::: #59 Int 
+Use_Line::: #56 
+Def_Line::: 
+ In_Line::: #56 #59 Int 
+----------Line280-----------
+Out_Line::: #56 #59 Int 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: #56 #59 Int 
+----------Line279-----------
+Out_Line::: #56 #59 Int 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: #56 #59 Int 
+----------Line278-----------
+Out_Line::: #56 #59 Int 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: #56 #59 Int 
+----------Line277-----------
+Out_Line::: #56 #59 Int 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: #56 #59 Int 
+----------Line276-----------
+Out_Line::: #56 #59 Int 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: #56 #59 Int 
+----------Line275-----------
+Out_Line::: #56 #59 Int 
+Use_Line::: Int 
+Def_Line::: i 
+ In_Line::: #56 #59 Int 
+----------Line274-----------
+Out_Line::: #56 #59 Int 
+Use_Line::: Int 
+Def_Line::: #59 
+ In_Line::: #56 Int 
+----------Line273-----------
+Out_Line::: #56 Int 
+Use_Line::: #78 
+Def_Line::: Int 
+ In_Line::: #56 #78 
+----------Line272-----------
+Out_Line::: #56 #78 
+Use_Line::: #57 
+Def_Line::: Int 
+ In_Line::: #56 #57 #78 
+----------Line271-----------
+Out_Line::: #56 #57 #78 
+Use_Line::: #57 
+Def_Line::: #78 
+ In_Line::: #56 #57 
+----------Line270-----------
+Out_Line::: #56 #57 
+Use_Line::: #79 
+Def_Line::: #57 
+ In_Line::: #56 #79 
+----------Line269-----------
+Out_Line::: #56 #79 
+Use_Line::: #79 
+Def_Line::: #56 
+ In_Line::: #79 
+----------Line268-----------
+Out_Line::: #79 
+Use_Line::: 
+Def_Line::: Int 
+ In_Line::: #79 
+----------Line267-----------
+Out_Line::: #79 
+Use_Line::: 
+Def_Line::: #79 
+ In_Line::: 
+
+----Start NonConfilct Variable---
+#61:    REG23   $s7
+#62:    REG23   $s7
+#63:    REG23   $s7
+------End NonConfilct Variable---
+
+-------------Conlict Start----------------
+#56:::      #59 #78 #57 #79 
+#57:::      #56 #78 
+#59:::      #56 
+#78:::      #56 #57 
+#79:::      #56 
+Choose:#59  Degree:1
+#56:::      #78 #57 #79 
+#57:::      #56 #78 
+#78:::      #56 #57 
+#79:::      #56 
+Choose:#79  Degree:1
+#56:::      #78 #57 
+#57:::      #56 #78 
+#78:::      #56 #57 
+Choose:#56  Degree:2
+#57:::      #78 
+#78:::      #57 
+Choose:#57  Degree:1
+#78:::      
+Choose:#78  Degree:0
+-------------Conlict End------------------
+
+----Start Graph Coloring---
+#78:    Reg16     $s0
+#57:    Reg17     $s1
+#56:    Reg18     $s2
+#79:    Reg16     $s0
+#59:    Reg16     $s0
+------End Graph Coloring---
+---------------------------Program_id:9 Conlict End-------------------
+
+---------------------------Program_id:10 Line 316~330--------------------
+----------Line330-----------
+Out_Line::: 
+Use_Line::: #70 
+Def_Line::: 
+ In_Line::: #70 
+----------Line329-----------
+Out_Line::: #70 
+Use_Line::: 
+Def_Line::: #70 
+ In_Line::: 
+----------Line328-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line327-----------
+Out_Line::: 
+Use_Line::: #69 
+Def_Line::: 
+ In_Line::: #69 
+----------Line326-----------
+Out_Line::: #69 
+Use_Line::: #67 
+Def_Line::: #69 
+ In_Line::: #67 
+----------Line325-----------
+Out_Line::: #67 
+Use_Line::: #65 #66 
+Def_Line::: #67 
+ In_Line::: #65 #66 
+----------Line324-----------
+Out_Line::: #65 #66 
+Use_Line::: 
+Def_Line::: #66 
+ In_Line::: #65 
+----------Line323-----------
+Out_Line::: #65 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: #65 
+----------Line322-----------
+Out_Line::: #65 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: #65 
+----------Line321-----------
+Out_Line::: #65 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: #65 
+----------Line320-----------
+Out_Line::: #65 
+Use_Line::: 
+Def_Line::: #65 
+ In_Line::: 
+----------Line319-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line318-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line317-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line316-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+
+----Start NonConfilct Variable---
+#67:    REG23   $s7
+#69:    REG23   $s7
+#70:    REG23   $s7
+------End NonConfilct Variable---
+
+-------------Conlict Start----------------
+#65:::      #66 
+#66:::      #65 
+Choose:#65  Degree:1
+#66:::      
+Choose:#66  Degree:0
+-------------Conlict End------------------
+
+----Start Graph Coloring---
+#66:    Reg16     $s0
+#65:    Reg17     $s1
+------End Graph Coloring---
+---------------------------Program_id:10 Conlict End-------------------
+
+---------------------------Program_id:11 Line 333~393--------------------
+----------Line393-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line392-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line391-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line390-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line389-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line388-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line387-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line386-----------
+Out_Line::: 
+Use_Line::: #77 
+Def_Line::: 
+ In_Line::: #77 
+----------Line385-----------
+Out_Line::: #77 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: #77 
+----------Line384-----------
+Out_Line::: #77 
+Use_Line::: 
+Def_Line::: #77 
+ In_Line::: 
+----------Line383-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line382-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line381-----------
+Out_Line::: 
+Use_Line::: #76 
+Def_Line::: 
+ In_Line::: #76 
+----------Line380-----------
+Out_Line::: #76 
+Use_Line::: 
+Def_Line::: #76 
+ In_Line::: 
+----------Line379-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line378-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line377-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line376-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line375-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line374-----------
+Out_Line::: 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: 
+----------Line373-----------
+Out_Line::: i m n 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: i m n 
+----------Line372-----------
+Out_Line::: i m n 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: i m n 
+----------Line371-----------
+Out_Line::: i m n 
+Use_Line::: m i 
+Def_Line::: 
+ In_Line::: i m n 
+----------Line370-----------
+Out_Line::: i m n 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: i m n 
+----------Line369-----------
+Out_Line::: i m n 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: i m n 
+----------Line368-----------
+Out_Line::: i m n 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: i m n 
+----------Line367-----------
+Out_Line::: i m n 
+Use_Line::: #75 
+Def_Line::: 
+ In_Line::: #75 i m n 
+----------Line366-----------
+Out_Line::: #75 i m n 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: #75 i m n 
+----------Line365-----------
+Out_Line::: #75 i m n 
+Use_Line::: i 
+Def_Line::: i 
+ In_Line::: #75 i m n 
+----------Line364-----------
+Out_Line::: #75 i m n 
+Use_Line::: 
+Def_Line::: #75 
+ In_Line::: i m n 
+----------Line363-----------
+Out_Line::: i m n 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: i m n 
+----------Line362-----------
+Out_Line::: i m n 
+Use_Line::: n 
+Def_Line::: 
+ In_Line::: i m n 
+----------Line361-----------
+Out_Line::: i m n 
+Use_Line::: j 
+Def_Line::: 
+ In_Line::: i j m n 
+----------Line360-----------
+Out_Line::: i j m n 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: i j m n 
+----------Line359-----------
+Out_Line::: i j m n 
+Use_Line::: #74 
+Def_Line::: 
+ In_Line::: #74 i j m n 
+----------Line358-----------
+Out_Line::: #74 i j m n 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: #74 i j m n 
+----------Line357-----------
+Out_Line::: #74 i j m n 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: #74 i j m n 
+----------Line356-----------
+Out_Line::: #74 i j m n 
+Use_Line::: #73 
+Def_Line::: 
+ In_Line::: #73 #74 i j m n 
+----------Line355-----------
+Out_Line::: #73 #74 i j m n 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: #73 #74 i j m n 
+----------Line354-----------
+Out_Line::: #73 #74 i j m n 
+Use_Line::: j 
+Def_Line::: #74 
+ In_Line::: #73 i j m n 
+----------Line353-----------
+Out_Line::: #73 i j m n 
+Use_Line::: n 
+Def_Line::: #73 
+ In_Line::: i j m n 
+----------Line352-----------
+Out_Line::: i j m n 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: i j m n 
+----------Line351-----------
+Out_Line::: i j m n 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: i j m n 
+----------Line350-----------
+Out_Line::: i j m n 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: i j m n 
+----------Line349-----------
+Out_Line::: i j m n 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: i j m n 
+----------Line348-----------
+Out_Line::: i j m n 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: i j m n 
+----------Line347-----------
+Out_Line::: i j m n 
+Use_Line::: #72 
+Def_Line::: 
+ In_Line::: #72 i j m n 
+----------Line346-----------
+Out_Line::: #72 i j m n 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: #72 i j m n 
+----------Line345-----------
+Out_Line::: #72 i j m n 
+Use_Line::: 
+Def_Line::: #72 
+ In_Line::: i j m n 
+----------Line344-----------
+Out_Line::: i j m n 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: i j m n 
+----------Line343-----------
+Out_Line::: i j m n 
+Use_Line::: n 
+Def_Line::: 
+ In_Line::: i j m n 
+----------Line342-----------
+Out_Line::: i j m n 
+Use_Line::: j 
+Def_Line::: 
+ In_Line::: i j m n 
+----------Line341-----------
+Out_Line::: i j m n 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: i j m n 
+----------Line340-----------
+Out_Line::: i j m n 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: i j m n 
+----------Line339-----------
+Out_Line::: i j m n 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: i j m n 
+----------Line338-----------
+Out_Line::: i j m n 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: i j m n 
+----------Line337-----------
+Out_Line::: i j m n 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: i j m n 
+----------Line336-----------
+Out_Line::: i j m n 
+Use_Line::: i 
+Def_Line::: 
+ In_Line::: i j m n 
+----------Line335-----------
+Out_Line::: i j m n 
+Use_Line::: m i 
+Def_Line::: j 
+ In_Line::: i m n 
+----------Line334-----------
+Out_Line::: i m n 
+Use_Line::: 
+Def_Line::: i 
+ In_Line::: m n 
+----------Line333-----------
+Out_Line::: m n 
+Use_Line::: 
+Def_Line::: 
+ In_Line::: m n 
+
+----Start NonConfilct Variable---
+#72:    REG23   $s7
+#75:    REG23   $s7
+#76:    REG23   $s7
+#77:    REG23   $s7
+------End NonConfilct Variable---
+
+-------------Conlict Start----------------
+#73:::      #74 
+#74:::      #73 
+Choose:#73  Degree:1
+#74:::      
+Choose:#74  Degree:0
+-------------Conlict End------------------
+
+----Start Graph Coloring---
+#74:    Reg16     $s0
+#73:    Reg17     $s1
+------End Graph Coloring---
+---------------------------Program_id:11 Conlict End-------------------
+

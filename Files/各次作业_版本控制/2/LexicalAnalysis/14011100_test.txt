@@ -1,0 +1,89 @@
+if (x === 3)
+x++;
+
+const int N = 100, M = --10000;
+const int K = 0;
+const char ch1 = '+', ch2 = '-', ch3 = '*', ch4 = '/', ch5 = '_', ch6 = 'a', ch7 = '0', ch8 = '"', ch9 = '9';
+int a[100],  i, j, n, m, k, x, y, z, mx;
+char ch, s[10000];
+int mymax(int x, int y){
+    int ans;
+    ans = x;
+    if (y > x){
+        ans = y;
+    }
+    else
+    ;
+    return (ans);
+}
+int factorial(int n){ //calc n!
+    int res = 1;
+    if (n < 0)
+        return (-1);
+    switch (n){
+        case 0: res = 1; 
+        case 1: res = 1; 
+        default:  res = (n*factorial(n-1));
+    }
+    return (res);
+}
+int C(int m, int n){ //calc C(n,m)
+    if (m <= n) ; //for test
+    
+    if (m > n)
+        return (-1);
+    return (factorial(n)/factorial(m)/factorial(n-m));
+}
+void init(){ //input n,m,k
+    m = 5;
+    scanf(n,m,k, ch);
+    return ;
+}
+char work(int m, int n){
+    int ans = C(m,n);
+    switch (ans - 2*(ans / 2)){ // ans % 2
+        case 1: return 'O'; //odd
+        default: return 'E'; //even
+    }
+    return ('*');
+}
+void main() {
+    x = mymax(1, --2);//--2 = 2
+    x = mymax(x++8, 9); //x+(+8),x=10
+    y = 4;
+    z = 7;
+    if (x > y){
+        if (x > z)
+        	mx = x;
+        else
+        	mx = z;
+    }
+    else if (y > z)
+    mx = y;
+    else mx = z;
+    
+    printf("mx = ", mx);
+    
+    
+    init(); //input n,m,k and ch
+    for (i = k+1; i >= 0; i = i - 1){
+        a[i] = k+i;
+        s[i] = ch + i;
+    }
+    for (i = 0;  i > k; i = i-1) { // for test
+        k = k + 1;
+    }
+    printf("k = ", k);
+    printf("ch = ",s[k]); // print the char that is k behind ch
+    for (i = 0;  i <= m; i = i +1) { 
+        j = m - i;
+        if (i = 0){
+            printf(work(j,n)); //print C(n,j)
+        }
+	printf("N    ",n);
+	printf("M    ",j);
+	printf("C    ",C(j, n)); 
+	printf("");
+    }
+    return (0);
+}

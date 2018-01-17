@@ -1,0 +1,164 @@
+.data
+str3:	.asciiz "  "
+str5:	.asciiz " "
+str4:	.asciiz "---------------------------------------------------------------\\n"
+str1:	.asciiz "OVERFLOW! "
+str6:	.asciiz "The total is "
+str2:	.asciiz "complete number: "
+.text
+move	$gp, $sp
+j	main
+complete_num:
+move	$s1,$sp
+move	$s0,$fp
+addi	$fp,$sp,0
+subi	$sp,$sp,4136
+sw	$s1,0($sp)
+sw	$ra,-4($sp)
+sw	$s0,-8($sp)
+addi	$sp,$sp,-40
+li	$s3,2
+LABEL_1:
+li	$s2,-1
+move	$s1,$s3
+li	$s4,1
+LABEL_2:
+div	$s0,$s3,$s4
+mul	$s0,$s0,$s4
+bne	$s0,$s3,LABEL_3
+add	$s2,$s2,1
+sub	$s1,$s1,$s4
+blt	$s2,1024,LABEL_5
+la	$a0,str1
+li	$v0,4
+syscall
+li	$a0,'\n'
+li	$v0,11
+syscall
+j	LABEL_6
+LABEL_5:
+subi	$t9,$fp,0
+sll	$t8,$s2,2
+sub	$t9,$t9,$t8
+sw	$s4,0($t9)
+LABEL_6:
+LABEL_3:
+add	$s4,$s4,1
+bge	$s4,$s3,LABEL_7
+j	LABEL_2
+LABEL_7:
+bne	$s1,0,LABEL_8
+move	$s0,$s3
+li	$s4,0
+la	$a0,str2
+li	$v0,4
+syscall
+move	$a0,$s0
+li	$v0,1
+syscall
+li	$a0,'\n'
+li	$v0,11
+syscall
+LABEL_10:
+subi	$t9,$fp,0
+sll	$t8,$s4,2
+sub	$t9,$t9,$t8
+lw	$t9,0($t9)
+move	$s0,$t9
+add	$s4,$s4,1
+la	$a0,str3
+li	$v0,4
+syscall
+move	$a0,$s0
+li	$v0,1
+syscall
+li	$a0,'\n'
+li	$v0,11
+syscall
+bgt	$s4,$s2,LABEL_11
+j	LABEL_10
+LABEL_11:
+la	$a0,str3
+li	$v0,4
+syscall
+li	$a0,'\n'
+li	$v0,11
+syscall
+LABEL_8:
+add	$s3,$s3,1
+bge	$s3,1024,LABEL_12
+j	LABEL_1
+LABEL_12:
+li	$s5,0
+li	$s2,1
+li	$s1,2
+la	$a0,str4
+li	$v0,4
+syscall
+li	$a0,'\n'
+li	$v0,11
+syscall
+LABEL_13:
+sub	$s3,$s1,1
+li	$s4,2
+LABEL_14:
+div	$s0,$s1,$s4
+mul	$s0,$s0,$s4
+bne	$s0,$s1,LABEL_15
+li	$s2,0
+LABEL_15:
+add	$s4,$s4,1
+bgt	$s4,$s3,LABEL_17
+j	LABEL_14
+LABEL_17:
+bne	$s2,1,LABEL_18
+move	$s2,$s1
+add	$s5,$s5,1
+div	$s0,$s5,10
+mul	$s0,$s0,10
+la	$a0,str5
+li	$v0,4
+syscall
+move	$a0,$s2
+li	$v0,1
+syscall
+li	$a0,'\n'
+li	$v0,11
+syscall
+bne	$s0,$s5,LABEL_20
+la	$a0,str3
+li	$v0,4
+syscall
+li	$a0,'\n'
+li	$v0,11
+syscall
+LABEL_20:
+LABEL_18:
+li	$s2,1
+add	$s1,$s1,1
+bgt	$s1,1024,LABEL_22
+j	LABEL_13
+LABEL_22:
+move	$s7,$s5
+la	$a0,str6
+li	$v0,4
+syscall
+move	$a0,$s7
+li	$v0,1
+syscall
+li	$a0,'\n'
+li	$v0,11
+syscall
+lw	$sp,-4136($fp)
+lw	$ra,-4140($fp)
+lw	$fp,-4144($fp)
+jr	$ra
+main:
+move	$s1,$sp
+move	$s0,$fp
+addi	$fp,$sp,0
+sw	$s1,0($sp)
+sw	$ra,-4($sp)
+sw	$s0,-8($sp)
+addi	$sp,$sp,-12
+jal	complete_num

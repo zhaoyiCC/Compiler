@@ -1,0 +1,189 @@
+const int _global_constint = 7;
+const char _message_to_the_world = '*';
+
+int _global_int_arr[10], _global_int, zhaoyi;
+char _global_char_arr[10], _global_char;
+
+int fib(int k)
+{
+    if (k > 1)
+        return (fib(k-1)+fib(k-2)+-1*0);
+    if (k == 0)
+    {
+        return (1);
+    }
+    if (k == 1)
+    {
+        return (1);
+    }
+    
+}
+
+void if_test()
+{
+    if (1)
+    {}
+    if (0)
+    {;}
+    if (1);
+    if (fib(2))
+    {
+        if (fib(3) + 1)
+        {
+            printf("if test  ok");
+        }
+    }
+    
+}
+
+int loop_test(int loop_initvar, int loop_step, int loop_cnt)
+{
+    int i, j;
+    int mark_cnt;
+    i = loop_initvar;
+        mark_cnt = loop_cnt;
+    j = i;
+    for (zhaoyi = 1; loop_cnt > 0; zhaoyi = zhaoyi+1)
+    {
+        i = i + loop_step;
+        loop_cnt = loop_cnt - 1;
+    } 
+    
+    for (zhaoyi = 1; j > 0; zhaoyi = zhaoyi+1)
+        j = j - 1;    
+    
+    if (j == 0)
+    {
+        if (i == loop_initvar + loop_step * mark_cnt)
+        {
+            printf("loop test ok");
+        }
+    }
+
+
+    return (i);
+}
+
+char mytoupper(char inputchar)
+{
+    if (inputchar == 'a')
+    {
+        return ('a');
+    }
+    if (inputchar == 'b')
+        return ('b');
+    if (inputchar == 'c')
+    {
+        return ('c');
+    }
+    if (inputchar == 'd')
+    {
+        return ('d');
+    }
+    if (inputchar == 'e')
+        return ('e');
+}
+
+void case_test()
+{
+    int test_num;
+    char test_char;
+    printf("please input int(0-9) & char values(a-e):");
+    scanf(test_num, test_char);
+    switch (test_num)
+    {
+        case 0:
+            printf(test_num+test_char);
+        case 1:
+        {
+            printf(test_num+test_char);
+        }
+        case 2:
+            printf(test_num+ test_char);
+        case 3:
+        {
+            printf(test_num+test_char) ;
+        }
+        case 4:
+            printf(test_num+test_char);
+        case 5:
+        {
+            printf(test_num+test_char);
+        }
+        case 6:
+            printf(test_num+test_char);
+        case 7:
+            printf(test_num+test_char);
+        case 8 :
+            printf(test_num+test_char);
+        case 9 :
+            printf(test_num+test_char);
+        default: ;
+    }
+
+    switch (test_char)
+    {
+        case 'a':
+        {
+            printf(mytoupper(test_char));
+        }
+        case 'b':
+            printf(mytoupper(test_char));
+        case 'c':
+        {
+            printf(mytoupper(test_char));
+        }
+        case 'd':
+            printf(mytoupper(test_char));
+        case 'e':
+            printf(mytoupper(test_char)); 
+        default: ;   
+    }
+
+}
+
+void setaverage()
+{
+    int sum, ret, i;
+    sum = 0;
+    i = 0;
+    for (zhaoyi = 1; i < 10; zhaoyi = zhaoyi+1)
+    {
+        sum = sum + _global_char_arr[i];
+        i = i+1;
+    } 
+
+    ret = sum / 10;
+    i = 0;
+    _global_int = ret;
+    
+}
+
+void array_test()
+{
+    int i;
+    i = 0;
+
+    for (zhaoyi = 1; i < 10; zhaoyi = zhaoyi+1)
+    {
+        _global_char_arr[i] = 'a';
+        i = i+1;
+    } 
+
+    setaverage();
+}
+
+void main()
+{
+    int loop_initvar, loop_step, loop_cnt;
+    if_test();
+    printf("please input 3 int(the 3rd int must >0):");
+    scanf(loop_initvar, loop_step, loop_cnt);
+    loop_initvar = loop_test(loop_initvar, loop_step, loop_cnt);
+    case_test();
+    array_test();
+    if (_global_int == 97)
+    {
+        printf("passed");
+    }
+}

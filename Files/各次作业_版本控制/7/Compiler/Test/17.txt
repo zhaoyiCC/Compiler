@@ -1,0 +1,32 @@
+int choose_pivot(int i, int j)
+{
+    printf("\ni = ",i);
+    printf("\nj = ",j);
+    printf("\nret = ",(i + j) / 2);
+    return((i + j) / 2);
+}
+
+void quicksort(int m, int n)
+{
+    int key;
+
+    key = choose_pivot(m, n);
+    printf("\n*********************");
+    printf("\n*********************");
+    printf("m=", m);
+    printf("\nn=", n);
+    printf("\nlist[]=", key);
+    printf("\n");
+    
+    printf("\n*********************");
+    printf("\n*********************");
+}
+
+
+
+void main()
+{
+int i;
+i = 1;
+quicksort(choose_pivot(0, choose_pivot(1, 1) - i), choose_pivot(9, 9));
+}

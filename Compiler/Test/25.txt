@@ -1,0 +1,8 @@
+void main(){
+    char a;
+    a = 'a';
+    a = 'a'+1;
+    printf(a);
+    printf('b'+1);
+	printf("\a\b\n");
+}

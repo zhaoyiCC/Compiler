@@ -1,0 +1,6 @@
+int max(int x, int y){
+	return ;
+}
+void main(){
+	max(2, 4);
+}

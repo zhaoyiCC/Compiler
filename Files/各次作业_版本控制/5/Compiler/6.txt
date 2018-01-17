@@ -1,0 +1,86 @@
+const int N = 100, M = -10000;
+const int K = 0;
+const char ch1 = '+', ch2 = '-', ch3 = '*', ch4 = '/', ch5 = '_', ch6 = 'a', ch7 = '0', ch8 = '"', ch9 = '9';
+int a[100],  i, j, n, m, k, x, y, z, mx;
+char ch, s[10000];
+int mymax(int x, int y){
+    int ans;
+    ans = x;
+    if (y > x){
+        ans = y;
+    }
+    else
+    ;
+    return (ans);
+}
+
+void init(){
+    m = 5;
+    scanf(n,m,k, ch);
+    return ;
+}
+
+
+void test_for(int Int){
+    Int = 0+-2;
+    {
+        {
+            {
+                Int = Int +1;
+            }
+            Int = Int +1;
+        }
+    }
+    for (i = Int; i <= 1000-Int; i = i+1){
+        for (i = Int; i <= i; i = i+1){
+            ;
+        }
+    }
+}
+void test_call(){
+    mymax(2, mymax(2,3*5)/mymax(2, 4)*(100-1));
+}
+void main() {
+    
+    printf("mx = ", mx);
+
+    for (i = 0;  i <= m; i = i +1) { 
+        j = m - i;
+        if (i == 0){
+            printf(j);
+        }
+    }
+
+    x = mymax(1, --2);
+    x = mymax(x++8, 9); 
+    y = 4;
+    z = 7;
+    if (x > y){
+        if (x > z)
+            mx = x;
+        else
+            mx = z;
+    }
+    else if (y > z)
+    mx = y;
+    else mx = z;
+    
+    printf("mx = ", mx);
+    
+    
+    init(); 
+    for (i = k+1; i >= 0; i = i - 1){
+        a[i] = k+i;
+        s[i] = ch + i;
+    }
+    for (i = 0;  i > k; i = i-1) { 
+        k = k + 1;
+    }
+    printf("k = ", k);
+    printf("ch = ",s[k]); 
+    
+    test_for(1);
+    test_call();
+
+    return (0);
+}

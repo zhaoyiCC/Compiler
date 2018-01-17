@@ -1,0 +1,9 @@
+void main(){
+	int a;
+	a=0;
+	switch (a+1){
+		case 2: printf("2"); 
+		case 1: printf("1");
+		case 0: printf("0");
+	}
+}

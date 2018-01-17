@@ -1,0 +1,5 @@
+void main(){
+	char c;
+	c = 10000;
+	printf(c);
+}

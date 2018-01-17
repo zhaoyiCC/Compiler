@@ -1,0 +1,90 @@
+cnt_tab 1 ::: main void  0 0 0 &&& 1
+QUAT!!! void_ main   ::: 1
+cnt_tab 2 ::: a variable char 0 1 0 &&& 1
+QUAT!!! variable_char a   ::: 1
+This is a variable_char statement::: 1 variables::: char a
+
+QUAT!!! BEGIN    ::: 1
+This is a factor statemnt::: 'a'
+
+This is a term statemnt::: 'a'
+
+This is a expression statemnt::: 'a'
+
+QUAT!!! = a 'a'  ::: 1
+This is an assign statement::: a = 'a'
+
+This is a factor statemnt::: 'a'
+
+This is a term statemnt::: 'a'
+
+This is a factor statemnt::: 1
+
+This is a term statemnt::: 1
+
+QUAT!!! + #1 'a' 1 ::: 1
+This is a expression statemnt::: 'a'+1
+
+QUAT!!! = a #1  ::: 1
+This is an assign statement::: a = 'a'+1
+
+This is a factor statemnt::: a
+
+This is a term statemnt::: a
+
+This is a expression statemnt::: a
+
+QUAT!!! PRINT a char  ::: 1
+QUAT!!! PRINTLN    ::: 1
+This is a printf statement::: printf(a)
+
+This is a factor statemnt::: 'b'
+
+This is a term statemnt::: 'b'
+
+This is a factor statemnt::: 1
+
+This is a term statemnt::: 1
+
+QUAT!!! + #2 'b' 1 ::: 1
+This is a expression statemnt::: 'b'+1
+
+QUAT!!! PRINT #2 int  ::: 1
+QUAT!!! PRINTLN    ::: 1
+This is a printf statement::: printf('b'+1)
+
+siz = 88 now = 88
+
+------------------------------
+------------------------------
+------------------------------
+void main
+var char a
+BEGIN
+a = 'a'
+#1 = 'a' + 1
+a = #1
+PRINT a
+PRINTLN
+#2 = 'b' + 1
+PRINT #2
+PRINTLN
+------------------------------
+------------------------------
+------------------------------
+Program 1 :  1
+AddByMe Program 2 :  3
+------------------------------
+------------------------------
+------------------------------
+Symbol 1 :  main void  0 0 0 1
+Symbol 2 :  a variable char 0 1 0 1
+------------------------------
+------------------------------
+------------------------------
+1 0 1
+#1 ::: 1 5
+#2 ::: 1 6
+------------------------------
+------------------------------
+------------------------------

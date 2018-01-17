@@ -1,0 +1,405 @@
+var int a[10000]
+var int i
+var int j
+var int n
+var int m
+var int k
+var int x
+var int y
+var int z
+var int mx
+var char ch
+var char s[10000]
+int mymax()
+para int x
+para int y
+var int ans
+BEGIN
+ans = x
+y > x
+BZ LABEL_1
+ans = y
+GOTO LABEL_2
+LABEL_1 LABEL_2 ret ans
+int factorial()
+para int n
+var int res
+BEGIN
+n < 0
+BZ LABEL_3
+ret -1
+LABEL_3 SWITCH n
+n == 0
+BZ LABEL_6
+res = 1
+GOTO LABEL_8
+LABEL_6 n == 1
+BZ LABEL_7
+res = 1
+GOTO LABEL_8
+LABEL_7 #2 = n - 1
+PUSH #2
+call factorial
+#3 = RET_int
+#4 = n * #3
+res = #4
+LABEL_8 ret res
+int C()
+para int m
+para int n
+var int x
+var int y
+var int z
+BEGIN
+m <= n
+BZ LABEL_9
+LABEL_9 m > n
+BZ LABEL_11
+ret -1
+LABEL_11 PUSH n
+call factorial
+#6 = RET_int
+PUSH m
+call factorial
+#7 = RET_int
+#8 = #6 / #7
+#9 = n - m
+PUSH #9
+call factorial
+#10 = RET_int
+#11 = #8 / #10
+ret #11
+void init()
+BEGIN
+PRINT_-string "Please enter n,m,k,ch:"
+PRINTLN
+m = 5
+READ n
+READ m
+READ k
+READ ch
+PRINT_-string ""
+PRINTLN
+ret 
+char work()
+para int m
+para int n
+var int ans
+BEGIN
+PUSH m
+PUSH n
+call C
+#12 = RET_int
+ans = #12
+#13 = ans / 2
+#14 = 2 * #13
+#15 = ans - #14
+SWITCH #15
+#15 == 1
+BZ LABEL_14
+ret 'O'
+GOTO LABEL_16
+LABEL_14 #15 == -1
+BZ LABEL_15
+ret 'O'
+GOTO LABEL_16
+LABEL_15 ret 'E'
+LABEL_16 ret '*'
+void test_switch()
+var int Int
+var int a[1000]
+BEGIN
+PRINT_-string "************************"
+PRINTLN
+PRINT_-string "START test_switch"
+PRINTLN
+a[2] = -1
+a[1] = -2
+Int = 2
+PRINT_-string "Int="
+#20 = Int
+PRINT_int #20
+PRINTLN
+#23 = a[2]
+Int = #23
+PRINT_-string "Int="
+#24 = Int
+PRINT_int #24
+PRINTLN
+#27 = a[2]
+#28 = 2 + #27
+#29 = a[#28]
+Int = #29
+PRINT_-string "Int="
+#30 = Int
+PRINT_int #30
+PRINTLN
+#33 = a[2]
+#34 = 2 + #33
+#35 = a[#34]
+#36 = #35 + 3
+#37 = a[#36]
+Int = #37
+PRINT_-string "Int="
+#38 = Int
+PRINT_int #38
+PRINTLN
+SWITCH Int
+Int == -1
+BZ LABEL_18
+PRINT_-string "fail_switch1"
+PRINTLN
+GOTO LABEL_20
+LABEL_18 Int == -2
+BZ LABEL_19
+PRINT_-string "success_switch1"
+PRINTLN
+GOTO LABEL_20
+LABEL_19 LABEL_20 #39 = Int + 1
+#40 = #39 + 'b'
+SWITCH #40
+#40 == 1
+BZ LABEL_22
+#41 = Int + 1
+Int = #41
+GOTO LABEL_25
+LABEL_22 #40 == 97
+BZ LABEL_23
+PRINT_-string "success_switch2"
+PRINTLN
+GOTO LABEL_25
+LABEL_23 #40 == -123
+BZ LABEL_24
+PRINT_-string "fail_switch1"
+#42 = Int
+PRINT_int #42
+PRINTLN
+#43 = Int
+PRINT_int #43
+PRINTLN
+GOTO LABEL_25
+LABEL_24 PRINT_-string "FAIL_switch1"
+PRINTLN
+LABEL_25 PRINT_-string "END test_switch"
+PRINTLN
+PRINT_-string "************************"
+PRINTLN
+ret 
+void test_max()
+BEGIN
+PRINT_-string "************************"
+PRINTLN
+PUSH 1
+PUSH 2
+call mymax
+#45 = RET_int
+x = #45
+#46 = x + +8
+PUSH #46
+PUSH 9
+call mymax
+#47 = RET_int
+x = #47
+y = 4
+z = 7
+x > y
+BZ LABEL_26
+x > z
+BZ LABEL_28
+mx = x
+GOTO LABEL_29
+LABEL_28 mx = z
+LABEL_29 GOTO LABEL_27
+LABEL_26 y > z
+BZ LABEL_30
+mx = y
+GOTO LABEL_31
+LABEL_30 mx = z
+LABEL_31 LABEL_27 PRINT_-string "mx = "
+#48 = mx
+PRINT_int #48
+PRINTLN
+mx == 10
+BZ LABEL_32
+PRINT_-string "test_max success!"
+PRINTLN
+GOTO LABEL_33
+LABEL_32 PRINT_-string "test_max fail!"
+PRINTLN
+LABEL_33 PRINT_-string "************************"
+PRINTLN
+ret 
+void test_for_1_loop()
+BEGIN
+PRINT_-string "************************"
+PRINTLN
+PRINT_-string "START test_for_1_loop"
+PRINTLN
+#49 = k + 1
+i = #49
+LABEL_34 #50 = k + i
+a[i] = #50
+s[i] = ch
+i = i - 1
+i >= 0
+BZ LABEL_35
+GOTO LABEL_34
+LABEL_35 i = 0
+LABEL_36 #51 = k + 1
+k = #51
+i = i - 1
+i > k
+BZ LABEL_37
+GOTO LABEL_36
+LABEL_37 PRINT_-string "k = "
+#52 = k
+PRINT_int #52
+PRINTLN
+#53 = s[k]
+PRINT_-string "ch = "
+PRINT_char #53
+PRINTLN
+#54 = s[k]
+#54 == ch
+BZ LABEL_38
+PRINT_-string "test_for_1_loop success!"
+PRINTLN
+GOTO LABEL_39
+LABEL_38 PRINT_-string "test_for_1_loop fail!"
+PRINTLN
+LABEL_39 PRINT_-string "END test_for_1_loop"
+PRINTLN
+PRINT_-string "************************"
+PRINTLN
+ret 
+void test_for_2_loop()
+para int Int
+BEGIN
+PRINT_-string "************************"
+PRINTLN
+PRINT_-string "START test_for_2_loop"
+PRINTLN
+Int = -2
+PRINT_-string "Int="
+#56 = Int
+PRINT_int #56
+PRINTLN
+#57 = Int + 1
+Int = #57
+#58 = Int + 1
+Int = #58
+PRINT_-string "Int="
+#59 = Int
+PRINT_int #59
+PRINTLN
+i = Int
+LABEL_40 i = Int
+LABEL_41 #60 = Int + 1
+Int = #60
+i = i + 1
+#61 = i - 1
+i <= #61
+BZ LABEL_42
+GOTO LABEL_41
+LABEL_42 i = i + 1
+#62 = 1000 - Int
+i <= #62
+BZ LABEL_43
+GOTO LABEL_40
+LABEL_43 PRINT_-string "Int="
+#63 = Int
+PRINT_int #63
+PRINTLN
+Int == 500
+BZ LABEL_44
+PRINT_-string "test_for_2_loop success!"
+PRINTLN
+GOTO LABEL_45
+LABEL_44 PRINT_-string "test_for_2_loop fail!"
+PRINTLN
+LABEL_45 PRINT_-string "END test_for_2_loop"
+PRINTLN
+PRINT_-string "************************"
+PRINTLN
+ret 
+int test_call()
+BEGIN
+PUSH 2
+PUSH 2
+PUSH 15
+call mymax
+#65 = RET_int
+PUSH 2
+PUSH 4
+call mymax
+#66 = RET_int
+#67 = #65 / #66
+#69 = #67 * 99
+PUSH #69
+call mymax
+#70 = RET_int
+ret #70
+void main()
+BEGIN
+call init
+i = 0
+LABEL_46 #71 = m - i
+j = #71
+i == 0
+BZ LABEL_47
+PRINT_-string "************************"
+PRINTLN
+PRINT_-string "START work"
+PRINTLN
+PUSH j
+PUSH n
+call work
+#72 = RET_char
+PRINT_-string "C(n,m) is Odd or Even:"
+PRINT_char #72
+PRINTLN
+PRINT_-string "END WORK"
+PRINTLN
+PRINT_-string "************************"
+PRINTLN
+LABEL_47 PRINT_-string "N:"
+#73 = n
+PRINT_int #73
+PRINTLN
+PRINT_-string "M:"
+#74 = j
+PRINT_int #74
+PRINTLN
+PUSH j
+PUSH n
+call C
+#75 = RET_int
+PRINT_-string "C:"
+PRINT_int #75
+PRINTLN
+PRINT_-string "************************"
+PRINTLN
+i = i + 1
+i <= m
+BZ LABEL_49
+GOTO LABEL_46
+LABEL_49 call test_max
+call test_for_1_loop
+call test_switch
+PUSH 1
+call test_for_2_loop
+call test_call
+#76 = RET_int
+#76 == 297
+BZ LABEL_50
+call test_call
+#77 = RET_int
+PRINT_-string "Success test_call="
+PRINT_int #77
+PRINTLN
+GOTO LABEL_51
+LABEL_50 PRINT_-string "Fail test_call"
+PRINTLN
+LABEL_51 PRINT_-string "************************"
+PRINTLN
+ret 

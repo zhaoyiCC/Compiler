@@ -1,0 +1,6 @@
+void main(){
+	int Int, i, a[100];
+
+	
+	Int = a[a[1-a[1]]]
+}

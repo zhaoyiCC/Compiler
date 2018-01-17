@@ -1,0 +1,9 @@
+void main(){	int a,b,tmp,x,y,z;
+	scanf(a);
+scanf(b);
+	tmp = a;
+	a=b;
+	b=tmp;
+	printf(a);
+	printf(b);
+}

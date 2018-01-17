@@ -1,0 +1,17 @@
+const int N = 233;
+int a[100];
+int jj(int x){
+	return ;	
+}
+void main(){
+	char c;
+	N = 12345;
+	a = c;
+	jj(2,3,4);
+	c = 10000;
+	printf(c);
+	c = 1+;;
+	p = 2;
+	a[1000] = 1+2}
+	jj('e');
+}

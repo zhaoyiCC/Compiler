@@ -1,0 +1,12 @@
+void main(){
+	const int ppp = 123;
+	int a, ccc[100];
+
+	a=0;
+	ppp = a[0];
+	a=ppp+2+3;
+	printf(a);
+	ppp = 666;
+	
+	ccc[1] = 2;
+}

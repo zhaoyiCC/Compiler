@@ -1,0 +1,27 @@
+const int xxx = 123;
+const int yyy = 456;
+int u;
+int fib(int x, int y){
+    int u;
+    return (x+y);
+}
+void caltest(int x) {
+    int a,b,c,d,e, f,g,h;
+    a = -13++79;
+    b = 13 +-97;
+    c = 13*-79;
+    d = 79/-13;
+    e = 1079 * 18 - +24 *5 +9/-2;
+    printf(a);
+    printf(b);
+    printf(c);
+    printf(d);
+    printf(e);    
+    f = a;
+    g = b;
+    h = fib(1, 2) + fib(3,4);
+    return;
+}
+void main(){
+caltest(2);
+}

@@ -1,0 +1,7 @@
+int work(){
+	return (123);
+}
+void main(){
+	int q,x,y,a;
+	printf("TEST",work);
+}

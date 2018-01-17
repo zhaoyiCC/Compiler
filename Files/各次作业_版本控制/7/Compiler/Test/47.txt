@@ -1,0 +1,20 @@
+void main(){
+int zhaoyi,x,y,z,i,a,b;
+	x=a;
+	y=b;
+	i=0;
+	
+	if (i <= 100)
+	{
+		z=a*10;
+		x=x+y;
+		if (x==z){
+			x = x-y;
+		}
+		else{
+			y=y+1;
+			i=i+1;
+		}
+	}else
+ 		return ;
+}

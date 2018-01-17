@@ -1,0 +1,34 @@
+int a,b,c,d,e,f,g,h,i,j,k,l,m,n;
+void main(){
+   int A,B,C,D,E,F,G,H,I,J,K,L,M,N;
+   a=(1+2)*3+4+20/5;
+
+   a=b;
+   a=c;
+   a=d;
+   a=e;
+   a=f;
+   a=g;
+   a=h;
+   a=i;
+   a=j;
+   a=k;
+   a=l;
+   a=m;
+   a=n;
+
+   A=a+1;
+   B=b+2;
+   C=c+3;
+   D=d+4;
+   E=e+5;
+   F=f+6;
+   G=g+7;
+   H=h+8;
+   I=A+9;
+   J=B+10;
+   K=C+11;
+   L=D+12;
+   M=E+13;
+   N=F+14;
+}

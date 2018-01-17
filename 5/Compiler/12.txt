@@ -1,9 +1,0 @@
-void main() {
-    
-    int ans, a[100];
-    a[2] = -2;
-    printf("a[2]=", a[2]);
-    ans = a[2];
-    printf("ans=", ans);
-    return ;
-}

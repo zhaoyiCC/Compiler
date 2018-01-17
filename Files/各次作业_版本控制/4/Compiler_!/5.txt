@@ -1,0 +1,20 @@
+const int hhh = 1, iii = 22, jjj = 333;
+int ans, a[101];
+void work(int n){
+	if (n==1)
+	{
+		a[1] = 1;
+		a[0] = 0;
+		return ;
+	}
+	work(n-1);
+	a[n] = a[n-1]+a[n-2];
+	return ;
+}
+
+void main(){
+	int n;
+	scanf(n);
+	work(n);
+	printf("ans=", a[n]);
+}

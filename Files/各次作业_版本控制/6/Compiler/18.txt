@@ -1,0 +1,36 @@
+int list[10];
+
+int choose_pivot(int i, int j)
+{
+    printf("\ni = ",i);
+    printf("\nj = ",j);
+    printf("\nret = ",(i + j) / 2);
+    return((i + j) / 2);
+}
+
+
+void quicksort(int m, int n)
+{
+    printf("\n*********************");
+    printf("\n*********************");
+    printf("m=", m);
+    printf("\nn=", n);
+    printf("\n");
+}
+
+void arrayChek()
+{
+    int i, toy;
+i = 1;
+quicksort(choose_pivot(0, choose_pivot(1, 1) - i), choose_pivot(9, 9));
+}
+
+
+
+void main()
+{
+   arrayChek();
+        
+   printf("    ");
+       
+}

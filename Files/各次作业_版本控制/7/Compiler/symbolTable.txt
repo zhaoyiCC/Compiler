@@ -1,0 +1,31 @@
+      id name kind type value type addr para_num program_id
+Symbol  1 :   xxx   const   int   123   1   0  0
+Symbol  2 :   yyy   const   int   456   2   0  0
+Symbol  3 :   u   variable   int   0   3   0  0
+Symbol  4 :   fib   function   int   0   0   2  1
+Symbol  5 :   x   parameter   int   0   1   0  1
+Symbol  6 :   y   parameter   int   0   2   0  1
+Symbol  7 :   u   variable   int   0   3   0  1
+Symbol  8 :   caltest   void      0   0   1  2
+Symbol  9 :   x   parameter   int   0   1   0  2
+Symbol  10 :   a   variable   int   0   2   0  2
+Symbol  11 :   b   variable   int   0   3   0  2
+Symbol  12 :   c   variable   int   0   4   0  2
+Symbol  13 :   d   variable   int   0   5   0  2
+Symbol  14 :   e   variable   int   0   6   0  2
+Symbol  15 :   f   variable   int   0   7   0  2
+Symbol  16 :   g   variable   int   0   8   0  2
+Symbol  17 :   h   variable   int   0   9   0  2
+Symbol  18 :   main   void      0   0   0  3
+Program 1 :  4
+Program 2 :  8
+Program 3 :  18
+AddByMe Program 4 :  19
+#1 ::: (Program_id:1 ,Offset:7)
+#12 ::: (Program_id:2 ,Offset:13)
+#13 ::: (Program_id:2 ,Offset:14)
+#14 ::: (Program_id:2 ,Offset:15)
+#15 ::: (Program_id:2 ,Offset:16)
+#16 ::: (Program_id:2 ,Offset:17)
+#17 ::: (Program_id:2 ,Offset:18)
+#18 ::: (Program_id:2 ,Offset:19)

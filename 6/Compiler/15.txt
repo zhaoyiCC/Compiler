@@ -1,9 +1,0 @@
-void main() {
-	int i, Int;
-	for (i = Int; i <= 1000-Int; i = i+1){
-	for (i = Int; i <= i-1; i = i+1){
-                   Int = Int+1;
-        }
-    }  
-	printf(Int);  
-}

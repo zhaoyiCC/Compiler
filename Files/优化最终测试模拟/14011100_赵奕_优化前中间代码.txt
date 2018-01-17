@@ -1,0 +1,104 @@
+const int MAX_NUM = 1024
+void complete_num()
+var int k[1024]
+var int i
+var int j
+var int n
+var int s
+var int x1
+var int m
+var int k2
+var int h
+var int leap
+var int x2
+BEGIN
+j = 2
+LABEL_1 n = -1
+s = j
+i = 1
+LABEL_2 #2 = j / i
+#3 = #2 * i
+x1 = #3
+x1 == j
+BZ LABEL_3
+#4 = n + 1
+n = #4
+#5 = s - i
+s = #5
+n >= 1024
+BZ LABEL_5
+PRINT_-string "OVERFLOW! "
+PRINTLN
+GOTO LABEL_6
+LABEL_5 k[n] = i
+LABEL_6 LABEL_3 i = i + 1
+i < j
+BZ LABEL_7
+GOTO LABEL_2
+LABEL_7 s == 0
+BZ LABEL_8
+PRINT_-string "complete number: "
+#6 = j
+PRINT_int #6
+PRINTLN
+i = 0
+LABEL_10 #7 = k[i]
+PRINT_-string "  "
+PRINT_int #7
+PRINTLN
+i = i + 1
+i <= n
+BZ LABEL_11
+GOTO LABEL_10
+LABEL_11 PRINT_-string "  "
+PRINTLN
+LABEL_8 j = j + 1
+j < MAX_NUM
+BZ LABEL_12
+GOTO LABEL_1
+LABEL_12 PRINT_-string "---------------------------------------------------------------\\n"
+PRINTLN
+h = 0
+leap = 1
+m = 2
+LABEL_13 #8 = m - 1
+k2 = #8
+i = 2
+LABEL_14 #9 = m / i
+#10 = #9 * i
+x2 = #10
+x2 == m
+BZ LABEL_15
+leap = 0
+LABEL_15 i = i + 1
+i <= k2
+BZ LABEL_17
+GOTO LABEL_14
+LABEL_17 leap == 1
+BZ LABEL_18
+PRINT_-string " "
+#11 = m
+PRINT_int #11
+PRINTLN
+#12 = h + 1
+h = #12
+#13 = h / 10
+#14 = #13 * 10
+x2 = #14
+x2 == h
+BZ LABEL_20
+PRINT_-string "  "
+PRINTLN
+LABEL_20 LABEL_18 leap = 1
+m = m + 1
+m <= MAX_NUM
+BZ LABEL_22
+GOTO LABEL_13
+LABEL_22 PRINT_-string "The total is "
+#15 = h
+PRINT_int #15
+PRINTLN
+ret 
+void main()
+BEGIN
+call complete_num

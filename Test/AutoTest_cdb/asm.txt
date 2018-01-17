@@ -1,0 +1,1864 @@
+.data
+
+str4:	.asciiz "!#$%&'()*+,-./:;<=>?@[]^_`{|}~"
+
+str21:	.asciiz "*"
+
+str20:	.asciiz "1"
+
+str3:	.asciiz "ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz"
+
+str14:	.asciiz "Fibonaci: Please input a unsigned positive integer ?"
+
+str17:	.asciiz "GCD: Please input two unsigned positive integer ?"
+
+str18:	.asciiz "Input error, try Again: "
+
+str15:	.asciiz "Input error, try again:"
+
+str24:	.asciiz "Please input Test Type:E(Easy), (M)Middle, H(Hard): "
+
+str23:	.asciiz "The factor of n is "
+
+str16:	.asciiz "The fibonaci's answer is "
+
+str19:	.asciiz "The gcd's answer is "
+
+str25:	.asciiz "Try Again: "
+
+str12:	.asciiz "condition test passed"
+
+str26:	.asciiz "default"
+
+str1:	.asciiz "define test passed"
+
+str5:	.asciiz "dowhile test passed"
+
+str9:	.asciiz "error 0"
+
+str10:	.asciiz "error 1"
+
+str11:	.asciiz "error 2"
+
+str6:	.asciiz "ifcondition clause error!"
+
+str7:	.asciiz "ifcondition clause error"
+
+str13:	.asciiz "miscellaneous test passed"
+
+str2:	.asciiz "operator test passed"
+
+str22:	.asciiz "prime_factorization: Please input a unsigned positive integer(<2^31-1) ?"
+
+str8:	.asciiz "switchcodintion clause  error!"
+
+.text
+
+move	$gp, $sp
+subi	$sp,$sp,20488
+j	main
+
+const_define:
+move	$s1,$sp
+move	$s0,$fp
+addi	$fp,$sp,0
+#END Const&Variable define
+sw	$s1,0($sp)
+sw	$ra,-4($sp)
+sw	$s0,-8($sp)
+addi	$sp,$sp,-20
+##1 = 1
+li	$t0,1
+##2 = '/'
+li	$t1,'/'
+#	PRINT #1
+move	$a0,$t0
+li	$v0,1
+syscall
+#	PRINTLN 
+#	PRINT #2
+move	$a0,$t1
+li	$v0,11
+syscall
+#	PRINTLN 
+sw	$t0,-12($fp)
+sw	$t1,-16($fp)
+#	 ret 
+lw	$sp,-0($fp)
+lw	$ra,-4($fp)
+lw	$fp,-8($fp)
+jr	$ra
+const_define_test:
+move	$s1,$sp
+move	$s0,$fp
+addi	$fp,$sp,0
+#END Const&Variable define
+sw	$s1,0($sp)
+sw	$ra,-4($sp)
+sw	$s0,-8($sp)
+addi	$sp,$sp,-12
+#	call const_define
+jal	const_define
+#	 ret 
+lw	$sp,-0($fp)
+lw	$ra,-4($fp)
+lw	$fp,-8($fp)
+jr	$ra
+var_define:
+move	$s1,$sp
+move	$s0,$fp
+addi	$fp,$sp,0
+subi	$sp,$sp,80
+#END Const&Variable define
+sw	$s1,0($sp)
+sw	$ra,-4($sp)
+sw	$s0,-8($sp)
+addi	$sp,$sp,-12
+#	 ret 
+lw	$sp,-80($fp)
+lw	$ra,-84($fp)
+lw	$fp,-88($fp)
+jr	$ra
+var_define_test:
+move	$s1,$sp
+move	$s0,$fp
+addi	$fp,$sp,0
+#END Const&Variable define
+sw	$s1,0($sp)
+sw	$ra,-4($sp)
+sw	$s0,-8($sp)
+addi	$sp,$sp,-12
+#	call var_define
+jal	var_define
+#	 ret 
+lw	$sp,-0($fp)
+lw	$ra,-4($fp)
+lw	$fp,-8($fp)
+jr	$ra
+define:
+move	$s1,$sp
+move	$s0,$fp
+addi	$fp,$sp,0
+subi	$sp,$sp,12
+#END Const&Variable define
+sw	$s1,0($sp)
+sw	$ra,-4($sp)
+sw	$s0,-8($sp)
+addi	$sp,$sp,-12
+#	 ret 
+lw	$sp,-12($fp)
+lw	$ra,-16($fp)
+lw	$fp,-20($fp)
+jr	$ra
+define_test:
+move	$s1,$sp
+move	$s0,$fp
+addi	$fp,$sp,0
+#END Const&Variable define
+sw	$s1,0($sp)
+sw	$ra,-4($sp)
+sw	$s0,-8($sp)
+addi	$sp,$sp,-12
+#	call var_define_test
+jal	var_define_test
+#	call const_define_test
+jal	const_define_test
+#	call define
+jal	define
+#	PRINT "define test passed"
+la	$a0,str1
+li	$v0,4
+syscall
+#	PRINTLN 
+#	 ret 
+lw	$sp,-0($fp)
+lw	$ra,-4($fp)
+lw	$fp,-8($fp)
+jr	$ra
+operator:
+move	$s1,$sp
+move	$s0,$fp
+addi	$fp,$sp,0
+subi	$sp,$sp,24
+#END Const&Variable define
+sw	$s1,0($sp)
+sw	$ra,-4($sp)
+sw	$s0,-8($sp)
+addi	$sp,$sp,-76
+##84 = 1
+li	$t0,1
+#a = 1
+li	$t1,1
+#b = 3
+li	$t2,3
+#c = 3
+li	$t3,3
+#d = -4
+li	$t4,-4
+##83 = 5
+li	$t5,5
+#e = 5
+li	$t6,5
+#f = 6
+li	$t7,6
+##6 = c * 3
+sw	$t0,-36($fp)
+mul	$t0,$t3,3
+##7 = #6 + c
+sw	$t1,-0($fp)
+add	$t1,$t0,$t3
+##16 = d / 4
+sw	$t2,-4($fp)
+div	$t2,$t4,4
+##9 = #7 - #16
+sw	$t5,-40($fp)
+sub	$t5,$t1,$t2
+##10 = #84 / #84
+sw	$t6,-16($fp)
+lw	$t6,-36($fp)
+sw	$t7,-20($fp)
+div	$t7,$t6,$t6
+#a = #9 + #10
+sw	$t0,-44($fp)
+add	$t0,$t5,$t7
+##12 = 0 + a
+sw	$t3,-8($fp)
+add	$t3,$t0,0
+##13 = a * 3
+sw	$t4,-12($fp)
+mul	$t4,$t0,3
+##14 = #12 + #13
+sw	$t1,-48($fp)
+add	$t1,$t3,$t4
+##15 = #14 + c
+sw	$t2,-52($fp)
+lw	$t2,-8($fp)
+add	$t6,$t1,$t2
+##17 = #15 - #16
+sw	$t5,-56($fp)
+lw	$t5,-52($fp)
+sw	$t7,-60($fp)
+sub	$t7,$t6,$t5
+##18 = #83 * f
+sw	$t0,-0($fp)
+lw	$t0,-40($fp)
+sw	$t3,-64($fp)
+lw	$t3,-20($fp)
+sw	$t4,-68($fp)
+mul	$t4,$t0,$t3
+#b = #17 + #18
+sw	$t1,-72($fp)
+add	$t1,$t7,$t4
+##20 = 0 - a
+lw	$t2,-0($fp)
+li	$t8,0
+sub	$t5,$t8,$t2
+##21 = b * 0
+sw	$t6,-76($fp)
+mul	$t6,$t1,0
+##22 = #20 + #21
+add	$t0,$t5,$t6
+#e = #22 - 1
+sub	$t3,$t0,1
+sw	$t0,-96($fp)
+sw	$t1,-4($fp)
+sw	$t3,-16($fp)
+sw	$t4,-84($fp)
+sw	$t5,-88($fp)
+sw	$t6,-92($fp)
+sw	$t7,-80($fp)
+#	 ret 
+lw	$sp,-24($fp)
+lw	$ra,-28($fp)
+lw	$fp,-32($fp)
+jr	$ra
+operator_test:
+move	$s1,$sp
+move	$s0,$fp
+addi	$fp,$sp,0
+#END Const&Variable define
+sw	$s1,0($sp)
+sw	$ra,-4($sp)
+sw	$s0,-8($sp)
+addi	$sp,$sp,-12
+#	call operator
+jal	operator
+#	PRINT "operator test passed"
+la	$a0,str2
+li	$v0,4
+syscall
+#	PRINTLN 
+#	 ret 
+lw	$sp,-0($fp)
+lw	$ra,-4($fp)
+lw	$fp,-8($fp)
+jr	$ra
+string:
+move	$s1,$sp
+move	$s0,$fp
+addi	$fp,$sp,0
+#END Const&Variable define
+sw	$s1,0($sp)
+sw	$ra,-4($sp)
+sw	$s0,-8($sp)
+addi	$sp,$sp,-12
+#	PRINT "ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz"
+la	$a0,str3
+li	$v0,4
+syscall
+#	PRINTLN 
+#	PRINT "!#$%&'()*+,-./:;<=>?@[]^_`{|}~"
+la	$a0,str4
+li	$v0,4
+syscall
+#	PRINTLN 
+#	 ret 
+lw	$sp,-0($fp)
+lw	$ra,-4($fp)
+lw	$fp,-8($fp)
+jr	$ra
+string_test:
+move	$s1,$sp
+move	$s0,$fp
+addi	$fp,$sp,0
+#END Const&Variable define
+sw	$s1,0($sp)
+sw	$ra,-4($sp)
+sw	$s0,-8($sp)
+addi	$sp,$sp,-12
+#	call string
+jal	string
+#	 ret 
+lw	$sp,-0($fp)
+lw	$ra,-4($fp)
+lw	$fp,-8($fp)
+jr	$ra
+dowhile:
+move	$s1,$sp
+move	$s0,$fp
+addi	$fp,$sp,0
+subi	$sp,$sp,8
+#END Const&Variable define
+sw	$s1,0($sp)
+sw	$ra,-4($sp)
+sw	$s0,-8($sp)
+addi	$sp,$sp,-16
+#i = 100
+li	$t0,100
+#toy = 0
+li	$t1,0
+sw	$t0,-0($fp)
+sw	$t1,-4($fp)
+LABEL_1:
+#	i >= 50
+#	BZ LABEL_2
+lw	$t0,-0($fp)
+blt	$t0,50,LABEL_2
+#i = i / 2
+lw	$t0,-0($fp)
+div	$t0,$t0,2
+sw	$t0,-0($fp)
+LABEL_2:
+#	i < 50
+#	BZ LABEL_4
+lw	$t0,-0($fp)
+bge	$t0,50,LABEL_4
+##26 = i + 10
+lw	$t0,-0($fp)
+add	$t1,$t0,10
+#i = #26 / 10
+div	$t0,$t1,10
+sw	$t0,-0($fp)
+sw	$t1,-20($fp)
+LABEL_4:
+#toy = toy + 1
+lw	$t0,-4($fp)
+add	$t0,$t0,1
+sw	$t0,-4($fp)
+#	i >= 10
+#	BZ LABEL_6
+lw	$t0,-0($fp)
+blt	$t0,10,LABEL_6
+#	GOTO LABEL_1
+j	LABEL_1
+LABEL_6:
+#toy = 0
+li	$t0,0
+sw	$t0,-4($fp)
+LABEL_7:
+#i = i - 1
+lw	$t0,-0($fp)
+sub	$t0,$t0,1
+#toy = toy + 1
+lw	$t1,-4($fp)
+add	$t1,$t1,1
+#	PRINT "dowhile test passed"
+la	$a0,str5
+li	$v0,4
+syscall
+#	PRINTLN 
+sw	$t0,-0($fp)
+sw	$t1,-4($fp)
+#	0 != 0
+#	BZ LABEL_8
+#ALWAYS satisfied LABEL_8
+j	LABEL_8
+#	GOTO LABEL_7
+j	LABEL_7
+LABEL_8:
+#	 ret 
+lw	$sp,-8($fp)
+lw	$ra,-12($fp)
+lw	$fp,-16($fp)
+jr	$ra
+dowhile_test:
+move	$s1,$sp
+move	$s0,$fp
+addi	$fp,$sp,0
+#END Const&Variable define
+sw	$s1,0($sp)
+sw	$ra,-4($sp)
+sw	$s0,-8($sp)
+addi	$sp,$sp,-12
+#	call dowhile
+jal	dowhile
+#	 ret 
+lw	$sp,-0($fp)
+lw	$ra,-4($fp)
+lw	$fp,-8($fp)
+jr	$ra
+ifcondition:
+move	$s1,$sp
+move	$s0,$fp
+addi	$fp,$sp,0
+subi	$sp,$sp,8
+#END Const&Variable define
+sw	$s1,0($sp)
+sw	$ra,-4($sp)
+sw	$s0,-8($sp)
+addi	$sp,$sp,-12
+#a = 1
+li	$t0,1
+#rightnumber = 0
+li	$t1,0
+sw	$t0,-0($fp)
+sw	$t1,-4($fp)
+#	a == 1
+#	BZ LABEL_9
+lw	$t0,-0($fp)
+bne	$t0,1,LABEL_9
+#rightnumber = rightnumber + 1
+lw	$t0,-4($fp)
+add	$t0,$t0,1
+sw	$t0,-4($fp)
+LABEL_9:
+#a = 2
+li	$t0,2
+sw	$t0,-0($fp)
+#	a > 1
+#	BZ LABEL_11
+lw	$t0,-0($fp)
+ble	$t0,1,LABEL_11
+#rightnumber = rightnumber + 1
+lw	$t0,-4($fp)
+add	$t0,$t0,1
+sw	$t0,-4($fp)
+LABEL_11:
+#a = 0
+li	$t0,0
+sw	$t0,-0($fp)
+#	a < 1
+#	BZ LABEL_13
+lw	$t0,-0($fp)
+bge	$t0,1,LABEL_13
+#rightnumber = rightnumber + 1
+lw	$t0,-4($fp)
+add	$t0,$t0,1
+sw	$t0,-4($fp)
+LABEL_13:
+#	a != 1
+#	BZ LABEL_15
+lw	$t0,-0($fp)
+beq	$t0,1,LABEL_15
+#rightnumber = rightnumber + 1
+lw	$t0,-4($fp)
+add	$t0,$t0,1
+sw	$t0,-4($fp)
+LABEL_15:
+#	a >= 0
+#	BZ LABEL_17
+lw	$t0,-0($fp)
+blt	$t0,0,LABEL_17
+#rightnumber = rightnumber + 1
+lw	$t0,-4($fp)
+add	$t0,$t0,1
+sw	$t0,-4($fp)
+LABEL_17:
+#	a <= 0
+#	BZ LABEL_19
+lw	$t0,-0($fp)
+bgt	$t0,0,LABEL_19
+#rightnumber = rightnumber + 1
+lw	$t0,-4($fp)
+add	$t0,$t0,1
+sw	$t0,-4($fp)
+LABEL_19:
+#	rightnumber != 6
+#	BZ LABEL_21
+lw	$t0,-4($fp)
+beq	$t0,6,LABEL_21
+#	PRINT "ifcondition clause error!"
+la	$a0,str6
+li	$v0,4
+syscall
+#	PRINTLN 
+LABEL_21:
+#	rightnumber != rightnumber
+#	BZ LABEL_23
+lw	$t0,-4($fp)
+beq	$t0,$t0,LABEL_23
+#	PRINT "ifcondition clause error"
+la	$a0,str7
+li	$v0,4
+syscall
+#	PRINTLN 
+LABEL_23:
+#	 ret 
+lw	$sp,-8($fp)
+lw	$ra,-12($fp)
+lw	$fp,-16($fp)
+jr	$ra
+switchcodintionans:
+move	$s1,$sp
+move	$s0,$fp
+addi	$fp,$sp,4
+#END Const&Variable define
+sw	$s1,0($sp)
+sw	$ra,-4($sp)
+sw	$s0,-8($sp)
+addi	$sp,$sp,-12
+#	SWITCH x
+#	x == 1
+#	BZ LABEL_26
+lw	$t0,-0($fp)
+bne	$t0,1,LABEL_26
+#	2 ret 
+li	$v1,2
+lw	$sp,-4($fp)
+addi	$sp,$sp,4
+lw	$ra,-8($fp)
+lw	$fp,-12($fp)
+jr	$ra
+#	GOTO LABEL_29
+j	LABEL_29
+LABEL_26:
+#	x == 2
+#	BZ LABEL_27
+lw	$t0,-0($fp)
+bne	$t0,2,LABEL_27
+#	3 ret 
+li	$v1,3
+lw	$sp,-4($fp)
+addi	$sp,$sp,4
+lw	$ra,-8($fp)
+lw	$fp,-12($fp)
+jr	$ra
+#	GOTO LABEL_29
+j	LABEL_29
+LABEL_27:
+#	x == 3
+#	BZ LABEL_28
+lw	$t0,-0($fp)
+bne	$t0,3,LABEL_28
+#	4 ret 
+li	$v1,4
+lw	$sp,-4($fp)
+addi	$sp,$sp,4
+lw	$ra,-8($fp)
+lw	$fp,-12($fp)
+jr	$ra
+#	GOTO LABEL_29
+j	LABEL_29
+LABEL_28:
+LABEL_29:
+#	5 ret 
+li	$v1,5
+lw	$sp,-4($fp)
+addi	$sp,$sp,4
+lw	$ra,-8($fp)
+lw	$fp,-12($fp)
+jr	$ra
+switchcodintion:
+move	$s1,$sp
+move	$s0,$fp
+addi	$fp,$sp,0
+subi	$sp,$sp,12
+#END Const&Variable define
+sw	$s1,0($sp)
+sw	$ra,-4($sp)
+sw	$s0,-8($sp)
+addi	$sp,$sp,-20
+#i = 1
+li	$t0,1
+#rightnumber = 0
+li	$t1,0
+#toy = 0
+li	$t2,0
+sw	$t0,-0($fp)
+sw	$t1,-4($fp)
+sw	$t2,-8($fp)
+LABEL_30:
+##39 = i + 1
+lw	$t0,-0($fp)
+add	$t1,$t0,1
+#	PUSH i
+sw	$t0,0($sp)
+addi	$sp,$sp,-4
+sw	$t1,-24($fp)
+#	call switchcodintionans
+jal	switchcodintionans
+##40 = RET_int
+move	$t0,$v1
+sw	$t0,-28($fp)
+#	#39 == #40
+#	BZ LABEL_31
+lw	$t0,-24($fp)
+lw	$t1,-28($fp)
+bne	$t0,$t1,LABEL_31
+#rightnumber = rightnumber + 1
+lw	$t0,-4($fp)
+add	$t0,$t0,1
+sw	$t0,-4($fp)
+LABEL_31:
+#i = i + 1
+lw	$t0,-0($fp)
+add	$t0,$t0,1
+#toy = toy + 1
+lw	$t1,-8($fp)
+add	$t1,$t1,1
+sw	$t0,-0($fp)
+sw	$t1,-8($fp)
+#	i < 5
+#	BZ LABEL_33
+lw	$t0,-0($fp)
+bge	$t0,5,LABEL_33
+#	GOTO LABEL_30
+j	LABEL_30
+LABEL_33:
+#	rightnumber != 4
+#	BZ LABEL_34
+lw	$t0,-4($fp)
+beq	$t0,4,LABEL_34
+#	PRINT "switchcodintion clause  error!"
+la	$a0,str8
+li	$v0,4
+syscall
+#	PRINTLN 
+LABEL_34:
+#	rightnumber != 0
+#	BZ LABEL_36
+lw	$t0,-4($fp)
+beq	$t0,0,LABEL_36
+#	i ret 
+lw	$t0,-0($fp)
+move	$v1,$t0
+lw	$sp,-12($fp)
+lw	$ra,-16($fp)
+lw	$fp,-20($fp)
+jr	$ra
+LABEL_36:
+#	PRINT "switchcodintion clause  error!"
+la	$a0,str8
+li	$v0,4
+syscall
+#	PRINTLN 
+condition:
+move	$s1,$sp
+move	$s0,$fp
+addi	$fp,$sp,0
+subi	$sp,$sp,8
+#END Const&Variable define
+sw	$s1,0($sp)
+sw	$ra,-4($sp)
+sw	$s0,-8($sp)
+addi	$sp,$sp,-12
+#iter = 0
+li	$t0,0
+#toy = 0
+li	$t1,0
+sw	$t0,-0($fp)
+sw	$t1,-4($fp)
+LABEL_38:
+#	SWITCH iter
+#	iter == 0
+#	BZ LABEL_40
+lw	$t0,-0($fp)
+bne	$t0,0,LABEL_40
+#	iter != 0
+#	BZ LABEL_41
+lw	$t0,-0($fp)
+beq	$t0,0,LABEL_41
+#	PRINT "error 0"
+la	$a0,str9
+li	$v0,4
+syscall
+#	PRINTLN 
+LABEL_41:
+#	GOTO LABEL_49
+j	LABEL_49
+LABEL_40:
+#	iter == 1
+#	BZ LABEL_43
+lw	$t0,-0($fp)
+bne	$t0,1,LABEL_43
+#	iter != 1
+#	BZ LABEL_44
+lw	$t0,-0($fp)
+beq	$t0,1,LABEL_44
+#	PRINT "error 1"
+la	$a0,str10
+li	$v0,4
+syscall
+#	PRINTLN 
+LABEL_44:
+#	GOTO LABEL_49
+j	LABEL_49
+LABEL_43:
+#	iter == 2
+#	BZ LABEL_46
+lw	$t0,-0($fp)
+bne	$t0,2,LABEL_46
+#	iter != 2
+#	BZ LABEL_47
+lw	$t0,-0($fp)
+beq	$t0,2,LABEL_47
+#	PRINT "error 2"
+la	$a0,str11
+li	$v0,4
+syscall
+#	PRINTLN 
+LABEL_47:
+#	GOTO LABEL_49
+j	LABEL_49
+LABEL_46:
+LABEL_49:
+#iter = iter + 1
+lw	$t0,-0($fp)
+add	$t0,$t0,1
+#toy = toy + 1
+lw	$t1,-4($fp)
+add	$t1,$t1,1
+sw	$t0,-0($fp)
+sw	$t1,-4($fp)
+#	iter < 5
+#	BZ LABEL_50
+lw	$t0,-0($fp)
+bge	$t0,5,LABEL_50
+#	GOTO LABEL_38
+j	LABEL_38
+LABEL_50:
+#	 ret 
+lw	$sp,-8($fp)
+lw	$ra,-12($fp)
+lw	$fp,-16($fp)
+jr	$ra
+condition_test:
+move	$s1,$sp
+move	$s0,$fp
+addi	$fp,$sp,0
+#END Const&Variable define
+sw	$s1,0($sp)
+sw	$ra,-4($sp)
+sw	$s0,-8($sp)
+addi	$sp,$sp,-12
+#	call ifcondition
+jal	ifcondition
+#	call switchcodintion
+jal	switchcodintion
+#	call condition
+jal	condition
+#	PRINT "condition test passed"
+la	$a0,str12
+li	$v0,4
+syscall
+#	PRINTLN 
+#	 ret 
+lw	$sp,-0($fp)
+lw	$ra,-4($fp)
+lw	$fp,-8($fp)
+jr	$ra
+miscellaneous:
+move	$s1,$sp
+move	$s0,$fp
+addi	$fp,$sp,0
+subi	$sp,$sp,1140
+#END Const&Variable define
+sw	$s1,0($sp)
+sw	$ra,-4($sp)
+sw	$s0,-8($sp)
+addi	$sp,$sp,-40
+#i = 0
+li	$t0,0
+#toy = 0
+li	$t1,0
+#_ = 1
+li	$t2,1
+#a = 2
+li	$t3,2
+sw	$t0,-100($fp)
+sw	$t1,-108($fp)
+sw	$t2,-0($fp)
+sw	$t3,-4($fp)
+LABEL_51:
+#array[i] = i
+lw	$t0,-100($fp)
+subi	$t9,$fp,8
+sll	$t8,$t0,2
+sub	$t9,$t9,$t8
+sw	$t0,0($t9)
+#i = i + 1
+add	$t0,$t0,1
+#toy = toy + 1
+lw	$t1,-108($fp)
+add	$t1,$t1,1
+sw	$t0,-100($fp)
+sw	$t1,-108($fp)
+#	i < 23
+#	BZ LABEL_52
+lw	$t0,-100($fp)
+bge	$t0,23,LABEL_52
+#	GOTO LABEL_51
+j	LABEL_51
+LABEL_52:
+#ch1 = 'a'
+li	$t0,'a'
+#i = 0
+li	$t1,0
+#toy = 0
+li	$t2,0
+sw	$t0,-112($fp)
+sw	$t1,-100($fp)
+sw	$t2,-108($fp)
+LABEL_53:
+#buf[i] = ch1
+lw	$t0,-112($fp)
+subi	$t9,$fp,116
+lw	$t1,-100($fp)
+sll	$t8,$t1,2
+sub	$t9,$t9,$t8
+sw	$t0,0($t9)
+#ch1 = ch1 + 1
+add	$t0,$t0,1
+#i = i + 1
+add	$t1,$t1,1
+#toy = toy + 1
+lw	$t2,-108($fp)
+add	$t2,$t2,1
+sw	$t0,-112($fp)
+sw	$t1,-100($fp)
+sw	$t2,-108($fp)
+#	ch1 < 127
+#	BZ LABEL_54
+lw	$t0,-112($fp)
+bge	$t0,127,LABEL_54
+#	GOTO LABEL_53
+j	LABEL_53
+LABEL_54:
+#endid = i
+lw	$t0,-100($fp)
+move	$t1,$t0
+#_ = 0
+li	$t2,0
+#toy = 0
+li	$t3,0
+sw	$t1,-104($fp)
+sw	$t2,-0($fp)
+sw	$t3,-108($fp)
+LABEL_55:
+##47 = _ * 1
+lw	$t0,-0($fp)
+mul	$t1,$t0,1
+##48 = #47 - _
+sub	$t2,$t1,$t0
+##49 = #48 - 1
+sub	$t3,$t2,1
+##51 = #49 + 2
+add	$t4,$t3,2
+##52 = #51 - 1
+sub	$t5,$t4,1
+##53 = #52 / 2
+div	$t6,$t5,2
+#buf[#53] = 'a'
+subi	$t9,$fp,116
+sll	$t8,$t6,2
+sub	$t9,$t9,$t8
+li	$t8,'a'
+sw	$t8,0($t9)
+#_ = _ + 1
+add	$t0,$t0,1
+#toy = toy + 1
+lw	$t7,-108($fp)
+add	$t7,$t7,1
+sw	$t0,-0($fp)
+sw	$t1,-1152($fp)
+sw	$t2,-1156($fp)
+sw	$t3,-1160($fp)
+sw	$t4,-1164($fp)
+sw	$t5,-1168($fp)
+sw	$t6,-1172($fp)
+sw	$t7,-108($fp)
+#	_ < endid
+#	BZ LABEL_56
+lw	$t0,-0($fp)
+lw	$t1,-104($fp)
+bge	$t0,$t1,LABEL_56
+#	GOTO LABEL_55
+j	LABEL_55
+LABEL_56:
+##55 = buf[0]
+subi	$t9,$fp,116
+sub	$t9,$t9,0
+lw	$t9,0($t9)
+move	$t0,$t9
+sw	$t0,-1176($fp)
+#	#55 == 'a'
+#	BZ LABEL_57
+lw	$t0,-1176($fp)
+bne	$t0,'a',LABEL_57
+#	PRINT "miscellaneous test passed"
+la	$a0,str13
+li	$v0,4
+syscall
+#	PRINTLN 
+LABEL_57:
+#	 ret 
+lw	$sp,-1140($fp)
+lw	$ra,-1144($fp)
+lw	$fp,-1148($fp)
+jr	$ra
+miscellaneous_test:
+move	$s1,$sp
+move	$s0,$fp
+addi	$fp,$sp,0
+#END Const&Variable define
+sw	$s1,0($sp)
+sw	$ra,-4($sp)
+sw	$s0,-8($sp)
+addi	$sp,$sp,-12
+#	call miscellaneous
+jal	miscellaneous
+#	 ret 
+lw	$sp,-0($fp)
+lw	$ra,-4($fp)
+lw	$fp,-8($fp)
+jr	$ra
+fibonaci:
+move	$s1,$sp
+move	$s0,$fp
+addi	$fp,$sp,4
+#END Const&Variable define
+sw	$s1,0($sp)
+sw	$ra,-4($sp)
+sw	$s0,-8($sp)
+addi	$sp,$sp,-32
+#	SWITCH n
+#	n == 0
+#	BZ LABEL_60
+lw	$t0,-0($fp)
+bne	$t0,0,LABEL_60
+#	0 ret 
+li	$v1,0
+lw	$sp,-4($fp)
+addi	$sp,$sp,4
+lw	$ra,-8($fp)
+lw	$fp,-12($fp)
+jr	$ra
+#	GOTO LABEL_63
+j	LABEL_63
+LABEL_60:
+#	n == 1
+#	BZ LABEL_61
+lw	$t0,-0($fp)
+bne	$t0,1,LABEL_61
+#	1 ret 
+li	$v1,1
+lw	$sp,-4($fp)
+addi	$sp,$sp,4
+lw	$ra,-8($fp)
+lw	$fp,-12($fp)
+jr	$ra
+#	GOTO LABEL_63
+j	LABEL_63
+LABEL_61:
+#	n == 2
+#	BZ LABEL_62
+lw	$t0,-0($fp)
+bne	$t0,2,LABEL_62
+#	1 ret 
+li	$v1,1
+lw	$sp,-4($fp)
+addi	$sp,$sp,4
+lw	$ra,-8($fp)
+lw	$fp,-12($fp)
+jr	$ra
+#	GOTO LABEL_63
+j	LABEL_63
+LABEL_62:
+LABEL_63:
+##56 = n - 1
+lw	$t0,-0($fp)
+sub	$t1,$t0,1
+#	PUSH #56
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+sw	$t1,-16($fp)
+#	call fibonaci
+jal	fibonaci
+##57 = RET_int
+move	$t0,$v1
+##58 = n - 2
+lw	$t1,-0($fp)
+sub	$t2,$t1,2
+#	PUSH #58
+sw	$t2,0($sp)
+addi	$sp,$sp,-4
+sw	$t0,-20($fp)
+sw	$t2,-24($fp)
+#	call fibonaci
+jal	fibonaci
+##59 = RET_int
+move	$t0,$v1
+##60 = #57 + #59
+lw	$t1,-20($fp)
+add	$t2,$t1,$t0
+sw	$t0,-28($fp)
+sw	$t2,-32($fp)
+#	#60 ret 
+lw	$t0,-32($fp)
+move	$v1,$t0
+lw	$sp,-4($fp)
+addi	$sp,$sp,4
+lw	$ra,-8($fp)
+lw	$fp,-12($fp)
+jr	$ra
+fibonaci_test:
+move	$s1,$sp
+move	$s0,$fp
+addi	$fp,$sp,0
+subi	$sp,$sp,8
+#END Const&Variable define
+sw	$s1,0($sp)
+sw	$ra,-4($sp)
+sw	$s0,-8($sp)
+addi	$sp,$sp,-16
+#	PRINT "Fibonaci: Please input a unsigned positive integer ?"
+la	$a0,str14
+li	$v0,4
+syscall
+#	PRINTLN 
+#	READ n
+li	$v0,5
+syscall
+move	$t0,$v0
+#toy = 0
+li	$t1,0
+sw	$t0,-0($fp)
+sw	$t1,-4($fp)
+LABEL_64:
+#	n < 0
+#	BZ LABEL_65
+lw	$t0,-0($fp)
+bge	$t0,0,LABEL_65
+#	PRINT "Input error, try again:"
+la	$a0,str15
+li	$v0,4
+syscall
+#	PRINTLN 
+#	READ n
+li	$v0,5
+syscall
+move	$t0,$v0
+sw	$t0,-0($fp)
+LABEL_65:
+#	n >= 0
+#	BZ LABEL_67
+lw	$t0,-0($fp)
+blt	$t0,0,LABEL_67
+#	PUSH n
+lw	$t9,-0($fp)
+sw	$t9,0($sp)
+addi	$sp,$sp,-4
+#	call fibonaci
+jal	fibonaci
+##61 = RET_int
+move	$t0,$v1
+#	PRINT "The fibonaci's answer is "
+la	$a0,str16
+li	$v0,4
+syscall
+#	PRINT #61
+move	$a0,$t0
+li	$v0,1
+syscall
+#	PRINTLN 
+sw	$t0,-20($fp)
+LABEL_67:
+#toy = toy + 1
+lw	$t0,-4($fp)
+add	$t0,$t0,1
+sw	$t0,-4($fp)
+#	n < 0
+#	BZ LABEL_69
+lw	$t0,-0($fp)
+bge	$t0,0,LABEL_69
+#	GOTO LABEL_64
+j	LABEL_64
+LABEL_69:
+#	 ret 
+lw	$sp,-8($fp)
+lw	$ra,-12($fp)
+lw	$fp,-16($fp)
+jr	$ra
+mod:
+move	$s1,$sp
+move	$s0,$fp
+addi	$fp,$sp,8
+#END Const&Variable define
+sw	$s1,0($sp)
+sw	$ra,-4($sp)
+sw	$s0,-8($sp)
+addi	$sp,$sp,-24
+##62 = n / m
+lw	$t0,-0($fp)
+lw	$t1,-4($fp)
+div	$t2,$t0,$t1
+##63 = #62 * m
+mul	$t3,$t2,$t1
+##64 = n - #63
+sub	$t4,$t0,$t3
+sw	$t2,-20($fp)
+sw	$t3,-24($fp)
+sw	$t4,-28($fp)
+#	#64 ret 
+lw	$t0,-28($fp)
+move	$v1,$t0
+lw	$sp,-8($fp)
+addi	$sp,$sp,8
+lw	$ra,-12($fp)
+lw	$fp,-16($fp)
+jr	$ra
+gcd:
+move	$s1,$sp
+move	$s0,$fp
+addi	$fp,$sp,8
+subi	$sp,$sp,4
+#END Const&Variable define
+sw	$s1,0($sp)
+sw	$ra,-4($sp)
+sw	$s0,-8($sp)
+addi	$sp,$sp,-20
+#rem = 0
+li	$t0,0
+sw	$t0,-8($fp)
+#	n == 0
+#	BZ LABEL_70
+lw	$t0,-0($fp)
+bne	$t0,0,LABEL_70
+#	m ret 
+lw	$t0,-4($fp)
+move	$v1,$t0
+lw	$sp,-12($fp)
+addi	$sp,$sp,8
+lw	$ra,-16($fp)
+lw	$fp,-20($fp)
+jr	$ra
+LABEL_70:
+#	m == 0
+#	BZ LABEL_72
+lw	$t0,-4($fp)
+bne	$t0,0,LABEL_72
+#	n ret 
+lw	$t0,-0($fp)
+move	$v1,$t0
+lw	$sp,-12($fp)
+addi	$sp,$sp,8
+lw	$ra,-16($fp)
+lw	$fp,-20($fp)
+jr	$ra
+LABEL_72:
+#	PUSH m
+lw	$t9,-4($fp)
+sw	$t9,0($sp)
+addi	$sp,$sp,-4
+#	PUSH n
+lw	$t9,-0($fp)
+sw	$t9,0($sp)
+addi	$sp,$sp,-4
+#	PUSH m
+lw	$t9,-4($fp)
+sw	$t9,0($sp)
+addi	$sp,$sp,-4
+#	call mod
+jal	mod
+##65 = RET_int
+move	$t0,$v1
+#	PUSH #65
+sw	$t0,0($sp)
+addi	$sp,$sp,-4
+sw	$t0,-24($fp)
+#	call gcd
+jal	gcd
+##66 = RET_int
+move	$t0,$v1
+sw	$t0,-28($fp)
+#	#66 ret 
+lw	$t0,-28($fp)
+move	$v1,$t0
+lw	$sp,-12($fp)
+addi	$sp,$sp,8
+lw	$ra,-16($fp)
+lw	$fp,-20($fp)
+jr	$ra
+isWrongGcd:
+move	$s1,$sp
+move	$s0,$fp
+addi	$fp,$sp,8
+#END Const&Variable define
+sw	$s1,0($sp)
+sw	$ra,-4($sp)
+sw	$s0,-8($sp)
+addi	$sp,$sp,-12
+#	n <= 0
+#	BZ LABEL_74
+lw	$t0,-0($fp)
+bgt	$t0,0,LABEL_74
+#	1 ret 
+li	$v1,1
+lw	$sp,-8($fp)
+addi	$sp,$sp,8
+lw	$ra,-12($fp)
+lw	$fp,-16($fp)
+jr	$ra
+LABEL_74:
+#	m <= 0
+#	BZ LABEL_76
+lw	$t0,-4($fp)
+bgt	$t0,0,LABEL_76
+#	1 ret 
+li	$v1,1
+lw	$sp,-8($fp)
+addi	$sp,$sp,8
+lw	$ra,-12($fp)
+lw	$fp,-16($fp)
+jr	$ra
+LABEL_76:
+#	0 ret 
+li	$v1,0
+lw	$sp,-8($fp)
+addi	$sp,$sp,8
+lw	$ra,-12($fp)
+lw	$fp,-16($fp)
+jr	$ra
+gcd_test:
+move	$s1,$sp
+move	$s0,$fp
+addi	$fp,$sp,0
+subi	$sp,$sp,12
+#END Const&Variable define
+sw	$s1,0($sp)
+sw	$ra,-4($sp)
+sw	$s0,-8($sp)
+addi	$sp,$sp,-24
+#	PRINT "GCD: Please input two unsigned positive integer ?"
+la	$a0,str17
+li	$v0,4
+syscall
+#	PRINTLN 
+#	READ n
+li	$v0,5
+syscall
+move	$t0,$v0
+#	READ m
+li	$v0,5
+syscall
+move	$t1,$v0
+#	PUSH n
+sw	$t0,0($sp)
+addi	$sp,$sp,-4
+#	PUSH m
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+sw	$t0,-0($fp)
+sw	$t1,-4($fp)
+#	call isWrongGcd
+jal	isWrongGcd
+##67 = RET_int
+move	$t0,$v1
+sw	$t0,-24($fp)
+#	#67 != 0
+#	BZ LABEL_78
+lw	$t0,-24($fp)
+beq	$t0,0,LABEL_78
+#toy = 0
+li	$t0,0
+sw	$t0,-8($fp)
+LABEL_80:
+#	PRINT "Input error, try Again: "
+la	$a0,str18
+li	$v0,4
+syscall
+#	PRINTLN 
+#	READ n
+li	$v0,5
+syscall
+move	$t0,$v0
+#	READ m
+li	$v0,5
+syscall
+move	$t1,$v0
+#toy = toy + 1
+lw	$t2,-8($fp)
+add	$t2,$t2,1
+#	PUSH n
+sw	$t0,0($sp)
+addi	$sp,$sp,-4
+#	PUSH m
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+sw	$t0,-0($fp)
+sw	$t1,-4($fp)
+sw	$t2,-8($fp)
+#	call isWrongGcd
+jal	isWrongGcd
+##68 = RET_int
+move	$t0,$v1
+sw	$t0,-28($fp)
+#	#68 != 0
+#	BZ LABEL_81
+lw	$t0,-28($fp)
+beq	$t0,0,LABEL_81
+#	GOTO LABEL_80
+j	LABEL_80
+LABEL_81:
+LABEL_78:
+#	PUSH n
+lw	$t9,-0($fp)
+sw	$t9,0($sp)
+addi	$sp,$sp,-4
+#	PUSH m
+lw	$t9,-4($fp)
+sw	$t9,0($sp)
+addi	$sp,$sp,-4
+#	call gcd
+jal	gcd
+##69 = RET_int
+move	$t0,$v1
+#	PRINT "The gcd's answer is "
+la	$a0,str19
+li	$v0,4
+syscall
+#	PRINT #69
+move	$a0,$t0
+li	$v0,1
+syscall
+#	PRINTLN 
+sw	$t0,-32($fp)
+#	 ret 
+lw	$sp,-12($fp)
+lw	$ra,-16($fp)
+lw	$fp,-20($fp)
+jr	$ra
+is_prime:
+move	$s1,$sp
+move	$s0,$fp
+addi	$fp,$sp,4
+subi	$sp,$sp,8
+#END Const&Variable define
+sw	$s1,0($sp)
+sw	$ra,-4($sp)
+sw	$s0,-8($sp)
+addi	$sp,$sp,-20
+#i = 2
+li	$t0,2
+sw	$t0,-4($fp)
+#	x == 2
+#	BZ LABEL_82
+lw	$t0,-0($fp)
+bne	$t0,2,LABEL_82
+#	1 ret 
+li	$v1,1
+lw	$sp,-12($fp)
+addi	$sp,$sp,4
+lw	$ra,-16($fp)
+lw	$fp,-20($fp)
+jr	$ra
+LABEL_82:
+#toy = 0
+li	$t0,0
+sw	$t0,-8($fp)
+LABEL_84:
+#	PUSH x
+lw	$t9,-0($fp)
+sw	$t9,0($sp)
+addi	$sp,$sp,-4
+#	PUSH i
+lw	$t9,-4($fp)
+sw	$t9,0($sp)
+addi	$sp,$sp,-4
+#	call mod
+jal	mod
+##70 = RET_int
+move	$t0,$v1
+sw	$t0,-24($fp)
+#	#70 == 0
+#	BZ LABEL_85
+lw	$t0,-24($fp)
+bne	$t0,0,LABEL_85
+#	0 ret 
+li	$v1,0
+lw	$sp,-12($fp)
+addi	$sp,$sp,4
+lw	$ra,-16($fp)
+lw	$fp,-20($fp)
+jr	$ra
+LABEL_85:
+#i = i + 1
+lw	$t0,-4($fp)
+add	$t0,$t0,1
+#toy = toy + 1
+lw	$t1,-8($fp)
+add	$t1,$t1,1
+##72 = i * i
+mul	$t2,$t0,$t0
+sw	$t0,-4($fp)
+sw	$t1,-8($fp)
+sw	$t2,-28($fp)
+#	#72 < x
+#	BZ LABEL_87
+lw	$t0,-28($fp)
+lw	$t1,-0($fp)
+bge	$t0,$t1,LABEL_87
+#	GOTO LABEL_84
+j	LABEL_84
+LABEL_87:
+#	1 ret 
+li	$v1,1
+lw	$sp,-12($fp)
+addi	$sp,$sp,4
+lw	$ra,-16($fp)
+lw	$fp,-20($fp)
+jr	$ra
+prime_factorization:
+move	$s1,$sp
+move	$s0,$fp
+addi	$fp,$sp,4
+subi	$sp,$sp,16
+#END Const&Variable define
+sw	$s1,0($sp)
+sw	$ra,-4($sp)
+sw	$s0,-8($sp)
+addi	$sp,$sp,-36
+#i = 2
+li	$t0,2
+#first = 0
+li	$t1,0
+sw	$t0,-4($fp)
+sw	$t1,-8($fp)
+#	n == 1
+#	BZ LABEL_88
+lw	$t0,-0($fp)
+bne	$t0,1,LABEL_88
+#	PRINT "1"
+la	$a0,str20
+li	$v0,4
+syscall
+#	PRINTLN 
+#	 ret 
+lw	$sp,-20($fp)
+addi	$sp,$sp,4
+lw	$ra,-24($fp)
+lw	$fp,-28($fp)
+jr	$ra
+LABEL_88:
+#fuck = 0
+li	$t0,0
+sw	$t0,-16($fp)
+LABEL_90:
+#	PUSH i
+lw	$t9,-4($fp)
+sw	$t9,0($sp)
+addi	$sp,$sp,-4
+#	call is_prime
+jal	is_prime
+##73 = RET_int
+move	$t0,$v1
+sw	$t0,-32($fp)
+#	#73 == 1
+#	BZ LABEL_91
+lw	$t0,-32($fp)
+bne	$t0,1,LABEL_91
+#	PUSH n
+lw	$t9,-0($fp)
+sw	$t9,0($sp)
+addi	$sp,$sp,-4
+#	PUSH i
+lw	$t9,-4($fp)
+sw	$t9,0($sp)
+addi	$sp,$sp,-4
+#	call mod
+jal	mod
+##74 = RET_int
+move	$t0,$v1
+sw	$t0,-36($fp)
+#	#74 == 0
+#	BZ LABEL_93
+lw	$t0,-36($fp)
+bne	$t0,0,LABEL_93
+#toy = 0
+li	$t0,0
+sw	$t0,-12($fp)
+LABEL_95:
+#n = n / i
+lw	$t0,-0($fp)
+lw	$t1,-4($fp)
+div	$t0,$t0,$t1
+sw	$t0,-0($fp)
+#	first == 1
+#	BZ LABEL_96
+lw	$t0,-8($fp)
+bne	$t0,1,LABEL_96
+#	PRINT "*"
+la	$a0,str21
+li	$v0,4
+syscall
+#	PRINTLN 
+LABEL_96:
+#first = 1
+li	$t0,1
+##76 = i
+lw	$t1,-4($fp)
+move	$t2,$t1
+#toy = toy + 1
+lw	$t3,-12($fp)
+add	$t3,$t3,1
+#	PRINT #76
+move	$a0,$t2
+li	$v0,1
+syscall
+#	PRINTLN 
+#	PUSH n
+lw	$t9,-0($fp)
+sw	$t9,0($sp)
+addi	$sp,$sp,-4
+#	PUSH i
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+sw	$t0,-8($fp)
+sw	$t2,-40($fp)
+sw	$t3,-12($fp)
+#	call mod
+jal	mod
+##77 = RET_int
+move	$t0,$v1
+sw	$t0,-44($fp)
+#	#77 == 0
+#	BZ LABEL_98
+lw	$t0,-44($fp)
+bne	$t0,0,LABEL_98
+#	GOTO LABEL_95
+j	LABEL_95
+LABEL_98:
+LABEL_93:
+LABEL_91:
+#i = i + 1
+lw	$t0,-4($fp)
+add	$t0,$t0,1
+#fuck = fuck + 1
+lw	$t1,-16($fp)
+add	$t1,$t1,1
+##79 = i * i
+mul	$t2,$t0,$t0
+sw	$t0,-4($fp)
+sw	$t1,-16($fp)
+sw	$t2,-48($fp)
+#	#79 < n
+#	BZ LABEL_99
+lw	$t0,-48($fp)
+lw	$t1,-0($fp)
+bge	$t0,$t1,LABEL_99
+#	GOTO LABEL_90
+j	LABEL_90
+LABEL_99:
+#	n != 1
+#	BZ LABEL_100
+lw	$t0,-0($fp)
+beq	$t0,1,LABEL_100
+#	first == 1
+#	BZ LABEL_102
+lw	$t0,-8($fp)
+bne	$t0,1,LABEL_102
+#	PRINT "*"
+la	$a0,str21
+li	$v0,4
+syscall
+#	PRINTLN 
+LABEL_102:
+##80 = n
+lw	$t0,-0($fp)
+move	$t1,$t0
+#	PRINT #80
+move	$a0,$t1
+li	$v0,1
+syscall
+#	PRINTLN 
+sw	$t1,-52($fp)
+LABEL_100:
+#	 ret 
+lw	$sp,-20($fp)
+addi	$sp,$sp,4
+lw	$ra,-24($fp)
+lw	$fp,-28($fp)
+jr	$ra
+prime_factorization_test:
+move	$s1,$sp
+move	$s0,$fp
+addi	$fp,$sp,0
+subi	$sp,$sp,8
+#END Const&Variable define
+sw	$s1,0($sp)
+sw	$ra,-4($sp)
+sw	$s0,-8($sp)
+addi	$sp,$sp,-12
+#	PRINT "prime_factorization: Please input a unsigned positive integer(<2^31-1) ?"
+la	$a0,str22
+li	$v0,4
+syscall
+#	PRINTLN 
+#	READ n
+li	$v0,5
+syscall
+move	$t0,$v0
+#toy = 0
+li	$t1,0
+sw	$t0,-0($fp)
+sw	$t1,-4($fp)
+LABEL_104:
+#	n < 0
+#	BZ LABEL_105
+lw	$t0,-0($fp)
+bge	$t0,0,LABEL_105
+#	PRINT "Input error, try again:"
+la	$a0,str15
+li	$v0,4
+syscall
+#	PRINTLN 
+#	READ n
+li	$v0,5
+syscall
+move	$t0,$v0
+sw	$t0,-0($fp)
+LABEL_105:
+#toy = toy + 1
+lw	$t0,-4($fp)
+add	$t0,$t0,1
+sw	$t0,-4($fp)
+#	n < 0
+#	BZ LABEL_107
+lw	$t0,-0($fp)
+bge	$t0,0,LABEL_107
+#	GOTO LABEL_104
+j	LABEL_104
+LABEL_107:
+#	PRINT "The factor of n is "
+la	$a0,str23
+li	$v0,4
+syscall
+#	PRINTLN 
+#	PUSH n
+lw	$t9,-0($fp)
+sw	$t9,0($sp)
+addi	$sp,$sp,-4
+#	call prime_factorization
+jal	prime_factorization
+#	 ret 
+lw	$sp,-8($fp)
+lw	$ra,-12($fp)
+lw	$fp,-16($fp)
+jr	$ra
+iswrong:
+move	$s1,$sp
+move	$s0,$fp
+addi	$fp,$sp,4
+#END Const&Variable define
+sw	$s1,0($sp)
+sw	$ra,-4($sp)
+sw	$s0,-8($sp)
+addi	$sp,$sp,-12
+#	'E' == A
+#	BZ LABEL_108
+lw	$t0,-0($fp)
+bne	$t0,'E',LABEL_108
+#	0 ret 
+li	$v1,0
+lw	$sp,-4($fp)
+addi	$sp,$sp,4
+lw	$ra,-8($fp)
+lw	$fp,-12($fp)
+jr	$ra
+LABEL_108:
+#	'M' == A
+#	BZ LABEL_110
+lw	$t0,-0($fp)
+bne	$t0,'M',LABEL_110
+#	0 ret 
+li	$v1,0
+lw	$sp,-4($fp)
+addi	$sp,$sp,4
+lw	$ra,-8($fp)
+lw	$fp,-12($fp)
+jr	$ra
+LABEL_110:
+#	'H' == A
+#	BZ LABEL_112
+lw	$t0,-0($fp)
+bne	$t0,'H',LABEL_112
+#	0 ret 
+li	$v1,0
+lw	$sp,-4($fp)
+addi	$sp,$sp,4
+lw	$ra,-8($fp)
+lw	$fp,-12($fp)
+jr	$ra
+LABEL_112:
+#	1 ret 
+li	$v1,1
+lw	$sp,-4($fp)
+addi	$sp,$sp,4
+lw	$ra,-8($fp)
+lw	$fp,-12($fp)
+jr	$ra
+main:
+move	$s1,$sp
+move	$s0,$fp
+addi	$fp,$sp,0
+subi	$sp,$sp,8
+#END Const&Variable define
+sw	$s1,0($sp)
+sw	$ra,-4($sp)
+sw	$s0,-8($sp)
+addi	$sp,$sp,-20
+#	PRINT "Please input Test Type:E(Easy), (M)Middle, H(Hard): "
+la	$a0,str24
+li	$v0,4
+syscall
+#	PRINTLN 
+#	READ kind
+li	$v0,12
+syscall
+move	$t0,$v0
+#	PUSH kind
+sw	$t0,0($sp)
+addi	$sp,$sp,-4
+sw	$t0,-0($fp)
+#	call iswrong
+jal	iswrong
+##81 = RET_int
+move	$t0,$v1
+sw	$t0,-20($fp)
+#	#81 != 0
+#	BZ LABEL_114
+lw	$t0,-20($fp)
+beq	$t0,0,LABEL_114
+#toy = 0
+li	$t0,0
+sw	$t0,-4($fp)
+LABEL_116:
+#	PRINT "Try Again: "
+la	$a0,str25
+li	$v0,4
+syscall
+#	PRINTLN 
+#	READ kind
+li	$v0,12
+syscall
+move	$t0,$v0
+#toy = toy + 1
+lw	$t1,-4($fp)
+add	$t1,$t1,1
+#	PUSH kind
+sw	$t0,0($sp)
+addi	$sp,$sp,-4
+sw	$t0,-0($fp)
+sw	$t1,-4($fp)
+#	call iswrong
+jal	iswrong
+##82 = RET_int
+move	$t0,$v1
+sw	$t0,-24($fp)
+#	#82 != 0
+#	BZ LABEL_117
+lw	$t0,-24($fp)
+beq	$t0,0,LABEL_117
+#	GOTO LABEL_116
+j	LABEL_116
+LABEL_117:
+LABEL_114:
+#	SWITCH kind
+#	kind == 'E'
+#	BZ LABEL_119
+lw	$t0,-0($fp)
+bne	$t0,'E',LABEL_119
+#	call define_test
+jal	define_test
+#	call operator_test
+jal	operator_test
+#	call fibonaci_test
+jal	fibonaci_test
+#	GOTO LABEL_122
+j	LABEL_122
+LABEL_119:
+#	kind == 'M'
+#	BZ LABEL_120
+lw	$t0,-0($fp)
+bne	$t0,'M',LABEL_120
+#	call dowhile_test
+jal	dowhile_test
+#	call condition_test
+jal	condition_test
+#	call string_test
+jal	string_test
+#	call gcd_test
+jal	gcd_test
+#	GOTO LABEL_122
+j	LABEL_122
+LABEL_120:
+#	kind == 'H'
+#	BZ LABEL_121
+lw	$t0,-0($fp)
+bne	$t0,'H',LABEL_121
+#	call define_test
+jal	define_test
+#	call operator_test
+jal	operator_test
+#	call dowhile_test
+jal	dowhile_test
+#	call condition_test
+jal	condition_test
+#	call string_test
+jal	string_test
+#	call miscellaneous_test
+jal	miscellaneous_test
+#	call prime_factorization_test
+jal	prime_factorization_test
+#	GOTO LABEL_122
+j	LABEL_122
+LABEL_121:
+#	PRINT "default"
+la	$a0,str26
+li	$v0,4
+syscall
+#	PRINTLN 
+LABEL_122:
+#	 ret 
+li	$v0,10
+syscall

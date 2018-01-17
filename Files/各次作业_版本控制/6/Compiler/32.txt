@@ -1,0 +1,31 @@
+const char niubi = 'a';
+void init(int x){
+	if (x == 1){
+		x = 8888;
+	}else{
+		x = 23333333;
+	}
+}
+int work(int p, int q){
+	int ans, a;
+	printf(niubi);
+	a = 10;
+	printf(a);
+	ans = a + a + (a + a + a + (a + a + a + a));
+	printf("FUCK You\n", ans*a);
+	ans = a + a + (a + a + a + (a + a + a + a));
+	return (ans + p + q);
+}
+void main(){
+	int q,x,y,a;
+	x=0;
+	q=1+2+3;
+	x=x+1;
+	y=x;
+	printf(x);
+	x=x+1;
+	y=x;
+	printf(q);
+	printf(x);
+	printf("UUU",work(1, 2) + work (100, 200));
+}

@@ -1,0 +1,96 @@
+void complete_num()
+var int k[1024]
+var int i
+var int j
+var int n
+var int s
+var int x1
+var int m
+var int k2
+var int h
+var int leap
+var int x2
+BEGIN
+j = 2
+LABEL_1 n = -1
+s = j
+i = 1
+LABEL_2 #2 = j / i
+x1 = #2 * i
+x1 == j
+BZ LABEL_3
+n = n + 1
+s = s - i
+n >= 1024
+BZ LABEL_5
+PRINT_-string "OVERFLOW! "
+PRINTLN
+GOTO LABEL_6
+LABEL_5 k[n] = i
+LABEL_6 LABEL_3 i = i + 1
+i < j
+BZ LABEL_7
+GOTO LABEL_2
+LABEL_7 s == 0
+BZ LABEL_8
+#6 = j
+i = 0
+PRINT_-string "complete number: "
+PRINT_int #6
+PRINTLN
+LABEL_10 #7 = k[i]
+i = i + 1
+PRINT_-string "  "
+PRINT_int #7
+PRINTLN
+i <= n
+BZ LABEL_11
+GOTO LABEL_10
+LABEL_11 PRINT_-string "  "
+PRINTLN
+LABEL_8 j = j + 1
+j < 1024
+BZ LABEL_12
+GOTO LABEL_1
+LABEL_12 h = 0
+leap = 1
+m = 2
+PRINT_-string "---------------------------------------------------------------\\n"
+PRINTLN
+LABEL_13 k2 = m - 1
+i = 2
+LABEL_14 #9 = m / i
+x2 = #9 * i
+x2 == m
+BZ LABEL_15
+leap = 0
+LABEL_15 i = i + 1
+i <= k2
+BZ LABEL_17
+GOTO LABEL_14
+LABEL_17 leap == 1
+BZ LABEL_18
+#11 = m
+h = h + 1
+#13 = h / 10
+x2 = #13 * 10
+PRINT_-string " "
+PRINT_int #11
+PRINTLN
+x2 == h
+BZ LABEL_20
+PRINT_-string "  "
+PRINTLN
+LABEL_20 LABEL_18 leap = 1
+m = m + 1
+m <= 1024
+BZ LABEL_22
+GOTO LABEL_13
+LABEL_22 #15 = h
+PRINT_-string "The total is "
+PRINT_int #15
+PRINTLN
+ret 
+void main()
+BEGIN
+call complete_num

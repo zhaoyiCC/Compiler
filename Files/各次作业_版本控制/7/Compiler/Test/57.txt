@@ -1,0 +1,28 @@
+
+int loop_test(int loop_initvar, int loop_step, int loop_cnt)
+{
+    int i, j;
+    i = loop_initvar;
+    j = i;
+
+        i = i + loop_step;
+        loop_cnt = loop_cnt - 1;
+
+    printf("finally, i value: ", i);
+ 
+        j = j - 1;    
+   
+    printf("finally, j value:", j);
+    return (i);
+}
+
+void main()
+{
+   int loop_initvar, loop_step, loop_cnt;
+    printf("-------loop test-------");
+    printf("please input 3 int(the 3rd int must >0):");
+    scanf(loop_initvar, loop_step, loop_cnt);
+    printf("original value: ", loop_initvar);
+    loop_initvar = loop_test(loop_initvar, loop_step, loop_cnt);
+    printf("after loop, original value changes to: ", loop_initvar);
+}

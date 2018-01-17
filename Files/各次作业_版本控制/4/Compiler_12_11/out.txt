@@ -1,0 +1,4335 @@
+Please input a file:
+cnt_tab 1 ::: N const int 100 1 0 &&& 0
+QUAT!!! const_int N 100  ::: 0
+cnt_tab 2 ::: M const int 10000 2 0 &&& 0
+QUAT!!! const_int M 10000  ::: 0
+This is a const_int statement::: 2elements::: const int N = 100, M = -10000
+
+cnt_tab 3 ::: K const int 0 3 0 &&& 0
+QUAT!!! const_int K 0  ::: 0
+This is a const_int statement::: 1elements::: const int K = 0
+
+cnt_tab 4 ::: ch1 const char 43 4 0 &&& 0
+QUAT!!! const_char ch1 43  ::: 0
+cnt_tab 5 ::: ch2 const char 45 5 0 &&& 0
+QUAT!!! const_char ch2 45  ::: 0
+cnt_tab 6 ::: ch3 const char 42 6 0 &&& 0
+QUAT!!! const_char ch3 42  ::: 0
+cnt_tab 7 ::: ch4 const char 47 7 0 &&& 0
+QUAT!!! const_char ch4 47  ::: 0
+cnt_tab 8 ::: ch5 const char 95 8 0 &&& 0
+QUAT!!! const_char ch5 95  ::: 0
+cnt_tab 9 ::: ch6 const char 97 9 0 &&& 0
+QUAT!!! const_char ch6 97  ::: 0
+cnt_tab 10 ::: ch7 const char 48 10 0 &&& 0
+QUAT!!! const_char ch7 48  ::: 0
+cnt_tab 11 ::: ch8 const char 34 11 0 &&& 0
+QUAT!!! const_char ch8 34  ::: 0
+cnt_tab 12 ::: ch9 const char 57 12 0 &&& 0
+QUAT!!! const_char ch9 57  ::: 0
+This is a const_char statement::: 9elements::: const char ch1 = '+', ch2 = '-', ch3 = '*', ch4 = '/', ch5 = '_', ch6 = 'a', ch7 = '0', ch8 = '"', ch9 = '9'
+
+cnt_tab 13 ::: a variable int[] 0 13 100 &&& 0
+QUAT!!! variable_int[] a 100  ::: 0
+cnt_tab 14 ::: i variable int 0 14 0 &&& 0
+QUAT!!! variable_int i 100  ::: 0
+cnt_tab 15 ::: j variable int 0 15 0 &&& 0
+QUAT!!! variable_int j 100  ::: 0
+cnt_tab 16 ::: n variable int 0 16 0 &&& 0
+QUAT!!! variable_int n 100  ::: 0
+cnt_tab 17 ::: m variable int 0 17 0 &&& 0
+QUAT!!! variable_int m 100  ::: 0
+cnt_tab 18 ::: k variable int 0 18 0 &&& 0
+QUAT!!! variable_int k 100  ::: 0
+cnt_tab 19 ::: x variable int 0 19 0 &&& 0
+QUAT!!! variable_int x 100  ::: 0
+cnt_tab 20 ::: y variable int 0 20 0 &&& 0
+QUAT!!! variable_int y 100  ::: 0
+cnt_tab 21 ::: z variable int 0 21 0 &&& 0
+QUAT!!! variable_int z 100  ::: 0
+cnt_tab 22 ::: mx variable int 0 22 0 &&& 0
+QUAT!!! variable_int mx 100  ::: 0
+This is a variable_int statement::: 10 variables::: int a[100],  i, j, n, m, k, x, y, z, mx
+
+cnt_tab 23 ::: ch variable char 0 23 0 &&& 0
+QUAT!!! variable_char ch 100  ::: 0
+cnt_tab 24 ::: s variable char[] 0 24 10000 &&& 0
+QUAT!!! variable_char[] s 10000  ::: 0
+This is a variable_char[] statement::: 2 variables::: 
+char ch, s[10000]
+
+cnt_tab 25 ::: mymax function int 0 0 0 &&& 1
+QUAT!!! function_int mymax   ::: 1
+cnt_tab 26 ::: x parameter int 0 1 0 &&& 1
+QUAT!!! parameter_int x   ::: 1
+cnt_tab 27 ::: y parameter int 0 2 0 &&& 1
+QUAT!!! parameter_int y   ::: 1
+This is a functionint statement mymax ::: 2 parameters::: int mymax(int x, int y)
+
+cnt_tab 28 ::: ans variable int 0 3 0 &&& 1
+QUAT!!! variable_int ans   ::: 1
+This is a variable_int statement::: 1 variables::: int ans
+
+QUAT!!! BEGIN    ::: 1
+This is a factor statemnt::: x
+
+This is a term statemnt::: x
+
+This is a expression statemnt::: x
+
+QUAT!!! = ans x  ::: 1
+This is an assign statement::: ans = x
+
+This is a factor statemnt::: y 
+
+This is a term statemnt::: y 
+
+This is a expression statemnt::: y 
+
+This is a factor statemnt::: x
+
+This is a term statemnt::: x
+
+This is a expression statemnt::: x
+
+QUAT!!! > y x  ::: 1
+This is a condition ::: y > x
+
+QUAT!!! BZ LABEL_1   ::: 1
+This is a factor statemnt::: y
+
+This is a term statemnt::: y
+
+This is a expression statemnt::: y
+
+QUAT!!! = ans y  ::: 1
+This is an assign statement::: ans = y
+
+QUAT!!! GOTO LABEL_2   ::: 1
+This is a if_elsestatement::: if (y > x){
+        ans = y;
+    }
+    else
+    ;
+    
+
+This is a factor statemnt::: ans
+
+This is a term statemnt::: ans
+
+This is a expression statemnt::: ans
+
+This is a return statement::: return (ans)
+
+QUAT!!! ret ans   ::: 1
+siz = 2796 now = 346
+
+cnt_tab 29 ::: factorial function int 0 0 0 &&& 2
+QUAT!!! function_int factorial   ::: 2
+cnt_tab 30 ::: n parameter int 0 1 0 &&& 2
+QUAT!!! parameter_int n   ::: 2
+This is a functionint statement factorial ::: 1 parameters::: int factorial(int n)
+
+cnt_tab 31 ::: res variable int 0 2 0 &&& 2
+QUAT!!! variable_int res   ::: 2
+This is a variable_int statement::: 1 variables::: int res
+
+QUAT!!! BEGIN    ::: 2
+QUAT!!! PRINT "n="   ::: 2
+This is a factor statemnt::: n
+
+This is a term statemnt::: n
+
+This is a expression statemnt::: n
+
+QUAT!!! PRINT n   ::: 2
+This is a printf statement::: printf("n=", n)
+
+This is a factor statemnt::: n 
+
+This is a term statemnt::: n 
+
+This is a expression statemnt::: n 
+
+This is a factor statemnt::: 0
+
+This is a term statemnt::: 0
+
+This is a expression statemnt::: 0
+
+QUAT!!! < n 0  ::: 2
+This is a condition ::: n < 0
+
+QUAT!!! BZ LABEL_3   ::: 2
+This is a factor statemnt::: 1
+
+This is a term statemnt::: 1
+
+This is a expression statemnt::: -1
+
+This is a return statement::: return (-1)
+
+QUAT!!! ret 1   ::: 2
+This is a ifstatement::: if (n < 0)
+        return (-1);
+    
+
+This is a factor statemnt::: n
+
+This is a term statemnt::: n
+
+This is a expression statemnt::: n
+
+QUAT!!! SWITCH n   ::: 2
+QUAT!!! == n 0  ::: 2
+QUAT!!! BZ LABEL_6   ::: 2
+This is a factor statemnt::: 1
+
+This is a term statemnt::: 1
+
+This is a expression statemnt::: 1
+
+QUAT!!! = res 1  ::: 2
+This is an assign statement::: res = 1
+
+QUAT!!! GOTO    ::: 2
+QUAT!!! == n 1  ::: 2
+QUAT!!! BZ LABEL_7   ::: 2
+This is a factor statemnt::: 1
+
+This is a term statemnt::: 1
+
+This is a expression statemnt::: 1
+
+QUAT!!! = res 1  ::: 2
+This is an assign statement::: res = 1
+
+QUAT!!! GOTO    ::: 2
+This is cases statement with::: 2 cases::: case 0: res = 1; 
+        case 1: res = 1; 
+        
+
+This is a factor statemnt::: n
+
+This is a factor statemnt::: n
+
+This is a term statemnt::: n
+
+This is a factor statemnt::: 1
+
+This is a term statemnt::: 1
+
+QUAT!!! - #1 n 1 ::: 2
+This is a expression statemnt::: n-1
+
+QUAT!!! PUSH #1 1  ::: 2
+This is a parameter with ::: 1 parameters::: n-1
+
+This is function_call statement::: factorial(n-1)
+
+QUAT!!! call factorial   ::: 2
+This is a factor statemnt::: factorial(n-1)
+
+QUAT!!! * #2 n RET_int ::: 2
+This is a term statemnt::: n*factorial(n-1)
+
+This is a expression statemnt::: n*factorial(n-1)
+
+This is a factor statemnt::: (n*factorial(n-1))
+
+This is a term statemnt::: (n*factorial(n-1))
+
+This is a expression statemnt::: (n*factorial(n-1))
+
+QUAT!!! = res #2  ::: 2
+This is an assign statement::: res = (n*factorial(n-1))
+
+This is a default statement::: default:  res = (n*factorial(n-1));
+    
+
+This is a switch statement::: switch (n){
+        case 0: res = 1; 
+        case 1: res = 1; 
+        default:  res = (n*factorial(n-1));
+    }
+    
+
+QUAT!!! PRINT "res="   ::: 2
+This is a factor statemnt::: res
+
+This is a term statemnt::: res
+
+This is a expression statemnt::: res
+
+QUAT!!! PRINT res   ::: 2
+This is a printf statement::: printf("res=", res)
+
+This is a factor statemnt::: res
+
+This is a term statemnt::: res
+
+This is a expression statemnt::: res
+
+This is a return statement::: return (res)
+
+QUAT!!! ret res   ::: 2
+siz = 2796 now = 602
+
+cnt_tab 32 ::: C function int 0 0 0 &&& 3
+QUAT!!! function_int C   ::: 3
+cnt_tab 33 ::: m parameter int 0 1 0 &&& 3
+QUAT!!! parameter_int m   ::: 3
+cnt_tab 34 ::: n parameter int 0 2 0 &&& 3
+QUAT!!! parameter_int n   ::: 3
+This is a functionint statement C ::: 2 parameters::: int C(int m, int n)
+
+cnt_tab 35 ::: x variable int 0 3 0 &&& 3
+QUAT!!! variable_int x   ::: 3
+cnt_tab 36 ::: y variable int 0 4 0 &&& 3
+QUAT!!! variable_int y   ::: 3
+cnt_tab 37 ::: z variable int 0 5 0 &&& 3
+QUAT!!! variable_int z   ::: 3
+This is a variable_int statement::: 3 variables::: int x, y, z
+
+QUAT!!! BEGIN    ::: 3
+QUAT!!! PRINT "m="   ::: 3
+This is a factor statemnt::: m
+
+This is a term statemnt::: m
+
+This is a expression statemnt::: m
+
+QUAT!!! PRINT m   ::: 3
+This is a printf statement::: printf("m=", m)
+
+QUAT!!! PRINT "n="   ::: 3
+This is a factor statemnt::: n
+
+This is a term statemnt::: n
+
+This is a expression statemnt::: n
+
+QUAT!!! PRINT n   ::: 3
+This is a printf statement::: printf("n=", n)
+
+QUAT!!! PRINT "\n"   ::: 3
+This is a printf statement::: printf("\n")
+
+This is a factor statemnt::: m 
+
+This is a term statemnt::: m 
+
+This is a expression statemnt::: m 
+
+This is a factor statemnt::: n
+
+This is a term statemnt::: n
+
+This is a expression statemnt::: n
+
+QUAT!!! <= m n  ::: 3
+This is a condition ::: m <= n
+
+QUAT!!! BZ LABEL_9   ::: 3
+This is a ifstatement::: if (m <= n) ;
+    
+    
+
+This is a factor statemnt::: m 
+
+This is a term statemnt::: m 
+
+This is a expression statemnt::: m 
+
+This is a factor statemnt::: n
+
+This is a term statemnt::: n
+
+This is a expression statemnt::: n
+
+QUAT!!! > m n  ::: 3
+This is a condition ::: m > n
+
+QUAT!!! BZ LABEL_11   ::: 3
+This is a factor statemnt::: 1
+
+This is a term statemnt::: 1
+
+This is a expression statemnt::: -1
+
+This is a return statement::: return (-1)
+
+QUAT!!! ret 1   ::: 3
+This is a ifstatement::: if (m > n)
+        return (-1);
+    
+
+This is a factor statemnt::: n
+
+This is a term statemnt::: n
+
+This is a expression statemnt::: n
+
+QUAT!!! PUSH n 1  ::: 3
+This is a parameter with ::: 1 parameters::: n
+
+This is function_call statement::: factorial(n)
+
+QUAT!!! call factorial   ::: 3
+This is a factor statemnt::: factorial(n)
+
+This is a term statemnt::: factorial(n)
+
+This is a expression statemnt::: factorial(n)
+
+QUAT!!! = x RET_int  ::: 3
+This is an assign statement::: x = factorial(n)
+
+QUAT!!! PRINT "x="   ::: 3
+This is a factor statemnt::: x
+
+This is a term statemnt::: x
+
+This is a expression statemnt::: x
+
+QUAT!!! PRINT x   ::: 3
+This is a printf statement::: printf("x=", x)
+
+This is a factor statemnt::: m
+
+This is a term statemnt::: m
+
+This is a expression statemnt::: m
+
+QUAT!!! PUSH m 1  ::: 3
+This is a parameter with ::: 1 parameters::: m
+
+This is function_call statement::: factorial(m)
+
+QUAT!!! call factorial   ::: 3
+This is a factor statemnt::: factorial(m)
+
+This is a term statemnt::: factorial(m)
+
+This is a expression statemnt::: factorial(m)
+
+QUAT!!! = y RET_int  ::: 3
+This is an assign statement::: y = factorial(m)
+
+QUAT!!! PRINT "y="   ::: 3
+This is a factor statemnt::: y
+
+This is a term statemnt::: y
+
+This is a expression statemnt::: y
+
+QUAT!!! PRINT y   ::: 3
+This is a printf statement::: printf("y=", y)
+
+This is a factor statemnt::: n
+
+This is a term statemnt::: n
+
+This is a factor statemnt::: m
+
+This is a term statemnt::: m
+
+QUAT!!! - #3 n m ::: 3
+This is a expression statemnt::: n-m
+
+QUAT!!! PUSH #3 1  ::: 3
+This is a parameter with ::: 1 parameters::: n-m
+
+This is function_call statement::: factorial(n-m)
+
+QUAT!!! call factorial   ::: 3
+This is a factor statemnt::: factorial(n-m)
+
+This is a term statemnt::: factorial(n-m)
+
+This is a expression statemnt::: factorial(n-m)
+
+QUAT!!! = z RET_int  ::: 3
+This is an assign statement::: z = factorial(n-m)
+
+QUAT!!! PRINT "z="   ::: 3
+This is a factor statemnt::: z
+
+This is a term statemnt::: z
+
+This is a expression statemnt::: z
+
+QUAT!!! PRINT z   ::: 3
+This is a printf statement::: printf("z=", z)
+
+This is a factor statemnt::: n
+
+This is a term statemnt::: n
+
+This is a expression statemnt::: n
+
+QUAT!!! PUSH n 1  ::: 3
+This is a parameter with ::: 1 parameters::: n
+
+This is function_call statement::: factorial(n)
+
+QUAT!!! call factorial   ::: 3
+This is a factor statemnt::: factorial(n)
+
+This is a factor statemnt::: m
+
+This is a term statemnt::: m
+
+This is a expression statemnt::: m
+
+QUAT!!! PUSH m 1  ::: 3
+This is a parameter with ::: 1 parameters::: m
+
+This is function_call statement::: factorial(m)
+
+QUAT!!! call factorial   ::: 3
+This is a factor statemnt::: factorial(m)
+
+QUAT!!! / #4 RET_int RET_int ::: 3
+This is a factor statemnt::: n
+
+This is a term statemnt::: n
+
+This is a factor statemnt::: m
+
+This is a term statemnt::: m
+
+QUAT!!! - #5 n m ::: 3
+This is a expression statemnt::: n-m
+
+QUAT!!! PUSH #5 1  ::: 3
+This is a parameter with ::: 1 parameters::: n-m
+
+This is function_call statement::: factorial(n-m)
+
+QUAT!!! call factorial   ::: 3
+This is a factor statemnt::: factorial(n-m)
+
+QUAT!!! / #6 #4 RET_int ::: 3
+This is a term statemnt::: factorial(n)/factorial(m)/factorial(n-m)
+
+This is a expression statemnt::: factorial(n)/factorial(m)/factorial(n-m)
+
+This is a return statement::: return (factorial(n)/factorial(m)/factorial(n-m))
+
+QUAT!!! ret #6   ::: 3
+siz = 2796 now = 949
+
+cnt_tab 38 ::: init void  0 0 0 &&& 4
+QUAT!!! void_ init   ::: 4
+This is a void statement init ::: 0 parameters::: void init()
+
+QUAT!!! BEGIN    ::: 4
+This is a factor statemnt::: 5
+
+This is a term statemnt::: 5
+
+This is a expression statemnt::: 5
+
+QUAT!!! = m 5  ::: 4
+This is an assign statement::: m = 5
+
+QUAT!!! READ n   ::: 4
+QUAT!!! READ m   ::: 4
+QUAT!!! READ k   ::: 4
+QUAT!!! READ ch   ::: 4
+This is a scanf statement::: 4 variables::: scanf(n,m,k, ch)
+
+QUAT!!! ret    ::: 4
+This is a return statement::: return 
+
+siz = 2796 now = 1010
+
+cnt_tab 39 ::: work function char 0 0 0 &&& 5
+QUAT!!! function_char work   ::: 5
+cnt_tab 40 ::: m parameter int 0 1 0 &&& 5
+QUAT!!! parameter_int m   ::: 5
+cnt_tab 41 ::: n parameter int 0 2 0 &&& 5
+QUAT!!! parameter_int n   ::: 5
+This is a functionchar statement work ::: 2 parameters::: char work(int m, int n)
+
+cnt_tab 42 ::: ans variable int 0 3 0 &&& 5
+QUAT!!! variable_int ans   ::: 5
+This is a variable_int statement::: 1 variables::: int ans
+
+QUAT!!! BEGIN    ::: 5
+QUAT!!! PRINT "work!!!"   ::: 5
+This is a printf statement::: printf("work!!!")
+
+This is a factor statemnt::: m
+
+This is a term statemnt::: m
+
+This is a expression statemnt::: m
+
+QUAT!!! PUSH m 1  ::: 5
+This is a factor statemnt::: n
+
+This is a term statemnt::: n
+
+This is a expression statemnt::: n
+
+QUAT!!! PUSH n 2  ::: 5
+This is a parameter with ::: 2 parameters::: m,n
+
+This is function_call statement::: C(m,n)
+
+QUAT!!! call C   ::: 5
+This is a factor statemnt::: C(m,n)
+
+This is a term statemnt::: C(m,n)
+
+This is a expression statemnt::: C(m,n)
+
+QUAT!!! = ans RET_int  ::: 5
+This is an assign statement::: ans = C(m,n)
+
+This is a factor statemnt::: ans 
+
+This is a term statemnt::: ans 
+
+This is a factor statemnt::: 2
+
+This is a factor statemnt::: ans 
+
+This is a factor statemnt::: 2
+
+QUAT!!! / #7 ans 2 ::: 5
+This is a term statemnt::: ans / 2
+
+This is a expression statemnt::: ans / 2
+
+This is a factor statemnt::: (ans / 2)
+
+QUAT!!! * #8 2 #7 ::: 5
+This is a term statemnt::: 2*(ans / 2)
+
+QUAT!!! - #9 ans #8 ::: 5
+This is a expression statemnt::: ans - 2*(ans / 2)
+
+QUAT!!! SWITCH #9   ::: 5
+QUAT!!! == #9 1  ::: 5
+QUAT!!! BZ LABEL_14   ::: 5
+This is a factor statemnt::: 'O'
+
+This is a term statemnt::: 'O'
+
+This is a expression statemnt::: 'O'
+
+This is a return statement::: return ('O')
+
+QUAT!!! ret 'O'   ::: 5
+QUAT!!! GOTO    ::: 5
+This is cases statement with::: 1 cases::: case 1: return ('O'); 
+        
+
+This is a factor statemnt::: 'E'
+
+This is a term statemnt::: 'E'
+
+This is a expression statemnt::: 'E'
+
+This is a return statement::: return ('E')
+
+QUAT!!! ret 'E'   ::: 5
+This is a default statement::: default: return ('E'); 
+    
+
+This is a switch statement::: switch (ans - 2*(ans / 2)){ 
+        case 1: return ('O'); 
+        default: return ('E'); 
+    }
+    
+
+This is a factor statemnt::: '*'
+
+This is a term statemnt::: '*'
+
+This is a expression statemnt::: '*'
+
+This is a return statement::: return ('*')
+
+QUAT!!! ret '*'   ::: 5
+siz = 2796 now = 1212
+
+cnt_tab 43 ::: test_switch void  0 0 0 &&& 6
+QUAT!!! void_ test_switch   ::: 6
+This is a void statement test_switch ::: 0 parameters::: void test_switch()
+
+cnt_tab 44 ::: Int variable int 0 1 0 &&& 6
+QUAT!!! variable_int Int   ::: 6
+cnt_tab 45 ::: a variable int[] 0 2 1000 &&& 6
+QUAT!!! variable_int[] a 1000  ::: 6
+This is a variable_int[] statement::: 2 variables::: int Int, a[1000]
+
+QUAT!!! BEGIN    ::: 6
+This is a factor statemnt::: 2
+
+This is a term statemnt::: 2
+
+This is a expression statemnt::: 2
+
+This is a factor statemnt::: 1
+
+This is a term statemnt::: 1
+
+This is a expression statemnt::: -1
+
+QUAT!!! = a[2] 1  ::: 6
+This is an assign statement::: a[2] = -1
+
+This is a factor statemnt::: 1
+
+This is a term statemnt::: 1
+
+This is a expression statemnt::: 1
+
+This is a factor statemnt::: 2
+
+This is a term statemnt::: 2
+
+This is a expression statemnt::: -2
+
+QUAT!!! = a[1] 2  ::: 6
+This is an assign statement::: a[1] = -2
+
+This is a factor statemnt::: 2
+
+This is a term statemnt::: 2
+
+This is a factor statemnt::: 2
+
+This is a factor statemnt::: 5
+
+QUAT!!! * #10 2 5 ::: 6
+This is a factor statemnt::: 4
+
+QUAT!!! / #11 #10 4 ::: 6
+This is a term statemnt::: 2*5/4
+
+This is a expression statemnt::: 2*5/4
+
+QUAT!!! = #12 a[#11]  ::: 6
+This is a factor statemnt::: a[2*5/4]
+
+This is a term statemnt::: a[2*5/4]
+
+QUAT!!! + #13 2 #12 ::: 6
+This is a expression statemnt::: 2+a[2*5/4]
+
+QUAT!!! = #14 a[#13]  ::: 6
+This is a factor statemnt::: a[2+a[2*5/4]]
+
+This is a term statemnt::: a[2+a[2*5/4]]
+
+This is a expression statemnt::: a[2+a[2*5/4]]
+
+QUAT!!! = #15 a[#14]  ::: 6
+This is a factor statemnt::: a[a[2+a[2*5/4]]]
+
+This is a term statemnt::: a[a[2+a[2*5/4]]]
+
+This is a expression statemnt::: a[a[2+a[2*5/4]]]
+
+QUAT!!! = Int #15  ::: 6
+This is an assign statement::: Int = a[a[2+a[2*5/4]]]
+
+This is a factor statemnt::: Int
+
+This is a term statemnt::: Int
+
+This is a expression statemnt::: Int
+
+QUAT!!! SWITCH Int   ::: 6
+QUAT!!! == Int -1  ::: 6
+QUAT!!! BZ LABEL_17   ::: 6
+QUAT!!! PRINT "666666"   ::: 6
+This is a printf statement::: printf("666666")
+
+QUAT!!! GOTO    ::: 6
+QUAT!!! == Int -2  ::: 6
+QUAT!!! BZ LABEL_18   ::: 6
+QUAT!!! PRINT "HHHHH"   ::: 6
+This is a printf statement::: printf("HHHHH")
+
+QUAT!!! GOTO    ::: 6
+This is cases statement with::: 2 cases::: case -1: printf("666666");
+        case -2: {printf("HHHHH"); }
+        
+
+This is a default statement::: default: ;
+    
+
+This is a switch statement::: switch (Int){
+        case -1: printf("666666");
+        case -2: {printf("HHHHH"); }
+        default: ;
+    }
+
+    
+
+This is a factor statemnt::: Int
+
+This is a term statemnt::: Int
+
+This is a factor statemnt::: 'b'
+
+This is a term statemnt::: 'b'
+
+QUAT!!! + #16 Int 'b' ::: 6
+This is a expression statemnt::: Int+'b'
+
+QUAT!!! SWITCH #16   ::: 6
+QUAT!!! == #16 1  ::: 6
+QUAT!!! BZ LABEL_21   ::: 6
+This is a factor statemnt::: Int
+
+This is a term statemnt::: Int
+
+This is a factor statemnt::: 1
+
+This is a term statemnt::: 1
+
+QUAT!!! + #17 Int 1 ::: 6
+This is a expression statemnt::: Int+1
+
+QUAT!!! = Int #17  ::: 6
+This is an assign statement::: Int = Int+1
+
+QUAT!!! GOTO    ::: 6
+QUAT!!! == #16 'a'  ::: 6
+QUAT!!! BZ LABEL_22   ::: 6
+QUAT!!! PRINT "23333"   ::: 6
+This is a printf statement::: printf("23333")
+
+QUAT!!! GOTO    ::: 6
+QUAT!!! == #16 -123  ::: 6
+QUAT!!! BZ LABEL_23   ::: 6
+QUAT!!! PRINT "*****"   ::: 6
+This is a factor statemnt::: Int
+
+This is a term statemnt::: Int
+
+This is a expression statemnt::: Int
+
+QUAT!!! PRINT Int   ::: 6
+This is a printf statement::: printf("*****",Int)
+
+This is a factor statemnt::: Int
+
+This is a term statemnt::: Int
+
+This is a expression statemnt::: Int
+
+QUAT!!! PRINT Int   ::: 6
+This is a printf statement::: printf(Int)
+
+QUAT!!! GOTO    ::: 6
+This is cases statement with::: 3 cases::: case 1: Int = Int+1;
+        case 'a': {printf("23333");  }
+        case -123: {printf("*****",Int);  printf(Int); }
+        
+
+QUAT!!! READ Int   ::: 6
+QUAT!!! READ Int   ::: 6
+QUAT!!! READ Int   ::: 6
+This is a scanf statement::: 3 variables::: scanf(Int,Int,Int)
+
+This is a default statement::: default: {scanf(Int,Int,Int);}
+    
+
+This is a switch statement::: switch (Int+'b'){
+        case 1: Int = Int+1;
+        case 'a': {printf("23333");  }
+        case -123: {printf("*****",Int);  printf(Int); }
+        default: {scanf(Int,Int,Int);}
+    }
+    
+
+This is a factor statemnt::: 1
+
+This is a term statemnt::: 1
+
+This is a factor statemnt::: 1
+
+This is a term statemnt::: 1
+
+This is a expression statemnt::: 1
+
+QUAT!!! = #18 a[1]  ::: 6
+This is a factor statemnt::: a[1]
+
+This is a term statemnt::: a[1]
+
+QUAT!!! - #19 1 #18 ::: 6
+This is a expression statemnt::: 1-a[1]
+
+QUAT!!! = #20 a[#19]  ::: 6
+This is a factor statemnt::: a[1-a[1]]
+
+This is a term statemnt::: a[1-a[1]]
+
+This is a expression statemnt::: a[1-a[1]]
+
+QUAT!!! = #21 a[#20]  ::: 6
+This is a factor statemnt::: a[a[1-a[1]]]
+
+This is a term statemnt::: a[a[1-a[1]]]
+
+This is a expression statemnt::: a[a[1-a[1]]]
+
+QUAT!!! = Int #21  ::: 6
+This is an assign statement::: Int = a[a[1-a[1]]]
+
+siz = 2796 now = 1647
+
+QUAT!!! ret    ::: 6
+cnt_tab 46 ::: test_for void  0 0 0 &&& 7
+QUAT!!! void_ test_for   ::: 7
+cnt_tab 47 ::: Int parameter int 0 1 0 &&& 7
+QUAT!!! parameter_int Int   ::: 7
+This is a void statement test_for ::: 1 parameters::: void test_for(int Int)
+
+QUAT!!! BEGIN    ::: 7
+This is a factor statemnt::: 0
+
+This is a term statemnt::: 0
+
+This is a factor statemnt::: -2
+
+This is a term statemnt::: -2
+
+QUAT!!! + #22 0 -2 ::: 7
+This is a expression statemnt::: 0+-2
+
+QUAT!!! = Int #22  ::: 7
+This is an assign statement::: Int = 0+-2
+
+This is a factor statemnt::: Int 
+
+This is a term statemnt::: Int 
+
+This is a factor statemnt::: 1
+
+This is a term statemnt::: 1
+
+QUAT!!! + #23 Int 1 ::: 7
+This is a expression statemnt::: Int +1
+
+QUAT!!! = Int #23  ::: 7
+This is an assign statement::: Int = Int +1
+
+This is a factor statemnt::: Int 
+
+This is a term statemnt::: Int 
+
+This is a factor statemnt::: 1
+
+This is a term statemnt::: 1
+
+QUAT!!! + #24 Int 1 ::: 7
+This is a expression statemnt::: Int +1
+
+QUAT!!! = Int #24  ::: 7
+This is an assign statement::: Int = Int +1
+
+This is a factor statemnt::: Int
+
+This is a term statemnt::: Int
+
+This is a expression statemnt::: Int
+
+QUAT!!! = i Int  ::: 7
+This is a factor statemnt::: i 
+
+This is a term statemnt::: i 
+
+This is a expression statemnt::: i 
+
+This is a factor statemnt::: 1000
+
+This is a term statemnt::: 1000
+
+This is a factor statemnt::: Int
+
+This is a term statemnt::: Int
+
+QUAT!!! - #25 1000 Int ::: 7
+This is a expression statemnt::: 1000-Int
+
+This is a condition ::: i <= 1000-Int
+
+This is a factor statemnt::: Int
+
+This is a term statemnt::: Int
+
+This is a expression statemnt::: Int
+
+QUAT!!! = i Int  ::: 7
+This is a factor statemnt::: i 
+
+This is a term statemnt::: i 
+
+This is a expression statemnt::: i 
+
+This is a factor statemnt::: i
+
+This is a term statemnt::: i
+
+This is a expression statemnt::: i
+
+This is a condition ::: i <= i
+
+QUAT!!! BZ LABEL_27   ::: 7
+QUAT!!! GOTO LABEL_26   ::: 7
+This is a loop statement::: for (i = Int; i <= i; i = i+1){
+            ;
+        }
+    
+
+QUAT!!! BZ LABEL_28   ::: 7
+QUAT!!! GOTO LABEL_25   ::: 7
+This is a loop statement::: for (i = Int; i <= 1000-Int; i = i+1){
+        for (i = Int; i <= i; i = i+1){
+            ;
+        }
+    }
+
+
+siz = 2796 now = 1918
+
+QUAT!!! ret    ::: 7
+cnt_tab 48 ::: test_call void  0 0 0 &&& 8
+QUAT!!! void_ test_call   ::: 8
+This is a void statement test_call ::: 0 parameters::: void test_call()
+
+QUAT!!! BEGIN    ::: 8
+This is a factor statemnt::: 2
+
+This is a term statemnt::: 2
+
+This is a expression statemnt::: 2
+
+QUAT!!! PUSH 2 1  ::: 8
+This is a factor statemnt::: 2
+
+This is a term statemnt::: 2
+
+This is a expression statemnt::: 2
+
+QUAT!!! PUSH 2 1  ::: 8
+This is a factor statemnt::: 3
+
+This is a factor statemnt::: 5
+
+QUAT!!! * #26 3 5 ::: 8
+This is a term statemnt::: 3*5
+
+This is a expression statemnt::: 3*5
+
+QUAT!!! PUSH #26 2  ::: 8
+This is a parameter with ::: 2 parameters::: 2,3*5
+
+This is function_call statement::: mymax(2,3*5)
+
+QUAT!!! call mymax   ::: 8
+This is a factor statemnt::: mymax(2,3*5)
+
+This is a factor statemnt::: 2
+
+This is a term statemnt::: 2
+
+This is a expression statemnt::: 2
+
+QUAT!!! PUSH 2 1  ::: 8
+This is a factor statemnt::: 4
+
+This is a term statemnt::: 4
+
+This is a expression statemnt::: 4
+
+QUAT!!! PUSH 4 2  ::: 8
+This is a parameter with ::: 2 parameters::: 2, 4
+
+This is function_call statement::: mymax(2, 4)
+
+QUAT!!! call mymax   ::: 8
+This is a factor statemnt::: mymax(2, 4)
+
+QUAT!!! / #27 RET_int RET_int ::: 8
+This is a factor statemnt::: 100
+
+This is a term statemnt::: 100
+
+This is a factor statemnt::: 1
+
+This is a term statemnt::: 1
+
+QUAT!!! - #28 100 1 ::: 8
+This is a expression statemnt::: 100-1
+
+This is a factor statemnt::: (100-1)
+
+QUAT!!! * #29 #27 #28 ::: 8
+This is a term statemnt::: mymax(2,3*5)/mymax(2, 4)*(100-1)
+
+This is a expression statemnt::: mymax(2,3*5)/mymax(2, 4)*(100-1)
+
+QUAT!!! PUSH #29 2  ::: 8
+This is a parameter with ::: 2 parameters::: 2, mymax(2,3*5)/mymax(2, 4)*(100-1)
+
+This is function_call statement::: mymax(2, mymax(2,3*5)/mymax(2, 4)*(100-1))
+
+QUAT!!! call mymax   ::: 8
+siz = 2796 now = 1986
+
+QUAT!!! ret    ::: 8
+cnt_tab 49 ::: main void  0 0 0 &&& 9
+QUAT!!! void_ main   ::: 9
+QUAT!!! BEGIN    ::: 9
+QUAT!!! PRINT "mx = "   ::: 9
+This is a factor statemnt::: mx
+
+This is a term statemnt::: mx
+
+This is a expression statemnt::: mx
+
+QUAT!!! PRINT mx   ::: 9
+This is a printf statement::: printf("mx = ", mx)
+
+This is a factor statemnt::: 0
+
+This is a term statemnt::: 0
+
+This is a expression statemnt::: 0
+
+QUAT!!! = i 0  ::: 9
+This is a factor statemnt::: i 
+
+This is a term statemnt::: i 
+
+This is a expression statemnt::: i 
+
+This is a factor statemnt::: m
+
+This is a term statemnt::: m
+
+This is a expression statemnt::: m
+
+This is a condition ::: i <= m
+
+This is a factor statemnt::: m 
+
+This is a term statemnt::: m 
+
+This is a factor statemnt::: i
+
+This is a term statemnt::: i
+
+QUAT!!! - #30 m i ::: 9
+This is a expression statemnt::: m - i
+
+QUAT!!! = j #30  ::: 9
+This is an assign statement::: j = m - i
+
+This is a factor statemnt::: i 
+
+This is a term statemnt::: i 
+
+This is a expression statemnt::: i 
+
+This is a factor statemnt::: 0
+
+This is a term statemnt::: 0
+
+This is a expression statemnt::: 0
+
+QUAT!!! == i 0  ::: 9
+This is a condition ::: i == 0
+
+QUAT!!! BZ LABEL_30   ::: 9
+This is a factor statemnt::: j
+
+This is a term statemnt::: j
+
+This is a expression statemnt::: j
+
+QUAT!!! PUSH j 1  ::: 9
+This is a factor statemnt::: n
+
+This is a term statemnt::: n
+
+This is a expression statemnt::: n
+
+QUAT!!! PUSH n 2  ::: 9
+This is a parameter with ::: 2 parameters::: j,n
+
+This is function_call statement::: work(j,n)
+
+QUAT!!! call work   ::: 9
+This is a factor statemnt::: work(j,n)
+
+This is a term statemnt::: work(j,n)
+
+This is a expression statemnt::: work(j,n)
+
+QUAT!!! PRINT RET_char   ::: 9
+This is a printf statement::: printf(work(j,n))
+
+This is a ifstatement::: if (i == 0){
+            printf(work(j,n));
+        }
+       
+
+QUAT!!! PRINT "N    "   ::: 9
+This is a factor statemnt::: n
+
+This is a term statemnt::: n
+
+This is a expression statemnt::: n
+
+QUAT!!! PRINT n   ::: 9
+This is a printf statement::: printf("N    ",n)
+
+QUAT!!! PRINT "M    "   ::: 9
+This is a factor statemnt::: j
+
+This is a term statemnt::: j
+
+This is a expression statemnt::: j
+
+QUAT!!! PRINT j   ::: 9
+This is a printf statement::: printf("M    ",j)
+
+QUAT!!! PRINT "C    "   ::: 9
+This is a factor statemnt::: j
+
+This is a term statemnt::: j
+
+This is a expression statemnt::: j
+
+QUAT!!! PUSH j 1  ::: 9
+This is a factor statemnt::: n
+
+This is a term statemnt::: n
+
+This is a expression statemnt::: n
+
+QUAT!!! PUSH n 2  ::: 9
+This is a parameter with ::: 2 parameters::: j, n
+
+This is function_call statement::: C(j, n)
+
+QUAT!!! call C   ::: 9
+This is a factor statemnt::: C(j, n)
+
+This is a term statemnt::: C(j, n)
+
+This is a expression statemnt::: C(j, n)
+
+QUAT!!! PRINT RET_int   ::: 9
+This is a printf statement::: printf("C    ",C(j, n))
+
+QUAT!!! PRINT ""   ::: 9
+This is a printf statement::: printf("")
+
+QUAT!!! BZ LABEL_32   ::: 9
+QUAT!!! GOTO LABEL_29   ::: 9
+This is a loop statement::: for (i = 0;  i <= m; i = i +1) { 
+        j = m - i;
+        if (i == 0){
+            printf(work(j,n));
+        }
+       printf("N    ",n);
+       printf("M    ",j);
+       printf("C    ",C(j, n)); 
+       printf("");
+    }
+    
+
+This is a factor statemnt::: 1
+
+This is a term statemnt::: 1
+
+This is a expression statemnt::: 1
+
+QUAT!!! PUSH 1 1  ::: 9
+This is a factor statemnt::: -2
+
+This is a term statemnt::: -2
+
+QUAT!!! * #31 -1 -2 ::: 9
+This is a expression statemnt::: --2
+
+QUAT!!! PUSH #31 2  ::: 9
+This is a parameter with ::: 2 parameters::: 1, --2
+
+This is function_call statement::: mymax(1, --2)
+
+QUAT!!! call mymax   ::: 9
+This is a factor statemnt::: mymax(1, --2)
+
+This is a term statemnt::: mymax(1, --2)
+
+This is a expression statemnt::: mymax(1, --2)
+
+QUAT!!! = x RET_int  ::: 9
+This is an assign statement::: x = mymax(1, --2)
+
+This is a factor statemnt::: x
+
+This is a term statemnt::: x
+
+This is a factor statemnt::: +8
+
+This is a term statemnt::: +8
+
+QUAT!!! + #32 x +8 ::: 9
+This is a expression statemnt::: x++8
+
+QUAT!!! PUSH #32 1  ::: 9
+This is a factor statemnt::: 9
+
+This is a term statemnt::: 9
+
+This is a expression statemnt::: 9
+
+QUAT!!! PUSH 9 2  ::: 9
+This is a parameter with ::: 2 parameters::: x++8, 9
+
+This is function_call statement::: mymax(x++8, 9)
+
+QUAT!!! call mymax   ::: 9
+This is a factor statemnt::: mymax(x++8, 9)
+
+This is a term statemnt::: mymax(x++8, 9)
+
+This is a expression statemnt::: mymax(x++8, 9)
+
+QUAT!!! = x RET_int  ::: 9
+This is an assign statement::: x = mymax(x++8, 9)
+
+This is a factor statemnt::: 4
+
+This is a term statemnt::: 4
+
+This is a expression statemnt::: 4
+
+QUAT!!! = y 4  ::: 9
+This is an assign statement::: y = 4
+
+This is a factor statemnt::: 7
+
+This is a term statemnt::: 7
+
+This is a expression statemnt::: 7
+
+QUAT!!! = z 7  ::: 9
+This is an assign statement::: z = 7
+
+This is a factor statemnt::: x 
+
+This is a term statemnt::: x 
+
+This is a expression statemnt::: x 
+
+This is a factor statemnt::: y
+
+This is a term statemnt::: y
+
+This is a expression statemnt::: y
+
+QUAT!!! > x y  ::: 9
+This is a condition ::: x > y
+
+QUAT!!! BZ LABEL_33   ::: 9
+This is a factor statemnt::: x 
+
+This is a term statemnt::: x 
+
+This is a expression statemnt::: x 
+
+This is a factor statemnt::: z
+
+This is a term statemnt::: z
+
+This is a expression statemnt::: z
+
+QUAT!!! > x z  ::: 9
+This is a condition ::: x > z
+
+QUAT!!! BZ LABEL_35   ::: 9
+This is a factor statemnt::: x
+
+This is a term statemnt::: x
+
+This is a expression statemnt::: x
+
+QUAT!!! = mx x  ::: 9
+This is an assign statement::: mx = x
+
+QUAT!!! GOTO LABEL_36   ::: 9
+This is a factor statemnt::: z
+
+This is a term statemnt::: z
+
+This is a expression statemnt::: z
+
+QUAT!!! = mx z  ::: 9
+This is an assign statement::: mx = z
+
+This is a if_elsestatement::: if (x > z)
+            mx = x;
+        else
+            mx = z;
+    
+
+QUAT!!! GOTO LABEL_34   ::: 9
+This is a factor statemnt::: y 
+
+This is a term statemnt::: y 
+
+This is a expression statemnt::: y 
+
+This is a factor statemnt::: z
+
+This is a term statemnt::: z
+
+This is a expression statemnt::: z
+
+QUAT!!! > y z  ::: 9
+This is a condition ::: y > z
+
+QUAT!!! BZ LABEL_37   ::: 9
+This is a factor statemnt::: y
+
+This is a term statemnt::: y
+
+This is a expression statemnt::: y
+
+QUAT!!! = mx y  ::: 9
+This is an assign statement::: mx = y
+
+QUAT!!! GOTO LABEL_38   ::: 9
+This is a factor statemnt::: z
+
+This is a term statemnt::: z
+
+This is a expression statemnt::: z
+
+QUAT!!! = mx z  ::: 9
+This is an assign statement::: mx = z
+
+This is a if_elsestatement::: if (y > z)
+    mx = y;
+    else mx = z;
+    
+    
+
+This is a if_elsestatement::: if (x > y){
+        if (x > z)
+            mx = x;
+        else
+            mx = z;
+    }
+    else if (y > z)
+    mx = y;
+    else mx = z;
+    
+    
+
+QUAT!!! PRINT "mx = "   ::: 9
+This is a factor statemnt::: mx
+
+This is a term statemnt::: mx
+
+This is a expression statemnt::: mx
+
+QUAT!!! PRINT mx   ::: 9
+This is a printf statement::: printf("mx = ", mx)
+
+This is function_call statement::: init()
+
+QUAT!!! call init   ::: 9
+This is a factor statemnt::: k
+
+This is a term statemnt::: k
+
+This is a factor statemnt::: 1
+
+This is a term statemnt::: 1
+
+QUAT!!! + #33 k 1 ::: 9
+This is a expression statemnt::: k+1
+
+QUAT!!! = i #33  ::: 9
+This is a factor statemnt::: i 
+
+This is a term statemnt::: i 
+
+This is a expression statemnt::: i 
+
+This is a factor statemnt::: 0
+
+This is a term statemnt::: 0
+
+This is a expression statemnt::: 0
+
+This is a condition ::: i >= 0
+
+This is a factor statemnt::: i
+
+This is a term statemnt::: i
+
+This is a expression statemnt::: i
+
+This is a factor statemnt::: k
+
+This is a term statemnt::: k
+
+This is a factor statemnt::: i
+
+This is a term statemnt::: i
+
+QUAT!!! + #34 k i ::: 9
+This is a expression statemnt::: k+i
+
+QUAT!!! = a[i] #34  ::: 9
+This is an assign statement::: a[i] = k+i
+
+This is a factor statemnt::: i
+
+This is a term statemnt::: i
+
+This is a expression statemnt::: i
+
+This is a factor statemnt::: ch 
+
+This is a term statemnt::: ch 
+
+This is a factor statemnt::: i
+
+This is a term statemnt::: i
+
+QUAT!!! + #35 ch i ::: 9
+This is a expression statemnt::: ch + i
+
+QUAT!!! = s[i] #35  ::: 9
+This is an assign statement::: s[i] = ch + i
+
+QUAT!!! BZ LABEL_40   ::: 9
+QUAT!!! GOTO LABEL_39   ::: 9
+This is a loop statement::: for (i = k+1; i >= 0; i = i - 1){
+        a[i] = k+i;
+        s[i] = ch + i;
+    }
+    
+
+This is a factor statemnt::: 0
+
+This is a term statemnt::: 0
+
+This is a expression statemnt::: 0
+
+QUAT!!! = i 0  ::: 9
+This is a factor statemnt::: i 
+
+This is a term statemnt::: i 
+
+This is a expression statemnt::: i 
+
+This is a factor statemnt::: k
+
+This is a term statemnt::: k
+
+This is a expression statemnt::: k
+
+This is a condition ::: i > k
+
+This is a factor statemnt::: k 
+
+This is a term statemnt::: k 
+
+This is a factor statemnt::: 1
+
+This is a term statemnt::: 1
+
+QUAT!!! + #36 k 1 ::: 9
+This is a expression statemnt::: k + 1
+
+QUAT!!! = k #36  ::: 9
+This is an assign statement::: k = k + 1
+
+QUAT!!! BZ LABEL_42   ::: 9
+QUAT!!! GOTO LABEL_41   ::: 9
+This is a loop statement::: for (i = 0;  i > k; i = i-1) { 
+        k = k + 1;
+    }
+    
+
+QUAT!!! PRINT "k = "   ::: 9
+This is a factor statemnt::: k
+
+This is a term statemnt::: k
+
+This is a expression statemnt::: k
+
+QUAT!!! PRINT k   ::: 9
+This is a printf statement::: printf("k = ", k)
+
+QUAT!!! PRINT "ch = "   ::: 9
+This is a factor statemnt::: k
+
+This is a term statemnt::: k
+
+This is a expression statemnt::: k
+
+QUAT!!! = #37 s[k]  ::: 9
+This is a factor statemnt::: s[k]
+
+This is a term statemnt::: s[k]
+
+This is a expression statemnt::: s[k]
+
+QUAT!!! PRINT #37   ::: 9
+This is a printf statement::: printf("ch = ",s[k])
+
+This is function_call statement::: test_switch()
+
+QUAT!!! call test_switch   ::: 9
+This is a factor statemnt::: 1
+
+This is a term statemnt::: 1
+
+This is a expression statemnt::: 1
+
+QUAT!!! PUSH 1 1  ::: 9
+This is a parameter with ::: 1 parameters::: 1
+
+This is function_call statement::: test_for(1)
+
+QUAT!!! call test_for   ::: 9
+This is function_call statement::: test_call()
+
+QUAT!!! call test_call   ::: 9
+This is a factor statemnt::: 0
+
+This is a term statemnt::: 0
+
+This is a expression statemnt::: 0
+
+This is a return statement::: return (0)
+
+QUAT!!! ret 0   ::: 9
+siz = 2796 now = 2796
+
+------------------------------
+------------------------------
+------------------------------
+const int N = 100
+const int M = 10000
+const int K = 0
+const char ch1 = 43
+const char ch2 = 45
+const char ch3 = 42
+const char ch4 = 47
+const char ch5 = 95
+const char ch6 = 97
+const char ch7 = 48
+const char ch8 = 34
+const char ch9 = 57
+var int a[100]
+var int i
+var int j
+var int n
+var int m
+var int k
+var int x
+var int y
+var int z
+var int mx
+var char ch
+var char s[10000]
+int mymax()
+para int x
+para int y
+var int ans
+BEGIN
+ans = x
+y > x
+BZ LABEL_1
+ans = y
+GOTO LABEL_2
+LABEL_1 LABEL_2 ret ans
+int factorial()
+para int n
+var int res
+BEGIN
+PRINT "n="
+PRINT n
+n < 0
+BZ LABEL_3
+ret 1
+LABEL_3 SWITCH n
+n == 0
+BZ LABEL_6
+res = 1
+GOTO LABEL_8
+LABEL_6 n == 1
+BZ LABEL_7
+res = 1
+GOTO LABEL_8
+LABEL_7 #1 = n - 1
+PUSH #1
+call factorial
+#2 = n * RET_int
+res = #2
+LABEL_8 PRINT "res="
+PRINT res
+ret res
+int C()
+para int m
+para int n
+var int x
+var int y
+var int z
+BEGIN
+PRINT "m="
+PRINT m
+PRINT "n="
+PRINT n
+PRINT "\n"
+m <= n
+BZ LABEL_9
+LABEL_9 m > n
+BZ LABEL_11
+ret 1
+LABEL_11 PUSH n
+call factorial
+x = RET_int
+PRINT "x="
+PRINT x
+PUSH m
+call factorial
+y = RET_int
+PRINT "y="
+PRINT y
+#3 = n - m
+PUSH #3
+call factorial
+z = RET_int
+PRINT "z="
+PRINT z
+PUSH n
+call factorial
+PUSH m
+call factorial
+#4 = RET_int / RET_int
+#5 = n - m
+PUSH #5
+call factorial
+#6 = #4 / RET_int
+ret #6
+void init
+BEGIN
+m = 5
+READ n
+READ m
+READ k
+READ ch
+ret 
+char work()
+para int m
+para int n
+var int ans
+BEGIN
+PRINT "work!!!"
+PUSH m
+PUSH n
+call C
+ans = RET_int
+#7 = ans / 2
+#8 = 2 * #7
+#9 = ans - #8
+SWITCH #9
+#9 == 1
+BZ LABEL_14
+ret 'O'
+GOTO LABEL_15
+LABEL_14 ret 'E'
+LABEL_15 ret '*'
+void test_switch
+var int Int
+var int a[1000]
+BEGIN
+a[2] = 1
+a[1] = 2
+#10 = 2 * 5
+#11 = #10 / 4
+#12 = a[#11]
+#13 = 2 + #12
+#14 = a[#13]
+#15 = a[#14]
+Int = #15
+SWITCH Int
+Int == -1
+BZ LABEL_17
+PRINT "666666"
+GOTO LABEL_19
+LABEL_17 Int == -2
+BZ LABEL_18
+PRINT "HHHHH"
+GOTO LABEL_19
+LABEL_18 LABEL_19 #16 = Int + 'b'
+SWITCH #16
+#16 == 1
+BZ LABEL_21
+#17 = Int + 1
+Int = #17
+GOTO LABEL_24
+LABEL_21 #16 == 'a'
+BZ LABEL_22
+PRINT "23333"
+GOTO LABEL_24
+LABEL_22 #16 == -123
+BZ LABEL_23
+PRINT "*****"
+PRINT Int
+PRINT Int
+GOTO LABEL_24
+LABEL_23 READ Int
+READ Int
+READ Int
+LABEL_24 #18 = a[1]
+#19 = 1 - #18
+#20 = a[#19]
+#21 = a[#20]
+Int = #21
+ret 
+void test_for
+para int Int
+BEGIN
+#22 = 0 + -2
+Int = #22
+#23 = Int + 1
+Int = #23
+#24 = Int + 1
+Int = #24
+i = Int
+LABEL_25 #25 = 1000 - Int
+i = Int
+LABEL_26 i = i + 1
+i <= i
+BZ LABEL_27
+GOTO LABEL_26
+LABEL_27 i = i + 1
+i <= #25
+BZ LABEL_28
+GOTO LABEL_25
+LABEL_28 ret 
+void test_call
+BEGIN
+PUSH 2
+PUSH 2
+#26 = 3 * 5
+PUSH #26
+call mymax
+PUSH 2
+PUSH 4
+call mymax
+#27 = RET_int / RET_int
+#28 = 100 - 1
+#29 = #27 * #28
+PUSH #29
+call mymax
+ret 
+void main
+BEGIN
+PRINT "mx = "
+PRINT mx
+i = 0
+LABEL_29 #30 = m - i
+j = #30
+i == 0
+BZ LABEL_30
+PUSH j
+PUSH n
+call work
+PRINT RET_char
+LABEL_30 PRINT "N    "
+PRINT n
+PRINT "M    "
+PRINT j
+PRINT "C    "
+PUSH j
+PUSH n
+call C
+PRINT RET_int
+PRINT ""
+i = i + 1
+i <= m
+BZ LABEL_32
+GOTO LABEL_29
+LABEL_32 PUSH 1
+#31 = -1 * -2
+PUSH #31
+call mymax
+x = RET_int
+#32 = x + +8
+PUSH #32
+PUSH 9
+call mymax
+x = RET_int
+y = 4
+z = 7
+x > y
+BZ LABEL_33
+x > z
+BZ LABEL_35
+mx = x
+GOTO LABEL_36
+LABEL_35 mx = z
+LABEL_36 GOTO LABEL_34
+LABEL_33 y > z
+BZ LABEL_37
+mx = y
+GOTO LABEL_38
+LABEL_37 mx = z
+LABEL_38 LABEL_34 PRINT "mx = "
+PRINT mx
+call init
+#33 = k + 1
+i = #33
+LABEL_39 #34 = k + i
+a[i] = #34
+#35 = ch + i
+s[i] = #35
+i = i - 1
+i >= 0
+BZ LABEL_40
+GOTO LABEL_39
+LABEL_40 i = 0
+LABEL_41 #36 = k + 1
+k = #36
+i = i - 1
+i > k
+BZ LABEL_42
+GOTO LABEL_41
+LABEL_42 PRINT "k = "
+PRINT k
+PRINT "ch = "
+#37 = s[k]
+PRINT #37
+call test_switch
+PUSH 1
+call test_for
+call test_call
+ret 0
+------------------------------
+------------------------------
+------------------------------
+Program 1 :  25
+Program 2 :  29
+Program 3 :  32
+Program 4 :  38
+Program 5 :  39
+Program 6 :  43
+Program 7 :  46
+Program 8 :  48
+Program 9 :  49
+AddByMe Program 10 :  50
+------------------------------
+------------------------------
+------------------------------
+Symbol 1 :  N const int 100 1 0 0
+Symbol 2 :  M const int 10000 2 0 0
+Symbol 3 :  K const int 0 3 0 0
+Symbol 4 :  ch1 const char 43 4 0 0
+Symbol 5 :  ch2 const char 45 5 0 0
+Symbol 6 :  ch3 const char 42 6 0 0
+Symbol 7 :  ch4 const char 47 7 0 0
+Symbol 8 :  ch5 const char 95 8 0 0
+Symbol 9 :  ch6 const char 97 9 0 0
+Symbol 10 :  ch7 const char 48 10 0 0
+Symbol 11 :  ch8 const char 34 11 0 0
+Symbol 12 :  ch9 const char 57 12 0 0
+Symbol 13 :  a variable int[] 0 13 100 0
+Symbol 14 :  i variable int 0 14 0 0
+Symbol 15 :  j variable int 0 15 0 0
+Symbol 16 :  n variable int 0 16 0 0
+Symbol 17 :  m variable int 0 17 0 0
+Symbol 18 :  k variable int 0 18 0 0
+Symbol 19 :  x variable int 0 19 0 0
+Symbol 20 :  y variable int 0 20 0 0
+Symbol 21 :  z variable int 0 21 0 0
+Symbol 22 :  mx variable int 0 22 0 0
+Symbol 23 :  ch variable char 0 23 0 0
+Symbol 24 :  s variable char[] 0 24 10000 0
+Symbol 25 :  mymax function int 0 0 2 1
+Symbol 26 :  x parameter int 0 1 0 1
+Symbol 27 :  y parameter int 0 2 0 1
+Symbol 28 :  ans variable int 0 3 0 1
+Symbol 29 :  factorial function int 0 0 1 2
+Symbol 30 :  n parameter int 0 1 0 2
+Symbol 31 :  res variable int 0 2 0 2
+Symbol 32 :  C function int 0 0 2 3
+Symbol 33 :  m parameter int 0 1 0 3
+Symbol 34 :  n parameter int 0 2 0 3
+Symbol 35 :  x variable int 0 3 0 3
+Symbol 36 :  y variable int 0 4 0 3
+Symbol 37 :  z variable int 0 5 0 3
+Symbol 38 :  init void  0 0 0 4
+Symbol 39 :  work function char 0 0 2 5
+Symbol 40 :  m parameter int 0 1 0 5
+Symbol 41 :  n parameter int 0 2 0 5
+Symbol 42 :  ans variable int 0 3 0 5
+Symbol 43 :  test_switch void  0 0 0 6
+Symbol 44 :  Int variable int 0 1 0 6
+Symbol 45 :  a variable int[] 0 2 1000 6
+Symbol 46 :  test_for void  0 0 1 7
+Symbol 47 :  Int parameter int 0 1 0 7
+Symbol 48 :  test_call void  0 0 0 8
+Symbol 49 :  main void  0 0 0 9
+------------------------------
+------------------------------
+------------------------------
+#1 ::: 2 6
+SAME!!!
+#2 ::: 2 7
+#3 ::: 3 9
+SAME!!!
+#4 ::: 3 10
+#5 ::: 3 11
+SAME!!!
+#6 ::: 3 12
+SAME!!!
+#7 ::: 5 7
+#8 ::: 5 8
+#9 ::: 5 9
+SAME!!!
+SAME!!!
+#10 ::: 6 6
+#11 ::: 6 7
+#12 ::: 6 8
+#13 ::: 6 9
+#14 ::: 6 10
+#15 ::: 6 11
+#16 ::: 6 12
+SAME!!!
+SAME!!!
+#17 ::: 6 13
+SAME!!!
+SAME!!!
+#18 ::: 6 14
+#19 ::: 6 15
+#20 ::: 6 16
+#21 ::: 6 17
+#22 ::: 7 5
+#23 ::: 7 6
+#24 ::: 7 7
+#25 ::: 7 8
+#26 ::: 8 4
+SAME!!!
+#27 ::: 8 5
+#28 ::: 8 6
+#29 ::: 8 7
+SAME!!!
+#30 ::: 9 4
+#31 ::: 9 5
+SAME!!!
+#32 ::: 9 6
+SAME!!!
+#33 ::: 9 7
+#34 ::: 9 8
+#35 ::: 9 9
+#36 ::: 9 10
+#37 ::: 9 11
+SAME!!!
+6
+------------------------------
+------------------------------
+------------------------------
+.data
+
+str17:	.asciiz ""
+
+str12:	.asciiz "*****"
+
+str11:	.asciiz "23333"
+
+str9:	.asciiz "666666"
+
+str16:	.asciiz "C    "
+
+str10:	.asciiz "HHHHH"
+
+str15:	.asciiz "M    "
+
+str14:	.asciiz "N    "
+
+str4:	.asciiz "\n"
+
+str19:	.asciiz "ch = "
+
+str18:	.asciiz "k = "
+
+str3:	.asciiz "m="
+
+str13:	.asciiz "mx = "
+
+str1:	.asciiz "n="
+
+str2:	.asciiz "res="
+
+str8:	.asciiz "work!!!"
+
+str5:	.asciiz "x="
+
+str6:	.asciiz "y="
+
+str7:	.asciiz "z="
+
+#	const int N = 100
+li	$t1,100
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	const int M = 10000
+li	$t1,10000
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	const int K = 0
+li	$t1,0
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	const char ch1 = 43
+li	$t1,43
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	const char ch2 = 45
+li	$t1,45
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	const char ch3 = 42
+li	$t1,42
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	const char ch4 = 47
+li	$t1,47
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	const char ch5 = 95
+li	$t1,95
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	const char ch6 = 97
+li	$t1,97
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	const char ch7 = 48
+li	$t1,48
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	const char ch8 = 34
+li	$t1,34
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	const char ch9 = 57
+li	$t1,57
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+li	$t0,0
+li	$t1,100
+LABEL_43:
+sw	$0,0($sp)
+addi	$sp,$sp,-4
+
+addi	$t0,$t0,1
+bne	$t0,$t1,LABEL_43
+
+sw	$0,0($sp)
+addi	$sp,$sp,-4
+
+sw	$0,0($sp)
+addi	$sp,$sp,-4
+
+sw	$0,0($sp)
+addi	$sp,$sp,-4
+
+sw	$0,0($sp)
+addi	$sp,$sp,-4
+
+sw	$0,0($sp)
+addi	$sp,$sp,-4
+
+sw	$0,0($sp)
+addi	$sp,$sp,-4
+
+sw	$0,0($sp)
+addi	$sp,$sp,-4
+
+sw	$0,0($sp)
+addi	$sp,$sp,-4
+
+sw	$0,0($sp)
+addi	$sp,$sp,-4
+
+sw	$0,0($sp)
+addi	$sp,$sp,-4
+
+li	$t0,0
+li	$t1,10000
+LABEL_44:
+sw	$0,0($sp)
+addi	$sp,$sp,-4
+
+addi	$t0,$t0,1
+bne	$t0,$t1,LABEL_44
+
+.text
+
+move	$gp, $sp
+#	const int N = 100
+li	$t1,100
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	const int M = 10000
+li	$t1,10000
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	const int K = 0
+li	$t1,0
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	const char ch1 = 43
+li	$t1,43
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	const char ch2 = 45
+li	$t1,45
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	const char ch3 = 42
+li	$t1,42
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	const char ch4 = 47
+li	$t1,47
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	const char ch5 = 95
+li	$t1,95
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	const char ch6 = 97
+li	$t1,97
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	const char ch7 = 48
+li	$t1,48
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	const char ch8 = 34
+li	$t1,34
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	const char ch9 = 57
+li	$t1,57
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+li	$t0,0
+li	$t1,100
+LABEL_45:
+sw	$0,0($sp)
+addi	$sp,$sp,-4
+
+addi	$t0,$t0,1
+bne	$t0,$t1,LABEL_45
+
+sw	$0,0($sp)
+addi	$sp,$sp,-4
+
+sw	$0,0($sp)
+addi	$sp,$sp,-4
+
+sw	$0,0($sp)
+addi	$sp,$sp,-4
+
+sw	$0,0($sp)
+addi	$sp,$sp,-4
+
+sw	$0,0($sp)
+addi	$sp,$sp,-4
+
+sw	$0,0($sp)
+addi	$sp,$sp,-4
+
+sw	$0,0($sp)
+addi	$sp,$sp,-4
+
+sw	$0,0($sp)
+addi	$sp,$sp,-4
+
+sw	$0,0($sp)
+addi	$sp,$sp,-4
+
+sw	$0,0($sp)
+addi	$sp,$sp,-4
+
+li	$t0,0
+li	$t1,10000
+LABEL_46:
+sw	$0,0($sp)
+addi	$sp,$sp,-4
+
+addi	$t0,$t0,1
+bne	$t0,$t1,LABEL_46
+
+j	main
+
+mymax:
+move	$s1,$sp
+move	$s0,$fp
+addi	$fp,$sp,8
+sw	$0,0($sp)
+addi	$sp,$sp,-4
+
+#END Const&Variable define
+sw	$s1,0($sp)
+addi	$sp,$sp,-4
+
+sw	$ra,0($sp)
+addi	$sp,$sp,-4
+
+sw	$s0,0($sp)
+addi	$sp,$sp,-4
+
+addi	$sp,$sp,-0
+#ans = x
+#~~~x
+move	$t2,$fp
+subi	$t2,$t2,0
+lw	$t2,0($t2)
+#~~~ans
+move	$t1,$fp
+subi	$t1,$t1,8
+
+sw	$t2,0($t1)
+#	y > x
+#~~~y
+move	$t1,$fp
+subi	$t1,$t1,4
+lw	$t1,0($t1)
+#~~~x
+move	$t2,$fp
+subi	$t2,$t2,0
+lw	$t2,0($t2)
+sgt	$t0,$t1,$t2
+#	BZ LABEL_1
+bne	$t0,1,LABEL_1
+#ans = y
+#~~~y
+move	$t2,$fp
+subi	$t2,$t2,4
+lw	$t2,0($t2)
+#~~~ans
+move	$t1,$fp
+subi	$t1,$t1,8
+
+sw	$t2,0($t1)
+#	GOTO LABEL_2
+jal	LABEL_2
+LABEL_1:
+LABEL_2:
+#	ans ret 
+#~~~ans
+move	$t1,$fp
+subi	$t1,$t1,8
+lw	$v1,0($t1)
+lw	$sp,-12($fp)
+addi	$sp,$sp,0
+lw	$ra,-16($fp)
+lw	$fp,-20($fp)
+jr	$ra
+factorial:
+move	$s1,$sp
+move	$s0,$fp
+addi	$fp,$sp,4
+sw	$0,0($sp)
+addi	$sp,$sp,-4
+
+#END Const&Variable define
+sw	$s1,0($sp)
+addi	$sp,$sp,-4
+
+sw	$ra,0($sp)
+addi	$sp,$sp,-4
+
+sw	$s0,0($sp)
+addi	$sp,$sp,-4
+
+addi	$sp,$sp,-8
+#	PRINT "n="
+la	$a0,str1
+li	$v0,4
+syscall
+
+#	PRINT n
+#~~~n
+move	$t1,$fp
+subi	$t1,$t1,0
+lw	$t1,0($t1)
+move	$a0,$t1
+li	$v0,1
+syscall
+
+#	n < 0
+#~~~n
+move	$t1,$fp
+subi	$t1,$t1,0
+lw	$t1,0($t1)
+#~~~0
+li	$t2,0
+slt	$t0,$t1,$t2
+#	BZ LABEL_3
+bne	$t0,1,LABEL_3
+#	1 ret 
+#~~~1
+li	$t1,1
+lw	$v1,0($t1)
+lw	$sp,-8($fp)
+addi	$sp,$sp,0
+lw	$ra,-12($fp)
+lw	$fp,-16($fp)
+jr	$ra
+LABEL_3:
+#	SWITCH n
+#	n == 0
+#~~~n
+move	$t1,$fp
+subi	$t1,$t1,0
+lw	$t1,0($t1)
+#~~~0
+li	$t2,0
+seq	$t0,$t1,$t2
+#	BZ LABEL_6
+bne	$t0,1,LABEL_6
+#res = 1
+#~~~1
+li	$t2,1
+#~~~res
+move	$t1,$fp
+subi	$t1,$t1,4
+
+sw	$t2,0($t1)
+#	GOTO LABEL_8
+jal	LABEL_8
+LABEL_6:
+#	n == 1
+#~~~n
+move	$t1,$fp
+subi	$t1,$t1,0
+lw	$t1,0($t1)
+#~~~1
+li	$t2,1
+seq	$t0,$t1,$t2
+#	BZ LABEL_7
+bne	$t0,1,LABEL_7
+#res = 1
+#~~~1
+li	$t2,1
+#~~~res
+move	$t1,$fp
+subi	$t1,$t1,4
+
+sw	$t2,0($t1)
+#	GOTO LABEL_8
+jal	LABEL_8
+LABEL_7:
+##1 = n - 1
+#~~~1
+li	$t2,1
+#~~~n
+move	$t1,$fp
+subi	$t1,$t1,0
+lw	$t1,0($t1)
+sub	$t1,$t1,$t2
+#~~~#1
+move	$t3,$fp
+subi	$t3,$t3,20
+
+sw	$t1,0($t3)
+#	PUSH #1
+#~~~#1
+move	$t1,$fp
+subi	$t1,$t1,20
+lw	$t1,0($t1)
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	call factorial
+jal	factorial
+##2 = n * RET_int
+#~~~RET_int
+move	$t2,$v1
+#~~~n
+move	$t1,$fp
+subi	$t1,$t1,0
+lw	$t1,0($t1)
+mul	$t1,$t1,$t2
+#~~~#2
+move	$t3,$fp
+subi	$t3,$t3,24
+
+sw	$t1,0($t3)
+#res = #2
+#~~~#2
+move	$t2,$fp
+subi	$t2,$t2,24
+lw	$t2,0($t2)
+#~~~res
+move	$t1,$fp
+subi	$t1,$t1,4
+
+sw	$t2,0($t1)
+LABEL_8:
+#	PRINT "res="
+la	$a0,str2
+li	$v0,4
+syscall
+
+#	PRINT res
+#~~~res
+move	$t1,$fp
+subi	$t1,$t1,4
+lw	$t1,0($t1)
+move	$a0,$t1
+li	$v0,1
+syscall
+
+#	res ret 
+#~~~res
+move	$t1,$fp
+subi	$t1,$t1,4
+lw	$v1,0($t1)
+lw	$sp,-8($fp)
+addi	$sp,$sp,0
+lw	$ra,-12($fp)
+lw	$fp,-16($fp)
+jr	$ra
+C:
+move	$s1,$sp
+move	$s0,$fp
+addi	$fp,$sp,8
+sw	$0,0($sp)
+addi	$sp,$sp,-4
+
+sw	$0,0($sp)
+addi	$sp,$sp,-4
+
+sw	$0,0($sp)
+addi	$sp,$sp,-4
+
+#END Const&Variable define
+sw	$s1,0($sp)
+addi	$sp,$sp,-4
+
+sw	$ra,0($sp)
+addi	$sp,$sp,-4
+
+sw	$s0,0($sp)
+addi	$sp,$sp,-4
+
+addi	$sp,$sp,-16
+#	PRINT "m="
+la	$a0,str3
+li	$v0,4
+syscall
+
+#	PRINT m
+#~~~m
+move	$t1,$fp
+subi	$t1,$t1,0
+lw	$t1,0($t1)
+move	$a0,$t1
+li	$v0,1
+syscall
+
+#	PRINT "n="
+la	$a0,str1
+li	$v0,4
+syscall
+
+#	PRINT n
+#~~~n
+move	$t1,$fp
+subi	$t1,$t1,4
+lw	$t1,0($t1)
+move	$a0,$t1
+li	$v0,1
+syscall
+
+#	PRINT "\n"
+la	$a0,str4
+li	$v0,4
+syscall
+
+#	m <= n
+#~~~m
+move	$t1,$fp
+subi	$t1,$t1,0
+lw	$t1,0($t1)
+#~~~n
+move	$t2,$fp
+subi	$t2,$t2,4
+lw	$t2,0($t2)
+sle	$t0,$t1,$t2
+#	BZ LABEL_9
+bne	$t0,1,LABEL_9
+LABEL_9:
+#	m > n
+#~~~m
+move	$t1,$fp
+subi	$t1,$t1,0
+lw	$t1,0($t1)
+#~~~n
+move	$t2,$fp
+subi	$t2,$t2,4
+lw	$t2,0($t2)
+sgt	$t0,$t1,$t2
+#	BZ LABEL_11
+bne	$t0,1,LABEL_11
+#	1 ret 
+#~~~1
+li	$t1,1
+lw	$v1,0($t1)
+lw	$sp,-20($fp)
+addi	$sp,$sp,0
+lw	$ra,-24($fp)
+lw	$fp,-28($fp)
+jr	$ra
+LABEL_11:
+#	PUSH n
+#~~~n
+move	$t1,$fp
+subi	$t1,$t1,4
+lw	$t1,0($t1)
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	call factorial
+jal	factorial
+#x = RET_int
+#~~~RET_int
+move	$t2,$v1
+#~~~x
+move	$t1,$fp
+subi	$t1,$t1,8
+
+sw	$t2,0($t1)
+#	PRINT "x="
+la	$a0,str5
+li	$v0,4
+syscall
+
+#	PRINT x
+#~~~x
+move	$t1,$fp
+subi	$t1,$t1,8
+lw	$t1,0($t1)
+move	$a0,$t1
+li	$v0,1
+syscall
+
+#	PUSH m
+#~~~m
+move	$t1,$fp
+subi	$t1,$t1,0
+lw	$t1,0($t1)
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	call factorial
+jal	factorial
+#y = RET_int
+#~~~RET_int
+move	$t2,$v1
+#~~~y
+move	$t1,$fp
+subi	$t1,$t1,12
+
+sw	$t2,0($t1)
+#	PRINT "y="
+la	$a0,str6
+li	$v0,4
+syscall
+
+#	PRINT y
+#~~~y
+move	$t1,$fp
+subi	$t1,$t1,12
+lw	$t1,0($t1)
+move	$a0,$t1
+li	$v0,1
+syscall
+
+##3 = n - m
+#~~~m
+move	$t2,$fp
+subi	$t2,$t2,0
+lw	$t2,0($t2)
+#~~~n
+move	$t1,$fp
+subi	$t1,$t1,4
+lw	$t1,0($t1)
+sub	$t1,$t1,$t2
+#~~~#3
+move	$t3,$fp
+subi	$t3,$t3,32
+
+sw	$t1,0($t3)
+#	PUSH #3
+#~~~#3
+move	$t1,$fp
+subi	$t1,$t1,32
+lw	$t1,0($t1)
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	call factorial
+jal	factorial
+#z = RET_int
+#~~~RET_int
+move	$t2,$v1
+#~~~z
+move	$t1,$fp
+subi	$t1,$t1,16
+
+sw	$t2,0($t1)
+#	PRINT "z="
+la	$a0,str7
+li	$v0,4
+syscall
+
+#	PRINT z
+#~~~z
+move	$t1,$fp
+subi	$t1,$t1,16
+lw	$t1,0($t1)
+move	$a0,$t1
+li	$v0,1
+syscall
+
+#	PUSH n
+#~~~n
+move	$t1,$fp
+subi	$t1,$t1,4
+lw	$t1,0($t1)
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	call factorial
+jal	factorial
+#	PUSH m
+#~~~m
+move	$t1,$fp
+subi	$t1,$t1,0
+lw	$t1,0($t1)
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	call factorial
+jal	factorial
+##4 = RET_int / RET_int
+#~~~RET_int
+move	$t2,$v1
+#~~~RET_int
+move	$t1,$v1
+div	$t1,$t1,$t2
+#~~~#4
+move	$t3,$fp
+subi	$t3,$t3,36
+
+sw	$t1,0($t3)
+##5 = n - m
+#~~~m
+move	$t2,$fp
+subi	$t2,$t2,0
+lw	$t2,0($t2)
+#~~~n
+move	$t1,$fp
+subi	$t1,$t1,4
+lw	$t1,0($t1)
+sub	$t1,$t1,$t2
+#~~~#5
+move	$t3,$fp
+subi	$t3,$t3,40
+
+sw	$t1,0($t3)
+#	PUSH #5
+#~~~#5
+move	$t1,$fp
+subi	$t1,$t1,40
+lw	$t1,0($t1)
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	call factorial
+jal	factorial
+##6 = #4 / RET_int
+#~~~RET_int
+move	$t2,$v1
+#~~~#4
+move	$t1,$fp
+subi	$t1,$t1,36
+lw	$t1,0($t1)
+div	$t1,$t1,$t2
+#~~~#6
+move	$t3,$fp
+subi	$t3,$t3,44
+
+sw	$t1,0($t3)
+#	#6 ret 
+#~~~#6
+move	$t1,$fp
+subi	$t1,$t1,44
+lw	$v1,0($t1)
+lw	$sp,-20($fp)
+addi	$sp,$sp,0
+lw	$ra,-24($fp)
+lw	$fp,-28($fp)
+jr	$ra
+init:
+move	$s1,$sp
+move	$s0,$fp
+addi	$fp,$sp,0
+#END Const&Variable define
+sw	$s1,0($sp)
+addi	$sp,$sp,-4
+
+sw	$ra,0($sp)
+addi	$sp,$sp,-4
+
+sw	$s0,0($sp)
+addi	$sp,$sp,-4
+
+addi	$sp,$sp,-0
+#m = 5
+#~~~5
+li	$t2,5
+#~~~m
+move	$t1,$gp
+subi	$t1,$t1,464
+
+sw	$t2,0($t1)
+#	READ n
+#~~~n
+move	$t1,$gp
+subi	$t1,$t1,460
+li	$v0,5
+syscall
+
+sw	$v0,0($t1)
+
+#	READ m
+#~~~m
+move	$t1,$gp
+subi	$t1,$t1,464
+li	$v0,5
+syscall
+
+sw	$v0,0($t1)
+
+#	READ k
+#~~~k
+move	$t1,$gp
+subi	$t1,$t1,468
+li	$v0,5
+syscall
+
+sw	$v0,0($t1)
+
+#	READ ch
+#~~~ch
+move	$t1,$gp
+subi	$t1,$t1,488
+li	$v0,12
+syscall
+
+sw	$v0,0($t1)
+
+#	 ret 
+lw	$sp,-0($fp)
+addi	$sp,$sp,0
+lw	$ra,-4($fp)
+lw	$fp,-8($fp)
+jr	$ra
+work:
+move	$s1,$sp
+move	$s0,$fp
+addi	$fp,$sp,8
+sw	$0,0($sp)
+addi	$sp,$sp,-4
+
+#END Const&Variable define
+sw	$s1,0($sp)
+addi	$sp,$sp,-4
+
+sw	$ra,0($sp)
+addi	$sp,$sp,-4
+
+sw	$s0,0($sp)
+addi	$sp,$sp,-4
+
+addi	$sp,$sp,-12
+#	PRINT "work!!!"
+la	$a0,str8
+li	$v0,4
+syscall
+
+#	PUSH m
+#~~~m
+move	$t1,$fp
+subi	$t1,$t1,0
+lw	$t1,0($t1)
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	PUSH n
+#~~~n
+move	$t1,$fp
+subi	$t1,$t1,4
+lw	$t1,0($t1)
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	call C
+jal	C
+#ans = RET_int
+#~~~RET_int
+move	$t2,$v1
+#~~~ans
+move	$t1,$fp
+subi	$t1,$t1,8
+
+sw	$t2,0($t1)
+##7 = ans / 2
+#~~~2
+li	$t2,2
+#~~~ans
+move	$t1,$fp
+subi	$t1,$t1,8
+lw	$t1,0($t1)
+div	$t1,$t1,$t2
+#~~~#7
+move	$t3,$fp
+subi	$t3,$t3,24
+
+sw	$t1,0($t3)
+##8 = 2 * #7
+#~~~#7
+move	$t2,$fp
+subi	$t2,$t2,24
+lw	$t2,0($t2)
+#~~~2
+li	$t1,2
+mul	$t1,$t1,$t2
+#~~~#8
+move	$t3,$fp
+subi	$t3,$t3,28
+
+sw	$t1,0($t3)
+##9 = ans - #8
+#~~~#8
+move	$t2,$fp
+subi	$t2,$t2,28
+lw	$t2,0($t2)
+#~~~ans
+move	$t1,$fp
+subi	$t1,$t1,8
+lw	$t1,0($t1)
+sub	$t1,$t1,$t2
+#~~~#9
+move	$t3,$fp
+subi	$t3,$t3,32
+
+sw	$t1,0($t3)
+#	SWITCH #9
+#	#9 == 1
+#~~~#9
+move	$t1,$fp
+subi	$t1,$t1,32
+lw	$t1,0($t1)
+#~~~1
+li	$t2,1
+seq	$t0,$t1,$t2
+#	BZ LABEL_14
+bne	$t0,1,LABEL_14
+#	'O' ret 
+#~~~'O'
+li	$t1,79
+lw	$v1,0($t1)
+lw	$sp,-12($fp)
+addi	$sp,$sp,0
+lw	$ra,-16($fp)
+lw	$fp,-20($fp)
+jr	$ra
+#	GOTO LABEL_15
+jal	LABEL_15
+LABEL_14:
+#	'E' ret 
+#~~~'E'
+li	$t1,69
+lw	$v1,0($t1)
+lw	$sp,-12($fp)
+addi	$sp,$sp,0
+lw	$ra,-16($fp)
+lw	$fp,-20($fp)
+jr	$ra
+LABEL_15:
+#	'*' ret 
+#~~~'*'
+li	$t1,42
+lw	$v1,0($t1)
+lw	$sp,-12($fp)
+addi	$sp,$sp,0
+lw	$ra,-16($fp)
+lw	$fp,-20($fp)
+jr	$ra
+test_switch:
+move	$s1,$sp
+move	$s0,$fp
+addi	$fp,$sp,0
+sw	$0,0($sp)
+addi	$sp,$sp,-4
+
+li	$t0,0
+li	$t1,1000
+LABEL_47:
+sw	$0,0($sp)
+addi	$sp,$sp,-4
+
+addi	$t0,$t0,1
+bne	$t0,$t1,LABEL_47
+
+#END Const&Variable define
+sw	$s1,0($sp)
+addi	$sp,$sp,-4
+
+sw	$ra,0($sp)
+addi	$sp,$sp,-4
+
+sw	$s0,0($sp)
+addi	$sp,$sp,-4
+
+addi	$sp,$sp,-48
+#a[2] = 1
+#~~~a[2]
+#~~~a
+move	$t1,$fp
+subi	$t1,$t1,4
+#~~~2
+li	$t2,2
+sll	$t2,$t2,2
+sub	$t1,$t1,$t2
+#~~~1
+li	$t2,1
+
+sw	$t2,0($t1)
+#a[1] = 2
+#~~~a[1]
+#~~~a
+move	$t1,$fp
+subi	$t1,$t1,4
+#~~~1
+li	$t2,1
+sll	$t2,$t2,2
+sub	$t1,$t1,$t2
+#~~~2
+li	$t2,2
+
+sw	$t2,0($t1)
+##10 = 2 * 5
+#~~~5
+li	$t2,5
+#~~~2
+li	$t1,2
+mul	$t1,$t1,$t2
+#~~~#10
+move	$t3,$fp
+subi	$t3,$t3,20
+
+sw	$t1,0($t3)
+##11 = #10 / 4
+#~~~4
+li	$t2,4
+#~~~#10
+move	$t1,$fp
+subi	$t1,$t1,20
+lw	$t1,0($t1)
+div	$t1,$t1,$t2
+#~~~#11
+move	$t3,$fp
+subi	$t3,$t3,24
+
+sw	$t1,0($t3)
+##12 = a[#11]
+#~~~a[#11]
+#~~~a
+move	$t1,$fp
+subi	$t1,$t1,4
+#~~~#11
+move	$t2,$fp
+subi	$t2,$t2,24
+lw	$t2,0($t2)
+sll	$t2,$t2,2
+sub	$t1,$t1,$t2
+lw	$t2,0($t1)
+#~~~#12
+move	$t1,$fp
+subi	$t1,$t1,28
+
+sw	$t2,0($t1)
+##13 = 2 + #12
+#~~~#12
+move	$t2,$fp
+subi	$t2,$t2,28
+lw	$t2,0($t2)
+#~~~2
+li	$t1,2
+add	$t1,$t1,$t2
+#~~~#13
+move	$t3,$fp
+subi	$t3,$t3,32
+
+sw	$t1,0($t3)
+##14 = a[#13]
+#~~~a[#13]
+#~~~a
+move	$t1,$fp
+subi	$t1,$t1,4
+#~~~#13
+move	$t2,$fp
+subi	$t2,$t2,32
+lw	$t2,0($t2)
+sll	$t2,$t2,2
+sub	$t1,$t1,$t2
+lw	$t2,0($t1)
+#~~~#14
+move	$t1,$fp
+subi	$t1,$t1,36
+
+sw	$t2,0($t1)
+##15 = a[#14]
+#~~~a[#14]
+#~~~a
+move	$t1,$fp
+subi	$t1,$t1,4
+#~~~#14
+move	$t2,$fp
+subi	$t2,$t2,36
+lw	$t2,0($t2)
+sll	$t2,$t2,2
+sub	$t1,$t1,$t2
+lw	$t2,0($t1)
+#~~~#15
+move	$t1,$fp
+subi	$t1,$t1,40
+
+sw	$t2,0($t1)
+#Int = #15
+#~~~#15
+move	$t2,$fp
+subi	$t2,$t2,40
+lw	$t2,0($t2)
+#~~~Int
+move	$t1,$fp
+subi	$t1,$t1,0
+
+sw	$t2,0($t1)
+#	SWITCH Int
+#	Int == -1
+#~~~Int
+move	$t1,$fp
+subi	$t1,$t1,0
+lw	$t1,0($t1)
+#~~~-1
+li	$t2,-1
+seq	$t0,$t1,$t2
+#	BZ LABEL_17
+bne	$t0,1,LABEL_17
+#	PRINT "666666"
+la	$a0,str9
+li	$v0,4
+syscall
+
+#	GOTO LABEL_19
+jal	LABEL_19
+LABEL_17:
+#	Int == -2
+#~~~Int
+move	$t1,$fp
+subi	$t1,$t1,0
+lw	$t1,0($t1)
+#~~~-2
+li	$t2,-2
+seq	$t0,$t1,$t2
+#	BZ LABEL_18
+bne	$t0,1,LABEL_18
+#	PRINT "HHHHH"
+la	$a0,str10
+li	$v0,4
+syscall
+
+#	GOTO LABEL_19
+jal	LABEL_19
+LABEL_18:
+LABEL_19:
+##16 = Int + 'b'
+#~~~'b'
+li	$t2,98
+#~~~Int
+move	$t1,$fp
+subi	$t1,$t1,0
+lw	$t1,0($t1)
+add	$t1,$t1,$t2
+#~~~#16
+move	$t3,$fp
+subi	$t3,$t3,44
+
+sw	$t1,0($t3)
+#	SWITCH #16
+#	#16 == 1
+#~~~#16
+move	$t1,$fp
+subi	$t1,$t1,44
+lw	$t1,0($t1)
+#~~~1
+li	$t2,1
+seq	$t0,$t1,$t2
+#	BZ LABEL_21
+bne	$t0,1,LABEL_21
+##17 = Int + 1
+#~~~1
+li	$t2,1
+#~~~Int
+move	$t1,$fp
+subi	$t1,$t1,0
+lw	$t1,0($t1)
+add	$t1,$t1,$t2
+#~~~#17
+move	$t3,$fp
+subi	$t3,$t3,48
+
+sw	$t1,0($t3)
+#Int = #17
+#~~~#17
+move	$t2,$fp
+subi	$t2,$t2,48
+lw	$t2,0($t2)
+#~~~Int
+move	$t1,$fp
+subi	$t1,$t1,0
+
+sw	$t2,0($t1)
+#	GOTO LABEL_24
+jal	LABEL_24
+LABEL_21:
+#	#16 == 'a'
+#~~~#16
+move	$t1,$fp
+subi	$t1,$t1,44
+lw	$t1,0($t1)
+#~~~'a'
+li	$t2,97
+seq	$t0,$t1,$t2
+#	BZ LABEL_22
+bne	$t0,1,LABEL_22
+#	PRINT "23333"
+la	$a0,str11
+li	$v0,4
+syscall
+
+#	GOTO LABEL_24
+jal	LABEL_24
+LABEL_22:
+#	#16 == -123
+#~~~#16
+move	$t1,$fp
+subi	$t1,$t1,44
+lw	$t1,0($t1)
+#~~~-123
+li	$t2,-123
+seq	$t0,$t1,$t2
+#	BZ LABEL_23
+bne	$t0,1,LABEL_23
+#	PRINT "*****"
+la	$a0,str12
+li	$v0,4
+syscall
+
+#	PRINT Int
+#~~~Int
+move	$t1,$fp
+subi	$t1,$t1,0
+lw	$t1,0($t1)
+move	$a0,$t1
+li	$v0,1
+syscall
+
+#	PRINT Int
+#~~~Int
+move	$t1,$fp
+subi	$t1,$t1,0
+lw	$t1,0($t1)
+move	$a0,$t1
+li	$v0,1
+syscall
+
+#	GOTO LABEL_24
+jal	LABEL_24
+LABEL_23:
+#	READ Int
+#~~~Int
+move	$t1,$fp
+subi	$t1,$t1,0
+li	$v0,5
+syscall
+
+sw	$v0,0($t1)
+
+#	READ Int
+#~~~Int
+move	$t1,$fp
+subi	$t1,$t1,0
+li	$v0,5
+syscall
+
+sw	$v0,0($t1)
+
+#	READ Int
+#~~~Int
+move	$t1,$fp
+subi	$t1,$t1,0
+li	$v0,5
+syscall
+
+sw	$v0,0($t1)
+
+LABEL_24:
+##18 = a[1]
+#~~~a[1]
+#~~~a
+move	$t1,$fp
+subi	$t1,$t1,4
+#~~~1
+li	$t2,1
+sll	$t2,$t2,2
+sub	$t1,$t1,$t2
+lw	$t2,0($t1)
+#~~~#18
+move	$t1,$fp
+subi	$t1,$t1,52
+
+sw	$t2,0($t1)
+##19 = 1 - #18
+#~~~#18
+move	$t2,$fp
+subi	$t2,$t2,52
+lw	$t2,0($t2)
+#~~~1
+li	$t1,1
+sub	$t1,$t1,$t2
+#~~~#19
+move	$t3,$fp
+subi	$t3,$t3,56
+
+sw	$t1,0($t3)
+##20 = a[#19]
+#~~~a[#19]
+#~~~a
+move	$t1,$fp
+subi	$t1,$t1,4
+#~~~#19
+move	$t2,$fp
+subi	$t2,$t2,56
+lw	$t2,0($t2)
+sll	$t2,$t2,2
+sub	$t1,$t1,$t2
+lw	$t2,0($t1)
+#~~~#20
+move	$t1,$fp
+subi	$t1,$t1,60
+
+sw	$t2,0($t1)
+##21 = a[#20]
+#~~~a[#20]
+#~~~a
+move	$t1,$fp
+subi	$t1,$t1,4
+#~~~#20
+move	$t2,$fp
+subi	$t2,$t2,60
+lw	$t2,0($t2)
+sll	$t2,$t2,2
+sub	$t1,$t1,$t2
+lw	$t2,0($t1)
+#~~~#21
+move	$t1,$fp
+subi	$t1,$t1,64
+
+sw	$t2,0($t1)
+#Int = #21
+#~~~#21
+move	$t2,$fp
+subi	$t2,$t2,64
+lw	$t2,0($t2)
+#~~~Int
+move	$t1,$fp
+subi	$t1,$t1,0
+
+sw	$t2,0($t1)
+#	 ret 
+lw	$sp,-8($fp)
+addi	$sp,$sp,0
+lw	$ra,-12($fp)
+lw	$fp,-16($fp)
+jr	$ra
+test_for:
+move	$s1,$sp
+move	$s0,$fp
+addi	$fp,$sp,4
+#END Const&Variable define
+sw	$s1,0($sp)
+addi	$sp,$sp,-4
+
+sw	$ra,0($sp)
+addi	$sp,$sp,-4
+
+sw	$s0,0($sp)
+addi	$sp,$sp,-4
+
+addi	$sp,$sp,-16
+##22 = 0 + -2
+#~~~-2
+li	$t2,-2
+#~~~0
+li	$t1,0
+add	$t1,$t1,$t2
+#~~~#22
+move	$t3,$fp
+subi	$t3,$t3,16
+
+sw	$t1,0($t3)
+#Int = #22
+#~~~#22
+move	$t2,$fp
+subi	$t2,$t2,16
+lw	$t2,0($t2)
+#~~~Int
+move	$t1,$fp
+subi	$t1,$t1,0
+
+sw	$t2,0($t1)
+##23 = Int + 1
+#~~~1
+li	$t2,1
+#~~~Int
+move	$t1,$fp
+subi	$t1,$t1,0
+lw	$t1,0($t1)
+add	$t1,$t1,$t2
+#~~~#23
+move	$t3,$fp
+subi	$t3,$t3,20
+
+sw	$t1,0($t3)
+#Int = #23
+#~~~#23
+move	$t2,$fp
+subi	$t2,$t2,20
+lw	$t2,0($t2)
+#~~~Int
+move	$t1,$fp
+subi	$t1,$t1,0
+
+sw	$t2,0($t1)
+##24 = Int + 1
+#~~~1
+li	$t2,1
+#~~~Int
+move	$t1,$fp
+subi	$t1,$t1,0
+lw	$t1,0($t1)
+add	$t1,$t1,$t2
+#~~~#24
+move	$t3,$fp
+subi	$t3,$t3,24
+
+sw	$t1,0($t3)
+#Int = #24
+#~~~#24
+move	$t2,$fp
+subi	$t2,$t2,24
+lw	$t2,0($t2)
+#~~~Int
+move	$t1,$fp
+subi	$t1,$t1,0
+
+sw	$t2,0($t1)
+#i = Int
+#~~~Int
+move	$t2,$fp
+subi	$t2,$t2,0
+lw	$t2,0($t2)
+#~~~i
+move	$t1,$gp
+subi	$t1,$t1,452
+
+sw	$t2,0($t1)
+LABEL_25:
+##25 = 1000 - Int
+#~~~Int
+move	$t2,$fp
+subi	$t2,$t2,0
+lw	$t2,0($t2)
+#~~~1000
+li	$t1,1000
+sub	$t1,$t1,$t2
+#~~~#25
+move	$t3,$fp
+subi	$t3,$t3,28
+
+sw	$t1,0($t3)
+#i = Int
+#~~~Int
+move	$t2,$fp
+subi	$t2,$t2,0
+lw	$t2,0($t2)
+#~~~i
+move	$t1,$gp
+subi	$t1,$t1,452
+
+sw	$t2,0($t1)
+LABEL_26:
+#i = i + 1
+#~~~1
+li	$t2,1
+#~~~i
+move	$t1,$gp
+subi	$t1,$t1,452
+lw	$t1,0($t1)
+add	$t1,$t1,$t2
+#~~~i
+move	$t3,$gp
+subi	$t3,$t3,452
+
+sw	$t1,0($t3)
+#	i <= i
+#~~~i
+move	$t1,$gp
+subi	$t1,$t1,452
+lw	$t1,0($t1)
+#~~~i
+move	$t2,$gp
+subi	$t2,$t2,452
+lw	$t2,0($t2)
+sle	$t0,$t1,$t2
+#	BZ LABEL_27
+bne	$t0,1,LABEL_27
+#	GOTO LABEL_26
+jal	LABEL_26
+LABEL_27:
+#i = i + 1
+#~~~1
+li	$t2,1
+#~~~i
+move	$t1,$gp
+subi	$t1,$t1,452
+lw	$t1,0($t1)
+add	$t1,$t1,$t2
+#~~~i
+move	$t3,$gp
+subi	$t3,$t3,452
+
+sw	$t1,0($t3)
+#	i <= #25
+#~~~i
+move	$t1,$gp
+subi	$t1,$t1,452
+lw	$t1,0($t1)
+#~~~#25
+move	$t2,$fp
+subi	$t2,$t2,28
+lw	$t2,0($t2)
+sle	$t0,$t1,$t2
+#	BZ LABEL_28
+bne	$t0,1,LABEL_28
+#	GOTO LABEL_25
+jal	LABEL_25
+LABEL_28:
+#	 ret 
+lw	$sp,-4($fp)
+addi	$sp,$sp,0
+lw	$ra,-8($fp)
+lw	$fp,-12($fp)
+jr	$ra
+test_call:
+move	$s1,$sp
+move	$s0,$fp
+addi	$fp,$sp,0
+#END Const&Variable define
+sw	$s1,0($sp)
+addi	$sp,$sp,-4
+
+sw	$ra,0($sp)
+addi	$sp,$sp,-4
+
+sw	$s0,0($sp)
+addi	$sp,$sp,-4
+
+addi	$sp,$sp,-16
+#	PUSH 2
+#~~~2
+li	$t1,2
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	PUSH 2
+#~~~2
+li	$t1,2
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+##26 = 3 * 5
+#~~~5
+li	$t2,5
+#~~~3
+li	$t1,3
+mul	$t1,$t1,$t2
+#~~~#26
+move	$t3,$fp
+subi	$t3,$t3,12
+
+sw	$t1,0($t3)
+#	PUSH #26
+#~~~#26
+move	$t1,$fp
+subi	$t1,$t1,12
+lw	$t1,0($t1)
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	call mymax
+jal	mymax
+#	PUSH 2
+#~~~2
+li	$t1,2
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	PUSH 4
+#~~~4
+li	$t1,4
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	call mymax
+jal	mymax
+##27 = RET_int / RET_int
+#~~~RET_int
+move	$t2,$v1
+#~~~RET_int
+move	$t1,$v1
+div	$t1,$t1,$t2
+#~~~#27
+move	$t3,$fp
+subi	$t3,$t3,16
+
+sw	$t1,0($t3)
+##28 = 100 - 1
+#~~~1
+li	$t2,1
+#~~~100
+li	$t1,100
+sub	$t1,$t1,$t2
+#~~~#28
+move	$t3,$fp
+subi	$t3,$t3,20
+
+sw	$t1,0($t3)
+##29 = #27 * #28
+#~~~#28
+move	$t2,$fp
+subi	$t2,$t2,20
+lw	$t2,0($t2)
+#~~~#27
+move	$t1,$fp
+subi	$t1,$t1,16
+lw	$t1,0($t1)
+mul	$t1,$t1,$t2
+#~~~#29
+move	$t3,$fp
+subi	$t3,$t3,24
+
+sw	$t1,0($t3)
+#	PUSH #29
+#~~~#29
+move	$t1,$fp
+subi	$t1,$t1,24
+lw	$t1,0($t1)
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	call mymax
+jal	mymax
+#	 ret 
+lw	$sp,-0($fp)
+addi	$sp,$sp,0
+lw	$ra,-4($fp)
+lw	$fp,-8($fp)
+jr	$ra
+main:
+move	$s1,$sp
+move	$s0,$fp
+addi	$fp,$sp,0
+#END Const&Variable define
+sw	$s1,0($sp)
+addi	$sp,$sp,-4
+
+sw	$ra,0($sp)
+addi	$sp,$sp,-4
+
+sw	$s0,0($sp)
+addi	$sp,$sp,-4
+
+addi	$sp,$sp,-32
+#	PRINT "mx = "
+la	$a0,str13
+li	$v0,4
+syscall
+
+#	PRINT mx
+#~~~mx
+move	$t1,$gp
+subi	$t1,$t1,484
+lw	$t1,0($t1)
+move	$a0,$t1
+li	$v0,1
+syscall
+
+#i = 0
+#~~~0
+li	$t2,0
+#~~~i
+move	$t1,$gp
+subi	$t1,$t1,452
+
+sw	$t2,0($t1)
+LABEL_29:
+##30 = m - i
+#~~~i
+move	$t2,$gp
+subi	$t2,$t2,452
+lw	$t2,0($t2)
+#~~~m
+move	$t1,$gp
+subi	$t1,$t1,464
+lw	$t1,0($t1)
+sub	$t1,$t1,$t2
+#~~~#30
+move	$t3,$fp
+subi	$t3,$t3,12
+
+sw	$t1,0($t3)
+#j = #30
+#~~~#30
+move	$t2,$fp
+subi	$t2,$t2,12
+lw	$t2,0($t2)
+#~~~j
+move	$t1,$gp
+subi	$t1,$t1,456
+
+sw	$t2,0($t1)
+#	i == 0
+#~~~i
+move	$t1,$gp
+subi	$t1,$t1,452
+lw	$t1,0($t1)
+#~~~0
+li	$t2,0
+seq	$t0,$t1,$t2
+#	BZ LABEL_30
+bne	$t0,1,LABEL_30
+#	PUSH j
+#~~~j
+move	$t1,$gp
+subi	$t1,$t1,456
+lw	$t1,0($t1)
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	PUSH n
+#~~~n
+move	$t1,$gp
+subi	$t1,$t1,460
+lw	$t1,0($t1)
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	call work
+jal	work
+#	PRINT RET_char
+#~~~RET_char
+move	$t1,$v1
+move	$a0,$t1
+li	$v0,11
+syscall
+
+LABEL_30:
+#	PRINT "N    "
+la	$a0,str14
+li	$v0,4
+syscall
+
+#	PRINT n
+#~~~n
+move	$t1,$gp
+subi	$t1,$t1,460
+lw	$t1,0($t1)
+move	$a0,$t1
+li	$v0,1
+syscall
+
+#	PRINT "M    "
+la	$a0,str15
+li	$v0,4
+syscall
+
+#	PRINT j
+#~~~j
+move	$t1,$gp
+subi	$t1,$t1,456
+lw	$t1,0($t1)
+move	$a0,$t1
+li	$v0,1
+syscall
+
+#	PRINT "C    "
+la	$a0,str16
+li	$v0,4
+syscall
+
+#	PUSH j
+#~~~j
+move	$t1,$gp
+subi	$t1,$t1,456
+lw	$t1,0($t1)
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	PUSH n
+#~~~n
+move	$t1,$gp
+subi	$t1,$t1,460
+lw	$t1,0($t1)
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	call C
+jal	C
+#	PRINT RET_int
+#~~~RET_int
+move	$t1,$v1
+move	$a0,$t1
+li	$v0,1
+syscall
+
+#	PRINT ""
+la	$a0,str17
+li	$v0,4
+syscall
+
+#i = i + 1
+#~~~1
+li	$t2,1
+#~~~i
+move	$t1,$gp
+subi	$t1,$t1,452
+lw	$t1,0($t1)
+add	$t1,$t1,$t2
+#~~~i
+move	$t3,$gp
+subi	$t3,$t3,452
+
+sw	$t1,0($t3)
+#	i <= m
+#~~~i
+move	$t1,$gp
+subi	$t1,$t1,452
+lw	$t1,0($t1)
+#~~~m
+move	$t2,$gp
+subi	$t2,$t2,464
+lw	$t2,0($t2)
+sle	$t0,$t1,$t2
+#	BZ LABEL_32
+bne	$t0,1,LABEL_32
+#	GOTO LABEL_29
+jal	LABEL_29
+LABEL_32:
+#	PUSH 1
+#~~~1
+li	$t1,1
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+##31 = -1 * -2
+#~~~-2
+li	$t2,-2
+#~~~-1
+li	$t1,-1
+mul	$t1,$t1,$t2
+#~~~#31
+move	$t3,$fp
+subi	$t3,$t3,16
+
+sw	$t1,0($t3)
+#	PUSH #31
+#~~~#31
+move	$t1,$fp
+subi	$t1,$t1,16
+lw	$t1,0($t1)
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	call mymax
+jal	mymax
+#x = RET_int
+#~~~RET_int
+move	$t2,$v1
+#~~~x
+move	$t1,$gp
+subi	$t1,$t1,472
+
+sw	$t2,0($t1)
+##32 = x + +8
+#~~~+8
+li	$t2,8
+#~~~x
+move	$t1,$gp
+subi	$t1,$t1,472
+lw	$t1,0($t1)
+add	$t1,$t1,$t2
+#~~~#32
+move	$t3,$fp
+subi	$t3,$t3,20
+
+sw	$t1,0($t3)
+#	PUSH #32
+#~~~#32
+move	$t1,$fp
+subi	$t1,$t1,20
+lw	$t1,0($t1)
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	PUSH 9
+#~~~9
+li	$t1,9
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	call mymax
+jal	mymax
+#x = RET_int
+#~~~RET_int
+move	$t2,$v1
+#~~~x
+move	$t1,$gp
+subi	$t1,$t1,472
+
+sw	$t2,0($t1)
+#y = 4
+#~~~4
+li	$t2,4
+#~~~y
+move	$t1,$gp
+subi	$t1,$t1,476
+
+sw	$t2,0($t1)
+#z = 7
+#~~~7
+li	$t2,7
+#~~~z
+move	$t1,$gp
+subi	$t1,$t1,480
+
+sw	$t2,0($t1)
+#	x > y
+#~~~x
+move	$t1,$gp
+subi	$t1,$t1,472
+lw	$t1,0($t1)
+#~~~y
+move	$t2,$gp
+subi	$t2,$t2,476
+lw	$t2,0($t2)
+sgt	$t0,$t1,$t2
+#	BZ LABEL_33
+bne	$t0,1,LABEL_33
+#	x > z
+#~~~x
+move	$t1,$gp
+subi	$t1,$t1,472
+lw	$t1,0($t1)
+#~~~z
+move	$t2,$gp
+subi	$t2,$t2,480
+lw	$t2,0($t2)
+sgt	$t0,$t1,$t2
+#	BZ LABEL_35
+bne	$t0,1,LABEL_35
+#mx = x
+#~~~x
+move	$t2,$gp
+subi	$t2,$t2,472
+lw	$t2,0($t2)
+#~~~mx
+move	$t1,$gp
+subi	$t1,$t1,484
+
+sw	$t2,0($t1)
+#	GOTO LABEL_36
+jal	LABEL_36
+LABEL_35:
+#mx = z
+#~~~z
+move	$t2,$gp
+subi	$t2,$t2,480
+lw	$t2,0($t2)
+#~~~mx
+move	$t1,$gp
+subi	$t1,$t1,484
+
+sw	$t2,0($t1)
+LABEL_36:
+#	GOTO LABEL_34
+jal	LABEL_34
+LABEL_33:
+#	y > z
+#~~~y
+move	$t1,$gp
+subi	$t1,$t1,476
+lw	$t1,0($t1)
+#~~~z
+move	$t2,$gp
+subi	$t2,$t2,480
+lw	$t2,0($t2)
+sgt	$t0,$t1,$t2
+#	BZ LABEL_37
+bne	$t0,1,LABEL_37
+#mx = y
+#~~~y
+move	$t2,$gp
+subi	$t2,$t2,476
+lw	$t2,0($t2)
+#~~~mx
+move	$t1,$gp
+subi	$t1,$t1,484
+
+sw	$t2,0($t1)
+#	GOTO LABEL_38
+jal	LABEL_38
+LABEL_37:
+#mx = z
+#~~~z
+move	$t2,$gp
+subi	$t2,$t2,480
+lw	$t2,0($t2)
+#~~~mx
+move	$t1,$gp
+subi	$t1,$t1,484
+
+sw	$t2,0($t1)
+LABEL_38:
+LABEL_34:
+#	PRINT "mx = "
+la	$a0,str13
+li	$v0,4
+syscall
+
+#	PRINT mx
+#~~~mx
+move	$t1,$gp
+subi	$t1,$t1,484
+lw	$t1,0($t1)
+move	$a0,$t1
+li	$v0,1
+syscall
+
+#	call init
+jal	init
+##33 = k + 1
+#~~~1
+li	$t2,1
+#~~~k
+move	$t1,$gp
+subi	$t1,$t1,468
+lw	$t1,0($t1)
+add	$t1,$t1,$t2
+#~~~#33
+move	$t3,$fp
+subi	$t3,$t3,24
+
+sw	$t1,0($t3)
+#i = #33
+#~~~#33
+move	$t2,$fp
+subi	$t2,$t2,24
+lw	$t2,0($t2)
+#~~~i
+move	$t1,$gp
+subi	$t1,$t1,452
+
+sw	$t2,0($t1)
+LABEL_39:
+##34 = k + i
+#~~~i
+move	$t2,$gp
+subi	$t2,$t2,452
+lw	$t2,0($t2)
+#~~~k
+move	$t1,$gp
+subi	$t1,$t1,468
+lw	$t1,0($t1)
+add	$t1,$t1,$t2
+#~~~#34
+move	$t3,$fp
+subi	$t3,$t3,28
+
+sw	$t1,0($t3)
+#a[i] = #34
+#~~~a[i]
+#~~~a
+move	$t1,$gp
+subi	$t1,$t1,48
+#~~~i
+move	$t2,$gp
+subi	$t2,$t2,452
+lw	$t2,0($t2)
+sll	$t2,$t2,2
+sub	$t1,$t1,$t2
+#~~~#34
+move	$t2,$fp
+subi	$t2,$t2,28
+lw	$t2,0($t2)
+
+sw	$t2,0($t1)
+##35 = ch + i
+#~~~i
+move	$t2,$gp
+subi	$t2,$t2,452
+lw	$t2,0($t2)
+#~~~ch
+move	$t1,$gp
+subi	$t1,$t1,488
+lw	$t1,0($t1)
+add	$t1,$t1,$t2
+#~~~#35
+move	$t3,$fp
+subi	$t3,$t3,32
+
+sw	$t1,0($t3)
+#s[i] = #35
+#~~~s[i]
+#~~~s
+move	$t1,$gp
+subi	$t1,$t1,492
+#~~~i
+move	$t2,$gp
+subi	$t2,$t2,452
+lw	$t2,0($t2)
+sll	$t2,$t2,2
+sub	$t1,$t1,$t2
+#~~~#35
+move	$t2,$fp
+subi	$t2,$t2,32
+lw	$t2,0($t2)
+
+sw	$t2,0($t1)
+#i = i - 1
+#~~~1
+li	$t2,1
+#~~~i
+move	$t1,$gp
+subi	$t1,$t1,452
+lw	$t1,0($t1)
+sub	$t1,$t1,$t2
+#~~~i
+move	$t3,$gp
+subi	$t3,$t3,452
+
+sw	$t1,0($t3)
+#	i >= 0
+#~~~i
+move	$t1,$gp
+subi	$t1,$t1,452
+lw	$t1,0($t1)
+#~~~0
+li	$t2,0
+sge	$t0,$t1,$t2
+#	BZ LABEL_40
+bne	$t0,1,LABEL_40
+#	GOTO LABEL_39
+jal	LABEL_39
+LABEL_40:
+#i = 0
+#~~~0
+li	$t2,0
+#~~~i
+move	$t1,$gp
+subi	$t1,$t1,452
+
+sw	$t2,0($t1)
+LABEL_41:
+##36 = k + 1
+#~~~1
+li	$t2,1
+#~~~k
+move	$t1,$gp
+subi	$t1,$t1,468
+lw	$t1,0($t1)
+add	$t1,$t1,$t2
+#~~~#36
+move	$t3,$fp
+subi	$t3,$t3,36
+
+sw	$t1,0($t3)
+#k = #36
+#~~~#36
+move	$t2,$fp
+subi	$t2,$t2,36
+lw	$t2,0($t2)
+#~~~k
+move	$t1,$gp
+subi	$t1,$t1,468
+
+sw	$t2,0($t1)
+#i = i - 1
+#~~~1
+li	$t2,1
+#~~~i
+move	$t1,$gp
+subi	$t1,$t1,452
+lw	$t1,0($t1)
+sub	$t1,$t1,$t2
+#~~~i
+move	$t3,$gp
+subi	$t3,$t3,452
+
+sw	$t1,0($t3)
+#	i > k
+#~~~i
+move	$t1,$gp
+subi	$t1,$t1,452
+lw	$t1,0($t1)
+#~~~k
+move	$t2,$gp
+subi	$t2,$t2,468
+lw	$t2,0($t2)
+sgt	$t0,$t1,$t2
+#	BZ LABEL_42
+bne	$t0,1,LABEL_42
+#	GOTO LABEL_41
+jal	LABEL_41
+LABEL_42:
+#	PRINT "k = "
+la	$a0,str18
+li	$v0,4
+syscall
+
+#	PRINT k
+#~~~k
+move	$t1,$gp
+subi	$t1,$t1,468
+lw	$t1,0($t1)
+move	$a0,$t1
+li	$v0,1
+syscall
+
+#	PRINT "ch = "
+la	$a0,str19
+li	$v0,4
+syscall
+
+##37 = s[k]
+#~~~s[k]
+#~~~s
+move	$t1,$gp
+subi	$t1,$t1,492
+#~~~k
+move	$t2,$gp
+subi	$t2,$t2,468
+lw	$t2,0($t2)
+sll	$t2,$t2,2
+sub	$t1,$t1,$t2
+lw	$t2,0($t1)
+#~~~#37
+move	$t1,$fp
+subi	$t1,$t1,40
+
+sw	$t2,0($t1)
+#	PRINT #37
+#~~~#37
+move	$t1,$fp
+subi	$t1,$t1,40
+lw	$t1,0($t1)
+move	$a0,$t1
+li	$v0,1
+syscall
+
+#	call test_switch
+jal	test_switch
+#	PUSH 1
+#~~~1
+li	$t1,1
+sw	$t1,0($sp)
+addi	$sp,$sp,-4
+
+#	call test_for
+jal	test_for
+#	call test_call
+jal	test_call
+#	0 ret 
+li	$v0,10
+syscall
